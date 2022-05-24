@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 509935619
+    locked: 0
+  - name: Sprites
+    uniqueID: 3824938615
+    locked: 0
+  - name: EventTrigger
+    uniqueID: 980718857
+    locked: 0
+  - name: UI
+    uniqueID: 436572633
+    locked: 0
