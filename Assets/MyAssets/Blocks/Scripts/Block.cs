@@ -18,23 +18,21 @@ namespace MT.Blocks
             BlockType = _blockType;
             _rigidbody = GetComponent<Rigidbody2D>();
             _colliders = GetComponentsInChildren<BoxCollider2D>();
-            ToColliderEnable();
+            SetColliderEnabled(true);
+            SetRigidbodySimulated(true);
         }
 
-        public void ToColliderEnable()
+        public void SetColliderEnabled(bool enabled)
         {
             foreach (var collider in _colliders)
             {
-                collider.enabled = true;
+                collider.enabled = enabled;
             }
         }
 
-        public void ToColliderDisable()
+        public void SetRigidbodySimulated(bool simulated)
         {
-            foreach (var collider in _colliders)
-            {
-                collider.enabled = false;
-            }
+            _rigidbody.simulated = simulated;
         }
 
         // ブロックの動きが一定以下になればtrue
