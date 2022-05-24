@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 namespace MT.Blocks
 {
@@ -12,6 +13,10 @@ namespace MT.Blocks
 
         private Rigidbody2D _rigidbody;
         private BoxCollider2D[] _colliders;
+
+        private static float RotateAngle = -45;
+        private static float RotateDuration = 0.1f;
+
 
         void Awake()
         {
@@ -32,6 +37,13 @@ namespace MT.Blocks
         public void SetRigidbodySimulated(bool simulated)
         {
             _rigidbody.simulated = simulated;
+        }
+
+        public void Rotate()
+        {
+            var currentAngle = transform.eulerAngles;
+            var targetAngle = currentAngle + new Vector3(0, 0, RotateAngle);
+            transform.DORotate(targetAngle, RotateDuration);
         }
 
         // ブロックの動きが一定以下になればtrue

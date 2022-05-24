@@ -30,6 +30,7 @@ namespace MT.PlayScreen
         void Awake()
         {
             NextState = _nextState.GetComponent<IState>();
+            gameObject.SetActive(false);
         }
 
         [ContextMenu("spawn")]
@@ -38,8 +39,8 @@ namespace MT.PlayScreen
             var position = _blockSpawnPoint.position;
             var rotation = Quaternion.identity;
             var block = _blockGenerator.RandomGenerate(position, rotation);
-            // block.SetColliderEnabled(false);
-            // block.SetRigidbodySimulated(false);
+            block.SetColliderEnabled(false);
+            block.SetRigidbodySimulated(false);
             block.transform.SetParent(_blocksParent);
             SpawnedBlock = block;
         }

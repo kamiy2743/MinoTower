@@ -13,14 +13,23 @@ namespace MT.PlayScreen
         [SerializeField] private BlockSpawnState _spawnState;
         [SerializeField] private GameObject _nextState;
         public IState NextState { get; private set; }
-        public void Enter() { }
-        public void Exit() { }
+        public void Enter()
+        {
+            gameObject.SetActive(true);
+
+        }
+        public void Exit()
+        {
+            gameObject.SetActive(false);
+            NextState.Enter();
+        }
 
         private Block _spawnedBlock => _spawnState.SpawnedBlock;
 
         void Awake()
         {
             NextState = _nextState.GetComponent<IState>();
+            gameObject.SetActive(false);
         }
 
         void Update()
