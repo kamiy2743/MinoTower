@@ -11,23 +11,26 @@ namespace MT.PlayScreen
     {
         [SerializeField] private float _scrollDuration;
         [SerializeField] private Transform _blocksParent;
-        [SerializeField] private GameObject _nextState;
-        public IState NextState { get; private set; }
+        [SerializeField] private GameObject _nextStateObject;
+
+        private IState _nextState;
+
+        void Awake()
+        {
+            _nextState = _nextStateObject.GetComponent<IState>();
+            gameObject.SetActive(false);
+        }
+
         public void Enter()
         {
             gameObject.SetActive(true);
             ScreenScroll();
         }
-        public void Exit()
-        {
-            gameObject.SetActive(false);
-            NextState.Enter();
-        }
 
-        void Awake()
+        public void ToNext()
         {
-            NextState = _nextState.GetComponent<IState>();
             gameObject.SetActive(false);
+            _nextState.Enter();
         }
 
         private void ScreenScroll()
@@ -36,7 +39,7 @@ namespace MT.PlayScreen
             var cameraTransfrom = Camera.main.transform;
             cameraTransfrom.DOMoveY(maxY, _scrollDuration).OnComplete(() =>
             {
-                Exit();
+                ToNext();
             });
         }
 

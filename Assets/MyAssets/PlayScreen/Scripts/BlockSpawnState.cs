@@ -11,27 +11,29 @@ namespace MT.PlayScreen
         [SerializeField] private Transform _blockSpawnPoint;
         [SerializeField] private Transform _blocksParent;
         [SerializeField] private BlockGenerator _blockGenerator;
+        [SerializeField] private GameObject _nextStateObject;
 
         public Block SpawnedBlock { get; private set; }
 
-        [SerializeField] private GameObject _nextState;
-        public IState NextState { get; private set; }
+        private IState _nextState;
+
+        void Awake()
+        {
+            _nextState = _nextStateObject.GetComponent<IState>();
+            gameObject.SetActive(false);
+        }
+
         public void Enter()
         {
             gameObject.SetActive(true);
             SpawnNewBlock();
-            Exit();
-        }
-        public void Exit()
-        {
-            gameObject.SetActive(false);
-            NextState.Enter();
+            ToNext();
         }
 
-        void Awake()
+        public void ToNext()
         {
-            NextState = _nextState.GetComponent<IState>();
             gameObject.SetActive(false);
+            _nextState.Enter();
         }
 
         [ContextMenu("spawn")]

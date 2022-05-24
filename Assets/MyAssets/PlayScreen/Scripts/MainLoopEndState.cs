@@ -7,20 +7,23 @@ namespace MT.PlayScreen
 {
     public class MainLoopEndState : MonoBehaviour, IState
     {
-        [SerializeField] private GameObject _nextState;
-        public IState NextState { get; private set; }
-        public void Enter()
-        {
-            Exit();
-        }
-        public void Exit()
-        {
-            NextState.Enter();
-        }
+        [SerializeField] private GameObject _nextStateObject;
+
+        private IState _nextState;
 
         void Awake()
         {
-            NextState = _nextState.GetComponent<IState>();
+            _nextState = _nextStateObject.GetComponent<IState>();
+        }
+
+        public void Enter()
+        {
+            ToNext();
+        }
+
+        public void ToNext()
+        {
+            _nextState.Enter();
         }
     }
 }

@@ -11,26 +11,29 @@ namespace MT.PlayScreen
     {
         [SerializeField] private PlayerInput _playerInput;
         [SerializeField] private BlockSpawnState _spawnState;
-        [SerializeField] private GameObject _nextState;
-        public IState NextState { get; private set; }
+        [SerializeField] private GameObject _nextStateObject;
+
+        private IState _nextState;
+        private Block _spawnedBlock => _spawnState.SpawnedBlock;
+
+        void Awake()
+        {
+            _nextState = _nextStateObject.GetComponent<IState>();
+            gameObject.SetActive(false);
+        }
+
         public void Enter()
         {
             gameObject.SetActive(true);
 
         }
-        public void Exit()
+
+        public void ToNext()
         {
             gameObject.SetActive(false);
-            NextState.Enter();
+            _nextState.Enter();
         }
 
-        private Block _spawnedBlock => _spawnState.SpawnedBlock;
-
-        void Awake()
-        {
-            NextState = _nextState.GetComponent<IState>();
-            gameObject.SetActive(false);
-        }
 
         void Update()
         {
@@ -48,7 +51,7 @@ namespace MT.PlayScreen
 
             if (_playerInput.DropBlock())
             {
-                Exit();
+                ToNext();
             }
         }
     }

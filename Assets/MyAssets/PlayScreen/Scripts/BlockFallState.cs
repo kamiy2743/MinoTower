@@ -8,24 +8,28 @@ namespace MT.PlayScreen
     public class BlockFallState : MonoBehaviour, IState
     {
         [SerializeField] private BlockSpawnState _spawnState;
-        [SerializeField] private GameObject _nextState;
-        public IState NextState { get; private set; }
+        [SerializeField] private GameObject _nextStateObject;
+
+        private IState _nextState;
+
+        void Awake()
+        {
+            _nextState = _nextStateObject.GetComponent<IState>();
+            gameObject.SetActive(false);
+        }
+
         public void Enter()
         {
             gameObject.SetActive(true);
             _spawnState.SpawnedBlock.StartFall();
-            Exit();
-        }
-        public void Exit()
-        {
-            gameObject.SetActive(false);
-            NextState.Enter();
+            ToNext();
+
         }
 
-        void Awake()
+        public void ToNext()
         {
-            NextState = _nextState.GetComponent<IState>();
             gameObject.SetActive(false);
+            _nextState.Enter();
         }
     }
 }
