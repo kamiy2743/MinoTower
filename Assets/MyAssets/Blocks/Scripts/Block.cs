@@ -18,6 +18,7 @@ namespace MT.Blocks
             BlockType = _blockType;
             _rigidbody = GetComponent<Rigidbody2D>();
             _colliders = GetComponentsInChildren<BoxCollider2D>();
+            ToColliderEnable();
         }
 
         public void ToColliderEnable()
