@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _blocksParent: {fileID: 5000019969070721824}
-  _nextState: {fileID: 1171206136631915893}
+  _nextState: {fileID: 6560842738031570411}
 --- !u!1 &1025526076419460686
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,7 +183,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5831654081218518589}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2538553420889807175
 MonoBehaviour:
@@ -694,6 +694,53 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &6560842738031570411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8829870996994784330}
+  - component: {fileID: 9073663320166668540}
+  m_Layer: 0
+  m_Name: ScreenScrollState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8829870996994784330
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6560842738031570411}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5831654081218518589}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9073663320166668540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6560842738031570411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d99c40c219959142a5d6cdfb28782fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scrollDuration: 0.1
+  _blocksParent: {fileID: 5000019969070721824}
+  _nextState: {fileID: 1171206136631915893}
 --- !u!1 &6917355886673471346
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,6 +826,7 @@ Transform:
   - {fileID: 1407051922844407625}
   - {fileID: 3511655204347711385}
   - {fileID: 2992923806627881527}
+  - {fileID: 8829870996994784330}
   - {fileID: 965210506009527076}
   m_Father: {fileID: 2487771280455601670}
   m_RootOrder: 4

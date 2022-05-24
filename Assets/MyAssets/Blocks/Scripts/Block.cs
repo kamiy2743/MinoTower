@@ -68,7 +68,7 @@ namespace MT.Blocks
         // そこそこ重そうだから毎フレーム呼ぶのはやめといたほうがいいかも
         public float CalcMaxY()
         {
-            var maxY = transform.position.y;
+            var maxY = float.NegativeInfinity;
 
             foreach (var collider in _colliders)
             {
