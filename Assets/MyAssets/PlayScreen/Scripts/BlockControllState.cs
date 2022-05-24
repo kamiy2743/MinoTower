@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using MT.State;
 using MT.Inputs;
+using MT.Blocks;
 
 namespace MT.PlayScreen
 {
-    public class BlockRotateState : MonoBehaviour, IState
+    public class BlockControllState : MonoBehaviour, IState
     {
         [SerializeField] private PlayerInput _playerInput;
+        [SerializeField] private BlockSpawnState _spawnState;
         [SerializeField] private GameObject _nextState;
         public IState NextState { get; private set; }
         public void Enter() { }
         public void Exit() { }
+
+        private Block _spawnedBlock => _spawnState.SpawnedBlock;
 
         void Awake()
         {
@@ -23,7 +27,7 @@ namespace MT.PlayScreen
         {
             if (_playerInput.RotateBlock())
             {
-
+                _spawnedBlock.Rotate();
             }
         }
     }

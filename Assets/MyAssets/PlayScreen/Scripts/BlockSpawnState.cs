@@ -12,6 +12,8 @@ namespace MT.PlayScreen
         [SerializeField] private Transform _blocksParent;
         [SerializeField] private BlockGenerator _blockGenerator;
 
+        public Block SpawnedBlock { get; private set; }
+
         [SerializeField] private GameObject _nextState;
         public IState NextState { get; private set; }
         public void Enter()
@@ -39,6 +41,7 @@ namespace MT.PlayScreen
             // block.SetColliderEnabled(false);
             // block.SetRigidbodySimulated(false);
             block.transform.SetParent(_blocksParent);
+            SpawnedBlock = block;
         }
     }
 }
