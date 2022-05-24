@@ -8,14 +8,13 @@ namespace MT.Blocks
     {
         [SerializeField] private BlockType _blockType;
 
-        public BlockType BlockType { get; private set; }
+        public BlockType BlockType => _blockType;
 
         private Rigidbody2D _rigidbody;
         private BoxCollider2D[] _colliders;
 
         void Awake()
         {
-            BlockType = _blockType;
             _rigidbody = GetComponent<Rigidbody2D>();
             _colliders = GetComponentsInChildren<BoxCollider2D>();
             SetColliderEnabled(true);
