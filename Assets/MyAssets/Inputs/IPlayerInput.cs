@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace MT.Inputs
 {
     public interface IPlayerInput
@@ -5,5 +7,6 @@ namespace MT.Inputs
         bool MoveBlock();
         bool RotateBlock();
         bool DropBlock();
+        Vector2 PointerPosition();
     }
 }

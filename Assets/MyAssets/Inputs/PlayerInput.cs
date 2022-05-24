@@ -12,6 +12,8 @@ namespace MT.Inputs
         [SerializeField] private EventTrigger _trigger;
         [SerializeField] private Button _rotateButton;
 
+        private Camera _mainCamera;
+
         // InputSystemを使えばこんな状態変数いらない
         private bool isDrag;
         private bool isDrop;
@@ -34,6 +36,8 @@ namespace MT.Inputs
             {
                 isRotateButtonClicked = true;
             });
+
+            _mainCamera = Camera.main;
         }
 
         void LateUpdate()
@@ -55,6 +59,11 @@ namespace MT.Inputs
         public bool DropBlock()
         {
             return isDrop;
+        }
+
+        public Vector2 PointerPosition()
+        {
+            return _mainCamera.ScreenToWorldPoint(Input.mousePosition);
         }
     }
 }
