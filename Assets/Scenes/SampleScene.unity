@@ -412,7 +412,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayScreen
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8289075627144112220, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
 --- !u!114 &1439158587 stripped
 MonoBehaviour:
