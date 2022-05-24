@@ -20,6 +20,7 @@ namespace MT.PlayScreen
         {
             gameObject.SetActive(true);
             SpawnNewBlock();
+            Exit();
         }
         public void Exit()
         {
