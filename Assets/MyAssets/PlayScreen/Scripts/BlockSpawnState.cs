@@ -39,7 +39,8 @@ namespace MT.PlayScreen
         [ContextMenu("spawn")]
         private void SpawnNewBlock()
         {
-            var position = _blockSpawnPoint.position;
+            var cameraVertPos = new Vector3(0, Camera.main.transform.position.y, 0);
+            var position = cameraVertPos + _blockSpawnPoint.position;
             var rotation = Quaternion.identity;
             var block = _blockGenerator.RandomGenerate(position, rotation);
             block.OnSpwned();
