@@ -26,7 +26,19 @@ namespace MT.Blocks
             SetRigidbodySimulated(true);
         }
 
-        public void SetColliderEnabled(bool enabled)
+        public void OnSpwned()
+        {
+            SetColliderEnabled(false);
+            SetRigidbodySimulated(false);
+        }
+
+        public void StartFall()
+        {
+            SetColliderEnabled(true);
+            SetRigidbodySimulated(true);
+        }
+
+        private void SetColliderEnabled(bool enabled)
         {
             foreach (var collider in _colliders)
             {
@@ -34,7 +46,7 @@ namespace MT.Blocks
             }
         }
 
-        public void SetRigidbodySimulated(bool simulated)
+        private void SetRigidbodySimulated(bool simulated)
         {
             _rigidbody.simulated = simulated;
         }
