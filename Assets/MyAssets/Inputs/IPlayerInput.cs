@@ -1,4 +1,4 @@
-namespace MT.Input
+namespace MT.Inputs
 {
     public interface IPlayerInput
     {

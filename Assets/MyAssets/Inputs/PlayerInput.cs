@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Extension;
 
-namespace MT.Input
+namespace MT.Inputs
 {
     public class PlayerInput : MonoBehaviour, IPlayerInput
     {
