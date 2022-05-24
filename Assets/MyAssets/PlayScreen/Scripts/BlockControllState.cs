@@ -38,6 +38,18 @@ namespace MT.PlayScreen
             {
                 _spawnedBlock.Rotate();
             }
+
+            if (_playerInput.MoveBlock())
+            {
+                var pos = _spawnedBlock.transform.position;
+                pos.x = _playerInput.PointerPosition().x;
+                _spawnedBlock.transform.position = pos;
+            }
+
+            if (_playerInput.DropBlock())
+            {
+                Exit();
+            }
         }
     }
 }
