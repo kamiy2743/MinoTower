@@ -8,9 +8,9 @@ namespace MT.PlayScreen
     {
         private bool _isTrigger;
 
-        void OnCollisionEnter2D(Collision2D collision)
+        void OnTriggerEnter2D(Collider2D collider)
         {
-            if (collision.gameObject.GetComponent<MT.Blocks.Block>() != null)
+            if (collider.transform.parent.GetComponent<MT.Blocks.Block>() != null)
             {
                 _isTrigger = true;
             }
