@@ -11,29 +11,32 @@ namespace MT.Input
         [SerializeField] private EventTrigger _trigger;
         [SerializeField] private Button _rotateButton;
 
-        // InputSystemを使えばこんな状態変数いらないのに
+        // InputSystemを使えばこんな状態変数いらない
         private bool isDrag;
         private bool isDrop;
         private bool isRotateButtonClicked;
 
         void Awake()
         {
-            _trigger.AddListenner(EventTriggerType.Drag, () => isDrag = true);
-            _trigger.AddListenner(EventTriggerType.Drop, () => isDrop = true);
-            _rotateButton.onClick.AddListener(() => isRotateButtonClicked = true);
-        }
+            _trigger.AddListenner(EventTriggerType.PointerDown, () =>
+            {
+                isDrag = true;
+            });
 
-        void Update()
-        {
-            Debug.Log("==============================");
-            Debug.Log(MoveBlock());
-            Debug.Log(RotateBlock());
-            Debug.Log(DropBlock());
+            _trigger.AddListenner(EventTriggerType.PointerUp, () =>
+            {
+                isDrag = false;
+                isDrop = true;
+            });
+
+            _rotateButton.onClick.AddListener(() =>
+            {
+                isRotateButtonClicked = true;
+            });
         }
 
         void LateUpdate()
         {
-            isDrag = false;
             isDrop = false;
             isRotateButtonClicked = false;
         }
