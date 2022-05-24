@@ -9,14 +9,25 @@ namespace MT.PlayScreen
     public class BlockStopState : MonoBehaviour, IState
     {
         [SerializeField] private Transform _blocksParent;
-        [SerializeField] private GameObject _nextStateObject;
+        [SerializeField] private GameObject _defaultNextStateObject;
+        [SerializeField] private ResultState _resultState;
+        [SerializeField] private GameOverArea _gameOverArea;
 
-        private IState _nextState;
+        private IState _defaultNextState;
 
         void Awake()
         {
-            _nextState = _nextStateObject.GetComponent<IState>();
+            _defaultNextState = _defaultNextStateObject.GetComponent<IState>();
             gameObject.SetActive(false);
+        }
+
+        void Update()
+        {
+            if (_gameOverArea.IsTrigger())
+            {
+                // 遷移前にコルーチンを止めろ
+                ToNext(_resultState);
+            }
         }
 
         public void Enter()
@@ -27,16 +38,16 @@ namespace MT.PlayScreen
             StartCoroutine(WaitForAllStop(blocks));
         }
 
-        private void ToNext()
+        private void ToNext(IState nextState)
         {
             gameObject.SetActive(false);
-            _nextState.Enter();
+            nextState.Enter();
         }
 
         IEnumerator WaitForAllStop(Block[] blocks)
         {
             yield return new WaitUntil(() => IsStop(blocks));
-            ToNext();
+            ToNext(_defaultNextState);
         }
 
         private bool IsStop(Block[] blocks)
