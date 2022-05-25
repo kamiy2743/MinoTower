@@ -9,9 +9,12 @@ namespace MT.PlayScreen.States
     public class ResultState : MonoBehaviour, IState
     {
         [SerializeField] private ResultUI _resultUI;
+        [SerializeField] private MainLoopStartState _startState;
 
-        void Awake()
+        void Start()
         {
+            _resultUI.ContinueButtonClick.AddListener(OnContinueButtonClick);
+            _resultUI.ExitButtonClick.AddListener(OnExitButtonClick);
             gameObject.SetActive(false);
         }
 
@@ -19,6 +22,20 @@ namespace MT.PlayScreen.States
         {
             gameObject.SetActive(true);
             _resultUI.Show();
+        }
+
+        private void OnContinueButtonClick()
+        {
+            gameObject.SetActive(false);
+            _resultUI.Hide(completed: () =>
+            {
+                _startState.Enter();
+            });
+        }
+
+        private void OnExitButtonClick()
+        {
+
         }
     }
 }
