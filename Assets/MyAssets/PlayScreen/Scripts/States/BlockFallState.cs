@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using MT.Util;
 
-namespace MT.PlayScreen
+namespace MT.PlayScreen.States
 {
-    public class MainLoopStartState : MonoBehaviour, IState
+    public class BlockFallState : MonoBehaviour, IState
     {
+        [SerializeField] private BlockSpawnState _spawnState;
         [SerializeField] private GameObject _nextStateObject;
 
         private IState _nextState;
@@ -14,21 +15,22 @@ namespace MT.PlayScreen
         void Awake()
         {
             _nextState = _nextStateObject.GetComponent<IState>();
-        }
-
-        void Start()
-        {
-            Enter();
+            gameObject.SetActive(false);
         }
 
         public void Enter()
         {
+            gameObject.SetActive(true);
+            _spawnState.SpawnedBlock.StartFall();
             ToNext();
+
         }
 
         public void ToNext()
         {
+            gameObject.SetActive(false);
             _nextState.Enter();
         }
     }
 }
+

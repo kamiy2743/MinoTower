@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MT.Util;
 
-namespace MT.PlayScreen
+namespace MT.PlayScreen.States
 {
     public class MainLoopEndState : MonoBehaviour, IState
     {

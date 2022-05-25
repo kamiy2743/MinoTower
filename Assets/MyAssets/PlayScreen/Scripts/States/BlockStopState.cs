@@ -6,7 +6,7 @@ using MT.Blocks;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 
-namespace MT.PlayScreen
+namespace MT.PlayScreen.States
 {
     public class BlockStopState : MonoBehaviour, IState
     {

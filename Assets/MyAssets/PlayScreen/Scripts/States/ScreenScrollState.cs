@@ -5,7 +5,7 @@ using MT.Util;
 using MT.Blocks;
 using DG.Tweening;
 
-namespace MT.PlayScreen
+namespace MT.PlayScreen.States
 {
     public class ScreenScrollState : MonoBehaviour, IState
     {

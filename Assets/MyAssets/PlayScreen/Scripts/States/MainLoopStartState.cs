@@ -2,14 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MT.Util;
-using MT.Blocks;
 
-namespace MT.PlayScreen
+namespace MT.PlayScreen.States
 {
-    public class RecordingMaxHeightState : MonoBehaviour, IState
+    public class MainLoopStartState : MonoBehaviour, IState
     {
-        [SerializeField] private PlayData _playData;
-        [SerializeField] private BlockStore _blockStore;
         [SerializeField] private GameObject _nextStateObject;
 
         private IState _nextState;
@@ -17,21 +14,21 @@ namespace MT.PlayScreen
         void Awake()
         {
             _nextState = _nextStateObject.GetComponent<IState>();
-            gameObject.SetActive(false);
+        }
+
+        void Start()
+        {
+            Enter();
         }
 
         public void Enter()
         {
-            gameObject.SetActive(true);
-            _playData.MaxHeight = _blockStore.CalcMaxHeight();
             ToNext();
         }
 
         public void ToNext()
         {
-            gameObject.SetActive(false);
             _nextState.Enter();
         }
     }
 }
-

@@ -5,7 +5,7 @@ using MT.Util;
 using MT.Inputs;
 using MT.Blocks;
 
-namespace MT.PlayScreen
+namespace MT.PlayScreen.States
 {
     public class BlockControllState : MonoBehaviour, IState
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 using MT.Blocks;
 using MT.Util;
 
-namespace MT.PlayScreen
+namespace MT.PlayScreen.States
 {
     public class BlockSpawnState : MonoBehaviour, IState
     {
