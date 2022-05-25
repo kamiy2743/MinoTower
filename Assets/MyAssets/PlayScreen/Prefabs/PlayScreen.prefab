@@ -2398,6 +2398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resultUI: {fileID: 8133737851317955638}
   _continueState: {fileID: 4932676096627093330}
+  _exitState: {fileID: 7369440275655631485}
 --- !u!1 &9045013810753127237
 GameObject:
   m_ObjectHideFlags: 0

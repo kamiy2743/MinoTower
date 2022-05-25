@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MT.Util;
-using MT.PlayScreen;
 
 namespace MT.PlayScreen.States
 {
@@ -10,6 +9,7 @@ namespace MT.PlayScreen.States
     {
         [SerializeField] private ResultUI _resultUI;
         [SerializeField] private ContinueState _continueState;
+        [SerializeField] private ExitState _exitState;
 
         void Start()
         {
@@ -24,18 +24,23 @@ namespace MT.PlayScreen.States
             _resultUI.Show();
         }
 
-        private void OnContinueButtonClick()
+        private void ToNext(IState nextState)
         {
             gameObject.SetActive(false);
             _resultUI.Hide(completed: () =>
             {
-                _continueState.Enter();
+                nextState.Enter();
             });
+        }
+
+        private void OnContinueButtonClick()
+        {
+            ToNext((IState)_continueState);
         }
 
         private void OnExitButtonClick()
         {
-
+            ToNext((IState)_exitState);
         }
     }
 }
