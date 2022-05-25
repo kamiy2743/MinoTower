@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 3270837457319403250}
   - component: {fileID: 7369440275655631485}
   m_Layer: 0
-  m_Name: ExitState
+  m_Name: ToTopScreenState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d659841ae0cdf344a971e1dfeb94a3a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializeState: {fileID: 0}
+  _topScreenEnterState: {fileID: 0}
 --- !u!1 &1025526076419460686
 GameObject:
   m_ObjectHideFlags: 0
@@ -2445,7 +2445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resultUI: {fileID: 8133737851317955638}
   _continueState: {fileID: 4932676096627093330}
-  _exitState: {fileID: 7369440275655631485}
+  _toTopScreenState: {fileID: 7369440275655631485}
 --- !u!1 &9045013810753127237
 GameObject:
   m_ObjectHideFlags: 0

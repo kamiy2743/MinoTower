@@ -5,7 +5,7 @@ using MT.Util;
 
 namespace MT.PlayScreen.States
 {
-    public class ExitState : MonoBehaviour, IState
+    public class ToTopScreenState : MonoBehaviour, IState
     {
         [SerializeField] private MT.TopScreen.States.EnterState _topScreenEnterState;
 

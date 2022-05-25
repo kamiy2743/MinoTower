@@ -9,7 +9,7 @@ namespace MT.PlayScreen.States
     {
         [SerializeField] private ResultUI _resultUI;
         [SerializeField] private ContinueState _continueState;
-        [SerializeField] private ExitState _exitState;
+        [SerializeField] private ToTopScreenState _toTopScreenState;
 
         void Start()
         {
@@ -37,7 +37,7 @@ namespace MT.PlayScreen.States
 
         private void OnExitButtonClick()
         {
-            ToNext(_exitState);
+            ToNext(_toTopScreenState);
         }
     }
 }
