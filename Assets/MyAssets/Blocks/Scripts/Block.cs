@@ -66,7 +66,7 @@ namespace MT.Blocks
 
         // ブロックの最高点を計算
         // そこそこ重そうだから毎フレーム呼ぶのはやめといたほうがいいかも
-        public float CalcmaxHeight()
+        public float CalcMaxHeight()
         {
             var maxHeight = float.NegativeInfinity;
 

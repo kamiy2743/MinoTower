@@ -14,13 +14,13 @@ namespace MT.Blocks
             block.transform.SetParent(this.transform);
         }
 
-        public float CalcmaxHeight()
+        public float CalcMaxHeight()
         {
             var maxHeight = float.NegativeInfinity;
 
             foreach (var block in blocks)
             {
-                var y = block.CalcmaxHeight();
+                var y = block.CalcMaxHeight();
                 if (y > maxHeight)
                 {
                     maxHeight = y;
