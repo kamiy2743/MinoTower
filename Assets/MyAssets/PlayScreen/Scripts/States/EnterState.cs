@@ -7,16 +7,19 @@ namespace MT.PlayScreen.States
 {
     public class EnterState : MonoBehaviour, IState
     {
+        [SerializeField] private float _fadeInDuration;
         [SerializeField] private GameObject _playScreenObject;
         [SerializeField] private GameObject _nextStateObject;
 
-        private IState _nextState;
-
         public void Enter()
         {
+            Fader.Instance.FadeOut(0);
             _playScreenObject.SetActive(true);
-            _nextState = _nextStateObject.GetComponent<IState>();
-            _nextState.Enter();
+            Fader.Instance.FadeIn(_fadeInDuration, () =>
+            {
+                var nextState = _nextStateObject.GetComponent<IState>();
+                nextState.Enter();
+            });
         }
     }
 }

@@ -1125,6 +1125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc6b0229a2575544b87f2b08ac3b8b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fadeInDuration: 0.5
   _playScreenObject: {fileID: 3940982562635026737}
   _nextStateObject: {fileID: 262456453872023917}
 --- !u!1 &3643786805690711472
