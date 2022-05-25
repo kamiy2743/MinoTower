@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MT.Util;
-using MT.Blocks;
+using MT.PlayScreen;
 
 namespace MT.PlayScreen.States
 {
     public class ResultState : MonoBehaviour, IState
     {
-        [SerializeField] private float _enterFadeOutDuration;
-        [SerializeField] private float _enterFadeOutEndValue;
+        [SerializeField] private ResultUI _resultUI;
 
         void Awake()
         {
@@ -19,13 +18,7 @@ namespace MT.PlayScreen.States
         public void Enter()
         {
             gameObject.SetActive(true);
-            Fader.Instance.FadeOut(_enterFadeOutDuration, _enterFadeOutEndValue);
-            ShowResult();
-        }
-
-        private void ShowResult()
-        {
-
+            _resultUI.Show();
         }
     }
 }

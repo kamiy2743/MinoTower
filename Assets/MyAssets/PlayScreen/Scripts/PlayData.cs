@@ -8,6 +8,6 @@ namespace MT.PlayScreen
     public class PlayData : MonoBehaviour
     {
         // グローバル変数じゃないか
-        public MaxHeight MaxHeight;
+        public MaxHeight MaxHeight = new MaxHeight(MaxHeight.Min);
     }
 }
