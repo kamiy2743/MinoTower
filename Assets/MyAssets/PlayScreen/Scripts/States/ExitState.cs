@@ -7,7 +7,7 @@ namespace MT.PlayScreen.States
 {
     public class ExitState : MonoBehaviour, IState
     {
-        [SerializeField] private InitializeState _initializeState;
+        [SerializeField] private MT.TopScreen.States.EnterState _topScreenEnterState;
 
         void Awake()
         {
@@ -23,7 +23,7 @@ namespace MT.PlayScreen.States
         private void ToNext()
         {
             gameObject.SetActive(false);
-            _initializeState.Enter();
+            _topScreenEnterState.Enter();
         }
     }
 }
