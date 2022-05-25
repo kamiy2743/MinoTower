@@ -24,10 +24,7 @@ namespace MT.PlayScreen.States
 
         private void OnContinueButtonClick()
         {
-            _resultUI.Hide(completed: () =>
-            {
-                _continueState.Enter();
-            });
+            _continueState.Enter();
         }
 
         private void OnExitButtonClick()
