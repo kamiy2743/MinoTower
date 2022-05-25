@@ -7,26 +7,26 @@ namespace MT.Util
 {
     public class Fader : MonoBehaviour
     {
-        [SerializeField] private CanvasGroup _ui;
-
         public static Fader Instance => _instance;
         private static Fader _instance;
+
+        private CanvasGroup _canvasGroup;
 
         void Awake()
         {
             _instance = this;
         }
 
-        public void FadeIn(float duration, float endValue = 0, System.Action completed = null)
+        public void FadeIn(float duration, System.Action completed = null)
         {
-            _ui.DOKill();
-            _ui.DOFade(endValue, duration).OnComplete(() => completed?.Invoke());
+            _canvasGroup.DOKill();
+            _canvasGroup.DOFade(0, duration).OnComplete(() => completed?.Invoke());
         }
 
-        public void FadeOut(float duration, float endValue = 1, System.Action completed = null)
+        public void FadeOut(float duration, System.Action completed = null)
         {
-            _ui.DOKill();
-            _ui.DOFade(endValue, duration).OnComplete(() => completed?.Invoke());
+            _canvasGroup.DOKill();
+            _canvasGroup.DOFade(1, duration).OnComplete(() => completed?.Invoke());
         }
     }
 }
