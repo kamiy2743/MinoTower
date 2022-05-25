@@ -7,6 +7,7 @@ namespace MT.TopScreen.States
 {
     public class EnterState : MonoBehaviour, IState
     {
+        [SerializeField] private float _fadeInDuration;
         [SerializeField] private GameObject _topScreenObject;
         [SerializeField] private GameObject _nextStateObject;
 
@@ -19,8 +20,12 @@ namespace MT.TopScreen.States
 
         public void Enter()
         {
+            Fader.Instance.FadeOut(0);
             _topScreenObject.SetActive(true);
-            _nextState.Enter();
+            Fader.Instance.FadeIn(_fadeInDuration, () =>
+            {
+                _nextState.Enter();
+            });
         }
     }
 }

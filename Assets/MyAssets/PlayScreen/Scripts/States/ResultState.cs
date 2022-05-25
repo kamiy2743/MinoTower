@@ -22,22 +22,17 @@ namespace MT.PlayScreen.States
             _resultUI.Show();
         }
 
-        private void ToNext(IState nextState)
+        private void OnContinueButtonClick()
         {
             _resultUI.Hide(completed: () =>
             {
-                nextState.Enter();
+                _continueState.Enter();
             });
-        }
-
-        private void OnContinueButtonClick()
-        {
-            ToNext(_continueState);
         }
 
         private void OnExitButtonClick()
         {
-            ToNext(_toTopScreenState);
+            _toTopScreenState.Enter();
         }
     }
 }

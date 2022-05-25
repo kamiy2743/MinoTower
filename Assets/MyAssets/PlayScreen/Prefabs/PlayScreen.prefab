@@ -274,6 +274,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d659841ae0cdf344a971e1dfeb94a3a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playScreenObject: {fileID: 3940982562635026737}
+  _fadeOutDuration: 0.5
   _topScreenEnterState: {fileID: 0}
 --- !u!1 &1025526076419460686
 GameObject:

@@ -183,6 +183,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1815552639}
+    - target: {fileID: 6927073442943671769, guid: 27c772dd5bef55641ba451c550996287, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1815552639}
     - target: {fileID: 7036608860831686544, guid: 27c772dd5bef55641ba451c550996287, type: 3}
       propertyPath: m_Name
       value: TopScreen
@@ -193,7 +197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7036608860831686559, guid: 27c772dd5bef55641ba451c550996287, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7036608860831686559, guid: 27c772dd5bef55641ba451c550996287, type: 3}
       propertyPath: m_LocalPosition.x
@@ -559,7 +563,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1278038050
 MonoBehaviour:
@@ -594,7 +598,7 @@ PrefabInstance:
       objectReference: {fileID: 1815552639}
     - target: {fileID: 2487771280455601670, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3940982562635026737, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
       propertyPath: m_Name
