@@ -7,11 +7,13 @@ namespace MT.PlayScreen.States
 {
     public class ContinueState : MonoBehaviour, IState
     {
-        [SerializeField] private InitializeState _initializeState;
+        [SerializeField] private MainLoopStartState _startState;
+        [SerializeField] private Initializer _initializer;
 
         public void Enter()
         {
-            _initializeState.Enter();
+            _initializer.Execute();
+            _startState.Enter();
         }
     }
 }
