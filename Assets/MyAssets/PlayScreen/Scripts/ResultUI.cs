@@ -34,17 +34,15 @@ namespace MT.PlayScreen
             _maxHeight.text = _playData.MaxHeight.value.ToString();
             var fadeDuration = immediately ? 0 : _fadeDuration;
 
-            _ui.DOFade(1, fadeDuration).OnComplete(() =>
-            {
-                _ui.interactable = true;
-                _ui.blocksRaycasts = true;
-                completed?.Invoke();
-            });
+            _ui.interactable = true;
+            _ui.blocksRaycasts = true;
+            _ui.DOFade(1, fadeDuration).OnComplete(() => completed?.Invoke());
         }
 
         public void Hide(bool immediately = false, System.Action completed = null)
         {
             var fadeDuration = immediately ? 0 : _fadeDuration;
+
             _ui.interactable = false;
             _ui.blocksRaycasts = false;
             _ui.DOFade(0, fadeDuration).OnComplete(() => completed?.Invoke());
