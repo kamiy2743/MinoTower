@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using MT.State;
 using MT.Blocks;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 
 namespace MT.PlayScreen
 {
@@ -15,6 +17,8 @@ namespace MT.PlayScreen
 
         private IState _defaultNextState;
 
+        private CancellationTokenSource _cts;
+
         void Awake()
         {
             _defaultNextState = _defaultNextStateObject.GetComponent<IState>();
@@ -25,29 +29,33 @@ namespace MT.PlayScreen
         {
             if (_gameOverArea.IsTrigger())
             {
-                // 遷移前にコルーチンを止めろ
+                _cts.Cancel();
                 ToNext(_resultState);
             }
         }
 
-        public void Enter()
+        public async void Enter()
         {
             gameObject.SetActive(true);
-            // unitaskにしたい
+
+            // ブロックがすべて停止してから遷移
             var blocks = _blocksParent.GetComponentsInChildren<Block>();
-            StartCoroutine(WaitForAllStop(blocks));
+            try
+            {
+                _cts = new CancellationTokenSource();
+                await UniTask.WaitUntil(() => IsStop(blocks), cancellationToken: _cts.Token);
+                ToNext(_defaultNextState);
+            }
+            catch (System.OperationCanceledException e)
+            {
+                Debug.Log("cancelled");
+            }
         }
 
         private void ToNext(IState nextState)
         {
             gameObject.SetActive(false);
             nextState.Enter();
-        }
-
-        IEnumerator WaitForAllStop(Block[] blocks)
-        {
-            yield return new WaitUntil(() => IsStop(blocks));
-            ToNext(_defaultNextState);
         }
 
         private bool IsStop(Block[] blocks)
