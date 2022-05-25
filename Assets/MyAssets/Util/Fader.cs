@@ -15,6 +15,7 @@ namespace MT.Util
         void Awake()
         {
             _instance = this;
+            _canvasGroup = GetComponent<CanvasGroup>();
         }
 
         public void FadeIn(float duration, System.Action completed = null)
