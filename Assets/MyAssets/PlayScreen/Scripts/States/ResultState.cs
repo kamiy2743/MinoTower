@@ -35,12 +35,12 @@ namespace MT.PlayScreen.States
 
         private void OnContinueButtonClick()
         {
-            ToNext((IState)_continueState);
+            ToNext(_continueState);
         }
 
         private void OnExitButtonClick()
         {
-            ToNext((IState)_exitState);
+            ToNext(_exitState);
         }
     }
 }
