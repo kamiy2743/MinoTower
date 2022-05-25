@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MT.Util;
-using MT.Blocks;
 
 namespace MT.PlayScreen.States
 {
-    public class InitializeState : MonoBehaviour, IState
+    public class EnterState : MonoBehaviour, IState
     {
-        [SerializeField] private PlayData _playData;
-        [SerializeField] private BlockStore _blockStore;
+        [SerializeField] private GameObject _playScreenObject;
         [SerializeField] private GameObject _nextStateObject;
 
         private IState _nextState;
@@ -17,27 +15,19 @@ namespace MT.PlayScreen.States
         void Awake()
         {
             _nextState = _nextStateObject.GetComponent<IState>();
-            gameObject.SetActive(false);
         }
 
         public void Enter()
         {
             gameObject.SetActive(true);
-            Initialize();
+            _playScreenObject.SetActive(true);
             ToNext();
         }
 
-        public void ToNext()
+        private void ToNext()
         {
             gameObject.SetActive(false);
             _nextState.Enter();
         }
-
-        private void Initialize()
-        {
-            _playData.Initialize();
-            _blockStore.Initialize();
-        }
     }
 }
-
