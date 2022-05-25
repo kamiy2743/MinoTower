@@ -14,18 +14,10 @@ namespace MT.PlayScreen.States
         void Awake()
         {
             _nextState = _nextStateObject.GetComponent<IState>();
-            gameObject.SetActive(false);
         }
 
         public void Enter()
         {
-            gameObject.SetActive(true);
-            ToNext();
-        }
-
-        public void ToNext()
-        {
-            gameObject.SetActive(false);
             _nextState.Enter();
         }
     }

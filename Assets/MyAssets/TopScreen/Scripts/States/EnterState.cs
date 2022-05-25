@@ -19,14 +19,7 @@ namespace MT.TopScreen.States
 
         public void Enter()
         {
-            gameObject.SetActive(true);
             _topScreenObject.SetActive(true);
-            ToNext();
-        }
-
-        private void ToNext()
-        {
-            gameObject.SetActive(false);
             _nextState.Enter();
         }
     }

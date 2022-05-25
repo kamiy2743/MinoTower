@@ -12,21 +12,10 @@ namespace MT.PlayScreen.States
 
         private IState _nextState;
 
-        void Awake()
-        {
-            _nextState = _nextStateObject.GetComponent<IState>();
-        }
-
         public void Enter()
         {
-            gameObject.SetActive(true);
             _playScreenObject.SetActive(true);
-            ToNext();
-        }
-
-        private void ToNext()
-        {
-            gameObject.SetActive(false);
+            _nextState = _nextStateObject.GetComponent<IState>();
             _nextState.Enter();
         }
     }

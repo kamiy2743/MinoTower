@@ -20,23 +20,19 @@ namespace MT.PlayScreen.States
         void Awake()
         {
             _nextState = _nextStateObject.GetComponent<IState>();
-            gameObject.SetActive(false);
         }
 
         public void Enter()
         {
-            gameObject.SetActive(true);
             SpawnNewBlock();
             ToNext();
         }
 
         public void ToNext()
         {
-            gameObject.SetActive(false);
             _nextState.Enter();
         }
 
-        [ContextMenu("spawn")]
         private void SpawnNewBlock()
         {
             var cameraVertPos = new Vector3(0, Camera.main.transform.position.y, 0);

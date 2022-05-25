@@ -11,13 +11,6 @@ namespace Mt.TopScreen.States
 
         public void Enter()
         {
-            gameObject.SetActive(true);
-            ToNext();
-        }
-
-        private void ToNext()
-        {
-            gameObject.SetActive(false);
             _playScreenEnterState.Enter();
         }
     }

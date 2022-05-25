@@ -15,19 +15,11 @@ namespace MT.TopScreen.States
         void Awake()
         {
             _nextState = _nextStateObject.GetComponent<IState>();
-            gameObject.SetActive(false);
         }
 
         public void Enter()
         {
-            gameObject.SetActive(true);
             Initialize();
-            ToNext();
-        }
-
-        public void ToNext()
-        {
-            gameObject.SetActive(false);
             _nextState.Enter();
         }
 

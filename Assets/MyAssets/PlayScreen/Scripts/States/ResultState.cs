@@ -15,18 +15,15 @@ namespace MT.PlayScreen.States
         {
             _resultUI.ContinueButtonClick.AddListener(OnContinueButtonClick);
             _resultUI.ExitButtonClick.AddListener(OnExitButtonClick);
-            gameObject.SetActive(false);
         }
 
         public void Enter()
         {
-            gameObject.SetActive(true);
             _resultUI.Show();
         }
 
         private void ToNext(IState nextState)
         {
-            gameObject.SetActive(false);
             _resultUI.Hide(completed: () =>
             {
                 nextState.Enter();

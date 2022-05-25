@@ -13,7 +13,6 @@ namespace Mt.TopScreen.States
 
         void Start()
         {
-            gameObject.SetActive(false);
             _playButton.onClick.AddListener(() =>
             {
                 Tonext(_toPlayScreenState);
@@ -22,12 +21,10 @@ namespace Mt.TopScreen.States
 
         public void Enter()
         {
-            gameObject.SetActive(true);
         }
 
         private void Tonext(IState nextState)
         {
-            gameObject.SetActive(false);
             nextState.Enter();
         }
     }

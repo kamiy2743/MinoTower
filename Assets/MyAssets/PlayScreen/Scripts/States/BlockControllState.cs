@@ -16,27 +16,28 @@ namespace MT.PlayScreen.States
         private IState _nextState;
         private Block _spawnedBlock => _spawnState.SpawnedBlock;
 
+        private bool _isActive = false;
+
         void Awake()
         {
             _nextState = _nextStateObject.GetComponent<IState>();
-            gameObject.SetActive(false);
         }
 
         public void Enter()
         {
-            gameObject.SetActive(true);
-
+            _isActive = true;
         }
 
         public void ToNext()
         {
-            gameObject.SetActive(false);
+            _isActive = false;
             _nextState.Enter();
         }
 
-
         void Update()
         {
+            if (!_isActive) return;
+
             if (_playerInput.RotateBlock())
             {
                 _spawnedBlock.Rotate();

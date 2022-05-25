@@ -18,15 +18,17 @@ namespace MT.PlayScreen.States
         private IState _defaultNextState;
 
         private CancellationTokenSource _cts;
+        private bool _isActive = false;
 
         void Awake()
         {
             _defaultNextState = _defaultNextStateObject.GetComponent<IState>();
-            gameObject.SetActive(false);
         }
 
         void Update()
         {
+            if (!_isActive) return;
+
             // 土台から落ちたら結果画面に遷移
             if (_gameOverArea.IsTrigger())
             {
@@ -37,13 +39,13 @@ namespace MT.PlayScreen.States
 
         public void Enter()
         {
-            gameObject.SetActive(true);
+            _isActive = true;
             WaitForAllStop();
         }
 
         private void ToNext(IState nextState)
         {
-            gameObject.SetActive(false);
+            _isActive = false;
             nextState.Enter();
         }
 

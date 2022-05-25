@@ -15,20 +15,16 @@ namespace MT.PlayScreen.States
         void Awake()
         {
             _nextState = _nextStateObject.GetComponent<IState>();
-            gameObject.SetActive(false);
         }
 
         public void Enter()
         {
-            gameObject.SetActive(true);
             _spawnState.SpawnedBlock.StartFall();
             ToNext();
-
         }
 
         public void ToNext()
         {
-            gameObject.SetActive(false);
             _nextState.Enter();
         }
     }

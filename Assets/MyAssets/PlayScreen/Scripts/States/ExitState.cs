@@ -9,20 +9,9 @@ namespace MT.PlayScreen.States
     {
         [SerializeField] private MT.TopScreen.States.EnterState _topScreenEnterState;
 
-        void Awake()
-        {
-            gameObject.SetActive(false);
-        }
-
         public void Enter()
         {
             gameObject.SetActive(true);
-            ToNext();
-        }
-
-        private void ToNext()
-        {
-            gameObject.SetActive(false);
             _topScreenEnterState.Enter();
         }
     }
