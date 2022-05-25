@@ -35,9 +35,9 @@ namespace MT.PlayScreen
 
         private void ScreenScroll()
         {
-            var maxY = Mathf.Max(0, _blockStore.CalcMaxY());
+            var maxHeight = Mathf.Max(0, _blockStore.CalcmaxHeight());
             var cameraTransfrom = Camera.main.transform;
-            cameraTransfrom.DOMoveY(maxY, _scrollDuration).OnComplete(() =>
+            cameraTransfrom.DOMoveY(maxHeight, _scrollDuration).OnComplete(() =>
             {
                 ToNext();
             });

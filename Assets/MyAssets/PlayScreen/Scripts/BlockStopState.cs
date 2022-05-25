@@ -27,6 +27,7 @@ namespace MT.PlayScreen
 
         void Update()
         {
+            // 土台から落ちたら結果画面に遷移
             if (_gameOverArea.IsTrigger())
             {
                 _cts.Cancel();
@@ -34,10 +35,20 @@ namespace MT.PlayScreen
             }
         }
 
-        public async void Enter()
+        public void Enter()
         {
             gameObject.SetActive(true);
+            WaitForAllStop();
+        }
 
+        private void ToNext(IState nextState)
+        {
+            gameObject.SetActive(false);
+            nextState.Enter();
+        }
+
+        private async void WaitForAllStop()
+        {
             // ブロックがすべて停止してから遷移
             try
             {
@@ -49,12 +60,6 @@ namespace MT.PlayScreen
             {
                 Debug.Log("cancelled");
             }
-        }
-
-        private void ToNext(IState nextState)
-        {
-            gameObject.SetActive(false);
-            nextState.Enter();
         }
     }
 }
