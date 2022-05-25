@@ -4,28 +4,31 @@ using UnityEngine;
 using MT.Util;
 using UnityEngine.UI;
 
-public class WaitForPlayerActionState : MonoBehaviour, IState
+namespace Mt.TopScreen.States
 {
-    [SerializeField] private Button _playButton;
-    [SerializeField] private MT.PlayScreen.States.EnterState _playScreenEnterState;
-
-    void Start()
+    public class WaitForPlayerActionState : MonoBehaviour, IState
     {
-        gameObject.SetActive(false);
-        _playButton.onClick.AddListener(() =>
+        [SerializeField] private Button _playButton;
+        [SerializeField] private ToPlayScreenState _toPlayScreenState;
+
+        void Start()
         {
-            Tonext(_playScreenEnterState);
-        });
-    }
+            gameObject.SetActive(false);
+            _playButton.onClick.AddListener(() =>
+            {
+                Tonext(_toPlayScreenState);
+            });
+        }
 
-    public void Enter()
-    {
-        gameObject.SetActive(true);
-    }
+        public void Enter()
+        {
+            gameObject.SetActive(true);
+        }
 
-    private void Tonext(IState nextState)
-    {
-        gameObject.SetActive(false);
-        nextState.Enter();
+        private void Tonext(IState nextState)
+        {
+            gameObject.SetActive(false);
+            nextState.Enter();
+        }
     }
 }

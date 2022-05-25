@@ -135,6 +135,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2000856142644046847, guid: 27c772dd5bef55641ba451c550996287, type: 3}
+      propertyPath: _playScreenEnterState
+      value: 
+      objectReference: {fileID: 1439158588}
     - target: {fileID: 2926109222821445436, guid: 27c772dd5bef55641ba451c550996287, type: 3}
       propertyPath: _playScreenEnterState
       value: 
