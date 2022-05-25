@@ -95,6 +95,7 @@ MonoBehaviour:
   _playData: {fileID: 2930115139255164885}
   _blockStore: {fileID: 2734507599868963625}
   _nextStateObject: {fileID: 7416429242626788221}
+  _resultUI: {fileID: 8133737851317955638}
 --- !u!1 &690043977439993863
 GameObject:
   m_ObjectHideFlags: 0

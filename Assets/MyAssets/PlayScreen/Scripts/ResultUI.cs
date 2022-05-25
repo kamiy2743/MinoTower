@@ -21,6 +21,11 @@ namespace MT.PlayScreen
 
         void Awake()
         {
+            Initialize();
+        }
+
+        public void Initialize()
+        {
             Hide(true);
         }
 

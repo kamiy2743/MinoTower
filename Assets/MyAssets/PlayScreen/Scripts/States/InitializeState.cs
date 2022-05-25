@@ -11,6 +11,7 @@ namespace MT.PlayScreen.States
         [SerializeField] private PlayData _playData;
         [SerializeField] private BlockStore _blockStore;
         [SerializeField] private GameObject _nextStateObject;
+        [SerializeField] private ResultUI _resultUI;
 
         private IState _nextState;
 
@@ -29,6 +30,7 @@ namespace MT.PlayScreen.States
         {
             _playData.Initialize();
             _blockStore.Initialize();
+            _resultUI.Initialize();
         }
     }
 }
