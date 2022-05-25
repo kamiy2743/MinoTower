@@ -9,7 +9,7 @@ namespace MT.PlayScreen.States
     public class ResultState : MonoBehaviour, IState
     {
         [SerializeField] private ResultUI _resultUI;
-        [SerializeField] private MainLoopStartState _startState;
+        [SerializeField] private InitializeState _initializeState;
 
         void Start()
         {
@@ -29,7 +29,7 @@ namespace MT.PlayScreen.States
             gameObject.SetActive(false);
             _resultUI.Hide(completed: () =>
             {
-                _startState.Enter();
+                _initializeState.Enter();
             });
         }
 

@@ -8,6 +8,16 @@ namespace MT.Blocks
     {
         private List<Block> blocks = new List<Block>();
 
+        public void Initialize()
+        {
+            foreach (var block in blocks)
+            {
+                Destroy(block.gameObject);
+            }
+
+            blocks.Clear();
+        }
+
         public void Add(Block block)
         {
             blocks.Add(block);
