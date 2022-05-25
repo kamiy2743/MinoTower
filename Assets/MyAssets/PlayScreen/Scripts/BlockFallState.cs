@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MT.State;
+using MT.Util;
 
 namespace MT.PlayScreen
 {
