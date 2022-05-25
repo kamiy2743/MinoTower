@@ -9,7 +9,7 @@ namespace MT.PlayScreen
     public class BlockSpawnState : MonoBehaviour, IState
     {
         [SerializeField] private Transform _blockSpawnPoint;
-        [SerializeField] private Transform _blocksParent;
+        [SerializeField] private BlockStore _blockStore;
         [SerializeField] private BlockGenerator _blockGenerator;
         [SerializeField] private GameObject _nextStateObject;
 
@@ -44,7 +44,7 @@ namespace MT.PlayScreen
             var rotation = Quaternion.identity;
             var block = _blockGenerator.RandomGenerate(position, rotation);
             block.OnSpwned();
-            block.transform.SetParent(_blocksParent);
+            _blockStore.Add(block);
             SpawnedBlock = block;
         }
     }

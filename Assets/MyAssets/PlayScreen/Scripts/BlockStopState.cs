@@ -10,7 +10,7 @@ namespace MT.PlayScreen
 {
     public class BlockStopState : MonoBehaviour, IState
     {
-        [SerializeField] private Transform _blocksParent;
+        [SerializeField] private BlockStore _blockStore;
         [SerializeField] private GameObject _defaultNextStateObject;
         [SerializeField] private ResultState _resultState;
         [SerializeField] private GameOverArea _gameOverArea;
@@ -39,11 +39,10 @@ namespace MT.PlayScreen
             gameObject.SetActive(true);
 
             // ブロックがすべて停止してから遷移
-            var blocks = _blocksParent.GetComponentsInChildren<Block>();
             try
             {
                 _cts = new CancellationTokenSource();
-                await UniTask.WaitUntil(() => IsStop(blocks), cancellationToken: _cts.Token);
+                await UniTask.WaitUntil(() => _blockStore.IsStop(), cancellationToken: _cts.Token);
                 ToNext(_defaultNextState);
             }
             catch (System.OperationCanceledException e)
@@ -56,17 +55,6 @@ namespace MT.PlayScreen
         {
             gameObject.SetActive(false);
             nextState.Enter();
-        }
-
-        private bool IsStop(Block[] blocks)
-        {
-            foreach (var block in blocks)
-            {
-                if (!block.IsStop())
-                    return false;
-            }
-
-            return true;
         }
     }
 }

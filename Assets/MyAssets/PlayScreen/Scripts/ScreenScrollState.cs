@@ -10,7 +10,7 @@ namespace MT.PlayScreen
     public class ScreenScrollState : MonoBehaviour, IState
     {
         [SerializeField] private float _scrollDuration;
-        [SerializeField] private Transform _blocksParent;
+        [SerializeField] private BlockStore _blockStore;
         [SerializeField] private GameObject _nextStateObject;
 
         private IState _nextState;
@@ -35,29 +35,12 @@ namespace MT.PlayScreen
 
         private void ScreenScroll()
         {
-            var maxY = Mathf.Max(0, CalcMaxY());
+            var maxY = Mathf.Max(0, _blockStore.CalcMaxY());
             var cameraTransfrom = Camera.main.transform;
             cameraTransfrom.DOMoveY(maxY, _scrollDuration).OnComplete(() =>
             {
                 ToNext();
             });
-        }
-
-        private float CalcMaxY()
-        {
-            var maxY = float.NegativeInfinity;
-
-            var blocks = _blocksParent.GetComponentsInChildren<Block>();
-            foreach (var block in blocks)
-            {
-                var y = block.CalcMaxY();
-                if (y > maxY)
-                {
-                    maxY = y;
-                }
-            }
-
-            return maxY;
         }
     }
 }
