@@ -68,7 +68,7 @@ namespace MT.Blocks
         // そこそこ重そうだから毎フレーム呼ぶのはやめといたほうがいいかも
         public MaxHeight CalcMaxHeight()
         {
-            var maxHeight = MaxHeight.Min;
+            var maxHeight = MaxHeight.Min.value;
 
             foreach (var collider in _colliders)
             {

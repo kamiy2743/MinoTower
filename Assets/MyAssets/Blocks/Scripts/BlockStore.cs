@@ -26,7 +26,7 @@ namespace MT.Blocks
 
         public MaxHeight CalcMaxHeight()
         {
-            var maxHeight = MaxHeight.Min;
+            var maxHeight = MaxHeight.Min.value;
 
             foreach (var block in blocks)
             {

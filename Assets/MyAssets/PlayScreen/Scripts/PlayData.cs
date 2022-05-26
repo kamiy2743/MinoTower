@@ -17,7 +17,7 @@ namespace MT.PlayScreen
 
         public void Initialize()
         {
-            MaxHeight = new MaxHeight(MaxHeight.Min);
+            MaxHeight = MaxHeight.Min;
         }
     }
 }
