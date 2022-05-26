@@ -33,8 +33,7 @@ namespace MT.PlayScreen.States
         private void ScreenScroll()
         {
             var maxHeight = _blockStore.CalcMaxHeight();
-            var cameraTransfrom = Camera.main.transform;
-            cameraTransfrom.DOMoveY(maxHeight.value, _scrollDuration).OnComplete(() =>
+            ScreenScroller.Instance.SetScroll(new ScrollAmount(maxHeight.value), _scrollDuration, () =>
             {
                 ToNext();
             });
