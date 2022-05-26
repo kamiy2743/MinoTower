@@ -67,9 +67,9 @@ namespace MT.Blocks
 
         // ブロックの最高点を計算
         // そこそこ重そうだから毎フレーム呼ぶのはやめといたほうがいいかも
-        public MaxHeight CalcMaxHeight()
+        public float CalcMaxY()
         {
-            var maxHeight = MaxHeight.Min.value;
+            var maxY = float.NegativeInfinity;
 
             foreach (var collider in _colliders)
             {
@@ -77,14 +77,14 @@ namespace MT.Blocks
 
                 foreach (var vert in mesh.vertices)
                 {
-                    if (vert.y > maxHeight)
+                    if (vert.y > maxY)
                     {
-                        maxHeight = vert.y;
+                        maxY = vert.y;
                     }
                 }
             }
 
-            return new MaxHeight(maxHeight);
+            return maxY;
         }
     }
 }

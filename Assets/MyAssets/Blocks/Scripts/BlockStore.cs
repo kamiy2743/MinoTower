@@ -24,20 +24,20 @@ namespace MT.Blocks
             block.transform.SetParent(this.transform);
         }
 
-        public MaxHeight CalcMaxHeight()
+        public float GetMaxY()
         {
-            var maxHeight = MaxHeight.Min.value;
+            var maxY = float.NegativeInfinity;
 
             foreach (var block in blocks)
             {
-                var height = block.CalcMaxHeight();
-                if (height.value > maxHeight)
+                var y = block.CalcMaxY();
+                if (y > maxY)
                 {
-                    maxHeight = height.value;
+                    maxY = y;
                 }
             }
 
-            return new MaxHeight(maxHeight);
+            return maxY;
         }
 
         public bool IsStop()

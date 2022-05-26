@@ -10,6 +10,7 @@ namespace MT.PlayScreen.States
     {
         [SerializeField] private PlayData _playData;
         [SerializeField] private BlockStore _blockStore;
+        [SerializeField] private Foundation _foundation;
         [SerializeField] private GameObject _nextStateObject;
 
         private IState _nextState;
@@ -21,7 +22,10 @@ namespace MT.PlayScreen.States
 
         public void Enter()
         {
-            _playData.MaxHeight = _blockStore.CalcMaxHeight();
+            var maxY = _blockStore.GetMaxY();
+            var maxHeightValue = maxY - _foundation.GetTop();
+            Debug.Log(maxHeightValue);
+            _playData.MaxHeight = new MaxHeight(maxHeightValue);
             _nextState.Enter();
         }
     }

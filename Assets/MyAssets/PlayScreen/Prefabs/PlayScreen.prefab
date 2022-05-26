@@ -1541,7 +1541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scrollDuration: 0.1
-  _blockStore: {fileID: 2734507599868963625}
+  _playData: {fileID: 2930115139255164885}
   _nextStateObject: {fileID: 1171206136631915893}
 --- !u!1 &6807568571630219113
 GameObject:
@@ -2333,6 +2333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playData: {fileID: 2930115139255164885}
   _blockStore: {fileID: 2734507599868963625}
+  _foundation: {fileID: 8704784964144729435}
   _nextStateObject: {fileID: 6560842738031570411}
 --- !u!1 &9106845220539989025
 GameObject:
