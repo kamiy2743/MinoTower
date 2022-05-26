@@ -9,7 +9,7 @@ namespace MT.PlayScreen.States
     public class ScreenScrollState : MonoBehaviour, IState
     {
         [SerializeField] private float _scrollDuration;
-        [SerializeField] private PlayData _playData;
+        [SerializeField] private BlockStore _blockStore;
         [SerializeField] private GameObject _nextStateObject;
 
         private IState _nextState;
@@ -31,8 +31,8 @@ namespace MT.PlayScreen.States
 
         private async void ScreenScroll()
         {
-            var maxHeightValue = _playData.MaxHeight.value;
-            await ScreenScroller.Instance.SetScroll(new ScrollAmount(maxHeightValue), _scrollDuration);
+            var maxY = _blockStore.GetMaxY();
+            await ScreenScroller.Instance.SetScroll(new ScrollAmount(maxY), _scrollDuration);
             ToNext();
         }
     }
