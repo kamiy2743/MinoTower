@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
+using MT.PlayScreen;
 using Extension;
 
 namespace MT.Inputs
@@ -10,14 +10,13 @@ namespace MT.Inputs
     public class PlayerInput : MonoBehaviour, IPlayerInput
     {
         [SerializeField] private EventTrigger _trigger;
-        [SerializeField] private Button _rotateButton;
+        [SerializeField] private RotateButton _rotateButton;
 
         private Camera _mainCamera;
 
         // InputSystemを使えばこんな状態変数いらない
         private bool isDrag;
         private bool isDrop;
-        private bool isRotateButtonClicked;
 
         void Awake()
         {
@@ -32,18 +31,12 @@ namespace MT.Inputs
                 isDrop = true;
             });
 
-            _rotateButton.onClick.AddListener(() =>
-            {
-                isRotateButtonClicked = true;
-            });
-
             _mainCamera = Camera.main;
         }
 
         void LateUpdate()
         {
             isDrop = false;
-            isRotateButtonClicked = false;
         }
 
         public bool MoveBlock()
@@ -53,7 +46,7 @@ namespace MT.Inputs
 
         public bool RotateBlock()
         {
-            return isRotateButtonClicked;
+            return _rotateButton.IsClicked();
         }
 
         public bool DropBlock()
