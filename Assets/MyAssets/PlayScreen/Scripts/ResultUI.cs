@@ -32,7 +32,7 @@ namespace MT.PlayScreen
 
         public async void Show(bool immediately = false)
         {
-            _maxHeight.text = _playData.MaxHeight.value.ToString();
+            SetMaxHeightText(_playData.MaxHeight.value);
             var fadeDuration = immediately ? 0 : _fadeDuration;
 
             _ui.interactable = true;
@@ -47,6 +47,12 @@ namespace MT.PlayScreen
             _ui.interactable = false;
             _ui.blocksRaycasts = false;
             await _ui.DOFade(0, fadeDuration);
+        }
+
+        private void SetMaxHeightText(float maxHeightValue)
+        {
+            var formattedHeight = Mathf.Floor(maxHeightValue * 10f) / 10f;
+            _maxHeight.text = formattedHeight.ToString() + "m";
         }
     }
 }
