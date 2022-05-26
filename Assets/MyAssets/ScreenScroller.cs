@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 namespace MT
 {
@@ -21,16 +22,13 @@ namespace MT
 
         public void Initialize()
         {
-            SetScroll(ScrollAmount.Min);
+            SetScroll(ScrollAmount.Min, 0);
         }
 
-        public void SetScroll(ScrollAmount scrollAmount)
+        public void SetScroll(ScrollAmount scrollAmount, float duration, System.Action completed = null)
         {
             _scrollAmount = scrollAmount;
-
-            var pos = _cameraTransfrom.position;
-            pos.y = scrollAmount.value;
-            _cameraTransfrom.position = pos;
+            _cameraTransfrom.DOMoveY(scrollAmount.value, duration).OnComplete(() => completed?.Invoke());
         }
     }
 }
