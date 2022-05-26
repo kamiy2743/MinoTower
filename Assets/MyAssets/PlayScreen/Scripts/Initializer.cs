@@ -16,6 +16,7 @@ namespace MT.PlayScreen
             _playData.Initialize();
             _blockStore.Initialize();
             _resultUI.Initialize();
+            ScreenScroller.Instance.Initialize();
         }
     }
 }
