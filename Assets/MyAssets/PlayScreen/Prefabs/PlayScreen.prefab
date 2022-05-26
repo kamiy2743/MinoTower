@@ -1298,7 +1298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6c2c26296bae34428e218e3e38d5a43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hideDuration: 0.1
+  _hideDuration: 0.5
 --- !u!222 &8836813546761371719
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1440,6 +1440,7 @@ MonoBehaviour:
   _playData: {fileID: 2930115139255164885}
   _blockStore: {fileID: 2734507599868963625}
   _resultUI: {fileID: 8133737851317955638}
+  _rotateButton: {fileID: 8338184822406251754}
 --- !u!1 &6252451856348783278
 GameObject:
   m_ObjectHideFlags: 0
@@ -2300,6 +2301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resultUI: {fileID: 8133737851317955638}
+  _rotateButton: {fileID: 8338184822406251754}
   _continueState: {fileID: 4932676096627093330}
   _toTopScreenState: {fileID: 7369440275655631485}
 --- !u!1 &9045013810753127237

@@ -8,6 +8,7 @@ namespace MT.PlayScreen.States
     public class ResultState : MonoBehaviour, IState
     {
         [SerializeField] private ResultUI _resultUI;
+        [SerializeField] private RotateButton _rotateButton;
         [SerializeField] private ContinueState _continueState;
         [SerializeField] private ToTopScreenState _toTopScreenState;
 
@@ -20,6 +21,7 @@ namespace MT.PlayScreen.States
         public void Enter()
         {
             _resultUI.Show();
+            _rotateButton.Hide();
         }
 
         private void OnContinueButtonClick()
