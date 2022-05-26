@@ -2331,6 +2331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2975705a57e537d4ab4177f7002f51b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _heightMagnification: 3.3333333
   _playData: {fileID: 2930115139255164885}
   _blockStore: {fileID: 2734507599868963625}
   _foundation: {fileID: 8704784964144729435}
