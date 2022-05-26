@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Cysharp.Threading.Tasks;
 
 namespace MT.Blocks
 {
@@ -51,11 +52,11 @@ namespace MT.Blocks
             _rigidbody.simulated = simulated;
         }
 
-        public void Rotate()
+        public async void Rotate()
         {
             var currentAngle = transform.eulerAngles;
             var targetAngle = currentAngle + new Vector3(0, 0, RotateAngle);
-            transform.DORotate(targetAngle, RotateDuration);
+            await transform.DORotate(targetAngle, RotateDuration);
         }
 
         // ブロックの動きが一定以下になればtrue

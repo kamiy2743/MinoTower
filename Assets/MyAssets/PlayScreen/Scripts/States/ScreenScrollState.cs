@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using MT.Util;
 using MT.Blocks;
-using DG.Tweening;
 
 namespace MT.PlayScreen.States
 {
@@ -30,13 +29,11 @@ namespace MT.PlayScreen.States
             _nextState.Enter();
         }
 
-        private void ScreenScroll()
+        private async void ScreenScroll()
         {
             var maxHeight = _blockStore.CalcMaxHeight();
-            ScreenScroller.Instance.SetScroll(new ScrollAmount(maxHeight.value), _scrollDuration, () =>
-            {
-                ToNext();
-            });
+            await ScreenScroller.Instance.SetScroll(new ScrollAmount(maxHeight.value), _scrollDuration);
+            ToNext();
         }
     }
 }

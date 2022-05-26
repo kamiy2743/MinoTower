@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Cysharp.Threading.Tasks;
 
 namespace MT
 {
@@ -25,10 +26,10 @@ namespace MT
             SetScroll(ScrollAmount.Min, 0);
         }
 
-        public void SetScroll(ScrollAmount scrollAmount, float duration, System.Action completed = null)
+        public async UniTask SetScroll(ScrollAmount scrollAmount, float duration)
         {
             _scrollAmount = scrollAmount;
-            _cameraTransfrom.DOMoveY(scrollAmount.value, duration).OnComplete(() => completed?.Invoke());
+            await _cameraTransfrom.DOMoveY(scrollAmount.value, duration);
         }
     }
 }

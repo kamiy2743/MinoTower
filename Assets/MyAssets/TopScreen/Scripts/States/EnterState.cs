@@ -12,17 +12,15 @@ namespace MT.TopScreen.States
         [SerializeField] private GameObject _nextStateObject;
         [SerializeField] private Initializer _initializer;
 
-        public void Enter()
+        public async void Enter()
         {
-            Fader.Instance.FadeOut(0);
+            await Fader.Instance.FadeOut(0);
             _topScreenObject.SetActive(true);
             _initializer.Execute();
 
-            Fader.Instance.FadeIn(_fadeInDuration, () =>
-            {
-                var nextState = _nextStateObject.GetComponent<IState>();
-                nextState.Enter();
-            });
+            await Fader.Instance.FadeIn(_fadeInDuration);
+            var nextState = _nextStateObject.GetComponent<IState>();
+            nextState.Enter();
         }
     }
 }

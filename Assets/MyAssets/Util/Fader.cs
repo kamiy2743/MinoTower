@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Cysharp.Threading.Tasks;
 
 namespace MT.Util
 {
@@ -18,16 +19,16 @@ namespace MT.Util
             _canvasGroup = GetComponent<CanvasGroup>();
         }
 
-        public void FadeIn(float duration, System.Action completed = null)
+        public async UniTask FadeIn(float duration)
         {
             _canvasGroup.DOKill();
-            _canvasGroup.DOFade(0, duration).OnComplete(() => completed?.Invoke());
+            await _canvasGroup.DOFade(0, duration);
         }
 
-        public void FadeOut(float duration, System.Action completed = null)
+        public async UniTask FadeOut(float duration)
         {
             _canvasGroup.DOKill();
-            _canvasGroup.DOFade(1, duration).OnComplete(() => completed?.Invoke());
+            await _canvasGroup.DOFade(1, duration);
         }
     }
 }

@@ -11,16 +11,12 @@ namespace MT.PlayScreen.States
         [SerializeField] private Initializer _initializer;
         [SerializeField] private float _fadeDuration;
 
-        public void Enter()
+        public async void Enter()
         {
-            Fader.Instance.FadeOut(_fadeDuration, () =>
-            {
-                _initializer.Execute();
-                Fader.Instance.FadeIn(_fadeDuration, () =>
-                {
-                    _startState.Enter();
-                });
-            });
+            await Fader.Instance.FadeOut(_fadeDuration);
+            _initializer.Execute();
+            await Fader.Instance.FadeIn(_fadeDuration);
+            _startState.Enter();
         }
     }
 }

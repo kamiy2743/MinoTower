@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using DG.Tweening;
 using UnityEngine.UI;
+using Cysharp.Threading.Tasks;
 
 namespace MT.PlayScreen
 {
@@ -29,23 +30,23 @@ namespace MT.PlayScreen
             Hide(true);
         }
 
-        public void Show(bool immediately = false, System.Action completed = null)
+        public async void Show(bool immediately = false)
         {
             _maxHeight.text = _playData.MaxHeight.value.ToString();
             var fadeDuration = immediately ? 0 : _fadeDuration;
 
             _ui.interactable = true;
             _ui.blocksRaycasts = true;
-            _ui.DOFade(1, fadeDuration).OnComplete(() => completed?.Invoke());
+            await _ui.DOFade(1, fadeDuration);
         }
 
-        public void Hide(bool immediately = false, System.Action completed = null)
+        public async void Hide(bool immediately = false)
         {
             var fadeDuration = immediately ? 0 : _fadeDuration;
 
             _ui.interactable = false;
             _ui.blocksRaycasts = false;
-            _ui.DOFade(0, fadeDuration).OnComplete(() => completed?.Invoke());
+            await _ui.DOFade(0, fadeDuration);
         }
     }
 }

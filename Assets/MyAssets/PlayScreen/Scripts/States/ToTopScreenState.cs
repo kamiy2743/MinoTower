@@ -11,13 +11,11 @@ namespace MT.PlayScreen.States
         [SerializeField] private float _fadeOutDuration;
         [SerializeField] private MT.TopScreen.States.EnterState _topScreenEnterState;
 
-        public void Enter()
+        public async void Enter()
         {
-            Fader.Instance.FadeOut(_fadeOutDuration, () =>
-            {
-                _playScreenObject.SetActive(false);
-                _topScreenEnterState.Enter();
-            });
+            await Fader.Instance.FadeOut(_fadeOutDuration);
+            _playScreenObject.SetActive(false);
+            _topScreenEnterState.Enter();
         }
     }
 }
