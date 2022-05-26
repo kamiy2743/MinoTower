@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MT.Util;
-using MT.Inputs;
+using MT.PlayScreen.Inputs;
 using MT.Blocks;
 
 namespace MT.PlayScreen.States

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MT.Inputs
+namespace MT.PlayScreen.Inputs
 {
     public interface IPlayerInput
     {
