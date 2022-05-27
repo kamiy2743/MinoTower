@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using MT.Screens.PlayScreen.UI;
 using Extension;
 
-namespace MT.Screens.PlayScreen.Inputs
+namespace MT.Screens.PlayScreen.Systems
 {
     public class PlayerInput : MonoBehaviour, IPlayerInput
     {

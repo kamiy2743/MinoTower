@@ -4,7 +4,7 @@ using UnityEngine;
 using MT.Blocks;
 using MT.Screens.PlayScreen.UI;
 
-namespace MT.Screens.PlayScreen
+namespace MT.Screens.PlayScreen.Systems
 {
     public class Initializer : MonoBehaviour
     {

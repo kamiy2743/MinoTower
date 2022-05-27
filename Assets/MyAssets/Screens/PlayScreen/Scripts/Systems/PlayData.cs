@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MT.Blocks;
 
-namespace MT.Screens.PlayScreen
+namespace MT.Screens.PlayScreen.Systems
 {
     public class PlayData : MonoBehaviour
     {

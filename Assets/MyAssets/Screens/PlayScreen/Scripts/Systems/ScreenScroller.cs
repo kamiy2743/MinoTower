@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using Cysharp.Threading.Tasks;
 
-namespace MT.Screens.PlayScreen
+namespace MT.Screens.PlayScreen.Systems
 {
     public class ScreenScroller : MonoBehaviour
     {
