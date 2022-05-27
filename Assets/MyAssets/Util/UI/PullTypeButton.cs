@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace MT.Util
+namespace MT.Util.UI
 {
     public class PullTypeButton : MonoBehaviour, IPullTypeButton
     {
@@ -11,8 +10,8 @@ namespace MT.Util
 
         void Awake()
         {
-            var button = GetComponent<Button>();
-            button.onClick.AddListener(() => _isClicked = true);
+            var button = GetComponent<CustomButton>();
+            button.AddListener(() => _isClicked = true);
         }
 
         void LateUpdate()

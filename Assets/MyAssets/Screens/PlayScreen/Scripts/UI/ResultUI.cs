@@ -6,7 +6,7 @@ using DG.Tweening;
 using UnityEngine.UI;
 using Cysharp.Threading.Tasks;
 using MT.Screens.PlayScreen.Systems;
-using MT.Util;
+using MT.Util.UI;
 
 namespace MT.Screens.PlayScreen.UI
 {

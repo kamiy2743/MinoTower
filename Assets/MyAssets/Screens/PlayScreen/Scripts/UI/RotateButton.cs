@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using Cysharp.Threading.Tasks;
-using MT.Util;
+using MT.Util.UI;
 
 namespace MT.Screens.PlayScreen.UI
 {

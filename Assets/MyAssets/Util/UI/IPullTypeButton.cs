@@ -1,4 +1,4 @@
-namespace MT.Util
+namespace MT.Util.UI
 {
     public interface IPullTypeButton
     {
