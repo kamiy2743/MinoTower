@@ -615,7 +615,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005727174864124753}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -1127,7 +1127,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3970346753264878415}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 14.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1483,8 +1483,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6252451856348783278}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -5.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -65.5, z: 0}
+  m_LocalScale: {x: 50, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2778374842630942619}
@@ -1573,7 +1573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _screenScroller: {fileID: 7199898353998925582}
-  _scrollDuration: 0.1
+  _scrollDuration: 0.3
   _blocksMaxYProvider: {fileID: 3477530872413171192}
   _nextStateObject: {fileID: 1171206136631915893}
 --- !u!1 &6853650954370983166
@@ -1772,8 +1772,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7783612969977347552}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.39, z: 0}
-  m_LocalScale: {x: 3.8, y: 0.34, z: 1}
+  m_LocalPosition: {x: 0, y: -30, z: 0}
+  m_LocalScale: {x: 50, y: 4.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2778374842630942619}
@@ -2050,7 +2050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2975705a57e537d4ab4177f7002f51b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heightMagnification: 3.3333333
+  _heightMagnification: 0.2
   _playData: {fileID: 2930115139255164885}
   _blocksMaxYProvider: {fileID: 3477530872413171192}
   _foundation: {fileID: 8704784964144729435}
@@ -2342,6 +2342,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExitButton
       objectReference: {fileID: 0}
+    - target: {fileID: 6711361938124658139, guid: d46c129e62bb6934db6a8bd1a9a0df8a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711361938124658139, guid: d46c129e62bb6934db6a8bd1a9a0df8a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d46c129e62bb6934db6a8bd1a9a0df8a, type: 3}
 --- !u!114 &487618200552583277 stripped
@@ -2454,6 +2462,14 @@ PrefabInstance:
     - target: {fileID: 246506877448258119, guid: d46c129e62bb6934db6a8bd1a9a0df8a, type: 3}
       propertyPath: m_Name
       value: ContinueButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711361938124658139, guid: d46c129e62bb6934db6a8bd1a9a0df8a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711361938124658139, guid: d46c129e62bb6934db6a8bd1a9a0df8a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d46c129e62bb6934db6a8bd1a9a0df8a, type: 3}

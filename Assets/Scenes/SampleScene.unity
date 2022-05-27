@@ -320,6 +320,18 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1815552639}
+    - target: {fileID: 84271704406364158, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 84271704406364158, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 407446886272934837, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1036995523330229680, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
       propertyPath: m_Camera
       value: 
@@ -360,6 +372,14 @@ PrefabInstance:
       propertyPath: _topScreenEnterState
       value: 
       objectReference: {fileID: 367119329}
+    - target: {fileID: 8844779625220893305, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844779625220893305, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8289075627144112220, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
