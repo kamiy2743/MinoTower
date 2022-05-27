@@ -10,19 +10,20 @@ namespace MT.PlayScreen
     {
         [SerializeField] private EnterState _enterState;
 
-        public bool isOpened { get; private set; }
-        public bool isActive => gameObject.activeSelf;
+        public ScreenType ScreenType { get; private set; } = ScreenType.Play;
+        public bool IsOpened { get; private set; }
+        public bool IsActive => gameObject.activeSelf;
 
         public void Open()
         {
-            isOpened = true;
+            IsOpened = true;
             gameObject.SetActive(true);
             _enterState.Enter();
         }
 
         public void Close()
         {
-            isOpened = false;
+            IsOpened = false;
             gameObject.SetActive(false);
         }
     }
