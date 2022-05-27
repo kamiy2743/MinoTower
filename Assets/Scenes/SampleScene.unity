@@ -231,6 +231,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aac840f541729684186b0c2054176469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &367119330 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7261736172010917247, guid: 27c772dd5bef55641ba451c550996287, type: 3}
+  m_PrefabInstance: {fileID: 367119328}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999993506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85feb475ddc5a848b801cec6081342e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &853480912
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,6 +388,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7369440275655631485, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
+      propertyPath: _topScreen
+      value: 
+      objectReference: {fileID: 367119330}
     - target: {fileID: 7369440275655631485, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
       propertyPath: _topScreenEnterState
       value: 

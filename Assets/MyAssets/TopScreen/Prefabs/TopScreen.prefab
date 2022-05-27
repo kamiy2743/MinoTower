@@ -578,9 +578,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5f22bf51c6fb7e4b8e2fcee87a7d040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _topScreenObject: {fileID: 7036608860831686544}
+  _topScreen: {fileID: 7261736172010917247}
+  _playScreen: {fileID: 0}
   _fadeOutDuration: 0.5
-  _playScreenEnterState: {fileID: 0}
 --- !u!1 &5964703309953708223
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,7 +626,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fadeInDuration: 0.5
-  _topScreenObject: {fileID: 7036608860831686544}
   _nextStateObject: {fileID: 7728803297274535607}
   _initializer: {fileID: 1595780839976176530}
 --- !u!1 &6090032303776846344
@@ -739,6 +738,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7036608860831686559}
+  - component: {fileID: 7261736172010917247}
   m_Layer: 0
   m_Name: TopScreen
   m_TagString: Untagged
@@ -765,6 +765,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7261736172010917247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7036608860831686544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85feb475ddc5a848b801cec6081342e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enterState: {fileID: 1001714337568447774}
 --- !u!1 &7728803297274535607
 GameObject:
   m_ObjectHideFlags: 0

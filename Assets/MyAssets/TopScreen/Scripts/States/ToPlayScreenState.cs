@@ -7,14 +7,14 @@ namespace MT.TopScreen.States
 {
     public class ToPlayScreenState : MonoBehaviour, IState
     {
-        [SerializeField] private GameObject _topScreenObject;
-        [SerializeField] private float _fadeOutDuration;
+        [SerializeField] private TopScreen _topScreen;
         [SerializeField] private MT.PlayScreen.PlayScreen _playScreen;
+        [SerializeField] private float _fadeOutDuration;
 
         public async void Enter()
         {
             await Fader.Instance.FadeOut(_fadeOutDuration);
-            _topScreenObject.SetActive(false);
+            _topScreen.Close();
             _playScreen.Open();
         }
     }
