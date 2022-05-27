@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using Cysharp.Threading.Tasks;
+using MT.Util;
 
 namespace MT.Screens.PlayScreen.UI
 {
-    public class RotateButton : MonoBehaviour
+    public class RotateButton : MonoBehaviour, IPullTypeButton
     {
         [SerializeField] private float _hideDuration;
 
