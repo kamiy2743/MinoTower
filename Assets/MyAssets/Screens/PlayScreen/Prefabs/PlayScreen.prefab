@@ -1973,6 +1973,14 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 3244463146276227370, guid: 175ee73dd78657c4eaf02c2c6d205421, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 7369590759860735991, guid: afa51d8f84786294dbc46a78b90eb422, type: 2}
+    - target: {fileID: 3244463146276227370, guid: 175ee73dd78657c4eaf02c2c6d205421, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3244463146276227371, guid: 175ee73dd78657c4eaf02c2c6d205421, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2317,6 +2325,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExitButton
       objectReference: {fileID: 0}
+    - target: {fileID: 6711361938124658138, guid: d46c129e62bb6934db6a8bd1a9a0df8a, type: 3}
+      propertyPath: m_text
+      value: "\u30BF\u30A4\u30C8\u30EB\u3078"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711361938124658138, guid: d46c129e62bb6934db6a8bd1a9a0df8a, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 7369590759860735991, guid: afa51d8f84786294dbc46a78b90eb422, type: 2}
+    - target: {fileID: 6711361938124658138, guid: d46c129e62bb6934db6a8bd1a9a0df8a, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6711361938124658139, guid: d46c129e62bb6934db6a8bd1a9a0df8a, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -2437,6 +2457,18 @@ PrefabInstance:
     - target: {fileID: 246506877448258119, guid: d46c129e62bb6934db6a8bd1a9a0df8a, type: 3}
       propertyPath: m_Name
       value: ContinueButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711361938124658138, guid: d46c129e62bb6934db6a8bd1a9a0df8a, type: 3}
+      propertyPath: m_text
+      value: "\u3082\u3046\u4E00\u5EA6"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711361938124658138, guid: d46c129e62bb6934db6a8bd1a9a0df8a, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 7369590759860735991, guid: afa51d8f84786294dbc46a78b90eb422, type: 2}
+    - target: {fileID: 6711361938124658138, guid: d46c129e62bb6934db6a8bd1a9a0df8a, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6711361938124658139, guid: d46c129e62bb6934db6a8bd1a9a0df8a, type: 3}
       propertyPath: m_SizeDelta.x
