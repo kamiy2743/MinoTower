@@ -9,6 +9,7 @@ namespace MT.Screens.PlayScreen
     public class PlayScreen : MonoBehaviour, IScreen
     {
         [SerializeField] private EnterState _enterState;
+        [SerializeField] private ScreenScroller _screenScroller;
 
         public ScreenType ScreenType { get; private set; } = ScreenType.Play;
         public bool IsOpened { get; private set; }
@@ -24,6 +25,7 @@ namespace MT.Screens.PlayScreen
         public void Close()
         {
             IsOpened = false;
+            _screenScroller.Initialize();
             gameObject.SetActive(false);
         }
     }

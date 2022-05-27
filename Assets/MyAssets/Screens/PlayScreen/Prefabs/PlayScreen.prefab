@@ -1250,6 +1250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enterState: {fileID: 1671800625636424476}
+  _screenScroller: {fileID: 7199898353998925582}
 --- !u!1 &3970346753264878415
 GameObject:
   m_ObjectHideFlags: 0
