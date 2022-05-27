@@ -15,7 +15,7 @@ namespace MT.Screens.PlayScreen.UI
         [SerializeField] private PlayData _playData;
         [SerializeField] private CanvasGroup _ui;
         [SerializeField] private float _fadeDuration;
-        [SerializeField] private TextMeshProUGUI _maxHeight;
+        [SerializeField] private CustomText _maxHeight;
         [SerializeField] private PullTypeButton _continueButton;
         [SerializeField] private PullTypeButton _exitButton;
 
@@ -54,7 +54,7 @@ namespace MT.Screens.PlayScreen.UI
         private void SetMaxHeightText(float maxHeightValue)
         {
             var formattedHeight = Mathf.Floor(maxHeightValue * 10f) / 10f;
-            _maxHeight.text = formattedHeight.ToString() + "m";
+            _maxHeight.SetText(formattedHeight.ToString() + "m");
         }
     }
 }
