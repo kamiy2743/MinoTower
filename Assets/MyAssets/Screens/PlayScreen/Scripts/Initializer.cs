@@ -11,6 +11,7 @@ namespace MT.Screens.PlayScreen
         [SerializeField] private BlockStore _blockStore;
         [SerializeField] private ResultUI _resultUI;
         [SerializeField] private RotateButton _rotateButton;
+        [SerializeField] private ScreenScroller _screenScroller;
 
         public void Execute()
         {
@@ -18,7 +19,7 @@ namespace MT.Screens.PlayScreen
             _blockStore.Initialize();
             _resultUI.Initialize();
             _rotateButton.Initialize();
-            ScreenScroller.Instance.Initialize();
+            _screenScroller.Initialize();
         }
     }
 }

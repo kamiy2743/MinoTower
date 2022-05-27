@@ -4,19 +4,15 @@ using UnityEngine;
 using DG.Tweening;
 using Cysharp.Threading.Tasks;
 
-namespace MT
+namespace MT.Screens.PlayScreen
 {
     public class ScreenScroller : MonoBehaviour
     {
-        public static ScreenScroller Instance => _instance;
-        private static ScreenScroller _instance;
-
         private Transform _cameraTransfrom;
         private ScrollAmount _scrollAmount;
 
         void Awake()
         {
-            _instance = this;
             _cameraTransfrom = Camera.main.transform;
             Initialize();
         }

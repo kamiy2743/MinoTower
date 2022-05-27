@@ -8,7 +8,7 @@ namespace MT.Screens.TopScreen
     {
         public void Execute()
         {
-            ScreenScroller.Instance.Initialize();
+
         }
     }
 }
