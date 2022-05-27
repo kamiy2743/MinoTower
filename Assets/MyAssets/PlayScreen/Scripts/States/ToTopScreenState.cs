@@ -14,7 +14,7 @@ namespace MT.PlayScreen.States
         public async void Enter()
         {
             await Fader.Instance.FadeOut(_fadeOutDuration);
-            _playScreen.Exit();
+            _playScreen.Close();
             _topScreenEnterState.Enter();
         }
     }

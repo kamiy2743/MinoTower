@@ -15,7 +15,7 @@ namespace Mt.TopScreen.States
         {
             await Fader.Instance.FadeOut(_fadeOutDuration);
             _topScreenObject.SetActive(false);
-            _playScreen.Enter();
+            _playScreen.Open();
         }
     }
 }

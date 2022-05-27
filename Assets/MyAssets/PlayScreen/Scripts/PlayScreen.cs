@@ -9,13 +9,13 @@ namespace MT.PlayScreen
     {
         [SerializeField] private EnterState _enterState;
 
-        public void Enter()
+        public void Open()
         {
             gameObject.SetActive(true);
             _enterState.Enter();
         }
 
-        public void Exit()
+        public void Close()
         {
             gameObject.SetActive(false);
         }
