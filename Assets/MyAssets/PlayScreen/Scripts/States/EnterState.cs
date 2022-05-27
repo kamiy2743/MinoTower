@@ -9,7 +9,7 @@ namespace MT.PlayScreen.States
     {
         [SerializeField] private float _fadeInDuration;
         [SerializeField] private GameObject _nextStateObject;
-        [SerializeField] private Initializer _initializer;
+        [SerializeField] private PlayScreenInitializer _initializer;
 
         public async void Enter()
         {
