@@ -20,12 +20,12 @@ namespace MT.Screens.PlayScreen.Systems
 
         void Awake()
         {
-            _trigger.AddListenner(EventTriggerType.PointerDown, () =>
+            _trigger.AddListener(EventTriggerType.PointerDown, () =>
             {
                 isDrag = true;
             });
 
-            _trigger.AddListenner(EventTriggerType.PointerUp, () =>
+            _trigger.AddListener(EventTriggerType.PointerUp, () =>
             {
                 isDrag = false;
                 isDrop = true;

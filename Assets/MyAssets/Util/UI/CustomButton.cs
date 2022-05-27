@@ -16,7 +16,7 @@ namespace MT.Util.UI
             _canvasGroup = GetComponent<CanvasGroup>();
         }
 
-        public void AddListenner(UnityAction call)
+        public void AddListener(UnityAction call)
         {
             _onclickEvent.AddListener(call);
         }

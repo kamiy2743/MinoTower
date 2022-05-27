@@ -7,7 +7,7 @@ namespace Extension
 {
     public static class EventTriggerExt
     {
-        public static void AddListenner(this EventTrigger eventTrigger, EventTriggerType eventTriggerType, System.Action callback)
+        public static void AddListener(this EventTrigger eventTrigger, EventTriggerType eventTriggerType, System.Action callback)
         {
             EventTrigger.Entry entry = new EventTrigger.Entry();
             entry.eventID = eventTriggerType;
