@@ -13,8 +13,6 @@ namespace MT.Screens.PlayScreen.States
         [SerializeField] private BlockGenerator _blockGenerator;
         [SerializeField] private GameObject _nextStateObject;
 
-        public Block SpawnedBlock { get; private set; }
-
         private IState _nextState;
 
         void Awake()
@@ -41,7 +39,6 @@ namespace MT.Screens.PlayScreen.States
             var block = _blockGenerator.RandomGenerate(position, rotation);
             block.OnSpwned();
             _blockStore.Add(block);
-            SpawnedBlock = block;
         }
     }
 }

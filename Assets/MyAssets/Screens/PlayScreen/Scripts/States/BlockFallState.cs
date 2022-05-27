@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MT.Util;
+using MT.Blocks;
 
 namespace MT.Screens.PlayScreen.States
 {
     public class BlockFallState : MonoBehaviour, IState
     {
-        [SerializeField] private BlockSpawnState _spawnState;
+        [SerializeField] private ActiveBlockProvider _activeBlockProvider;
         [SerializeField] private GameObject _nextStateObject;
 
         private IState _nextState;
@@ -19,7 +20,7 @@ namespace MT.Screens.PlayScreen.States
 
         public void Enter()
         {
-            _spawnState.SpawnedBlock.StartFall();
+            _activeBlockProvider.Get().StartFall();
             ToNext();
         }
 

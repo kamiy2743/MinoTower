@@ -48,6 +48,51 @@ MonoBehaviour:
   _defaultNextStateObject: {fileID: 9045013810753127237}
   _resultState: {fileID: 140450598018068685}
   _gameOverArea: {fileID: 995571414687687101}
+--- !u!1 &134705386638374265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7816281411969654797}
+  - component: {fileID: 6149047362443749521}
+  m_Layer: 0
+  m_Name: ActiveBlockProvider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7816281411969654797
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134705386638374265}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 861318412995763779}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6149047362443749521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134705386638374265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc9e8b47034cac4ca28804fc6e79c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _blockStore: {fileID: 2734507599868963625}
 --- !u!1 &343471599400187325
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,7 +471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerInput: {fileID: 8224439341549028581}
-  _spawnState: {fileID: 6075823827237863443}
+  _ativeBlockProvider: {fileID: 6149047362443749521}
   _nextStateObject: {fileID: 1784461208354424330}
 --- !u!1 &1749265928814742316
 GameObject:
@@ -519,7 +564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 198a87e8096cd7a4c909549cbac1be12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnState: {fileID: 6075823827237863443}
+  _activeBlockProvider: {fileID: 6149047362443749521}
   _nextStateObject: {fileID: 106426907077313222}
 --- !u!1 &1980921668095387130
 GameObject:
@@ -1327,6 +1372,7 @@ Transform:
   - {fileID: 1147874101601948766}
   - {fileID: 89464003111845723}
   - {fileID: 1353691394407681916}
+  - {fileID: 7816281411969654797}
   m_Father: {fileID: 1800812488357281423}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

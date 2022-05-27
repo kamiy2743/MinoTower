@@ -10,11 +10,11 @@ namespace MT.Screens.PlayScreen.States
     public class BlockControllState : MonoBehaviour, IState
     {
         [SerializeField] private PlayerInput _playerInput;
-        [SerializeField] private BlockSpawnState _spawnState;
+        [SerializeField] private ActiveBlockProvider _ativeBlockProvider;
         [SerializeField] private GameObject _nextStateObject;
 
         private IState _nextState;
-        private Block _spawnedBlock => _spawnState.SpawnedBlock;
+        private Block _activeBlock => _ativeBlockProvider.Get();
 
         private bool _isActive = false;
 
@@ -40,14 +40,14 @@ namespace MT.Screens.PlayScreen.States
 
             if (_playerInput.RotateBlock())
             {
-                _spawnedBlock.Rotate();
+                _activeBlock.Rotate();
             }
 
             if (_playerInput.MoveBlock())
             {
-                var pos = _spawnedBlock.transform.position;
+                var pos = _activeBlock.transform.position;
                 pos.x = _playerInput.PointerPosition().x;
-                _spawnedBlock.transform.position = pos;
+                _activeBlock.transform.position = pos;
             }
 
             if (_playerInput.DropBlock())
