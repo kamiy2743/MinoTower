@@ -820,7 +820,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2778374842630942619}
   m_Layer: 0
-  m_Name: Environment
+  m_Name: Stages
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1634,7 +1634,7 @@ GameObject:
   - component: {fileID: 3763356978704267901}
   - component: {fileID: 4486604711655041403}
   m_Layer: 0
-  m_Name: PlayScreenInitializer
+  m_Name: Initializer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
