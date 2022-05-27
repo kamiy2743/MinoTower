@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using MT.Screens.PlayScreen.UI;
+using MT.Util.UI;
 using Extension;
 
 namespace MT.Screens.PlayScreen.Systems
@@ -10,7 +10,7 @@ namespace MT.Screens.PlayScreen.Systems
     public class PlayerInput : MonoBehaviour, IPlayerInput
     {
         [SerializeField] private EventTrigger _trigger;
-        [SerializeField] private RotateButton _rotateButton;
+        [SerializeField] private PullTypeButton _rotateButton;
 
         private Camera _mainCamera;
 

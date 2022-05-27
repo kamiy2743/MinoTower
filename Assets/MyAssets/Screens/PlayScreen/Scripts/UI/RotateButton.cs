@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using DG.Tweening;
 using Cysharp.Threading.Tasks;
-using MT.Util.UI;
 
 namespace MT.Screens.PlayScreen.UI
 {
-    public class RotateButton : MonoBehaviour, IPullTypeButton
+    public class RotateButton : MonoBehaviour
     {
         [SerializeField] private float _hideDuration;
 
@@ -18,14 +16,6 @@ namespace MT.Screens.PlayScreen.UI
         void Awake()
         {
             _canvasGroup = GetComponent<CanvasGroup>();
-
-            var button = GetComponent<Button>();
-            button.onClick.AddListener(() => _isClicked = true);
-        }
-
-        void LateUpdate()
-        {
-            _isClicked = false;
         }
 
         public void Initialize()
@@ -33,13 +23,9 @@ namespace MT.Screens.PlayScreen.UI
             ShowImmediately();
         }
 
-        public bool IsClicked()
-        {
-            return _isClicked;
-        }
-
         public void ShowImmediately()
         {
+            _canvasGroup.DOKill();
             _canvasGroup.alpha = 1;
         }
 
