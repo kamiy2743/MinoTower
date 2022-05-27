@@ -1,29 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MT.Screens;
 
 namespace MT
 {
     public class ApplicationEntryPoint : MonoBehaviour
     {
-        [SerializeField] private GameObject _topScreenObject;
-        [SerializeField] private MT.TopScreen.States.EnterState _topScreenEnterState;
-        [SerializeField] private GameObject _playScreenObject;
-        [SerializeField] private MT.PlayScreen.States.EnterState _playScreenEnterState;
+        [SerializeField] private GameObject[] _screenObjects;
+        [SerializeField] private ScreenType _firstOpenScreen;
+
+        private IScreen[] _screens;
+
+        void Awake()
+        {
+            var screenList = new List<IScreen>();
+            foreach (var item in _screenObjects)
+            {
+                var screen = item.GetComponent<IScreen>();
+                screenList.Add(screen);
+            }
+            _screens = screenList.ToArray();
+        }
 
         // Start is called before the first frame update
         void Start()
         {
-            if (_topScreenObject.activeSelf)
+            foreach (var screen in _screens)
             {
-                _topScreenEnterState.Enter();
-                return;
-            }
-
-            if (_playScreenObject.activeSelf)
-            {
-                _playScreenEnterState.Enter();
-                return;
+                if (screen.ScreenType == _firstOpenScreen)
+                {
+                    screen.Open();
+                }
+                else
+                {
+                    screen.Close();
+                }
             }
         }
     }

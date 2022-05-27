@@ -620,10 +620,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f5f3859037849e4b9dc0af3c03f7dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _topScreenObject: {fileID: 1999993506}
-  _topScreenEnterState: {fileID: 367119329}
-  _playScreenObject: {fileID: 160967864}
-  _playScreenEnterState: {fileID: 1439158588}
+  _screenObjects:
+  - {fileID: 1999993506}
+  - {fileID: 160967864}
+  _firstOpenScreen: 0
 --- !u!20 &1815552639 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 3693984296850190997, guid: 2ecb088ffc5ae6542b0ba155b349b576, type: 3}
