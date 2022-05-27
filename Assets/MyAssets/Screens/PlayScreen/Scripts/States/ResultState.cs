@@ -13,26 +13,36 @@ namespace MT.Screens.PlayScreen.States
         [SerializeField] private ContinueState _continueState;
         [SerializeField] private ToTopScreenState _toTopScreenState;
 
-        void Start()
-        {
-            _resultUI.ContinueButtonClick.AddListener(OnContinueButtonClick);
-            _resultUI.ExitButtonClick.AddListener(OnExitButtonClick);
-        }
+        private bool _isActive;
 
         public void Enter()
         {
+            _isActive = true;
             _resultUI.Show();
             _rotateButton.Hide();
         }
 
-        private void OnContinueButtonClick()
+        private void Tonext(IState nextState)
         {
-            _continueState.Enter();
+            _isActive = false;
+            nextState.Enter();
         }
 
-        private void OnExitButtonClick()
+        void Update()
         {
-            _toTopScreenState.Enter();
+            if (!_isActive) return;
+
+            if (_resultUI.ContinueButtonClicked)
+            {
+                Tonext(_continueState);
+                return;
+            }
+
+            if (_resultUI.ExitButtonClikced)
+            {
+                Tonext(_toTopScreenState);
+                return;
+            }
         }
     }
 }

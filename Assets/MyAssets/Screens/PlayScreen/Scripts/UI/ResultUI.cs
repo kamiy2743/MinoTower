@@ -6,6 +6,7 @@ using DG.Tweening;
 using UnityEngine.UI;
 using Cysharp.Threading.Tasks;
 using MT.Screens.PlayScreen.Systems;
+using MT.Util;
 
 namespace MT.Screens.PlayScreen.UI
 {
@@ -15,11 +16,11 @@ namespace MT.Screens.PlayScreen.UI
         [SerializeField] private CanvasGroup _ui;
         [SerializeField] private float _fadeDuration;
         [SerializeField] private TextMeshProUGUI _maxHeight;
-        [SerializeField] private Button _continueButton;
-        [SerializeField] private Button _exitButton;
+        [SerializeField] private PullTypeButton _continueButton;
+        [SerializeField] private PullTypeButton _exitButton;
 
-        public Button.ButtonClickedEvent ContinueButtonClick => _continueButton.onClick;
-        public Button.ButtonClickedEvent ExitButtonClick => _exitButton.onClick;
+        public bool ContinueButtonClicked => _continueButton.IsClicked();
+        public bool ExitButtonClikced => _exitButton.IsClicked();
 
         void Awake()
         {

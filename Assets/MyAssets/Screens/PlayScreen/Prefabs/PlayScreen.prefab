@@ -1212,8 +1212,8 @@ MonoBehaviour:
   _ui: {fileID: 4768213161598187078}
   _fadeDuration: 0.5
   _maxHeight: {fileID: 4135451598044426375}
-  _continueButton: {fileID: 7953362787359305175}
-  _exitButton: {fileID: 61729123224315393}
+  _continueButton: {fileID: 2545773312641008383}
+  _exitButton: {fileID: 1086942904366336723}
 --- !u!1 &3940982562635026737
 GameObject:
   m_ObjectHideFlags: 0
