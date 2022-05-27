@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using Cysharp.Threading.Tasks;
 
-namespace MT.Screens.PlayScreen
+namespace MT.Screens.PlayScreen.UI
 {
     public class RotateButton : MonoBehaviour
     {

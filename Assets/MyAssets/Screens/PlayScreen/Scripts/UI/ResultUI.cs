@@ -6,7 +6,7 @@ using DG.Tweening;
 using UnityEngine.UI;
 using Cysharp.Threading.Tasks;
 
-namespace MT.Screens.PlayScreen
+namespace MT.Screens.PlayScreen.UI
 {
     public class ResultUI : MonoBehaviour
     {

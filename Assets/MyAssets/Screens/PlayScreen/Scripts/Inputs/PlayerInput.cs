@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using MT.Screens.PlayScreen;
+using MT.Screens.PlayScreen.UI;
 using Extension;
 
 namespace MT.Screens.PlayScreen.Inputs
