@@ -25,6 +25,18 @@ namespace MT.Blocks
             _colliders = GetComponentsInChildren<BoxCollider2D>();
             SetColliderEnabled(true);
             SetRigidbodySimulated(true);
+
+            // TODO テストコード
+            SetColor(Color.HSVToRGB(Random.value, 1, 1));
+        }
+
+        private void SetColor(Color color)
+        {
+            var spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+            foreach (var item in spriteRenderers)
+            {
+                item.color = color;
+            }
         }
 
         public void OnSpwned()
