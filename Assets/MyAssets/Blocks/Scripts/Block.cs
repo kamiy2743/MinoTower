@@ -60,7 +60,7 @@ namespace MT.Blocks
         }
 
         // ブロックの動きが一定以下になればtrue
-        public bool IsStop()
+        public bool IsStopped()
         {
             return _rigidbody.IsSleeping();
         }

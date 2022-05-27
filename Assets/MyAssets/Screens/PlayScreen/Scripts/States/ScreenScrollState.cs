@@ -11,7 +11,7 @@ namespace MT.Screens.PlayScreen.States
     {
         [SerializeField] private ScreenScroller _screenScroller;
         [SerializeField] private float _scrollDuration;
-        [SerializeField] private BlockStore _blockStore;
+        [SerializeField] private BlocksMaxYProvider _blocksMaxYProvider;
         [SerializeField] private GameObject _nextStateObject;
 
         private IState _nextState;
@@ -33,7 +33,7 @@ namespace MT.Screens.PlayScreen.States
 
         private async void ScreenScroll()
         {
-            var maxY = _blockStore.GetMaxY();
+            var maxY = _blocksMaxYProvider.MaxY();
             await _screenScroller.SetScroll(new ScrollAmount(maxY), _scrollDuration);
             ToNext();
         }

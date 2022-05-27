@@ -12,7 +12,7 @@ namespace MT.Screens.PlayScreen.States
 {
     public class BlockStopState : MonoBehaviour, IState
     {
-        [SerializeField] private BlockStore _blockStore;
+        [SerializeField] private BlocksAllStoppedProvider _blocksAllStoppedProvider;
         [SerializeField] private GameObject _defaultNextStateObject;
         [SerializeField] private ResultState _resultState;
         [SerializeField] private GameOverArea _gameOverArea;
@@ -57,7 +57,7 @@ namespace MT.Screens.PlayScreen.States
             try
             {
                 _cts = new CancellationTokenSource();
-                await UniTask.WaitUntil(() => _blockStore.IsStop(), cancellationToken: _cts.Token);
+                await UniTask.WaitUntil(() => _blocksAllStoppedProvider.IsAllStopped(), cancellationToken: _cts.Token);
                 ToNext(_defaultNextState);
             }
             catch (System.OperationCanceledException e)

@@ -6,49 +6,27 @@ namespace MT.Blocks
 {
     public class BlockStore : MonoBehaviour
     {
-        private List<Block> blocks = new List<Block>();
+        private List<Block> _blocks = new List<Block>();
 
         public void Initialize()
         {
-            foreach (var block in blocks)
+            foreach (var block in _blocks)
             {
                 Destroy(block.gameObject);
             }
 
-            blocks.Clear();
+            _blocks.Clear();
         }
 
         public void Add(Block block)
         {
-            blocks.Add(block);
+            _blocks.Add(block);
             block.transform.SetParent(this.transform);
         }
 
-        public float GetMaxY()
+        public Block[] Blocks()
         {
-            var maxY = float.NegativeInfinity;
-
-            foreach (var block in blocks)
-            {
-                var y = block.CalcMaxY();
-                if (y > maxY)
-                {
-                    maxY = y;
-                }
-            }
-
-            return maxY;
-        }
-
-        public bool IsStop()
-        {
-            foreach (var block in blocks)
-            {
-                if (!block.IsStop())
-                    return false;
-            }
-
-            return true;
+            return _blocks.ToArray();
         }
     }
 }
