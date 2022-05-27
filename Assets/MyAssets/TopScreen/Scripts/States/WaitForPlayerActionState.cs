@@ -4,7 +4,7 @@ using UnityEngine;
 using MT.Util;
 using UnityEngine.UI;
 
-namespace Mt.TopScreen.States
+namespace MT.TopScreen.States
 {
     public class WaitForPlayerActionState : MonoBehaviour, IState
     {

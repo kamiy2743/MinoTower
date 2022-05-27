@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MT.Util;
 
-namespace Mt.TopScreen.States
+namespace MT.TopScreen.States
 {
     public class ToPlayScreenState : MonoBehaviour, IState
     {
