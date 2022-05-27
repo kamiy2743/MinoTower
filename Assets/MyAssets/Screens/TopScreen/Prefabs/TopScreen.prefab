@@ -109,7 +109,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 399219091439096402}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -876,6 +876,22 @@ PrefabInstance:
       value: PlayButton
       objectReference: {fileID: 0}
     - target: {fileID: 5363577509592109296, guid: d46c129e62bb6934db6a8bd1a9a0df8a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711361938124658139, guid: d46c129e62bb6934db6a8bd1a9a0df8a, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711361938124658139, guid: d46c129e62bb6934db6a8bd1a9a0df8a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 104.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711361938124658139, guid: d46c129e62bb6934db6a8bd1a9a0df8a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 40.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711361938124658140, guid: d46c129e62bb6934db6a8bd1a9a0df8a, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
