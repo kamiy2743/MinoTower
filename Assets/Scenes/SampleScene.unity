@@ -167,7 +167,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf8aad6dc0bea14ebbc0d4c488fa500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _BGMClips: []
+  _BGMClips:
+  - Type: 0
+    Clip: {fileID: 0}
+  - Type: 0
+    Clip: {fileID: 8300000, guid: f7afaeb586f839348840004ec15b8af4, type: 3}
   _SEClips: []
 --- !u!1 &160967864 stripped
 GameObject:
@@ -218,7 +222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7036608860831686544, guid: 27c772dd5bef55641ba451c550996287, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7036608860831686559, guid: 27c772dd5bef55641ba451c550996287, type: 3}
       propertyPath: m_RootOrder
@@ -543,11 +547,11 @@ PrefabInstance:
       objectReference: {fileID: 1815552639}
     - target: {fileID: 84271704406364158, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 132.01
       objectReference: {fileID: 0}
     - target: {fileID: 84271704406364158, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 46.04
       objectReference: {fileID: 0}
     - target: {fileID: 407446886272934837, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
       propertyPath: m_IsActive
@@ -555,11 +559,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 995013741564683626, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 144.89
       objectReference: {fileID: 0}
     - target: {fileID: 995013741564683626, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 139.5
       objectReference: {fileID: 0}
     - target: {fileID: 1036995523330229680, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
       propertyPath: m_Camera
@@ -583,7 +587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3940982562635026737, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6834319516405777486, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
       propertyPath: m_SizeDelta.x
@@ -603,11 +607,11 @@ PrefabInstance:
       objectReference: {fileID: 367119329}
     - target: {fileID: 8844779625220893305, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 165.01
       objectReference: {fileID: 0}
     - target: {fileID: 8844779625220893305, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 46.04
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8289075627144112220, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}

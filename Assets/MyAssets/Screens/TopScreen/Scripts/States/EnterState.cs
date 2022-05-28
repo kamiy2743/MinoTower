@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MT.Util;
 using MT.Screens.TopScreen.Systems;
+using MT.Audio;
 
 namespace MT.Screens.TopScreen.States
 {
@@ -18,6 +19,7 @@ namespace MT.Screens.TopScreen.States
             _initializer.Execute();
 
             await Fader.Instance.FadeIn(_fadeInDuration);
+            AudioManager.Instance.PlayBGM(BGMType.Main);
             var nextState = _nextStateObject.GetComponent<IState>();
             nextState.Enter();
         }
