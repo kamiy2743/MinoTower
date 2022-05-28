@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using Cysharp.Threading.Tasks;
 using MT.Screens.PlayScreen.Systems;
 using MT.Util.UI;
+using MT.Util;
 
 namespace MT.Screens.PlayScreen.UI
 {
@@ -16,6 +17,7 @@ namespace MT.Screens.PlayScreen.UI
         [SerializeField] private CanvasGroup _ui;
         [SerializeField] private float _fadeDuration;
         [SerializeField] private CustomText _maxHeight;
+        [SerializeField] private PaperEffect _paperEffect;
         [SerializeField] private PullTypeButton _continueButton;
         [SerializeField] private PullTypeButton _exitButton;
 
@@ -35,6 +37,7 @@ namespace MT.Screens.PlayScreen.UI
         public async void Show(bool immediately = false)
         {
             SetMaxHeightText(_playData.MaxHeight.value);
+            PlayPaperEffect();
             var fadeDuration = immediately ? 0 : _fadeDuration;
 
             _ui.interactable = true;
@@ -55,6 +58,13 @@ namespace MT.Screens.PlayScreen.UI
         {
             var formattedHeight = Mathf.Floor(maxHeightValue * 10f) / 10f;
             _maxHeight.SetText(formattedHeight.ToString() + "m");
+        }
+
+        private void PlayPaperEffect()
+        {
+            var height = _playData.MaxHeight.value;
+            var ratio = height * 5f / 100f;
+            _paperEffect.Play(ratio);
         }
     }
 }

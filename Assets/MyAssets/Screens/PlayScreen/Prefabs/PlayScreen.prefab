@@ -877,6 +877,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2824440208622246604}
+  - {fileID: 8716627159250327663}
   m_Father: {fileID: 6296762703292463430}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -901,6 +902,7 @@ MonoBehaviour:
   _ui: {fileID: 4768213161598187078}
   _fadeDuration: 0.5
   _maxHeight: {fileID: 995013741564683638}
+  _paperEffect: {fileID: 8716627159250327660}
   _continueButton: {fileID: 9030212811805349354}
   _exitButton: {fileID: 487618200552583277}
 --- !u!1 &3940982562635026737
@@ -1954,6 +1956,79 @@ MonoBehaviour:
   _blockStore: {fileID: 2734507599868963625}
   _blockGenerator: {fileID: 1339496287089284453}
   _nextStateObject: {fileID: 1288910189226862150}
+--- !u!1001 &227397765284790868
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8261387107417715382}
+    m_Modifications:
+    - target: {fileID: 8921717894839523899, guid: a838f1bb54e36bc428ba3e6e2eec4a5a, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8921717894839523899, guid: a838f1bb54e36bc428ba3e6e2eec4a5a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8921717894839523899, guid: a838f1bb54e36bc428ba3e6e2eec4a5a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8921717894839523899, guid: a838f1bb54e36bc428ba3e6e2eec4a5a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8921717894839523899, guid: a838f1bb54e36bc428ba3e6e2eec4a5a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8921717894839523899, guid: a838f1bb54e36bc428ba3e6e2eec4a5a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8921717894839523899, guid: a838f1bb54e36bc428ba3e6e2eec4a5a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8921717894839523899, guid: a838f1bb54e36bc428ba3e6e2eec4a5a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8921717894839523899, guid: a838f1bb54e36bc428ba3e6e2eec4a5a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 8921717894839523899, guid: a838f1bb54e36bc428ba3e6e2eec4a5a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8921717894839523899, guid: a838f1bb54e36bc428ba3e6e2eec4a5a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8921717894839523900, guid: a838f1bb54e36bc428ba3e6e2eec4a5a, type: 3}
+      propertyPath: m_Name
+      value: PaperEffect
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a838f1bb54e36bc428ba3e6e2eec4a5a, type: 3}
+--- !u!114 &8716627159250327660 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8921717894839523896, guid: a838f1bb54e36bc428ba3e6e2eec4a5a, type: 3}
+  m_PrefabInstance: {fileID: 227397765284790868}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a77c2dcbb2a450c44902e124bdad0538, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &8716627159250327663 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8921717894839523899, guid: a838f1bb54e36bc428ba3e6e2eec4a5a, type: 3}
+  m_PrefabInstance: {fileID: 227397765284790868}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2362236631168871489
 PrefabInstance:
   m_ObjectHideFlags: 0
