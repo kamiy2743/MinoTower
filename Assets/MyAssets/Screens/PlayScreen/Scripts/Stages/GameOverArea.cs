@@ -10,7 +10,7 @@ namespace MT.Screens.PlayScreen.Stages
 
         void OnTriggerEnter2D(Collider2D collider)
         {
-            if (collider.transform.parent.GetComponent<MT.Blocks.Block>() != null)
+            if (collider.transform.parent.GetComponent<MT.Blocks.BlockTag>() != null)
             {
                 _isTrigger = true;
             }

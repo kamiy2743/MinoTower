@@ -21,7 +21,7 @@ namespace MT.Blocks
 
         void Awake()
         {
-            _rigidbody = GetComponent<Rigidbody2D>();
+            _rigidbody = GetComponentInChildren<Rigidbody2D>();
             _colliders = GetComponentsInChildren<BoxCollider2D>();
             SetColliderEnabled(true);
             SetRigidbodySimulated(true);
