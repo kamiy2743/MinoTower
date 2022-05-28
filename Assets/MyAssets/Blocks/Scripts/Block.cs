@@ -74,7 +74,8 @@ namespace MT.Blocks
         // ブロックの動きが一定以下になればtrue
         public bool IsStopped()
         {
-            return _rigidbody.IsSleeping();
+            var isSleeping = _rigidbody.velocity.magnitude < 0.01f;
+            return isSleeping;
         }
 
         // ブロックの最高点を計算

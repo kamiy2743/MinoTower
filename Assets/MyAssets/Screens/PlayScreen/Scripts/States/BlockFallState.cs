@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MT.Util;
 using MT.Blocks;
+using Cysharp.Threading.Tasks;
 
 namespace MT.Screens.PlayScreen.States
 {
@@ -18,9 +19,11 @@ namespace MT.Screens.PlayScreen.States
             _nextState = _nextStateObject.GetComponent<IState>();
         }
 
-        public void Enter()
+        public async void Enter()
         {
             _activeBlockProvider.Get().StartFall();
+            // 十分に落下して加速するまで待つ
+            await UniTask.Delay(1000);
             ToNext();
         }
 
