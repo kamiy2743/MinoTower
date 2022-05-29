@@ -20,10 +20,8 @@ namespace MT.Screens.OptionScreen.Systems
         public void Initialize()
         {
             _BGMSlider.Initialize(AudioManager.Instance.DefaultBGMVolume);
-            ApplyBGMVolume(AudioManager.Instance.DefaultBGMVolume);
 
             _SESlider.Initialize(AudioManager.Instance.DefaultSEVolume);
-            ApplySEVolume(AudioManager.Instance.DefaultSEVolume);
         }
 
         private void ApplyBGMVolume(float value)
