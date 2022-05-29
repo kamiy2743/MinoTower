@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using Cysharp.Threading.Tasks;
 using MT.Screens.PlayScreen.Systems;
 using MT.Util.UI;
-using MT.Util;
+using MT.Util.Effect;
 
 namespace MT.Screens.PlayScreen.UI
 {

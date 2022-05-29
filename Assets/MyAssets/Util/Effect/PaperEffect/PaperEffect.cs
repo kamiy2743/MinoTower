@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MT.Util
+namespace MT.Util.Effect
 {
     public class PaperEffect : MonoBehaviour
     {
