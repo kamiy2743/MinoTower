@@ -89,7 +89,7 @@ namespace MT.Blocks
         }
 
         // ブロックの動きが一定以下になればtrue
-        public bool IsStopped()
+        public bool IsSleeping()
         {
             var stopInThisFrame = _rigidbody.velocity.magnitude < 0.01f;
             if (stopInThisFrame)

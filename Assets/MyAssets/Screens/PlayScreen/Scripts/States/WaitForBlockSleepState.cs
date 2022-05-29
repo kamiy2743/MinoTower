@@ -10,9 +10,9 @@ using MT.Screens.PlayScreen.Systems;
 
 namespace MT.Screens.PlayScreen.States
 {
-    public class BlockStopState : MonoBehaviour, IState
+    public class WaitForBlockSleepState : MonoBehaviour, IState
     {
-        [SerializeField] private BlocksAllStoppedProvider _blocksAllStoppedProvider;
+        [SerializeField] private BlockSleepProvider _blockSleepProvider;
         [SerializeField] private GameObject _defaultNextStateObject;
         [SerializeField] private ResultState _resultState;
         [SerializeField] private GameOverArea _gameOverArea;
@@ -42,7 +42,7 @@ namespace MT.Screens.PlayScreen.States
         public void Enter()
         {
             _isActive = true;
-            WaitForAllStop();
+            WaitForBlockSleep();
         }
 
         private void ToNext(IState nextState)
@@ -51,13 +51,13 @@ namespace MT.Screens.PlayScreen.States
             nextState.Enter();
         }
 
-        private async void WaitForAllStop()
+        private async void WaitForBlockSleep()
         {
             // ブロックがすべて停止してから遷移
             try
             {
                 _cts = new CancellationTokenSource();
-                await UniTask.WaitUntil(() => _blocksAllStoppedProvider.IsAllStopped(), cancellationToken: _cts.Token);
+                await UniTask.WaitUntil(() => _blockSleepProvider.IsSleeping(), cancellationToken: _cts.Token);
                 ToNext(_defaultNextState);
             }
             catch (System.OperationCanceledException e)

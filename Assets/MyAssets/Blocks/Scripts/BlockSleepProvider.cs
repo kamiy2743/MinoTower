@@ -4,15 +4,15 @@ using UnityEngine;
 
 namespace MT.Blocks
 {
-    public class BlocksAllStoppedProvider : MonoBehaviour
+    public class BlockSleepProvider : MonoBehaviour
     {
         [SerializeField] private BlockStore _blockStore;
 
-        public bool IsAllStopped()
+        public bool IsSleeping()
         {
             foreach (var block in _blockStore.Blocks())
             {
-                if (!block.IsStopped())
+                if (!block.IsSleeping())
                     return false;
             }
 

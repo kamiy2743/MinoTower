@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2992923806627881527}
   - component: {fileID: 1468805616898107181}
   m_Layer: 0
-  m_Name: BlockStopState
+  m_Name: WaitForBlockSleepState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f872f2f158e615c459cd4e26a3415f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _blocksAllStoppedProvider: {fileID: 5186801145908039570}
+  _blockSleepProvider: {fileID: 5186801145908039570}
   _defaultNextStateObject: {fileID: 9045013810753127237}
   _resultState: {fileID: 140450598018068685}
   _gameOverArea: {fileID: 995571414687687101}
@@ -1671,7 +1671,7 @@ GameObject:
   - component: {fileID: 1353691394407681916}
   - component: {fileID: 5186801145908039570}
   m_Layer: 0
-  m_Name: BlocksAllStoppedProvider
+  m_Name: BlockSleepProvider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
