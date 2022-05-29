@@ -17,32 +17,41 @@ MonoBehaviour:
       _keys:
       - 33749a7f-8d95-4de9-b850-5855f4a65087
       - c5d410dd-1861-4a99-b295-3084bf964a26
-      - fc10b49d-5dfa-40bd-837e-0a44124af884
+      - db31560d-2ddd-46e7-9a0c-b85e14660d93
+      - 7abdeee8-43e7-415b-8bef-d938a0f85eae
       _values:
       - _id: 33749a7f-8d95-4de9-b850-5855f4a65087
         _name:
-          _value: Main
+          _value: ButtonBackground
         _values:
           _keys:
           - 1644f9b9-f7d7-45a1-a350-715baf1511ae
           _values:
-          - _value: {r: 1, g: 0.97766113, b: 0, a: 1}
+          - _value: {r: 1, g: 0.7466493, b: 0, a: 1}
       - _id: c5d410dd-1861-4a99-b295-3084bf964a26
         _name:
-          _value: Base
+          _value: Background
         _values:
           _keys:
           - 1644f9b9-f7d7-45a1-a350-715baf1511ae
           _values:
-          - _value: {r: 1, g: 0, b: 0, a: 1}
-      - _id: fc10b49d-5dfa-40bd-837e-0a44124af884
+          - _value: {r: 0.75, g: 1, b: 0.8333333, a: 1}
+      - _id: db31560d-2ddd-46e7-9a0c-b85e14660d93
         _name:
-          _value: Accent
+          _value: ButtonText
         _values:
           _keys:
           - 1644f9b9-f7d7-45a1-a350-715baf1511ae
           _values:
           - _value: {r: 1, g: 1, b: 1, a: 1}
+      - _id: 7abdeee8-43e7-415b-8bef-d938a0f85eae
+        _name:
+          _value: MaxHeightText
+        _values:
+          _keys:
+          - 1644f9b9-f7d7-45a1-a350-715baf1511ae
+          _values:
+          - _value: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 1}
     _themes:
       _keys:
       - 1644f9b9-f7d7-45a1-a350-715baf1511ae
@@ -54,7 +63,8 @@ MonoBehaviour:
       _ids:
       - c5d410dd-1861-4a99-b295-3084bf964a26
       - 33749a7f-8d95-4de9-b850-5855f4a65087
-      - fc10b49d-5dfa-40bd-837e-0a44124af884
+      - db31560d-2ddd-46e7-9a0c-b85e14660d93
+      - 7abdeee8-43e7-415b-8bef-d938a0f85eae
     _themeOrders:
       _ids:
       - 1644f9b9-f7d7-45a1-a350-715baf1511ae
