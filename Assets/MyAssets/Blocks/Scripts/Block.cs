@@ -25,9 +25,7 @@ namespace MT.Blocks
             _colliders = GetComponentsInChildren<BoxCollider2D>();
             SetColliderEnabled(true);
             SetRigidbodySimulated(true);
-
-            // TODO テストコード
-            SetColor(Color.HSVToRGB(Random.value, 1, 1));
+            SetColor(Color.HSVToRGB(Random.value, Random.Range(0.3f, 1f), Random.Range(0.8f, 1f)));
         }
 
         private void SetColor(Color color)
