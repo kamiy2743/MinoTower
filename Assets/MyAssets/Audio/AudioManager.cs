@@ -9,6 +9,11 @@ namespace MT.Audio
         [SerializeField] private AudioClipStore _audioClipStore;
         [SerializeField] private AudioSource _BGMSource;
         [SerializeField] private AudioSource _SESource;
+        [SerializeField] private float _defaultBGMVolume;
+        [SerializeField] private float _defaultSEVolume;
+
+        public float DefaultBGMVolume => _defaultBGMVolume;
+        public float DefaultSEVolume => _defaultSEVolume;
 
         public static AudioManager Instance => _isntance;
         private static AudioManager _isntance;
@@ -37,6 +42,16 @@ namespace MT.Audio
         {
             var clip = _audioClipStore.GetSE(type);
             _SESource.PlayOneShot(clip);
+        }
+
+        public void SetBGMVolume(float value)
+        {
+            _BGMSource.volume = value;
+        }
+
+        public void SetSEVolume(float value)
+        {
+            _SESource.volume = value;
         }
     }
 }

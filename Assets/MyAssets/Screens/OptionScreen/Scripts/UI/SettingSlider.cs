@@ -2,31 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using MT.Util.UI;
+using UnityEngine.Events;
 
 namespace MT.Screens.OptionScreen.UI
 {
-    public class SettingSlider : MonoBehaviour
+    public class SettingSlider : MonoBehaviour, IInteractableUI
     {
         private Slider _slider;
+        private bool _isInteractable;
 
         void Awake()
         {
             _slider = GetComponentInChildren<Slider>();
         }
 
-        public void SetInteractable(bool interactable)
+        public bool IsInteractable()
         {
-
+            return _isInteractable;
         }
 
-        public void SetValue(float value)
+        public void SetInteractable(bool value)
         {
-            _slider.value = value;
+            _slider.interactable = value;
+            _isInteractable = value;
         }
 
-        public float GetValue()
+        public void Initialize(float initValue)
         {
-            return _slider.value;
+            _slider.value = initValue;
+        }
+
+        public void OnValueChangedAddListener(UnityAction<float> call)
+        {
+            _slider.onValueChanged.AddListener(call);
         }
     }
 }

@@ -347,6 +347,8 @@ MonoBehaviour:
   _audioClipStore: {fileID: 67438297}
   _BGMSource: {fileID: 1101846751}
   _SESource: {fileID: 1450387089}
+  _defaultBGMVolume: 0.5
+  _defaultSEVolume: 0.5
 --- !u!1 &853480912
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,7 +465,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -684,7 +686,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1033,7 +1035,7 @@ MonoBehaviour:
   - {fileID: 1999993506}
   - {fileID: 160967864}
   - {fileID: 1097066564}
-  _firstOpenScreen: 0
+  _firstOpenScreen: 2
 --- !u!20 &1815552639 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 3693984296850190997, guid: 2ecb088ffc5ae6542b0ba155b349b576, type: 3}
@@ -1304,6 +1306,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2298899551779847191, guid: b533be8d1f97ba54e91a8c2aa27f7c3e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2298899551779847191, guid: b533be8d1f97ba54e91a8c2aa27f7c3e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2298899551779847191, guid: b533be8d1f97ba54e91a8c2aa27f7c3e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2298899551779847191, guid: b533be8d1f97ba54e91a8c2aa27f7c3e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3746105402799728891, guid: b533be8d1f97ba54e91a8c2aa27f7c3e, type: 3}
       propertyPath: m_Camera
       value: 
@@ -1417,6 +1435,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6066643286804320844, guid: b533be8d1f97ba54e91a8c2aa27f7c3e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6213082107048351925, guid: b533be8d1f97ba54e91a8c2aa27f7c3e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6213082107048351925, guid: b533be8d1f97ba54e91a8c2aa27f7c3e, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}

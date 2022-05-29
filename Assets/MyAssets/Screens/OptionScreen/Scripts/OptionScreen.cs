@@ -17,7 +17,7 @@ namespace MT.Screens.OptionScreen
         {
             IsOpened = true;
             gameObject.SetActive(true);
-            // _enterState.Enter();
+            _enterState.Enter();
         }
 
         public void Close()
