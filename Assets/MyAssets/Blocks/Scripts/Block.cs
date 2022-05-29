@@ -19,6 +19,7 @@ namespace MT.Blocks
         private static float RotateAngle = -45;
         private static float RotateDuration = 0.2f;
 
+        private Tween _rotateTween;
 
         void Awake()
         {
@@ -76,9 +77,13 @@ namespace MT.Blocks
 
         public async void Rotate()
         {
+            if (_rotateTween != null && _rotateTween.IsPlaying())
+                return;
+
             var currentAngle = transform.eulerAngles;
             var targetAngle = currentAngle + new Vector3(0, 0, RotateAngle);
-            await transform.DORotate(targetAngle, RotateDuration).SetEase(Ease.Linear);
+            _rotateTween = transform.DORotate(targetAngle, RotateDuration).SetEase(Ease.Linear);
+            await _rotateTween;
         }
 
         // ブロックの動きが一定以下になればtrue
