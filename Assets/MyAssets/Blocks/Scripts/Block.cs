@@ -17,7 +17,7 @@ namespace MT.Blocks
 
         private static float SpawnAnimationDuration = 0.5f;
         private static float RotateAngle = -45;
-        private static float RotateDuration = 0.5f;
+        private static float RotateDuration = 0.2f;
 
 
         void Awake()
@@ -78,7 +78,7 @@ namespace MT.Blocks
         {
             var currentAngle = transform.eulerAngles;
             var targetAngle = currentAngle + new Vector3(0, 0, RotateAngle);
-            await transform.DORotate(targetAngle, RotateDuration);
+            await transform.DORotate(targetAngle, RotateDuration).SetEase(Ease.Linear);
         }
 
         // ブロックの動きが一定以下になればtrue
