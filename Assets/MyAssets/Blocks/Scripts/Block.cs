@@ -18,8 +18,10 @@ namespace MT.Blocks
         private static float SpawnAnimationDuration = 0.4f;
         private static float RotateAngle = -45;
         private static float RotateDuration = 0.2f;
+        private static float SleepThreshold = 0.3f;
 
         private Tween _rotateTween;
+        private float _sleepingElapsed;
 
         void Awake()
         {
@@ -89,8 +91,17 @@ namespace MT.Blocks
         // ブロックの動きが一定以下になればtrue
         public bool IsStopped()
         {
-            var isSleeping = _rigidbody.velocity.magnitude < 0.01f;
-            return isSleeping;
+            var stopInThisFrame = _rigidbody.velocity.magnitude < 0.01f;
+            if (stopInThisFrame)
+            {
+                _sleepingElapsed += Time.deltaTime;
+            }
+            else
+            {
+                _sleepingElapsed = 0;
+            }
+
+            return _sleepingElapsed > SleepThreshold;
         }
 
         // ブロックの最高点を計算
