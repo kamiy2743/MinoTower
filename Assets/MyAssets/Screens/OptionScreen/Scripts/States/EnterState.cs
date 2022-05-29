@@ -18,8 +18,8 @@ namespace MT.Screens.OptionScreen.States
             _initializer.Execute();
 
             await Fader.Instance.FadeIn(_fadeInDuration);
-            // var nextState = _nextStateObject.GetComponent<IState>();
-            // nextState.Enter();
+            var nextState = _nextStateObject.GetComponent<IState>();
+            nextState.Enter();
         }
     }
 }
