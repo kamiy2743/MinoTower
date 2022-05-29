@@ -4,5 +4,6 @@ namespace MT.Screens
     {
         Top = 0,
         Play = 1,
+        Option = 2,
     }
 }

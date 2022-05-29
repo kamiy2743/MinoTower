@@ -19,6 +19,7 @@ MonoBehaviour:
       - c5d410dd-1861-4a99-b295-3084bf964a26
       - db31560d-2ddd-46e7-9a0c-b85e14660d93
       - 7abdeee8-43e7-415b-8bef-d938a0f85eae
+      - 73af3e32-5140-4b4f-9e1c-6e991fbf7a58
       _values:
       - _id: 33749a7f-8d95-4de9-b850-5855f4a65087
         _name:
@@ -52,6 +53,14 @@ MonoBehaviour:
           - 1644f9b9-f7d7-45a1-a350-715baf1511ae
           _values:
           - _value: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 1}
+      - _id: 73af3e32-5140-4b4f-9e1c-6e991fbf7a58
+        _name:
+          _value: OptionText
+        _values:
+          _keys:
+          - 1644f9b9-f7d7-45a1-a350-715baf1511ae
+          _values:
+          - _value: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 1}
     _themes:
       _keys:
       - 1644f9b9-f7d7-45a1-a350-715baf1511ae
@@ -65,6 +74,7 @@ MonoBehaviour:
       - 33749a7f-8d95-4de9-b850-5855f4a65087
       - db31560d-2ddd-46e7-9a0c-b85e14660d93
       - 7abdeee8-43e7-415b-8bef-d938a0f85eae
+      - 73af3e32-5140-4b4f-9e1c-6e991fbf7a58
     _themeOrders:
       _ids:
       - 1644f9b9-f7d7-45a1-a350-715baf1511ae
