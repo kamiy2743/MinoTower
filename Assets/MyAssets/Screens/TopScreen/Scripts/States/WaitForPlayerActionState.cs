@@ -10,6 +10,8 @@ namespace MT.Screens.TopScreen.States
     {
         [SerializeField] private PullTypeButton _playButton;
         [SerializeField] private ToPlayScreenState _toPlayScreenState;
+        [SerializeField] private PullTypeButton _optionButton;
+        [SerializeField] private ToOptionScreenState _toOptionScreenState;
 
         private bool _isActive;
 
@@ -31,6 +33,12 @@ namespace MT.Screens.TopScreen.States
             if (_playButton.IsClicked())
             {
                 Tonext(_toPlayScreenState);
+                return;
+            }
+
+            if (_optionButton.IsClicked())
+            {
+                Tonext(_toOptionScreenState);
                 return;
             }
         }
