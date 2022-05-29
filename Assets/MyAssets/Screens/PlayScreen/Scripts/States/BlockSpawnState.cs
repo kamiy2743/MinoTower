@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MT.Blocks;
 using MT.Util;
+using Cysharp.Threading.Tasks;
 
 namespace MT.Screens.PlayScreen.States
 {
@@ -20,9 +21,9 @@ namespace MT.Screens.PlayScreen.States
             _nextState = _nextStateObject.GetComponent<IState>();
         }
 
-        public void Enter()
+        public async void Enter()
         {
-            SpawnNewBlock();
+            await SpawnNewBlock();
             ToNext();
         }
 
@@ -31,14 +32,14 @@ namespace MT.Screens.PlayScreen.States
             _nextState.Enter();
         }
 
-        private void SpawnNewBlock()
+        private async UniTask SpawnNewBlock()
         {
             var cameraVertPos = new Vector3(0, Camera.main.transform.position.y, 0);
             var position = cameraVertPos + _blockSpawnPoint.position;
             var rotation = Quaternion.identity;
             var block = _blockGenerator.RandomGenerate(position, rotation);
-            block.OnSpwned();
             _blockStore.Add(block);
+            await block.OnSpwned();
         }
     }
 }

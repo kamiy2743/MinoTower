@@ -15,8 +15,9 @@ namespace MT.Blocks
         private Rigidbody2D _rigidbody;
         private BoxCollider2D[] _colliders;
 
+        private static float SpawnAnimationDuration = 0.5f;
         private static float RotateAngle = -45;
-        private static float RotateDuration = 0.1f;
+        private static float RotateDuration = 0.5f;
 
 
         void Awake()
@@ -37,10 +38,21 @@ namespace MT.Blocks
             }
         }
 
-        public void OnSpwned()
+        public async UniTask OnSpwned()
         {
             SetColliderEnabled(false);
             SetRigidbodySimulated(false);
+            await SpawnAnimation();
+        }
+
+        private async UniTask SpawnAnimation()
+        {
+            transform.localScale = Vector3.zero;
+            transform.rotation = Quaternion.Euler(0, 0, 360 - 45);
+
+            await DOTween.Sequence()
+                .Append(transform.DOScale(Vector3.one, SpawnAnimationDuration).SetEase(Ease.OutBack))
+                .Join(transform.DORotate(Vector3.zero, SpawnAnimationDuration));
         }
 
         public void StartFall()
