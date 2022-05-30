@@ -544,7 +544,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _optionScreen: {fileID: 5986478696218995789}
   _topScreen: {fileID: 0}
-  _fadeOutDuration: 0.5
+  _fadeOutDuration: 0.25
 --- !u!1001 &1788603136354228202
 PrefabInstance:
   m_ObjectHideFlags: 0

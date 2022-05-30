@@ -125,7 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _topScreen: {fileID: 7261736172010917247}
   _optionScreen: {fileID: 0}
-  _fadeOutDuration: 0.5
+  _fadeOutDuration: 0.25
 --- !u!1 &2475342962387309611
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,8 +664,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playButton: {fileID: 2862214676049895390}
-  _optionButton: {fileID: 2809337319968613693}
   _toPlayScreenState: {fileID: 2000856142644046847}
+  _optionButton: {fileID: 2809337319968613693}
   _toOptionScreenState: {fileID: 3866980639095099762}
 --- !u!1 &8196940535314638981
 GameObject:
