@@ -17,11 +17,6 @@ namespace MT.Screens.OptionScreen.UI
             _slider = GetComponentInChildren<Slider>();
         }
 
-        public bool IsInteractable()
-        {
-            return _isInteractable;
-        }
-
         public void SetInteractable(bool value)
         {
             _slider.interactable = value;
