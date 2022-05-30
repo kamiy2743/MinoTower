@@ -1,12 +1,12 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace MT.Screens.PlayScreen.Systems
 {
     public interface IPlayerInput
     {
-        bool MoveBlock();
-        bool RotateBlock();
-        bool DropBlock();
+        void MoveBlockAddListener(UnityAction call);
+        void DropBlockAddListener(UnityAction call);
         Vector2 PointerPosition();
     }
 }

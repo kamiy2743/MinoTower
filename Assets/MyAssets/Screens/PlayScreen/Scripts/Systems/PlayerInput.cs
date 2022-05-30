@@ -4,54 +4,30 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using MT.Util.UI;
 using Extension;
+using UnityEngine.Events;
 
 namespace MT.Screens.PlayScreen.Systems
 {
     public class PlayerInput : MonoBehaviour, IPlayerInput
     {
         [SerializeField] private EventTrigger _trigger;
-        [SerializeField] private PullTypeButton _rotateButton;
 
         private Camera _mainCamera;
 
-        // InputSystemを使えばこんな状態変数いらない
-        private bool isDrag;
-        private bool isDrop;
-
         void Awake()
         {
-            _trigger.AddListener(EventTriggerType.PointerDown, () =>
-            {
-                isDrag = true;
-            });
-
-            _trigger.AddListener(EventTriggerType.PointerUp, () =>
-            {
-                isDrag = false;
-                isDrop = true;
-            });
-
             _mainCamera = Camera.main;
         }
 
-        void LateUpdate()
+        public void MoveBlockAddListener(UnityAction call)
         {
-            isDrop = false;
+            _trigger.AddListener(EventTriggerType.PointerDown, call);
+            _trigger.AddListener(EventTriggerType.Drag, call);
         }
 
-        public bool MoveBlock()
+        public void DropBlockAddListener(UnityAction call)
         {
-            return isDrag;
-        }
-
-        public bool RotateBlock()
-        {
-            return _rotateButton.IsClicked();
-        }
-
-        public bool DropBlock()
-        {
-            return isDrop;
+            _trigger.AddListener(EventTriggerType.PointerUp, call);
         }
 
         public Vector2 PointerPosition()

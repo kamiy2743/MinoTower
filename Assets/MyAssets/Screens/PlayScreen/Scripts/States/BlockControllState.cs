@@ -4,56 +4,54 @@ using UnityEngine;
 using MT.Util;
 using MT.Screens.PlayScreen.Systems;
 using MT.Blocks;
+using MT.Util.UI;
 
 namespace MT.Screens.PlayScreen.States
 {
     public class BlockControllState : MonoBehaviour, IState
     {
         [SerializeField] private PlayerInput _playerInput;
+        [SerializeField] private CustomButton _rotateButton;
         [SerializeField] private ActiveBlockProvider _ativeBlockProvider;
         [SerializeField] private GameObject _nextStateObject;
 
         private IState _nextState;
         private Block _activeBlock => _ativeBlockProvider.Get();
 
-        private bool _isActive = false;
-
         void Awake()
         {
             _nextState = _nextStateObject.GetComponent<IState>();
         }
 
-        public void Enter()
+        void Start()
         {
-            _isActive = true;
-        }
-
-        public void ToNext()
-        {
-            _isActive = false;
-            _nextState.Enter();
-        }
-
-        void Update()
-        {
-            if (!_isActive) return;
-
-            if (_playerInput.RotateBlock())
+            _rotateButton.AddListener(() =>
             {
                 _activeBlock.Rotate();
-            }
+            });
 
-            if (_playerInput.MoveBlock())
+            _playerInput.MoveBlockAddListener(() =>
             {
                 var pos = _activeBlock.transform.position;
                 pos.x = _playerInput.PointerPosition().x;
                 _activeBlock.transform.position = pos;
-            }
+            });
 
-            if (_playerInput.DropBlock())
+            _playerInput.DropBlockAddListener(() =>
             {
                 ToNext();
-            }
+            });
+        }
+
+        public void Enter()
+        {
+            _rotateButton.SetInteractable(true);
+        }
+
+        public void ToNext()
+        {
+            _rotateButton.SetInteractable(false);
+            _nextState.Enter();
         }
     }
 }
