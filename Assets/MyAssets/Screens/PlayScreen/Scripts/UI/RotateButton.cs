@@ -6,14 +6,13 @@ using Cysharp.Threading.Tasks;
 
 namespace MT.Screens.PlayScreen.UI
 {
-    public class RotateButton : MonoBehaviour
+    public class RotateButton : MonoBehaviour, IStaticAwake
     {
         [SerializeField] private float _hideDuration;
 
         private CanvasGroup _canvasGroup;
-        private bool _isClicked = false;
 
-        void Awake()
+        public void StaticAwake()
         {
             _canvasGroup = GetComponent<CanvasGroup>();
         }

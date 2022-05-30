@@ -10,7 +10,7 @@ using MT.Screens.PlayScreen.Systems;
 
 namespace MT.Screens.PlayScreen.States
 {
-    public class WaitForBlockSleepState : MonoBehaviour, IState
+    public class WaitForBlockSleepState : MonoBehaviour, IState, IStaticAwake
     {
         [SerializeField] private BlockSleepProvider _blockSleepProvider;
         [SerializeField] private GameObject _defaultNextStateObject;
@@ -22,7 +22,7 @@ namespace MT.Screens.PlayScreen.States
         private CancellationTokenSource _cts;
         private bool _isActive = false;
 
-        void Awake()
+        public void StaticAwake()
         {
             _defaultNextState = _defaultNextStateObject.GetComponent<IState>();
         }

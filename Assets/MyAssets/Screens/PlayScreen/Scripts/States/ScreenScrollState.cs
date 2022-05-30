@@ -7,7 +7,7 @@ using MT.Screens.PlayScreen.Systems;
 
 namespace MT.Screens.PlayScreen.States
 {
-    public class ScreenScrollState : MonoBehaviour, IState
+    public class ScreenScrollState : MonoBehaviour, IState, IStaticAwake
     {
         [SerializeField] private ScreenScroller _screenScroller;
         [SerializeField] private float _scrollDuration;
@@ -16,7 +16,7 @@ namespace MT.Screens.PlayScreen.States
 
         private IState _nextState;
 
-        void Awake()
+        public void StaticAwake()
         {
             _nextState = _nextStateObject.GetComponent<IState>();
         }

@@ -5,12 +5,12 @@ using TMPro;
 
 namespace MT.Util.UI
 {
-    public class CustomText : MonoBehaviour
+    public class CustomText : MonoBehaviour, IStaticAwake
     {
         public string Text => _textMeshProUGUI.text;
         private TextMeshProUGUI _textMeshProUGUI;
 
-        void Awake()
+        public void StaticAwake()
         {
             _textMeshProUGUI = GetComponent<TextMeshProUGUI>();
         }

@@ -8,7 +8,7 @@ using MT.Screens.PlayScreen.Systems;
 
 namespace MT.Screens.PlayScreen.States
 {
-    public class RecordingMaxHeightState : MonoBehaviour, IState
+    public class RecordingMaxHeightState : MonoBehaviour, IState, IStaticAwake
     {
         [SerializeField] private float _heightMagnification;
         [SerializeField] private PlayData _playData;
@@ -18,7 +18,7 @@ namespace MT.Screens.PlayScreen.States
 
         private IState _nextState;
 
-        void Awake()
+        public void StaticAwake()
         {
             _nextState = _nextStateObject.GetComponent<IState>();
         }

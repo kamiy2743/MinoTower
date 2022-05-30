@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace MT.Application.SaveData
 {
-    public class SaveDataManager : MonoBehaviour, ISaveData, ILoadData
+    public class SaveDataManager : MonoBehaviour, ISaveData, ILoadData, IStaticAwake
     {
         public static SaveDataManager Instance => _instance;
         private static SaveDataManager _instance;
 
-        void Awake()
+        public void StaticAwake()
         {
             _instance = this;
         }

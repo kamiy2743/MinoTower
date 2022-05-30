@@ -7,12 +7,12 @@ using UnityEngine.Events;
 
 namespace MT.Screens.OptionScreen.UI
 {
-    public class SettingSlider : MonoBehaviour, IInteractableUI
+    public class SettingSlider : MonoBehaviour, IInteractableUI, IStaticAwake
     {
         private Slider _slider;
         private bool _isInteractable;
 
-        void Awake()
+        public void StaticAwake()
         {
             _slider = GetComponentInChildren<Slider>();
         }

@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace MT.Screens.PlayScreen.Stages
 {
-    public class Foundation : MonoBehaviour
+    public class Foundation : MonoBehaviour, IStaticAwake
     {
         private BoxCollider2D _collider;
 
-        void Awake()
+        public void StaticAwake()
         {
             _collider = GetComponent<BoxCollider2D>();
         }

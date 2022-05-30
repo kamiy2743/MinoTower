@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 namespace MT.Util.UI
 {
-    public class CustomButton : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler, IInteractableUI
+    public class CustomButton : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler, IInteractableUI, IStaticAwake
     {
         [SerializeField] private bool _startInteractable = false;
 
@@ -13,7 +13,7 @@ namespace MT.Util.UI
         private UnityEvent _onclickEvent = new UnityEvent();
         private bool _isInteractable = false;
 
-        void Awake()
+        public void StaticAwake()
         {
             _isInteractable = _startInteractable;
             _canvasGroup = GetComponent<CanvasGroup>();

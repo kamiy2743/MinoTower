@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MT.Audio
 {
-    public class AudioClipStore : MonoBehaviour
+    public class AudioClipStore : MonoBehaviour, IStaticAwake
     {
         [SerializeField] private BGMClip[] _BGMClips;
         [SerializeField] private SEClip[] _SEClips;
@@ -12,7 +12,7 @@ namespace MT.Audio
         private Dictionary<BGMType, AudioClip> _BGMDictionary = new Dictionary<BGMType, AudioClip>();
         private Dictionary<SEType, AudioClip> _SEDictionary = new Dictionary<SEType, AudioClip>();
 
-        void Awake()
+        public void StaticAwake()
         {
             foreach (var item in _BGMClips)
             {

@@ -8,13 +8,13 @@ using UnityEngine.Events;
 
 namespace MT.Screens.PlayScreen.Systems
 {
-    public class PlayerInput : MonoBehaviour, IPlayerInput
+    public class PlayerInput : MonoBehaviour, IPlayerInput, IStaticAwake
     {
         [SerializeField] private EventTrigger _trigger;
 
         private Camera _mainCamera;
 
-        void Awake()
+        public void StaticAwake()
         {
             _mainCamera = Camera.main;
         }

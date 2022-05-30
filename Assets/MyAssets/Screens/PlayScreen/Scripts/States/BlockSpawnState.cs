@@ -7,7 +7,7 @@ using Cysharp.Threading.Tasks;
 
 namespace MT.Screens.PlayScreen.States
 {
-    public class BlockSpawnState : MonoBehaviour, IState
+    public class BlockSpawnState : MonoBehaviour, IState, IStaticAwake
     {
         [SerializeField] private Transform _blockSpawnPoint;
         [SerializeField] private BlockStore _blockStore;
@@ -16,7 +16,7 @@ namespace MT.Screens.PlayScreen.States
 
         private IState _nextState;
 
-        void Awake()
+        public void StaticAwake()
         {
             _nextState = _nextStateObject.GetComponent<IState>();
         }

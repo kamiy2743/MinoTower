@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MT.Util.Effect
 {
-    public class PaperEffect : MonoBehaviour
+    public class PaperEffect : MonoBehaviour, IStaticAwake
     {
         [Header("0%")]
         [SerializeField] private float _minParticleCount;
@@ -14,7 +14,7 @@ namespace MT.Util.Effect
 
         private ParticleSystem _particleSystem;
 
-        void Awake()
+        public void StaticAwake()
         {
             _particleSystem = GetComponent<ParticleSystem>();
             gameObject.SetActive(false);

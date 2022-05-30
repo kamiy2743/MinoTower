@@ -7,14 +7,14 @@ using Cysharp.Threading.Tasks;
 
 namespace MT.Screens.PlayScreen.States
 {
-    public class BlockFallState : MonoBehaviour, IState
+    public class BlockFallState : MonoBehaviour, IState, IStaticAwake
     {
         [SerializeField] private ActiveBlockProvider _activeBlockProvider;
         [SerializeField] private GameObject _nextStateObject;
 
         private IState _nextState;
 
-        void Awake()
+        public void StaticAwake()
         {
             _nextState = _nextStateObject.GetComponent<IState>();
         }

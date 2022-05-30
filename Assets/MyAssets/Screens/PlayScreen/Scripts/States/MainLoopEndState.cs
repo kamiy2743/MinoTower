@@ -5,13 +5,13 @@ using MT.Util;
 
 namespace MT.Screens.PlayScreen.States
 {
-    public class MainLoopEndState : MonoBehaviour, IState
+    public class MainLoopEndState : MonoBehaviour, IState, IStaticAwake
     {
         [SerializeField] private GameObject _nextStateObject;
 
         private IState _nextState;
 
-        void Awake()
+        public void StaticAwake()
         {
             _nextState = _nextStateObject.GetComponent<IState>();
         }

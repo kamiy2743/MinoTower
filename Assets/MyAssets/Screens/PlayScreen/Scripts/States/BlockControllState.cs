@@ -8,7 +8,7 @@ using MT.Util.UI;
 
 namespace MT.Screens.PlayScreen.States
 {
-    public class BlockControllState : MonoBehaviour, IState
+    public class BlockControllState : MonoBehaviour, IState, IStaticAwake
     {
         [SerializeField] private PlayerInput _playerInput;
         [SerializeField] private CustomButton _rotateButton;
@@ -18,7 +18,7 @@ namespace MT.Screens.PlayScreen.States
         private IState _nextState;
         private Block _activeBlock => _ativeBlockProvider.Get();
 
-        void Awake()
+        public void StaticAwake()
         {
             _nextState = _nextStateObject.GetComponent<IState>();
         }

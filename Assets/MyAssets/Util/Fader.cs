@@ -6,14 +6,14 @@ using Cysharp.Threading.Tasks;
 
 namespace MT.Util
 {
-    public class Fader : MonoBehaviour
+    public class Fader : MonoBehaviour, IStaticAwake
     {
         public static Fader Instance => _instance;
         private static Fader _instance;
 
         private CanvasGroup _canvasGroup;
 
-        void Awake()
+        public void StaticAwake()
         {
             _instance = this;
             _canvasGroup = GetComponent<CanvasGroup>();

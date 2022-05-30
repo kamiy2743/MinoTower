@@ -6,12 +6,12 @@ using Cysharp.Threading.Tasks;
 
 namespace MT.Screens.PlayScreen.Systems
 {
-    public class ScreenScroller : MonoBehaviour
+    public class ScreenScroller : MonoBehaviour, IStaticAwake
     {
         private Transform _cameraTransfrom;
         private ScrollAmount _scrollAmount;
 
-        void Awake()
+        public void StaticAwake()
         {
             _cameraTransfrom = Camera.main.transform;
             Initialize();

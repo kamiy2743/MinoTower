@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace MT.Blocks
 {
-    public class BlockGenerator : MonoBehaviour
+    public class BlockGenerator : MonoBehaviour, IStaticAwake
     {
         [SerializeField] private Block[] _blockPrefabs;
 
         private Dictionary<BlockType, Block> _prefabDic;
 
-        void Awake()
+        public void StaticAwake()
         {
             _prefabDic = new Dictionary<BlockType, Block>();
             foreach (var item in _blockPrefabs)
