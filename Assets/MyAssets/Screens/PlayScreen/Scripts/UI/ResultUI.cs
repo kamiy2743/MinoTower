@@ -20,7 +20,7 @@ namespace MT.Screens.PlayScreen.UI
 
         public void Initialize()
         {
-            Hide();
+            HideImmediately();
         }
 
         public async void Show()
@@ -30,10 +30,11 @@ namespace MT.Screens.PlayScreen.UI
             await _ui.DOFade(1, _fadeInDuration);
         }
 
-        public void Hide()
+        public void HideImmediately()
         {
             _ui.interactable = false;
             _ui.blocksRaycasts = false;
+            _ui.DOKill();
             _ui.alpha = 0;
         }
 
