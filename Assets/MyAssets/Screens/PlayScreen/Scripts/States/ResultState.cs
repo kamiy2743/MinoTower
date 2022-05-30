@@ -5,6 +5,7 @@ using MT.Util;
 using MT.Screens.PlayScreen.UI;
 using MT.Screens.PlayScreen.Systems;
 using MT.Util.Effect;
+using MT.Util.UI;
 
 namespace MT.Screens.PlayScreen.States
 {
@@ -14,38 +15,36 @@ namespace MT.Screens.PlayScreen.States
         [SerializeField] private ResultUI _resultUI;
         [SerializeField] private PaperEffect _paperEffect;
         [SerializeField] private RotateButton _rotateButton;
+        [SerializeField] private CustomButton _continueButton;
         [SerializeField] private ContinueState _continueState;
+        [SerializeField] private CustomButton _exitButton;
         [SerializeField] private ToTopScreenState _toTopScreenState;
 
-        private bool _isActive;
+        void Start()
+        {
+            _continueButton.AddListener(() =>
+            {
+                Tonext(_continueState);
+            });
+
+            _exitButton.AddListener(() =>
+            {
+                Tonext(_toTopScreenState);
+            });
+        }
 
         public void Enter()
         {
-            _isActive = true;
+            _continueButton.SetInteractable(true);
+            _exitButton.SetInteractable(true);
             ShowResultUI();
         }
 
         private void Tonext(IState nextState)
         {
-            _isActive = false;
+            _continueButton.SetInteractable(false);
+            _exitButton.SetInteractable(false);
             nextState.Enter();
-        }
-
-        void Update()
-        {
-            if (!_isActive) return;
-
-            if (_resultUI.ContinueButtonClicked)
-            {
-                Tonext(_continueState);
-                return;
-            }
-
-            if (_resultUI.ExitButtonClikced)
-            {
-                Tonext(_toTopScreenState);
-                return;
-            }
         }
 
         private void ShowResultUI()

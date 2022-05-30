@@ -12,11 +12,6 @@ namespace MT.Screens.PlayScreen.UI
         [SerializeField] private CanvasGroup _ui;
         [SerializeField] private float _fadeInDuration;
         [SerializeField] private CustomText _maxHeight;
-        [SerializeField] private PullTypeButton _continueButton;
-        [SerializeField] private PullTypeButton _exitButton;
-
-        public bool ContinueButtonClicked => _continueButton.IsClicked();
-        public bool ExitButtonClikced => _exitButton.IsClicked();
 
         void Awake()
         {
