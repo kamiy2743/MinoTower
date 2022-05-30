@@ -838,11 +838,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd0698d21984f9d4bab4da08e1538c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playData: {fileID: 2930115139255164885}
   _ui: {fileID: 4768213161598187078}
-  _fadeDuration: 0.5
+  _fadeInDuration: 0.5
   _maxHeight: {fileID: 995013741564683638}
-  _paperEffect: {fileID: 8716627159250327660}
   _continueButton: {fileID: 9030212811805349354}
   _exitButton: {fileID: 487618200552583277}
 --- !u!1 &3940982562635026737
@@ -1870,7 +1868,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 735697521b1121249902993a389468a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playData: {fileID: 2930115139255164885}
   _resultUI: {fileID: 8133737851317955638}
+  _paperEffect: {fileID: 8716627159250327660}
   _rotateButton: {fileID: 4028140374225693624}
   _continueState: {fileID: 4932676096627093330}
   _toTopScreenState: {fileID: 7369440275655631485}
@@ -1989,7 +1989,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8921717894839523899, guid: a838f1bb54e36bc428ba3e6e2eec4a5a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -86
       objectReference: {fileID: 0}
     - target: {fileID: 8921717894839523899, guid: a838f1bb54e36bc428ba3e6e2eec4a5a, type: 3}
       propertyPath: m_LocalPosition.z
