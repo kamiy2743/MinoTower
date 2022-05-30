@@ -5,15 +5,23 @@ using UnityEngine.Events;
 
 namespace MT.Util.UI
 {
-    public class CustomButton : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler
+    public class CustomButton : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler, IInteractableUI
     {
+        [SerializeField] private bool _startInteractable = false;
+
         private CanvasGroup _canvasGroup;
-        private bool _isClicked;
         private UnityEvent _onclickEvent = new UnityEvent();
+        private bool _isInteractable = false;
 
         void Awake()
         {
+            _isInteractable = _startInteractable;
             _canvasGroup = GetComponent<CanvasGroup>();
+        }
+
+        public void SetInteractable(bool vlaue)
+        {
+            _isInteractable = vlaue;
         }
 
         public void AddListener(UnityAction call)
@@ -23,11 +31,15 @@ namespace MT.Util.UI
 
         public void OnPointerClick(PointerEventData eventData)
         {
+            if (!_isInteractable) return;
+
             _onclickEvent.Invoke();
         }
 
         public void OnPointerDown(PointerEventData eventData)
         {
+            if (!_isInteractable) return;
+
             transform.DOScale(0.95f, 0.24f).SetEase(Ease.OutCubic);
             _canvasGroup.DOFade(0.8f, 0.24f).SetEase(Ease.OutCubic);
         }
