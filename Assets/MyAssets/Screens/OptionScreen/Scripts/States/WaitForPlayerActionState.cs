@@ -6,14 +6,14 @@ using MT.Util.UI;
 
 namespace MT.Screens.OptionScreen.States
 {
-    public class WaitForPlayerActionState : MonoBehaviour, IState
+    public class WaitForPlayerActionState : MonoBehaviour, IState, IStaticStart
     {
         [SerializeField] private CustomButton _backButton;
         [SerializeField] private ToTopScreenState _toTopScreenState;
 
         private bool _isActive;
 
-        void Start()
+        public void StaticStart()
         {
             _backButton.AddListener(() =>
             {

@@ -8,7 +8,7 @@ using MT.Util.UI;
 
 namespace MT.Screens.PlayScreen.States
 {
-    public class BlockControllState : MonoBehaviour, IState, IStaticAwake
+    public class BlockControllState : MonoBehaviour, IState, IStaticAwake, IStaticStart
     {
         [SerializeField] private PlayerInput _playerInput;
         [SerializeField] private CustomButton _rotateButton;
@@ -23,7 +23,7 @@ namespace MT.Screens.PlayScreen.States
             _nextState = _nextStateObject.GetComponent<IState>();
         }
 
-        void Start()
+        public void StaticStart()
         {
             _rotateButton.AddListener(() =>
             {

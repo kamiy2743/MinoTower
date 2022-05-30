@@ -9,7 +9,7 @@ using MT.Util.UI;
 
 namespace MT.Screens.PlayScreen.States
 {
-    public class ResultState : MonoBehaviour, IState
+    public class ResultState : MonoBehaviour, IState, IStaticStart
     {
         [SerializeField] private PlayData _playData;
         [SerializeField] private ResultUI _resultUI;
@@ -20,7 +20,7 @@ namespace MT.Screens.PlayScreen.States
         [SerializeField] private CustomButton _exitButton;
         [SerializeField] private ToTopScreenState _toTopScreenState;
 
-        void Start()
+        public void StaticStart()
         {
             _continueButton.AddListener(() =>
             {
