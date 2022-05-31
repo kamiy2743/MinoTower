@@ -15,6 +15,7 @@ namespace MT.Screens.PlayScreen
 
         public void Open()
         {
+            if (gameObject.activeSelf) return;
             gameObject.SetActive(true);
             _entryState.Enter();
         }

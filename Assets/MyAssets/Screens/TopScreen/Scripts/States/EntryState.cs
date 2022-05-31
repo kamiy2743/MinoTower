@@ -6,10 +6,17 @@ using MT.Audio;
 
 namespace MT.Screens.TopScreen.States
 {
-    public class EntryState : MonoBehaviour, IState
+    public class EntryState : MonoBehaviour, IState, IStaticAwake
     {
         [SerializeField] private float _fadeInDuration;
         [SerializeField] private GameObject _nextStateObject;
+
+        private IState _nextState;
+
+        public void StaticAwake()
+        {
+            _nextState = _nextStateObject.GetComponent<IState>();
+        }
 
         public async void Enter()
         {
@@ -17,8 +24,7 @@ namespace MT.Screens.TopScreen.States
 
             await Fader.Instance.FadeIn(_fadeInDuration);
             AudioManager.Instance.PlayBGM(BGMType.Main);
-            var nextState = _nextStateObject.GetComponent<IState>();
-            nextState.Enter();
+            _nextState.Enter();
         }
     }
 }

@@ -14,14 +14,15 @@ namespace MT.Screens.TopScreen
 
         public void Open()
         {
-            // TODO 開いてるときは流す
+            if (gameObject.activeSelf) return;
+
             gameObject.SetActive(true);
             _entryState.Enter();
         }
 
         public void Close()
         {
-            // TODO 閉じてるときは流す
+            if (!gameObject.activeSelf) return;
             gameObject.SetActive(false);
         }
     }

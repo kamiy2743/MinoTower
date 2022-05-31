@@ -9,7 +9,7 @@ using MT.Screens.PlayScreen.UI;
 
 namespace MT.Screens.PlayScreen.States
 {
-    public class EntryState : MonoBehaviour, IState
+    public class EntryState : MonoBehaviour, IState, IStaticAwake
     {
         [SerializeField] private float _fadeInDuration;
         [SerializeField] private GameObject _nextStateObject;
@@ -20,6 +20,13 @@ namespace MT.Screens.PlayScreen.States
         [SerializeField] private RotateButton _rotateButton;
         [SerializeField] private ScreenScroller _screenScroller;
 
+        private IState _nextState;
+
+        public void StaticAwake()
+        {
+            _nextState = _nextStateObject.GetComponent<IState>();
+        }
+
         public async void Enter()
         {
             await Fader.Instance.FadeOut(0);
@@ -27,9 +34,7 @@ namespace MT.Screens.PlayScreen.States
 
             await Fader.Instance.FadeIn(_fadeInDuration);
             AudioManager.Instance.PlayBGM(BGMType.Main);
-            // TODO Awakeに持ってく
-            var nextState = _nextStateObject.GetComponent<IState>();
-            nextState.Enter();
+            _nextState.Enter();
         }
 
         private void Initialize()

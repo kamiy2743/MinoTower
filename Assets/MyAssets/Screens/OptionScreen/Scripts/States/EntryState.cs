@@ -6,12 +6,19 @@ using MT.Screens.OptionScreen.Systems;
 
 namespace MT.Screens.OptionScreen.States
 {
-    public class EntryState : MonoBehaviour, IState
+    public class EntryState : MonoBehaviour, IState, IStaticAwake
     {
         [SerializeField] private float _fadeInDuration;
         [SerializeField] private GameObject _nextStateObject;
 
         [SerializeField] private AudioSettingApplier _audioSettingApplier;
+
+        private IState _nextState;
+
+        public void StaticAwake()
+        {
+            _nextState = _nextStateObject.GetComponent<IState>();
+        }
 
         public async void Enter()
         {
@@ -19,8 +26,7 @@ namespace MT.Screens.OptionScreen.States
             Initialize();
 
             await Fader.Instance.FadeIn(_fadeInDuration);
-            var nextState = _nextStateObject.GetComponent<IState>();
-            nextState.Enter();
+            _nextState.Enter();
         }
 
         private void Initialize()
