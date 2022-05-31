@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MT.Util;
-using MT.Screens.TopScreen.Systems;
 using MT.Audio;
 
 namespace MT.Screens.TopScreen.States

@@ -7,14 +7,10 @@ namespace MT.Application
 {
     public class ApplicationEntryPoint : MonoBehaviour
     {
-        [SerializeField] private FirstOpenScreen _firstOpenScreen;
-
         void Start()
         {
             StaticAwakeCaller.Call();
             StaticStartCaller.Call();
-
-            _firstOpenScreen.Execute();
         }
     }
 }
