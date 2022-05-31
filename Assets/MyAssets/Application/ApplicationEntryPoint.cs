@@ -5,11 +5,15 @@ using MT.Audio;
 
 namespace MT.Application
 {
-    public class ApplicationEntryPoint : MonoBehaviour, IStaticStart
+    public class ApplicationEntryPoint : MonoBehaviour
     {
         [SerializeField] private FirstOpenScreen _firstOpenScreen;
-        public void StaticStart()
+
+        void Start()
         {
+            StaticAwakeCaller.Call();
+            StaticStartCaller.Call();
+
             _firstOpenScreen.Execute();
             AudioManager.Instance.Initialize();
         }
