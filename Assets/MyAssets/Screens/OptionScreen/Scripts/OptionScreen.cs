@@ -9,7 +9,7 @@ namespace MT.Screens.OptionScreen
     {
         [SerializeField] private EnterState _enterState;
 
-        public ScreenType ScreenType { get; private set; } = ScreenType.Option;
+        public ScreenType Type { get; private set; } = ScreenType.Option;
         public bool IsOpened { get; private set; }
         public bool IsActive => gameObject.activeSelf;
 

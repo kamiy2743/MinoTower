@@ -2,7 +2,7 @@ namespace MT.Screens
 {
     public interface IScreen
     {
-        ScreenType ScreenType { get; }
+        ScreenType Type { get; }
         bool IsOpened { get; }
         bool IsActive { get; }
         void Open();

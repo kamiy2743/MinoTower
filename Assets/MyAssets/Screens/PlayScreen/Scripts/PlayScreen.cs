@@ -11,7 +11,7 @@ namespace MT.Screens.PlayScreen
         [SerializeField] private EnterState _enterState;
         [SerializeField] private ScreenScroller _screenScroller;
 
-        public ScreenType ScreenType { get; private set; } = ScreenType.Play;
+        public ScreenType Type { get; private set; } = ScreenType.Play;
         public bool IsOpened { get; private set; }
         public bool IsActive => gameObject.activeSelf;
 

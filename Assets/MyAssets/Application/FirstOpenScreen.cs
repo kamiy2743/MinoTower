@@ -15,7 +15,7 @@ namespace MT.Application
             foreach (var item in _screenObjects)
             {
                 var screen = item.GetComponent<IScreen>();
-                if (screen.ScreenType == _firstOpenScreen)
+                if (screen.Type == _firstOpenScreen)
                 {
                     screen.Open();
                 }
