@@ -11,8 +11,13 @@ namespace MT.Screens
 
         private Dictionary<ScreenType, IScreen> _screenDic = new Dictionary<ScreenType, IScreen>();
 
+        public static ScreenSwitcher Instance => _instance;
+        private static ScreenSwitcher _instance;
+
         public void StaticAwake()
         {
+            _instance = this;
+
             foreach (var item in _screenObjects)
             {
                 var screen = item.GetComponent<IScreen>();
