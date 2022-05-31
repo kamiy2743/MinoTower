@@ -15,7 +15,6 @@ namespace MT.Application
             StaticStartCaller.Call();
 
             _firstOpenScreen.Execute();
-            AudioManager.Instance.Initialize();
         }
     }
 }

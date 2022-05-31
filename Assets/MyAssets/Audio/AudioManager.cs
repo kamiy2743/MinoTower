@@ -5,7 +5,7 @@ using MT.Application.SaveData;
 
 namespace MT.Audio
 {
-    public class AudioManager : MonoBehaviour, IStaticAwake
+    public class AudioManager : MonoBehaviour, IStaticAwake, IStaticStart
     {
         [SerializeField] private AudioClipStore _audioClipStore;
         [SerializeField] private AudioSource _BGMSource;
@@ -24,7 +24,7 @@ namespace MT.Audio
             _isntance = this;
         }
 
-        public void Initialize()
+        public void StaticStart()
         {
             var BGMVolume = SaveDataManager.Instance.Load<float>(BGMVolumeKey, _defaultBGMVolume);
             SetBGMVolume(BGMVolume);
