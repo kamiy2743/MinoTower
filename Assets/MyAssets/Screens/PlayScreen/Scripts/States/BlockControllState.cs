@@ -27,9 +27,11 @@ namespace MT.Screens.PlayScreen.States
 
         public void StaticStart()
         {
-            _rotateButton.AddListener(() =>
+            _rotateButton.AddListener(async () =>
             {
-                _activeBlock.Rotate();
+                _rotateButton.SetInteractable(false);
+                await _activeBlock.Rotate();
+                _rotateButton.SetInteractable(true);
             });
 
             _moveBlockEvent.AddListener(() =>

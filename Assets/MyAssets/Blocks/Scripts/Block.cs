@@ -20,7 +20,6 @@ namespace MT.Blocks
         private static float RotateDuration = 0.2f;
         private static float SleepThreshold = 0.3f;
 
-        private Tween _rotateTween;
         private float _sleepingElapsed;
 
         void Awake()
@@ -77,15 +76,11 @@ namespace MT.Blocks
             _rigidbody.simulated = simulated;
         }
 
-        public async void Rotate()
+        public async UniTask Rotate()
         {
-            if (_rotateTween != null && _rotateTween.IsPlaying())
-                return;
-
             var currentAngle = transform.eulerAngles;
             var targetAngle = currentAngle + new Vector3(0, 0, RotateAngle);
-            _rotateTween = transform.DORotate(targetAngle, RotateDuration).SetEase(Ease.Linear);
-            await _rotateTween;
+            await transform.DORotate(targetAngle, RotateDuration).SetEase(Ease.Linear);
         }
 
         // ブロックの動きが一定以下になればtrue
