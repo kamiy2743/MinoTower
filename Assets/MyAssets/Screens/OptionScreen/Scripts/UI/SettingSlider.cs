@@ -23,9 +23,9 @@ namespace MT.Screens.OptionScreen.UI
             _isInteractable = value;
         }
 
-        public void Initialize(float initValue)
+        public void SetValue(float value)
         {
-            _slider.value = initValue;
+            _slider.value = value;
         }
 
         public void OnValueChangedAddListener(UnityAction<float> call)

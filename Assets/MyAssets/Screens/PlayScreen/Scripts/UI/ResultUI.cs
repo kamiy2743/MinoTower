@@ -7,16 +7,11 @@ using MT.Util.UI;
 
 namespace MT.Screens.PlayScreen.UI
 {
-    public class ResultUI : MonoBehaviour, IStaticAwake
+    public class ResultUI : MonoBehaviour, IInitializable
     {
         [SerializeField] private CanvasGroup _ui;
         [SerializeField] private float _fadeInDuration;
         [SerializeField] private CustomText _maxHeight;
-
-        public void StaticAwake()
-        {
-            Initialize();
-        }
 
         public void Initialize()
         {
