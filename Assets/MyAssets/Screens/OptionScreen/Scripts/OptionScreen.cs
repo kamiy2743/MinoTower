@@ -7,22 +7,18 @@ namespace MT.Screens.OptionScreen
 {
     public class OptionScreen : MonoBehaviour, IScreen
     {
-        [SerializeField] private EnterState _enterState;
+        [SerializeField] private EntryState _entryState;
 
         public ScreenType Type { get; private set; } = ScreenType.Option;
-        public bool IsOpened { get; private set; }
-        public bool IsActive => gameObject.activeSelf;
 
         public void Open()
         {
-            IsOpened = true;
             gameObject.SetActive(true);
-            _enterState.Enter();
+            _entryState.Enter();
         }
 
         public void Close()
         {
-            IsOpened = false;
             gameObject.SetActive(false);
         }
     }

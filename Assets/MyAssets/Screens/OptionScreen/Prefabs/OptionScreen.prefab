@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 5389465786938953277}
   - component: {fileID: 465017137050286222}
   m_Layer: 0
-  m_Name: EnterState
+  m_Name: EntryState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -419,7 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0d978eb71e00d4a82d04230e22af15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enterState: {fileID: 465017137050286222}
+  _entryState: {fileID: 465017137050286222}
 --- !u!1 &6163185079771664390
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,6 +883,14 @@ PrefabInstance:
     - target: {fileID: 246506877448258119, guid: d46c129e62bb6934db6a8bd1a9a0df8a, type: 3}
       propertyPath: m_Name
       value: BackButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711361938124658139, guid: d46c129e62bb6934db6a8bd1a9a0df8a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711361938124658139, guid: d46c129e62bb6934db6a8bd1a9a0df8a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8171049372319191725, guid: d46c129e62bb6934db6a8bd1a9a0df8a, type: 3}
       propertyPath: m_Color.g

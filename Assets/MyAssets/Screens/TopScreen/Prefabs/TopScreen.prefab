@@ -388,7 +388,7 @@ GameObject:
   - component: {fileID: 8142017381371285408}
   - component: {fileID: 1001714337568447774}
   m_Layer: 0
-  m_Name: EnterState
+  m_Name: EntryState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
