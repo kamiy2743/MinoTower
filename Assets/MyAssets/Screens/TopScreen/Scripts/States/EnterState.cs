@@ -11,12 +11,10 @@ namespace MT.Screens.TopScreen.States
     {
         [SerializeField] private float _fadeInDuration;
         [SerializeField] private GameObject _nextStateObject;
-        [SerializeField] private Initializer _initializer;
 
         public async void Enter()
         {
             await Fader.Instance.FadeOut(0);
-            _initializer.Execute();
 
             await Fader.Instance.FadeIn(_fadeInDuration);
             AudioManager.Instance.PlayBGM(BGMType.Main);

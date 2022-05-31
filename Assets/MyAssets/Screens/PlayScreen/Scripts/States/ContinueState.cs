@@ -3,21 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using MT.Util;
 using MT.Screens.PlayScreen.Systems;
+using MT.Blocks;
+using MT.Screens.PlayScreen.UI;
 
 namespace MT.Screens.PlayScreen.States
 {
     public class ContinueState : MonoBehaviour, IState
     {
         [SerializeField] private MainLoopStartState _startState;
-        [SerializeField] private Initializer _initializer;
         [SerializeField] private float _fadeDuration;
+
+        [SerializeField] private PlayData _playData;
+        [SerializeField] private BlockStore _blockStore;
+        [SerializeField] private ResultUI _resultUI;
+        [SerializeField] private RotateButton _rotateButton;
+        [SerializeField] private ScreenScroller _screenScroller;
 
         public async void Enter()
         {
             await Fader.Instance.FadeOut(_fadeDuration);
-            _initializer.Execute();
+            Initialize();
             await Fader.Instance.FadeIn(_fadeDuration);
             _startState.Enter();
+        }
+
+        public void Initialize()
+        {
+            _playData.Initialize();
+            _blockStore.Initialize();
+            _resultUI.Initialize();
+            _rotateButton.Initialize();
+            _screenScroller.Initialize();
         }
     }
 }

@@ -29,6 +29,7 @@ namespace MT.Screens.PlayScreen.States
 
         void Update()
         {
+            // TODO update削除
             if (!_isActive) return;
 
             // 土台から落ちたら結果画面に遷移
