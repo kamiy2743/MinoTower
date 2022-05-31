@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MT.Screens
 {
-    public class ScreenSwitcher : MonoBehaviour, IStaticAwake, IStaticStart
+    public class ScreenSwitcher : MonoBehaviour, IStaticAwake, IInitializable
     {
         [SerializeField] private GameObject[] _screenObjects;
         [SerializeField] private ScreenType _firstOpenScreen;
@@ -20,7 +20,7 @@ namespace MT.Screens
             }
         }
 
-        public void StaticStart()
+        public void Initialize()
         {
             Switch(_firstOpenScreen);
         }
