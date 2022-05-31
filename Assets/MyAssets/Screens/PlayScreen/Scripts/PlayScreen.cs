@@ -8,23 +8,20 @@ namespace MT.Screens.PlayScreen
 {
     public class PlayScreen : MonoBehaviour, IScreen
     {
-        [SerializeField] private EnterState _enterState;
+        [SerializeField] private EntryState _entryState;
         [SerializeField] private ScreenScroller _screenScroller;
 
         public ScreenType Type { get; private set; } = ScreenType.Play;
-        public bool IsOpened { get; private set; }
-        public bool IsActive => gameObject.activeSelf;
 
         public void Open()
         {
-            IsOpened = true;
             gameObject.SetActive(true);
-            _enterState.Enter();
+            _entryState.Enter();
         }
 
         public void Close()
         {
-            IsOpened = false;
+            if (!gameObject.activeSelf) return;
             _screenScroller.Initialize();
             gameObject.SetActive(false);
         }

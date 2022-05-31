@@ -9,7 +9,7 @@ using MT.Screens.PlayScreen.UI;
 
 namespace MT.Screens.PlayScreen.States
 {
-    public class EnterState : MonoBehaviour, IState
+    public class EntryState : MonoBehaviour, IState
     {
         [SerializeField] private float _fadeInDuration;
         [SerializeField] private GameObject _nextStateObject;
@@ -27,11 +27,12 @@ namespace MT.Screens.PlayScreen.States
 
             await Fader.Instance.FadeIn(_fadeInDuration);
             AudioManager.Instance.PlayBGM(BGMType.Main);
+            // TODO Awakeに持ってく
             var nextState = _nextStateObject.GetComponent<IState>();
             nextState.Enter();
         }
 
-        public void Initialize()
+        private void Initialize()
         {
             _playData.Initialize();
             _blockStore.Initialize();

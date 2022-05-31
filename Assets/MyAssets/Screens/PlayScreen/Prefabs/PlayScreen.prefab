@@ -897,7 +897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae2a40953c3feb24c8ae9a6b6dbfaef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enterState: {fileID: 1671800625636424476}
+  _entryState: {fileID: 1671800625636424476}
   _screenScroller: {fileID: 7199898353998925582}
 --- !u!1 &3970346753264878415
 GameObject:
