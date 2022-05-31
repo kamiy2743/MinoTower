@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MT.Application.SaveData;
+using MT.Application;
 
 namespace MT.Audio
 {
@@ -26,10 +26,10 @@ namespace MT.Audio
 
         public void StaticStart()
         {
-            var BGMVolume = SaveDataManager.Instance.Load<float>(BGMVolumeKey, _defaultBGMVolume);
+            var BGMVolume = SaveDataManager.Load<float>(BGMVolumeKey, _defaultBGMVolume);
             SetBGMVolume(BGMVolume);
 
-            var SEVolume = SaveDataManager.Instance.Load<float>(SEVolumeKey, _defaultSEVolume);
+            var SEVolume = SaveDataManager.Load<float>(SEVolumeKey, _defaultSEVolume);
             SetSEVolume(SEVolume);
         }
 
@@ -57,7 +57,7 @@ namespace MT.Audio
         public void SetBGMVolume(float value)
         {
             _BGMSource.volume = value;
-            SaveDataManager.Instance.Save<float>(BGMVolumeKey, value);
+            SaveDataManager.Save<float>(BGMVolumeKey, value);
         }
 
         public float GetBGMVolume()
@@ -68,7 +68,7 @@ namespace MT.Audio
         public void SetSEVolume(float value)
         {
             _SESource.volume = value;
-            SaveDataManager.Instance.Save<float>(SEVolumeKey, value);
+            SaveDataManager.Save<float>(SEVolumeKey, value);
         }
 
         public float GetSEVolume()
