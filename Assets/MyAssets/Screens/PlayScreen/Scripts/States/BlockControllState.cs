@@ -10,7 +10,9 @@ namespace MT.Screens.PlayScreen.States
 {
     public class BlockControllState : MonoBehaviour, IState, IStaticAwake, IStaticStart
     {
-        [SerializeField] private PlayerInput _playerInput;
+        [SerializeField] private MoveBlockEvent _moveBlockEvent;
+        [SerializeField] private DropBlockEvent _dropBlockEvent;
+        [SerializeField] private PointerPositionProvider _pointerPositionProvider;
         [SerializeField] private CustomButton _rotateButton;
         [SerializeField] private ActiveBlockProvider _ativeBlockProvider;
         [SerializeField] private GameObject _nextStateObject;
@@ -30,14 +32,14 @@ namespace MT.Screens.PlayScreen.States
                 _activeBlock.Rotate();
             });
 
-            _playerInput.MoveBlockAddListener(() =>
+            _moveBlockEvent.AddListener(() =>
             {
                 var pos = _activeBlock.transform.position;
-                pos.x = _playerInput.PointerPosition().x;
+                pos.x = _pointerPositionProvider.Get().x;
                 _activeBlock.transform.position = pos;
             });
 
-            _playerInput.DropBlockAddListener(() =>
+            _dropBlockEvent.AddListener(() =>
             {
                 ToNext();
             });
@@ -45,11 +47,15 @@ namespace MT.Screens.PlayScreen.States
 
         public void Enter()
         {
+            _moveBlockEvent.SetInteractable(true);
+            _dropBlockEvent.SetInteractable(true);
             _rotateButton.SetInteractable(true);
         }
 
         public void ToNext()
         {
+            _moveBlockEvent.SetInteractable(false);
+            _dropBlockEvent.SetInteractable(false);
             _rotateButton.SetInteractable(false);
             _nextState.Enter();
         }
