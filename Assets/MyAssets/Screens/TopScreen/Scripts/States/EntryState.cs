@@ -6,7 +6,7 @@ using MT.Audio;
 
 namespace MT.Screens.TopScreen.States
 {
-    public class EnterState : MonoBehaviour, IState
+    public class EntryState : MonoBehaviour, IState
     {
         [SerializeField] private float _fadeInDuration;
         [SerializeField] private GameObject _nextStateObject;

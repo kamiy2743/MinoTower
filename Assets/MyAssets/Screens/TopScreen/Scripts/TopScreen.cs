@@ -8,22 +8,20 @@ namespace MT.Screens.TopScreen
 {
     public class TopScreen : MonoBehaviour, IScreen
     {
-        [SerializeField] private EnterState _enterState;
+        [SerializeField] private EntryState _entryState;
 
         public ScreenType Type { get; private set; } = ScreenType.Top;
-        public bool IsOpened { get; private set; }
-        public bool IsActive => gameObject.activeSelf;
 
         public void Open()
         {
-            IsOpened = true;
+            // TODO 開いてるときは流す
             gameObject.SetActive(true);
-            _enterState.Enter();
+            _entryState.Enter();
         }
 
         public void Close()
         {
-            IsOpened = false;
+            // TODO 閉じてるときは流す
             gameObject.SetActive(false);
         }
     }
