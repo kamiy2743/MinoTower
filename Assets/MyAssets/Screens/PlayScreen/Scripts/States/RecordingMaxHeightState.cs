@@ -11,7 +11,7 @@ namespace MT.Screens.PlayScreen.States
     public class RecordingMaxHeightState : MonoBehaviour, IState, IStaticAwake
     {
         [SerializeField] private float _heightMagnification;
-        [SerializeField] private PlayData _playData;
+        [SerializeField] private SessionData _sessionData;
         [SerializeField] private BlocksMaxYProvider _blocksMaxYProvider;
         [SerializeField] private Foundation _foundation;
         [SerializeField] private GameObject _nextStateObject;
@@ -27,7 +27,7 @@ namespace MT.Screens.PlayScreen.States
         {
             var maxY = _blocksMaxYProvider.MaxY();
             var maxHeightValue = maxY - _foundation.GetTop();
-            _playData.MaxHeight = new MaxHeight(maxHeightValue * _heightMagnification);
+            _sessionData.MaxHeight = new MaxHeight(maxHeightValue * _heightMagnification);
             _nextState.Enter();
         }
     }

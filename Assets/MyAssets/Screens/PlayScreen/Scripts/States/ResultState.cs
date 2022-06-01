@@ -11,7 +11,7 @@ namespace MT.Screens.PlayScreen.States
 {
     public class ResultState : MonoBehaviour, IState, IStaticStart
     {
-        [SerializeField] private PlayData _playData;
+        [SerializeField] private SessionData _sessionData;
         [SerializeField] private ResultUI _resultUI;
         [SerializeField] private ResultEffect _resultEffect;
         [SerializeField] private RotateButton _rotateButton;
@@ -51,13 +51,13 @@ namespace MT.Screens.PlayScreen.States
         private void ShowResultUI()
         {
             _resultUI.Show();
-            _resultUI.SetMaxHeightText(_playData.MaxHeight.value);
+            _resultUI.SetMaxHeightText(_sessionData.MaxHeight.value);
             _rotateButton.Hide();
         }
 
         private void PlayResultEffect()
         {
-            var maxHeight = _playData.MaxHeight;
+            var maxHeight = _sessionData.MaxHeight;
             _resultEffect.Play(maxHeight);
         }
     }

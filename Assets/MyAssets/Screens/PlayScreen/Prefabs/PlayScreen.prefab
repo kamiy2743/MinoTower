@@ -694,7 +694,7 @@ GameObject:
   - component: {fileID: 5770537374837516078}
   - component: {fileID: 2930115139255164885}
   m_Layer: 0
-  m_Name: PlayData
+  m_Name: SessionData
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -773,7 +773,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeInDuration: 0.5
   _nextStateObject: {fileID: 7416429242626788221}
-  _playData: {fileID: 2930115139255164885}
+  _sessionData: {fileID: 2930115139255164885}
   _blockStore: {fileID: 2734507599868963625}
   _resultUI: {fileID: 8133737851317955638}
   _rotateButton: {fileID: 4028140374225693624}
@@ -1833,7 +1833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 735697521b1121249902993a389468a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playData: {fileID: 2930115139255164885}
+  _sessionData: {fileID: 2930115139255164885}
   _resultUI: {fileID: 8133737851317955638}
   _resultEffect: {fileID: 8029827814758384353}
   _rotateButton: {fileID: 4028140374225693624}
@@ -1886,7 +1886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heightMagnification: 0.2
-  _playData: {fileID: 2930115139255164885}
+  _sessionData: {fileID: 2930115139255164885}
   _blocksMaxYProvider: {fileID: 3477530872413171192}
   _foundation: {fileID: 8704784964144729435}
   _nextStateObject: {fileID: 6560842738031570411}

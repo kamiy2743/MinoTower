@@ -5,7 +5,7 @@ using MT.Blocks;
 
 namespace MT.Screens.PlayScreen.Systems
 {
-    public class PlayData : MonoBehaviour, IStaticAwake
+    public class SessionData : MonoBehaviour, IStaticAwake
     {
         // グローバル変数じゃないか
         public MaxHeight MaxHeight;

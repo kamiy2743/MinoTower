@@ -14,7 +14,7 @@ namespace MT.Screens.PlayScreen.States
         [SerializeField] private float _fadeInDuration;
         [SerializeField] private GameObject _nextStateObject;
 
-        [SerializeField] private PlayData _playData;
+        [SerializeField] private SessionData _sessionData;
         [SerializeField] private BlockStore _blockStore;
         [SerializeField] private ResultUI _resultUI;
         [SerializeField] private RotateButton _rotateButton;
@@ -39,7 +39,7 @@ namespace MT.Screens.PlayScreen.States
 
         private void Initialize()
         {
-            _playData.Initialize();
+            _sessionData.Initialize();
             _blockStore.Initialize();
             _resultUI.Initialize();
             _rotateButton.Initialize();
