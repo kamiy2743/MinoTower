@@ -4,6 +4,7 @@ using UnityEngine;
 using MT.Blocks;
 using MT.Util;
 using Cysharp.Threading.Tasks;
+using MT.Audio;
 
 namespace MT.Screens.PlayScreen.States
 {
@@ -12,6 +13,7 @@ namespace MT.Screens.PlayScreen.States
         [SerializeField] private Transform _blockSpawnPoint;
         [SerializeField] private BlockStore _blockStore;
         [SerializeField] private BlockGenerator _blockGenerator;
+        [SerializeField] private SEType _onSpawnSE;
         [SerializeField] private GameObject _nextStateObject;
 
         private IState _nextState;
@@ -39,6 +41,7 @@ namespace MT.Screens.PlayScreen.States
             var rotation = Quaternion.identity;
             var block = _blockGenerator.RandomGenerate(position, rotation);
             _blockStore.Add(block);
+            AudioManager.Instance.PlaySE(_onSpawnSE);
             await block.OnSpwned();
         }
     }
