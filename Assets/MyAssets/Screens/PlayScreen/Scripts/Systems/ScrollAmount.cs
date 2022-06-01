@@ -2,13 +2,13 @@ namespace MT.Screens.PlayScreen.Systems
 {
     public class ScrollAmount
     {
-        private static float maxValue = float.MaxValue;
-        private static float minValue = 0f;
+        private const float maxValue = float.MaxValue;
+        private const float minValue = 0f;
 
         public readonly float value;
 
-        public static ScrollAmount Max = new ScrollAmount(maxValue);
-        public static ScrollAmount Min = new ScrollAmount(minValue);
+        public static readonly ScrollAmount Max = new ScrollAmount(maxValue);
+        public static readonly ScrollAmount Min = new ScrollAmount(minValue);
 
         public ScrollAmount(float scrollAmount)
         {

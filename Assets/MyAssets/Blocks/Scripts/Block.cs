@@ -15,10 +15,10 @@ namespace MT.Blocks
         private Rigidbody2D _rigidbody;
         private BoxCollider2D[] _colliders;
 
-        private static float SpawnAnimationDuration = 0.4f;
-        private static float RotateAngle = -45;
-        private static float RotateDuration = 0.2f;
-        private static float SleepThreshold = 0.3f;
+        private const float SpawnAnimationDuration = 0.4f;
+        private const float RotateAngle = -45;
+        private const float RotateDuration = 0.2f;
+        private const float SleepThreshold = 0.3f;
 
         private float _sleepingElapsed;
 
