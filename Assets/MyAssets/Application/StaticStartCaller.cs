@@ -7,7 +7,7 @@ namespace MT.Application
 {
     public class StaticStartCaller
     {
-        public static void Call()
+        public void Call()
         {
             var scene = SceneManager.GetActiveScene();
             foreach (var root in scene.GetRootGameObjects())

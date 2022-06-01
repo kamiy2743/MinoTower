@@ -9,8 +9,8 @@ namespace MT.Application
     {
         void Start()
         {
-            StaticAwakeCaller.Call();
-            StaticStartCaller.Call();
+            new StaticAwakeCaller().Call();
+            new StaticStartCaller().Call();
 
             ScreenSwitcher.Instance.Initialize();
         }

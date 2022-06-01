@@ -6,12 +6,12 @@ namespace MT.Blocks
 {
     public class MaxHeight
     {
-        private static float maxValue = float.MaxValue;
-        private static float minValue = 0;
+        private const float maxValue = float.MaxValue;
+        private const float minValue = 0;
 
         public readonly float value;
-        public static MaxHeight Max = new MaxHeight(maxValue);
-        public static MaxHeight Min = new MaxHeight(minValue);
+        public static readonly MaxHeight Max = new MaxHeight(maxValue);
+        public static readonly MaxHeight Min = new MaxHeight(minValue);
 
         public MaxHeight(float height)
         {
