@@ -10,30 +10,13 @@ namespace MT.Screens.PlayScreen.States
 {
     public class ContinueState : MonoBehaviour, IState
     {
-        [SerializeField] private MainLoopStartState _startState;
+        [SerializeField] private EntryState _entryState;
         [SerializeField] private float _fadeDuration;
-
-        [SerializeField] private PlayData _playData;
-        [SerializeField] private BlockStore _blockStore;
-        [SerializeField] private ResultUI _resultUI;
-        [SerializeField] private RotateButton _rotateButton;
-        [SerializeField] private ScreenScroller _screenScroller;
 
         public async void Enter()
         {
             await Fader.Instance.FadeOut(_fadeDuration);
-            Initialize();
-            await Fader.Instance.FadeIn(_fadeDuration);
-            _startState.Enter();
-        }
-
-        public void Initialize()
-        {
-            _playData.Initialize();
-            _blockStore.Initialize();
-            _resultUI.Initialize();
-            _rotateButton.Initialize();
-            _screenScroller.Initialize();
+            _entryState.Enter();
         }
     }
 }

@@ -323,13 +323,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bfcc51f0fdd8424cb3985c8d3ce60d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startState: {fileID: 7926858685189147789}
+  _entryState: {fileID: 1671800625636424476}
   _fadeDuration: 0.5
-  _playData: {fileID: 2930115139255164885}
-  _blockStore: {fileID: 2734507599868963625}
-  _resultUI: {fileID: 8133737851317955638}
-  _rotateButton: {fileID: 4028140374225693624}
-  _screenScroller: {fileID: 7199898353998925582}
 --- !u!1 &1784461208354424330
 GameObject:
   m_ObjectHideFlags: 0
