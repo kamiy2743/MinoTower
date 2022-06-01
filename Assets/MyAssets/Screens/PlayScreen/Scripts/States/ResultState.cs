@@ -4,7 +4,7 @@ using UnityEngine;
 using MT.Util;
 using MT.Screens.PlayScreen.UI;
 using MT.Screens.PlayScreen.Systems;
-using MT.Util.Effect;
+using MT.Screens.PlayScreen.Effects;
 using MT.Util.UI;
 
 namespace MT.Screens.PlayScreen.States
@@ -13,7 +13,7 @@ namespace MT.Screens.PlayScreen.States
     {
         [SerializeField] private PlayData _playData;
         [SerializeField] private ResultUI _resultUI;
-        [SerializeField] private PaperEffect _paperEffect;
+        [SerializeField] private ResultEffect _resultEffect;
         [SerializeField] private RotateButton _rotateButton;
         [SerializeField] private CustomButton _continueButton;
         [SerializeField] private ContinueState _continueState;
@@ -38,6 +38,7 @@ namespace MT.Screens.PlayScreen.States
             _continueButton.SetInteractable(true);
             _exitButton.SetInteractable(true);
             ShowResultUI();
+            PlayResultEffect();
         }
 
         private void Tonext(IState nextState)
@@ -51,12 +52,13 @@ namespace MT.Screens.PlayScreen.States
         {
             _resultUI.Show();
             _resultUI.SetMaxHeightText(_playData.MaxHeight.value);
-
             _rotateButton.Hide();
+        }
 
-            var height = _playData.MaxHeight.value;
-            var ratio = height * 5f / 100f;
-            _paperEffect.Play(ratio);
+        private void PlayResultEffect()
+        {
+            var maxHeight = _playData.MaxHeight;
+            _resultEffect.Play(maxHeight);
         }
     }
 }
