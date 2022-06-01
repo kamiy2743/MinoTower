@@ -6,7 +6,7 @@ using Cysharp.Threading.Tasks;
 
 namespace MT.Screens.PlayScreen.UI
 {
-    public class RotateButton : MonoBehaviour, IStaticAwake, IInitializable
+    public class RotateButton : MonoBehaviour, IStaticAwake
     {
         [SerializeField] private float _hideDuration;
 

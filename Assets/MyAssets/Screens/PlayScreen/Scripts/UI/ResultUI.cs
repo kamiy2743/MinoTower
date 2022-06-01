@@ -7,7 +7,7 @@ using MT.Util.UI;
 
 namespace MT.Screens.PlayScreen.UI
 {
-    public class ResultUI : MonoBehaviour, IInitializable
+    public class ResultUI : MonoBehaviour
     {
         [SerializeField] private CanvasGroup _ui;
         [SerializeField] private float _fadeInDuration;

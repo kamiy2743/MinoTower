@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MT.Screens
 {
-    public class ScreenSwitcher : MonoBehaviour, IStaticAwake, IInitializable
+    public class ScreenSwitcher : MonoBehaviour, IStaticAwake
     {
         [SerializeField] private GameObject[] _screenObjects;
         [SerializeField] private ScreenType _firstOpenScreen;

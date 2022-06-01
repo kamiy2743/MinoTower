@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MT.Blocks
 {
-    public class BlockStore : MonoBehaviour, IInitializable
+    public class BlockStore : MonoBehaviour
     {
         private List<Block> _blocks = new List<Block>();
 

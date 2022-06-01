@@ -6,7 +6,7 @@ using MT.Audio;
 
 namespace MT.Screens.OptionScreen.Systems
 {
-    public class AudioSettingApplier : MonoBehaviour, IStaticStart, IInitializable
+    public class AudioSettingApplier : MonoBehaviour, IStaticStart
     {
         [SerializeField] private SettingSlider _BGMSlider;
         [SerializeField] private SettingSlider _SESlider;
