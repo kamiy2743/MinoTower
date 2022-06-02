@@ -4,30 +4,14 @@ using UnityEngine;
 
 namespace MT
 {
-    public class BlockGenerator : MonoBehaviour, IStaticAwake
+    public class BlockGenerator : MonoBehaviour
     {
         [SerializeField] private Block[] _blockPrefabs;
 
-        private Dictionary<BlockType, Block> _prefabDic;
-
-        public void StaticAwake()
-        {
-            _prefabDic = new Dictionary<BlockType, Block>();
-            foreach (var item in _blockPrefabs)
-            {
-                _prefabDic[item.BlockType] = item;
-            }
-        }
-
         public Block RandomGenerate(Vector3 position, Quaternion rotation)
         {
-            var type = (BlockType)Random.Range(0, _prefabDic.Keys.Count);
-            return Generate(type, position, rotation);
-        }
-
-        public Block Generate(BlockType type, Vector3 position, Quaternion rotation)
-        {
-            var prefab = _prefabDic[type];
+            var randIndex = Random.Range(0, _blockPrefabs.Length);
+            var prefab = _blockPrefabs[randIndex];
             return Instantiate(prefab, position, rotation);
         }
     }

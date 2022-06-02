@@ -8,10 +8,6 @@ namespace MT
 {
     public class Block : MonoBehaviour
     {
-        [SerializeField] private BlockType _blockType;
-
-        public BlockType BlockType => _blockType;
-
         private Rigidbody2D _rigidbody;
         private BoxCollider2D[] _colliders;
 
