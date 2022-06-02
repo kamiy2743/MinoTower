@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Cysharp.Threading.Tasks;
-using MT.Util.UI;
 
-namespace MT.Screens.PlayScreen.UI
+namespace MT.PlayScreen
 {
     public class ResultUI : MonoBehaviour
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
-namespace Extension
+namespace MT.Extension
 {
     public static class EventTriggerExt
     {

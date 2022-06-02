@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MT.Util.Effect
+namespace MT
 {
     public class PaperEffect : MonoBehaviour, IStaticAwake
     {

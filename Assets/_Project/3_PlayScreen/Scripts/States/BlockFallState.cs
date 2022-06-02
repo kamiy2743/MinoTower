@@ -1,11 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MT.Util;
-using MT.Blocks;
 using Cysharp.Threading.Tasks;
 
-namespace MT.Screens.PlayScreen.States
+namespace MT.PlayScreen
 {
     public class BlockFallState : MonoBehaviour, IState, IStaticAwake
     {

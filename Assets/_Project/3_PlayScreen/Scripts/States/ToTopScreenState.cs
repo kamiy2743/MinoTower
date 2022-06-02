@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MT.Util;
 
-namespace MT.Screens.PlayScreen.States
+namespace MT.PlayScreen
 {
     public class ToTopScreenState : MonoBehaviour, IState
     {
         [SerializeField] private PlayScreen _playScreen;
-        [SerializeField] private MT.Screens.TopScreen.TopScreen _topScreen;
+        [SerializeField] private MT.TopScreen.TopScreen _topScreen;
         [SerializeField] private float _fadeOutDuration;
 
         public async void Enter()

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace MT.Application
+namespace MT
 {
     public class StaticAwakeCaller
     {

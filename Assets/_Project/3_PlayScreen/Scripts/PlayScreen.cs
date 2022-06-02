@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MT.Screens.PlayScreen.States;
-using MT.Screens.PlayScreen.Systems;
 
-namespace MT.Screens.PlayScreen
+namespace MT.PlayScreen
 {
     public class PlayScreen : MonoBehaviour, IScreen
     {

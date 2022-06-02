@@ -1,4 +1,4 @@
-namespace MT.Blocks
+namespace MT
 {
     public enum BlockType
     {

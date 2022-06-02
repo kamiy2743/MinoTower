@@ -1,12 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MT.Util;
-using MT.Screens.PlayScreen.Systems;
-using MT.Blocks;
-using MT.Util.UI;
 
-namespace MT.Screens.PlayScreen.States
+namespace MT.PlayScreen
 {
     public class BlockControllState : MonoBehaviour, IState, IStaticAwake, IStaticStart
     {

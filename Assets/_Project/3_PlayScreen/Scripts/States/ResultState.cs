@@ -1,13 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MT.Util;
-using MT.Screens.PlayScreen.UI;
-using MT.Screens.PlayScreen.Systems;
-using MT.Screens.PlayScreen.Effects;
-using MT.Util.UI;
 
-namespace MT.Screens.PlayScreen.States
+namespace MT.PlayScreen
 {
     public class ResultState : MonoBehaviour, IState, IStaticStart
     {

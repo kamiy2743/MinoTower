@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MT.Screens.TopScreen.States;
-using MT.Screens;
 
-namespace MT.Screens.TopScreen
+namespace MT.TopScreen
 {
     public class TopScreen : MonoBehaviour, IScreen
     {

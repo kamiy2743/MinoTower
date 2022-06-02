@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using Cysharp.Threading.Tasks;
 
-namespace MT.Blocks
+namespace MT
 {
     public class Block : MonoBehaviour
     {

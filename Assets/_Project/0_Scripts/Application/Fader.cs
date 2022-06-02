@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using Cysharp.Threading.Tasks;
 
-namespace MT.Util
+namespace MT
 {
     public class Fader : MonoBehaviour, IStaticAwake
     {

@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MT.Events;
 using UnityEngine.Events;
 
-namespace MT.Screens.PlayScreen.Stages
+namespace MT.PlayScreen
 {
     public class GameOverArea : MonoBehaviour, IEventListener
     {
@@ -22,7 +21,7 @@ namespace MT.Screens.PlayScreen.Stages
 
         void OnTriggerEnter2D(Collider2D collider)
         {
-            if (collider.transform.parent.GetComponent<MT.Blocks.BlockTag>() != null)
+            if (collider.transform.parent.GetComponent<MT.BlockTag>() != null)
             {
                 _eventSubject.Invoke();
             }

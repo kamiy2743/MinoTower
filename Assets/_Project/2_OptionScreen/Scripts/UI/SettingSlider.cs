@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
-using MT.Events;
 
-namespace MT.Screens.OptionScreen.UI
+namespace MT.OptionScreen
 {
     public class SettingSlider : MonoBehaviour, IEventListener<float>, IStaticAwake
     {

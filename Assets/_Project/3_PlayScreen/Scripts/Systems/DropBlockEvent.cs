@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MT.Util.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
-using MT.Events;
 
-namespace MT.Screens.PlayScreen.Systems
+namespace MT.PlayScreen
 {
     public class DropBlockEvent : MonoBehaviour, IEventListener, IStaticStart
     {

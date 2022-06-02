@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MT.Util;
-using MT.Audio;
 
-namespace MT.Screens.TopScreen.States
+namespace MT.TopScreen
 {
     public class EntryState : MonoBehaviour, IState, IStaticAwake
     {

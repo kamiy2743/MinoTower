@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MT.Screens
+namespace MT
 {
     public class ScreenSwitcher : MonoBehaviour, IStaticAwake
     {

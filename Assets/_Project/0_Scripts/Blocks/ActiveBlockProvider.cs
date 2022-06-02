@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-namespace MT.Blocks
+namespace MT
 {
     public class ActiveBlockProvider : MonoBehaviour
     {

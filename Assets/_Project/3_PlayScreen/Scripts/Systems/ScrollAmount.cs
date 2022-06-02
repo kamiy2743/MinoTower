@@ -1,4 +1,4 @@
-namespace MT.Screens.PlayScreen.Systems
+namespace MT.PlayScreen
 {
     public class ScrollAmount
     {

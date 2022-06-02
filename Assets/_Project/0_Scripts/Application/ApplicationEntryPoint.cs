@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MT.Screens;
 
-namespace MT.Application
+namespace MT
 {
     public class ApplicationEntryPoint : MonoBehaviour
     {

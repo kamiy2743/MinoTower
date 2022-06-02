@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MT.Blocks;
 
-namespace MT.Screens.PlayScreen.Systems
+namespace MT.PlayScreen
 {
     public class SessionData : MonoBehaviour, IStaticAwake
     {

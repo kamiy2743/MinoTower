@@ -1,13 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MT.Util;
-using MT.Blocks;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using MT.Screens.PlayScreen.Stages;
 
-namespace MT.Screens.PlayScreen.States
+namespace MT.PlayScreen
 {
     public class WaitForBlockSleepState : MonoBehaviour, IState, IStaticAwake, IStaticStart
     {

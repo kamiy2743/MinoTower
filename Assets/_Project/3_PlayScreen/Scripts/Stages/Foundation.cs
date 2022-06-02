@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MT.Screens.PlayScreen.Stages
+namespace MT.PlayScreen
 {
     public class Foundation : MonoBehaviour, IStaticAwake
     {

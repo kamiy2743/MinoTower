@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MT.Util;
 
-namespace MT.Screens.PlayScreen.States
+namespace MT.PlayScreen
 {
     public class MainLoopStartState : MonoBehaviour, IState, IStaticAwake
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MT.Screens.PlayScreen.Systems
+namespace MT.PlayScreen
 {
     public class PointerPositionProvider : MonoBehaviour, IStaticAwake
     {

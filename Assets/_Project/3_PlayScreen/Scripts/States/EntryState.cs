@@ -1,14 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MT.Util;
-using MT.Screens.PlayScreen.Systems;
-using MT.Audio;
-using MT.Blocks;
-using MT.Screens.PlayScreen.UI;
-using MT.Screens.PlayScreen.Effects;
 
-namespace MT.Screens.PlayScreen.States
+namespace MT.PlayScreen
 {
     public class EntryState : MonoBehaviour, IState, IStaticAwake
     {

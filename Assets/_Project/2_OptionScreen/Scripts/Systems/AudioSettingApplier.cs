@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MT.Screens.OptionScreen.UI;
-using MT.Audio;
 
-namespace MT.Screens.OptionScreen.Systems
+namespace MT.OptionScreen
 {
     public class AudioSettingApplier : MonoBehaviour, IStaticStart
     {

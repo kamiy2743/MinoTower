@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MT.Application;
 
-namespace MT.Audio
+namespace MT
 {
     public class AudioManager : MonoBehaviour, IStaticAwake, IStaticStart
     {

@@ -1,4 +1,4 @@
-namespace MT.Screens
+namespace MT
 {
     public interface IScreen
     {

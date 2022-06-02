@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MT.Application
+namespace MT
 {
     public class SaveDataManager
     {

@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Extension;
+using MT.Extension;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
-namespace MT.Util.UI
+namespace MT
 {
     public class UIEvent : MonoBehaviour, IStaticAwake
     {

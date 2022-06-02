@@ -2,10 +2,8 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
-using MT.Audio;
-using MT.Events;
 
-namespace MT.Util.UI
+namespace MT
 {
     public class CustomButton : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler, IEventListener, IStaticAwake
     {

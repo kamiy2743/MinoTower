@@ -4,7 +4,7 @@ using UnityEngine;
 using UniRx;
 using UnityEngine.Events;
 
-namespace MT.Events
+namespace MT
 {
     public class EventSubject : IEventListener
     {

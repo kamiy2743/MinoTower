@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MT.Util;
-using MT.Util.UI;
 
-namespace MT.Screens.TopScreen.States
+namespace MT.TopScreen
 {
     public class WaitForPlayerActionState : MonoBehaviour, IState, IStaticStart
     {

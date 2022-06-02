@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-namespace MT.Util.UI
+namespace MT
 {
     public class CustomText : MonoBehaviour, IStaticAwake
     {

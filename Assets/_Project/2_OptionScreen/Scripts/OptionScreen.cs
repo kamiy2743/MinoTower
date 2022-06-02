@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MT.Screens.OptionScreen.States;
 
-namespace MT.Screens.OptionScreen
+namespace MT.OptionScreen
 {
     public class OptionScreen : MonoBehaviour, IScreen
     {

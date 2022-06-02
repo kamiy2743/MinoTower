@@ -1,11 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MT.Util;
-using MT.Util.UI;
-using MT.Screens.OptionScreen.UI;
 
-namespace MT.Screens.OptionScreen.States
+namespace MT.OptionScreen
 {
     public class WaitForPlayerActionState : MonoBehaviour, IState, IStaticStart
     {

@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MT.Util.Effect;
-using MT.Blocks;
 
-namespace MT.Screens.PlayScreen.Effects
+namespace MT.PlayScreen
 {
     public class ResultEffect : MonoBehaviour
     {

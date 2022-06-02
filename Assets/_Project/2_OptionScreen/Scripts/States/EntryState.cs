@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MT.Util;
-using MT.Screens.OptionScreen.Systems;
 
-namespace MT.Screens.OptionScreen.States
+namespace MT.OptionScreen
 {
     public class EntryState : MonoBehaviour, IState, IStaticAwake
     {

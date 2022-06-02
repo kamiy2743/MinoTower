@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MT.Blocks;
-using MT.Util;
 using Cysharp.Threading.Tasks;
-using MT.Audio;
 
-namespace MT.Screens.PlayScreen.States
+
+namespace MT.PlayScreen
 {
     public class BlockSpawnState : MonoBehaviour, IState, IStaticAwake
     {

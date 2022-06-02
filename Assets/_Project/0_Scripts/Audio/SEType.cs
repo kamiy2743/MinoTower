@@ -1,4 +1,4 @@
-namespace MT.Audio
+namespace MT
 {
     public enum SEType
     {

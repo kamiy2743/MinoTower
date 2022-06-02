@@ -1,4 +1,4 @@
-namespace MT.Util
+namespace MT
 {
     public interface IState
     {
