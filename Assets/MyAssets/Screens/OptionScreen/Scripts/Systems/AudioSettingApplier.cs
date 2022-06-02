@@ -13,8 +13,8 @@ namespace MT.Screens.OptionScreen.Systems
 
         public void StaticStart()
         {
-            _BGMSlider.OnValueChangedAddListener(ApplyBGMVolume);
-            _SESlider.OnValueChangedAddListener(ApplySEVolume);
+            _BGMSlider.AddListener(ApplyBGMVolume);
+            _SESlider.AddListener(ApplySEVolume);
         }
 
         public void Initialize()

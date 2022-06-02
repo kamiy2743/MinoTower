@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using MT.Util;
 using MT.Util.UI;
+using MT.Screens.OptionScreen.UI;
 
 namespace MT.Screens.OptionScreen.States
 {
     public class WaitForPlayerActionState : MonoBehaviour, IState, IStaticStart
     {
         [SerializeField] private CustomButton _backButton;
+        [SerializeField] private SettingSlider _BGMSlider;
+        [SerializeField] private SettingSlider _SESlider;
         [SerializeField] private ToTopScreenState _toTopScreenState;
 
         private bool _isActive;
@@ -23,11 +26,15 @@ namespace MT.Screens.OptionScreen.States
 
         public void Enter()
         {
+            _BGMSlider.SetIsListened(true);
+            _SESlider.SetIsListened(true);
             _backButton.SetIsListened(true);
         }
 
         private void Tonext()
         {
+            _BGMSlider.SetIsListened(false);
+            _SESlider.SetIsListened(false);
             _backButton.SetIsListened(false);
             _toTopScreenState.Enter();
         }

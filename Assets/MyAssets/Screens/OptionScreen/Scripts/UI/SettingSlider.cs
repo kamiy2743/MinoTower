@@ -2,35 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using MT.Util.UI;
 using UnityEngine.Events;
+using MT.Events;
 
 namespace MT.Screens.OptionScreen.UI
 {
-    public class SettingSlider : MonoBehaviour, IInteractableUI, IStaticAwake
+    public class SettingSlider : MonoBehaviour, IEventListener<float>, IStaticAwake
     {
         private Slider _slider;
-        private bool _isInteractable;
+        private EventSubject<float> _eventSubject = new EventSubject<float>();
 
         public void StaticAwake()
         {
             _slider = GetComponentInChildren<Slider>();
+            _slider.onValueChanged.AddListener(value => _eventSubject.Invoke(value));
         }
 
-        public void SetInteractable(bool value)
+        public void SetIsListened(bool value)
         {
             _slider.interactable = value;
-            _isInteractable = value;
+            _eventSubject.SetIsListened(value);
+        }
+
+        public void AddListener(UnityAction<float> call)
+        {
+            _eventSubject.AddListener(call);
         }
 
         public void SetValue(float value)
         {
             _slider.value = value;
-        }
-
-        public void OnValueChangedAddListener(UnityAction<float> call)
-        {
-            _slider.onValueChanged.AddListener(call);
         }
     }
 }
