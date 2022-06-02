@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace MT
+namespace MT.Events
 {
     public interface IEventListener
     {
