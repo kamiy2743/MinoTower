@@ -4,35 +4,28 @@ using UnityEngine;
 using MT.Util.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using MT.Events;
 
 namespace MT.Screens.PlayScreen.Systems
 {
-    public class MoveBlockEvent : MonoBehaviour, IInteractableUI, IStaticStart
+    public class MoveBlockEvent : MonoBehaviour, IEventListener, IStaticStart
     {
-        private bool _isInteractable = false;
-        private UnityEvent _onMoveBlovk = new UnityEvent();
+        private EventSubject _eventSubject = new EventSubject();
 
         public void StaticStart()
         {
-            UIEvent.Instance.AddListener(EventTriggerType.PointerDown, OnMoveBlock);
-            UIEvent.Instance.AddListener(EventTriggerType.Drag, OnMoveBlock);
+            UIEvent.Instance.AddListener(EventTriggerType.PointerDown, _eventSubject.Invoke);
+            UIEvent.Instance.AddListener(EventTriggerType.Drag, _eventSubject.Invoke);
         }
 
-        public void SetInteractable(bool value)
+        public void SetIsListened(bool value)
         {
-            _isInteractable = value;
+            _eventSubject.SetIsListened(value);
         }
 
         public void AddListener(UnityAction call)
         {
-            _onMoveBlovk.AddListener(call);
-        }
-
-        private void OnMoveBlock()
-        {
-            if (!_isInteractable) return;
-
-            _onMoveBlovk.Invoke();
+            _eventSubject.AddListener(call);
         }
     }
 }

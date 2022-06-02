@@ -49,14 +49,14 @@ namespace MT.Screens.PlayScreen.States
 
         public void Enter()
         {
-            _moveBlockEvent.SetInteractable(true);
+            _moveBlockEvent.SetIsListened(true);
             _dropBlockEvent.SetIsListened(true);
             _rotateButton.SetIsListened(true);
         }
 
         public void ToNext()
         {
-            _moveBlockEvent.SetInteractable(false);
+            _moveBlockEvent.SetIsListened(false);
             _dropBlockEvent.SetIsListened(false);
             _rotateButton.SetIsListened(false);
             _nextState.Enter();
