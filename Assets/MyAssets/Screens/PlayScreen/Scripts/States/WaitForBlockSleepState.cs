@@ -6,11 +6,10 @@ using MT.Blocks;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using MT.Screens.PlayScreen.Stages;
-using MT.Screens.PlayScreen.Systems;
 
 namespace MT.Screens.PlayScreen.States
 {
-    public class WaitForBlockSleepState : MonoBehaviour, IState, IStaticAwake
+    public class WaitForBlockSleepState : MonoBehaviour, IState, IStaticAwake, IStaticStart
     {
         [SerializeField] private BlockSleepProvider _blockSleepProvider;
         [SerializeField] private GameObject _defaultNextStateObject;
@@ -27,28 +26,24 @@ namespace MT.Screens.PlayScreen.States
             _defaultNextState = _defaultNextStateObject.GetComponent<IState>();
         }
 
-        void Update()
+        public void StaticStart()
         {
-            // TODO update削除
-            if (!_isActive) return;
-
-            // 土台から落ちたら結果画面に遷移
-            if (_gameOverArea.IsTrigger())
+            _gameOverArea.AddListener(() =>
             {
                 _cts.Cancel();
                 ToNext(_resultState);
-            }
+            });
         }
 
         public void Enter()
         {
-            _isActive = true;
+            _gameOverArea.SetIsListened(true);
             WaitForBlockSleep();
         }
 
         private void ToNext(IState nextState)
         {
-            _isActive = false;
+            _gameOverArea.SetIsListened(false);
             nextState.Enter();
         }
 
