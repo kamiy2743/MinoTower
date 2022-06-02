@@ -16,7 +16,6 @@ namespace MT.PlayScreen
         private IState _defaultNextState;
 
         private CancellationTokenSource _cts;
-        private bool _isActive = false;
 
         public void StaticAwake()
         {
