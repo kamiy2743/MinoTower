@@ -9,16 +9,18 @@ namespace MT.Events
     public class EventSubject : IEventListener
     {
         private Subject<string> _subject = new Subject<string>();
-        private bool _isListened = false;
+        public bool IsListened { get; private set; } = false;
 
         public void SetIsListened(bool value)
         {
-            _isListened = value;
+            IsListened = value;
         }
 
         public void AddListener(UnityAction call)
         {
-            _subject.Subscribe(_ => call.Invoke());
+            _subject
+                .Where(_ => IsListened)
+                .Subscribe(_ => call.Invoke());
         }
 
         public void Invoke()
