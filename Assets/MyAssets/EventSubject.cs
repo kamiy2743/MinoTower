@@ -28,4 +28,27 @@ namespace MT.Events
             _subject.OnNext("");
         }
     }
+
+    public class EventSubject<T> : IEventListener<T>
+    {
+        private Subject<T> _subject = new Subject<T>();
+        public bool IsListened { get; private set; } = false;
+
+        public void SetIsListened(bool value)
+        {
+            IsListened = value;
+        }
+
+        public void AddListener(UnityAction<T> call)
+        {
+            _subject
+                .Where(_ => IsListened)
+                .Subscribe(arg => call.Invoke(arg));
+        }
+
+        public void Invoke(T arg)
+        {
+            _subject.OnNext(arg);
+        }
+    }
 }

@@ -10,4 +10,10 @@ namespace MT.Events
         void SetIsListened(bool value);
         void AddListener(UnityAction call);
     }
+
+    public interface IEventListener<T>
+    {
+        void SetIsListened(bool value);
+        void AddListener(UnityAction<T> call);
+    }
 }
