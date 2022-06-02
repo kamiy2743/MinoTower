@@ -4,34 +4,27 @@ using UnityEngine;
 using MT.Util.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using MT.Events;
 
 namespace MT.Screens.PlayScreen.Systems
 {
-    public class DropBlockEvent : MonoBehaviour, IInteractableUI, IStaticStart
+    public class DropBlockEvent : MonoBehaviour, IEventListener, IStaticStart
     {
-        private bool _isInteractable = false;
-        private UnityEvent _onDropBlovk = new UnityEvent();
+        private EventSubject _eventSubject = new EventSubject();
 
         public void StaticStart()
         {
-            UIEvent.Instance.AddListener(EventTriggerType.PointerUp, OnDropBlock);
+            UIEvent.Instance.AddListener(EventTriggerType.PointerUp, _eventSubject.Invoke);
         }
 
-        public void SetInteractable(bool value)
+        public void SetIsListened(bool value)
         {
-            _isInteractable = value;
+            _eventSubject.SetIsListened(value);
         }
 
         public void AddListener(UnityAction call)
         {
-            _onDropBlovk.AddListener(call);
-        }
-
-        private void OnDropBlock()
-        {
-            if (!_isInteractable) return;
-
-            _onDropBlovk.Invoke();
+            _eventSubject.AddListener(call);
         }
     }
 }
