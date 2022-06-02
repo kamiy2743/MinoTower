@@ -17,13 +17,18 @@ namespace MT.Util.Effect
         public void StaticAwake()
         {
             _particleSystem = GetComponent<ParticleSystem>();
-            gameObject.SetActive(false);
+            Initialize();
+        }
+
+        public void Initialize()
+        {
+            _particleSystem.Clear();
+            SetRateOverTime(0);
         }
 
         public void Play(float ratio)
         {
             SetParticleCount(ratio);
-            gameObject.SetActive(true);
             _particleSystem.Play();
         }
 
@@ -31,17 +36,17 @@ namespace MT.Util.Effect
         {
             var particleCount = (_maxParticleCount - _minParticleCount) * ratio + _minParticleCount;
 
-            var emission = _particleSystem.emission;
             var duration = _particleSystem.main.duration;
-            emission.rateOverTime = particleCount / duration;
+            SetRateOverTime(particleCount / duration);
 
             var main = _particleSystem.main;
             main.maxParticles = (int)particleCount;
         }
 
-        void OnParticleSystemStopped()
+        private void SetRateOverTime(float value)
         {
-            gameObject.SetActive(false);
+            var emission = _particleSystem.emission;
+            emission.rateOverTime = value;
         }
     }
 }

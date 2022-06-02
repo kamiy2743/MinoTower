@@ -738,7 +738,7 @@ GameObject:
   - component: {fileID: 8176911698224103569}
   - component: {fileID: 1671800625636424476}
   m_Layer: 0
-  m_Name: EnterState
+  m_Name: EntryState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -778,6 +778,7 @@ MonoBehaviour:
   _resultUI: {fileID: 8133737851317955638}
   _rotateButton: {fileID: 4028140374225693624}
   _screenScroller: {fileID: 7199898353998925582}
+  _resultEffect: {fileID: 8029827814758384353}
 --- !u!1 &3643786805690711472
 GameObject:
   m_ObjectHideFlags: 0
@@ -1938,6 +1939,7 @@ MonoBehaviour:
   _blockSpawnPoint: {fileID: 5591687277695189648}
   _blockStore: {fileID: 2734507599868963625}
   _blockGenerator: {fileID: 1339496287089284453}
+  _onSpawnSE: 0
   _nextStateObject: {fileID: 1288910189226862150}
 --- !u!1001 &227397765284790868
 PrefabInstance:

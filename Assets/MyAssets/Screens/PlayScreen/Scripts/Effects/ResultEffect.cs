@@ -10,6 +10,11 @@ namespace MT.Screens.PlayScreen.Effects
     {
         [SerializeField] private PaperEffect _paperEffect;
 
+        public void Initialize()
+        {
+            _paperEffect.Initialize();
+        }
+
         public void Play(MaxHeight maxHeight)
         {
             var height = maxHeight.value;

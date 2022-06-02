@@ -6,6 +6,7 @@ using MT.Screens.PlayScreen.Systems;
 using MT.Audio;
 using MT.Blocks;
 using MT.Screens.PlayScreen.UI;
+using MT.Screens.PlayScreen.Effects;
 
 namespace MT.Screens.PlayScreen.States
 {
@@ -19,6 +20,7 @@ namespace MT.Screens.PlayScreen.States
         [SerializeField] private ResultUI _resultUI;
         [SerializeField] private RotateButton _rotateButton;
         [SerializeField] private ScreenScroller _screenScroller;
+        [SerializeField] private ResultEffect _resultEffect;
 
         private IState _nextState;
 
@@ -44,6 +46,7 @@ namespace MT.Screens.PlayScreen.States
             _resultUI.Initialize();
             _rotateButton.Initialize();
             _screenScroller.Initialize();
+            _resultEffect.Initialize();
         }
     }
 }

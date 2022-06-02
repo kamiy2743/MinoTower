@@ -338,7 +338,9 @@ MonoBehaviour:
   _BGMClips:
   - Type: 0
     Clip: {fileID: 8300000, guid: f7afaeb586f839348840004ec15b8af4, type: 3}
-  _SEClips: []
+  _SEClips:
+  - Type: 0
+    Clip: {fileID: 8300000, guid: f7afaeb586f839348840004ec15b8af4, type: 3}
 --- !u!1 &160967864 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3940982562635026737, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
