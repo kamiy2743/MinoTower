@@ -28,14 +28,14 @@ namespace MT.Screens.TopScreen.States
 
         public void Enter()
         {
-            _playButton.SetInteractable(true);
-            _optionButton.SetInteractable(true);
+            _playButton.SetIsListened(true);
+            _optionButton.SetIsListened(true);
         }
 
         private void Tonext(IState nextState)
         {
-            _playButton.SetInteractable(false);
-            _optionButton.SetInteractable(false);
+            _playButton.SetIsListened(false);
+            _optionButton.SetIsListened(false);
             nextState.Enter();
         }
     }

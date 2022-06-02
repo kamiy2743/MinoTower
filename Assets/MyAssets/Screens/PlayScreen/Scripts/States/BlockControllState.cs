@@ -29,9 +29,9 @@ namespace MT.Screens.PlayScreen.States
         {
             _rotateButton.AddListener(async () =>
             {
-                _rotateButton.SetInteractable(false);
+                _rotateButton.SetIsListened(false);
                 await _activeBlock.Rotate();
-                _rotateButton.SetInteractable(true);
+                _rotateButton.SetIsListened(true);
             });
 
             _moveBlockEvent.AddListener(() =>
@@ -51,14 +51,14 @@ namespace MT.Screens.PlayScreen.States
         {
             _moveBlockEvent.SetInteractable(true);
             _dropBlockEvent.SetInteractable(true);
-            _rotateButton.SetInteractable(true);
+            _rotateButton.SetIsListened(true);
         }
 
         public void ToNext()
         {
             _moveBlockEvent.SetInteractable(false);
             _dropBlockEvent.SetInteractable(false);
-            _rotateButton.SetInteractable(false);
+            _rotateButton.SetIsListened(false);
             _nextState.Enter();
         }
     }

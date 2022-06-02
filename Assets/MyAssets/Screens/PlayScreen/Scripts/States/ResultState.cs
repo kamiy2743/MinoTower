@@ -35,16 +35,16 @@ namespace MT.Screens.PlayScreen.States
 
         public void Enter()
         {
-            _continueButton.SetInteractable(true);
-            _exitButton.SetInteractable(true);
+            _continueButton.SetIsListened(true);
+            _exitButton.SetIsListened(true);
             ShowResultUI();
             PlayResultEffect();
         }
 
         private void Tonext(IState nextState)
         {
-            _continueButton.SetInteractable(false);
-            _exitButton.SetInteractable(false);
+            _continueButton.SetIsListened(false);
+            _exitButton.SetIsListened(false);
             nextState.Enter();
         }
 

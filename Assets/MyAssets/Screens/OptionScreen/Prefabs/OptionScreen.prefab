@@ -691,6 +691,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2298899551779847191}
     m_Modifications:
     - target: {fileID: 246506877448258112, guid: d46c129e62bb6934db6a8bd1a9a0df8a, type: 3}
+      propertyPath: _startToListend
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 246506877448258112, guid: d46c129e62bb6934db6a8bd1a9a0df8a, type: 3}
       propertyPath: _startInteractable
       value: 1
       objectReference: {fileID: 0}

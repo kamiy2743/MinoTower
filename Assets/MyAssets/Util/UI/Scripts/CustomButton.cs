@@ -3,32 +3,33 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 using MT.Audio;
+using MT.Events;
 
 namespace MT.Util.UI
 {
-    public class CustomButton : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler, IInteractableUI, IStaticAwake
+    public class CustomButton : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler, IEventListener, IStaticAwake
     {
-        [SerializeField] private bool _startInteractable = false;
+        [SerializeField] private bool _startToListend = false;
         [SerializeField] private SEType _clickedSE;
 
         private CanvasGroup _canvasGroup;
-        private UnityEvent _onclickEvent = new UnityEvent();
-        private bool _isInteractable = false;
+
+        private EventSubject _eventSubject = new EventSubject();
 
         public void StaticAwake()
         {
-            _isInteractable = _startInteractable;
+            SetIsListened(_startToListend);
             _canvasGroup = GetComponent<CanvasGroup>();
         }
 
-        public void SetInteractable(bool vlaue)
+        public void SetIsListened(bool value)
         {
-            _isInteractable = vlaue;
+            _eventSubject.SetIsListened(value);
         }
 
         public void AddListener(UnityAction call)
         {
-            _onclickEvent.AddListener(call);
+            _eventSubject.AddListener(call);
         }
 
         public void OnClickedSE(SEType type)
@@ -38,15 +39,13 @@ namespace MT.Util.UI
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (!_isInteractable) return;
-
-            _onclickEvent.Invoke();
+            _eventSubject.Invoke();
             AudioManager.Instance.PlaySE(_clickedSE);
         }
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            if (!_isInteractable) return;
+            if (!_eventSubject.IsListened) return;
 
             transform.DOScale(0.95f, 0.24f).SetEase(Ease.OutCubic);
             _canvasGroup.DOFade(0.8f, 0.24f).SetEase(Ease.OutCubic);

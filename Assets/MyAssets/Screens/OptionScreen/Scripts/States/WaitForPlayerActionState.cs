@@ -23,12 +23,12 @@ namespace MT.Screens.OptionScreen.States
 
         public void Enter()
         {
-            _backButton.SetInteractable(true);
+            _backButton.SetIsListened(true);
         }
 
         private void Tonext()
         {
-            _backButton.SetInteractable(false);
+            _backButton.SetIsListened(false);
             _toTopScreenState.Enter();
         }
     }
