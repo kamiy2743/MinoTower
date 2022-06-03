@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using MT.Extension;
 
 namespace MT
 {
@@ -12,11 +13,22 @@ namespace MT
             var scene = SceneManager.GetActiveScene();
             foreach (var root in scene.GetRootGameObjects())
             {
-                var staticStarts = root.GetComponentsInChildren<IStaticStart>();
-                foreach (var item in staticStarts)
+                CallStaticStart(root);
+
+                var children = root.transform.GetChildrenRecursive();
+                foreach (var child in children)
                 {
-                    item.StaticStart();
+                    CallStaticStart(child.gameObject);
                 }
+            }
+        }
+
+        private void CallStaticStart(GameObject target)
+        {
+            var staticStarts = target.GetComponents<IStaticStart>();
+            foreach (var item in staticStarts)
+            {
+                item.StaticStart();
             }
         }
     }
