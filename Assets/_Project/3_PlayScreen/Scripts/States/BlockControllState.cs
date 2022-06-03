@@ -6,6 +6,7 @@ namespace MT.PlayScreen
 {
     public class BlockControllState : MonoBehaviour, IState, IStaticAwake, IStaticStart
     {
+        [SerializeField] private PlayScreenConfig _config;
         [SerializeField] private MoveBlockEvent _moveBlockEvent;
         [SerializeField] private DropBlockEvent _dropBlockEvent;
         [SerializeField] private PointerPositionProvider _pointerPositionProvider;
@@ -26,6 +27,7 @@ namespace MT.PlayScreen
             _rotateButton.AddListener(async () =>
             {
                 _rotateButton.SetIsListened(false);
+                AudioPlayer.Instance.PlaySE(_config.OnRotateSE);
                 await _activeBlock.Rotate();
                 _rotateButton.SetIsListened(true);
             });

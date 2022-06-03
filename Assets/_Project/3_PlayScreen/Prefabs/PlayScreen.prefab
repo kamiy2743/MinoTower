@@ -169,8 +169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d659841ae0cdf344a971e1dfeb94a3a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playScreen: {fileID: 7225181558044943070}
-  _topScreen: {fileID: 0}
   _fadeOutDuration: 0.5
 --- !u!1 &1025526076419460686
 GameObject:
@@ -305,6 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89269f712551b664f8f3256b436495b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _config: {fileID: 11400000, guid: 4f2163568fc5fff48bd0a6a8f15ff356, type: 2}
   _moveBlockEvent: {fileID: 283365550094661804}
   _dropBlockEvent: {fileID: 8890418050640818585}
   _pointerPositionProvider: {fileID: 1027119013285246143}
@@ -1931,10 +1930,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4058d8dd4ce8a0478d012ce037f8c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _config: {fileID: 11400000, guid: 4f2163568fc5fff48bd0a6a8f15ff356, type: 2}
   _blockSpawnPoint: {fileID: 5591687277695189648}
   _blockStore: {fileID: 2734507599868963625}
   _blockGenerator: {fileID: 339267993073135735}
-  _onSpawnSE: 0
   _nextStateObject: {fileID: 1288910189226862150}
 --- !u!1001 &227397765284790868
 PrefabInstance:
