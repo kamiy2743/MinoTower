@@ -21,7 +21,6 @@ namespace MT.TopScreen
             await Fader.Instance.FadeOut(0);
 
             await Fader.Instance.FadeIn(_fadeInDuration);
-            AudioPlayer.Instance.PlayBGM(BGMType.Main);
             _nextState.Enter();
         }
     }

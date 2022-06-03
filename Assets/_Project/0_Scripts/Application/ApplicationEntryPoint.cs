@@ -12,6 +12,7 @@ namespace MT
             new StaticStartCaller().Call();
 
             ScreenSwitcher.Instance.Initialize();
+            AudioPlayer.Instance.PlayBGM(BGMType.Main);
         }
     }
 }
