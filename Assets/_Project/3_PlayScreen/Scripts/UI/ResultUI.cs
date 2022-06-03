@@ -21,6 +21,7 @@ namespace MT.PlayScreen
         {
             _ui.interactable = true;
             _ui.blocksRaycasts = true;
+            _ui.DOKill();
             await _ui.DOFade(1, _fadeInDuration);
         }
 

@@ -510,8 +510,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _screenObjects:
   - {fileID: 1999993506}
-  - {fileID: 160967864}
   - {fileID: 1097066564}
+  - {fileID: 160967864}
   _firstOpenScreen: 0
 --- !u!1 &776542168
 GameObject:
