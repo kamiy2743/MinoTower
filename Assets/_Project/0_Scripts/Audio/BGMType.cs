@@ -2,6 +2,7 @@ namespace MT
 {
     public enum BGMType
     {
-        Main = 0,
+        None = 0,
+        Main = 1,
     }
 }

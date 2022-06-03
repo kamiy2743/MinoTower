@@ -11,8 +11,6 @@ namespace MT
         private Dictionary<BGMType, AudioClip> _BGMDictionary = new Dictionary<BGMType, AudioClip>();
         private Dictionary<SEType, AudioClip> _SEDictionary = new Dictionary<SEType, AudioClip>();
 
-        // private static readonly AudioClip EmptyClip = AudioClip.Create("empty", 1, 1, 1, false, false);
-
         public void StaticAwake()
         {
             foreach (var item in _audioClipData.BGMClips)
@@ -26,26 +24,30 @@ namespace MT
             }
         }
 
-        public AudioClip GetBGM(BGMType type)
+        public bool TryGetBGM(BGMType type, out AudioClip clip)
         {
-            // if (!_BGMDictionary.ContainsKey(type))
-            // {
-            //     Debug.LogWarning("クリップがありません");
-            //     return EmptyClip;
-            // }
+            if (_BGMDictionary.ContainsKey(type))
+            {
+                clip = _BGMDictionary[type];
+                return true;
+            }
 
-            return _BGMDictionary[type];
+            clip = null;
+            Debug.Log("BGMClipが設定されていません");
+            return false;
         }
 
-        public AudioClip GetSE(SEType type)
+        public bool TryGetSE(SEType type, out AudioClip clip)
         {
-            // if (!_SEDictionary.ContainsKey(type))
-            // {
-            //     Debug.LogWarning("クリップがありません");
-            //     return EmptyClip;
-            // }
+            if (_SEDictionary.ContainsKey(type))
+            {
+                clip = _SEDictionary[type];
+                return true;
+            }
 
-            return _SEDictionary[type];
+            clip = null;
+            Debug.Log("SEClipが設定されていません");
+            return false;
         }
     }
 

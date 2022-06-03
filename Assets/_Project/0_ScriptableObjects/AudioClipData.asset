@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: AudioClipData
   m_EditorClassIdentifier: 
   BGMClips:
-  - Type: 0
+  - Type: 1
     Clip: {fileID: 8300000, guid: f7afaeb586f839348840004ec15b8af4, type: 3}
-  SEClips:
-  - Type: 0
-    Clip: {fileID: 8300000, guid: f7afaeb586f839348840004ec15b8af4, type: 3}
+  SEClips: []

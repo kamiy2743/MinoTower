@@ -34,7 +34,10 @@ namespace MT
 
         public void PlayBGM(BGMType type)
         {
-            var clip = _audioClipStore.GetBGM(type);
+            if (!_audioClipStore.TryGetBGM(type, out AudioClip clip))
+            {
+                return;
+            }
 
             var isPlaying = _BGMSource.isPlaying;
             var isSameClip = _BGMSource.clip == clip;
@@ -49,8 +52,10 @@ namespace MT
 
         public void PlaySE(SEType type)
         {
-            var clip = _audioClipStore.GetSE(type);
-            _SESource.PlayOneShot(clip);
+            if (_audioClipStore.TryGetSE(type, out AudioClip clip))
+            {
+                _SESource.PlayOneShot(clip);
+            }
         }
 
         public void SetBGMVolume(float value)

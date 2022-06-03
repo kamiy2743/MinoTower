@@ -52,7 +52,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbc9157f3b84bc043ae3f858719f31f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startInteractable: 0
+  _startToListend: 0
+  _clickedSE: 1
 --- !u!225 &246506877448258114
 CanvasGroup:
   m_ObjectHideFlags: 0

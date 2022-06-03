@@ -2,6 +2,9 @@ namespace MT
 {
     public enum SEType
     {
-        ButtonClick = 0
+        None = 0,
+        OnButtonClicked = 1,
+        OnBlockSpawn = 2,
+        OnBlockRotate = 3,
     }
 }
