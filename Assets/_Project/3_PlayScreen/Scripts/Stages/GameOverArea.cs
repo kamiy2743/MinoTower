@@ -21,7 +21,7 @@ namespace MT.PlayScreen
 
         void OnTriggerEnter2D(Collider2D collider)
         {
-            if (collider.transform.parent.GetComponent<MT.BlockTag>() != null)
+            if (collider.GetComponent<BlockTag>() != null)
             {
                 _eventSubject.Invoke();
             }

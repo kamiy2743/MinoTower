@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4087306334974072111}
   - component: {fileID: 4119066990579474093}
-  - component: {fileID: 2292088219115714314}
   - component: {fileID: 7004433447485167107}
   m_Layer: 0
   m_Name: Block
@@ -47,18 +46,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _blockConfig: {fileID: 11400000, guid: 5e843cf746230ed448f733573082f284, type: 2}
---- !u!114 &2292088219115714314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1838695809309964632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 542f0a75d1e6f5a429966cc4d61a3fa2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &7004433447485167107
 Rigidbody2D:
   serializedVersion: 4
