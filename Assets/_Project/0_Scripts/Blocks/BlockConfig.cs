@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BlockConfig", menuName = "ScriptableObjects/BlockConfig")]
 public class BlockConfig : ScriptableObject
 {
+    public float BlockScale = 5f;
     public float SpawnAnimationDuration = 0.4f;
     public float RotateAngle = -45;
     public float RotateDuration = 0.2f;

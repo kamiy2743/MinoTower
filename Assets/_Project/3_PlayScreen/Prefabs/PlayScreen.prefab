@@ -1289,7 +1289,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1147874101601948766}
-  - component: {fileID: 1339496287089284453}
+  - component: {fileID: 339267993073135735}
   m_Layer: 0
   m_Name: BlockGenerator
   m_TagString: Untagged
@@ -1312,7 +1312,7 @@ Transform:
   m_Father: {fileID: 861318412995763779}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1339496287089284453
+--- !u!114 &339267993073135735
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1321,17 +1321,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6917355886673471346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c0d6f2c759a98848b3bc5ad3a69f5a9, type: 3}
+  m_Script: {fileID: 11500000, guid: bece537b72389f34bbdf51a4a71458ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _blockPrefabs:
-  - {fileID: 8928621822339023227, guid: 27f66f026a0790541b8e5dc5fc72ce93, type: 3}
-  - {fileID: 8928621822339023227, guid: 594bd2c95c964e046a3dd09b4513a02f, type: 3}
-  - {fileID: 8928621822339023227, guid: a22989f46439f8a4b9c24515d376f615, type: 3}
-  - {fileID: 8928621822339023227, guid: bc3ea8ef4bc3c264ebcdfaa8f77607b1, type: 3}
-  - {fileID: 8928621822339023227, guid: e88cfdf044a073d4aadaa9adb81ef544, type: 3}
-  - {fileID: 8928621822339023227, guid: 96fcc0fb02c33454c98285a0d3c8ed0a, type: 3}
-  - {fileID: 8928621822339023227, guid: 22d28d3c7994e1f4c8064972d88d78f7, type: 3}
+  _blockPrefab: {fileID: 4119066990579474093, guid: 423f3848956cf2449af8fd47fc00a21a, type: 3}
+  _blockConfig: {fileID: 11400000, guid: 5e843cf746230ed448f733573082f284, type: 2}
+  _blockPiecePrefab: {fileID: 8304662315663668089, guid: 5027b87cb692da142985fd4c11846fdc, type: 3}
 --- !u!1 &7111453136148702894
 GameObject:
   m_ObjectHideFlags: 0
@@ -1938,7 +1933,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _blockSpawnPoint: {fileID: 5591687277695189648}
   _blockStore: {fileID: 2734507599868963625}
-  _blockGenerator: {fileID: 1339496287089284453}
+  _blockGenerator: {fileID: 339267993073135735}
   _onSpawnSE: 0
   _nextStateObject: {fileID: 1288910189226862150}
 --- !u!1001 &227397765284790868

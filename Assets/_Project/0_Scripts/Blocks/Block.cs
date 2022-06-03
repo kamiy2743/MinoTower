@@ -15,7 +15,7 @@ namespace MT
 
         private float _sleepingElapsed;
 
-        void Awake()
+        public void OnGenerate()
         {
             _rigidbody = GetComponentInChildren<Rigidbody2D>();
             _colliders = GetComponentsInChildren<BoxCollider2D>();

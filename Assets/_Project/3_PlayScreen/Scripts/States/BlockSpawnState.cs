@@ -36,8 +36,7 @@ namespace MT.PlayScreen
         {
             var cameraVertPos = new Vector3(0, Camera.main.transform.position.y, 0);
             var position = cameraVertPos + _blockSpawnPoint.position;
-            var rotation = Quaternion.identity;
-            var block = _blockGenerator.RandomGenerate(position, rotation);
+            var block = _blockGenerator.Generate(position, 4);
             _blockStore.Add(block);
             AudioPlayer.Instance.PlaySE(_onSpawnSE);
             await block.OnSpwned();
