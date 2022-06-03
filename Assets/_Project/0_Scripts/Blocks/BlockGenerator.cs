@@ -5,7 +5,7 @@ using MT.Extension;
 
 namespace MT
 {
-    public class BlockGenerator : MonoBehaviour
+    public partial class BlockGenerator : MonoBehaviour
     {
         [SerializeField] private Block _blockPrefab;
         [SerializeField] private BlockConfig _blockConfig;
@@ -13,7 +13,7 @@ namespace MT
 
         public Block Generate(Vector3 position, int pieceCount)
         {
-            var pieceCoordinates = GeneratePieceCoordinates();
+            var pieceCoordinates = GeneratePieceCoordinates(pieceCount);
             var blockPieceContainer = GenerateBlockPieceContainer();
             foreach (var coord in pieceCoordinates)
             {
@@ -21,16 +21,6 @@ namespace MT
             }
 
             return GenerateBlock(blockPieceContainer, position);
-        }
-
-        private Vector2Int[] GeneratePieceCoordinates()
-        {
-            return new Vector2Int[] {
-                new Vector2Int(0, 0),
-                new Vector2Int(0, 1),
-                new Vector2Int(0, 2),
-                new Vector2Int(0, 3)
-             };
         }
 
         private GameObject GenerateBlockPieceContainer()
