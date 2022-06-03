@@ -8,13 +8,10 @@ namespace MT
 {
     public class Block : MonoBehaviour
     {
+        [SerializeField] private BlockConfig _blockConfig;
+
         private Rigidbody2D _rigidbody;
         private BoxCollider2D[] _colliders;
-
-        private const float SpawnAnimationDuration = 0.4f;
-        private const float RotateAngle = -45;
-        private const float RotateDuration = 0.2f;
-        private const float SleepThreshold = 0.3f;
 
         private float _sleepingElapsed;
 
@@ -49,8 +46,8 @@ namespace MT
             transform.rotation = Quaternion.Euler(0, 0, 360 - 45);
 
             await DOTween.Sequence()
-                .Append(transform.DOScale(Vector3.one, SpawnAnimationDuration).SetEase(Ease.OutBack))
-                .Join(transform.DORotate(Vector3.zero, SpawnAnimationDuration));
+                .Append(transform.DOScale(Vector3.one, _blockConfig.SpawnAnimationDuration).SetEase(Ease.OutBack))
+                .Join(transform.DORotate(Vector3.zero, _blockConfig.SpawnAnimationDuration));
         }
 
         public void StartFall()
@@ -75,8 +72,8 @@ namespace MT
         public async UniTask Rotate()
         {
             var currentAngle = transform.eulerAngles;
-            var targetAngle = currentAngle + new Vector3(0, 0, RotateAngle);
-            await transform.DORotate(targetAngle, RotateDuration).SetEase(Ease.Linear);
+            var targetAngle = currentAngle + new Vector3(0, 0, _blockConfig.RotateAngle);
+            await transform.DORotate(targetAngle, _blockConfig.RotateDuration).SetEase(Ease.Linear);
         }
 
         // ブロックの動きが一定以下になればtrue
@@ -92,7 +89,7 @@ namespace MT
                 _sleepingElapsed = 0;
             }
 
-            return _sleepingElapsed > SleepThreshold;
+            return _sleepingElapsed > _blockConfig.SleepThreshold;
         }
 
         // ブロックの最高点を計算

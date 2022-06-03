@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf8aad6dc0bea14ebbc0d4c488fa500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClipData: {fileID: 11400000, guid: dfbdd1385f1f0e749b2baa0dec4804df, type: 2}
+  _audioClipData: {fileID: 11400000, guid: dfbdd1385f1f0e749b2baa0dec4804df, type: 2}
 --- !u!1 &160967864 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3940982562635026737, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
