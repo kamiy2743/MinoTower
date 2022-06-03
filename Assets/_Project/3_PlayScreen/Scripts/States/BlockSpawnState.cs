@@ -36,7 +36,8 @@ namespace MT.PlayScreen
         {
             var cameraVertPos = new Vector3(0, Camera.main.transform.position.y, 0);
             var position = cameraVertPos + _blockSpawnPoint.position;
-            var block = _blockGenerator.Generate(position, 4);
+            // TODO　出現率は仮実装
+            var block = _blockGenerator.Generate(position, Random.Range(2, 10));
             _blockStore.Add(block);
             AudioPlayer.Instance.PlaySE(_onSpawnSE);
             await block.OnSpwned();
