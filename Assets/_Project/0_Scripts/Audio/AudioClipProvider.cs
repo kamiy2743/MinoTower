@@ -6,8 +6,7 @@ namespace MT
 {
     public class AudioClipProvider : MonoBehaviour, IStaticAwake
     {
-        [SerializeField] private BGMClip[] _BGMClips;
-        [SerializeField] private SEClip[] _SEClips;
+        [SerializeField] private AudioClipData audioClipData;
 
         private Dictionary<BGMType, AudioClip> _BGMDictionary = new Dictionary<BGMType, AudioClip>();
         private Dictionary<SEType, AudioClip> _SEDictionary = new Dictionary<SEType, AudioClip>();
@@ -16,12 +15,12 @@ namespace MT
 
         public void StaticAwake()
         {
-            foreach (var item in _BGMClips)
+            foreach (var item in audioClipData.BGMClips)
             {
                 _BGMDictionary[item.Type] = item.Clip;
             }
 
-            foreach (var item in _SEClips)
+            foreach (var item in audioClipData.SEClips)
             {
                 _SEDictionary[item.Type] = item.Clip;
             }
