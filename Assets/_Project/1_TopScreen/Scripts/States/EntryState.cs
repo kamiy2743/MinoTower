@@ -19,7 +19,6 @@ namespace MT.TopScreen
         public async void Enter()
         {
             await Fader.Instance.FadeOut(0);
-
             await Fader.Instance.FadeIn(_fadeInDuration);
             _nextState.Enter();
         }

@@ -21,6 +21,7 @@ namespace MT.TopScreen
         public void Close()
         {
             if (!gameObject.activeSelf) return;
+
             gameObject.SetActive(false);
         }
     }
