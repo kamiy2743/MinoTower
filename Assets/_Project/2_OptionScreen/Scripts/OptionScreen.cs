@@ -13,6 +13,7 @@ namespace MT.OptionScreen
         public void Open()
         {
             if (gameObject.activeSelf) return;
+
             gameObject.SetActive(true);
             _entryState.Enter();
         }
@@ -20,6 +21,7 @@ namespace MT.OptionScreen
         public void Close()
         {
             if (!gameObject.activeSelf) return;
+
             gameObject.SetActive(false);
         }
     }

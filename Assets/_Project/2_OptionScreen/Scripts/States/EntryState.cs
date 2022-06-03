@@ -9,6 +9,7 @@ namespace MT.OptionScreen
         [SerializeField] private float _fadeInDuration;
         [SerializeField] private GameObject _nextStateObject;
 
+        [Header("初期化対象")]
         [SerializeField] private AudioSettingApplier _audioSettingApplier;
 
         private IState _nextState;

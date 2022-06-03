@@ -6,12 +6,11 @@ namespace MT.OptionScreen
 {
     public class WaitForPlayerActionState : MonoBehaviour, IState, IStaticStart
     {
-        [SerializeField] private CustomButton _backButton;
         [SerializeField] private SettingSlider _BGMSlider;
         [SerializeField] private SettingSlider _SESlider;
+        [SerializeField] private CustomButton _backButton;
+        [Space(20)]
         [SerializeField] private ToTopScreenState _toTopScreenState;
-
-        private bool _isActive;
 
         public void StaticStart()
         {
