@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf8aad6dc0bea14ebbc0d4c488fa500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioClipData: {fileID: 11400000, guid: dfbdd1385f1f0e749b2baa0dec4804df, type: 2}
+  _config: {fileID: 11400000, guid: dfbdd1385f1f0e749b2baa0dec4804df, type: 2}
 --- !u!1 &160967864 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3940982562635026737, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
@@ -557,11 +557,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2927aa43ea7b249940cd817c22b07e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _config: {fileID: 11400000, guid: dfbdd1385f1f0e749b2baa0dec4804df, type: 2}
   _audioClipStore: {fileID: 67438297}
   _BGMSource: {fileID: 1101846751}
   _SESource: {fileID: 1450387089}
-  _defaultBGMVolume: 0.5
-  _defaultSEVolume: 0.5
 --- !u!1 &853480912
 GameObject:
   m_ObjectHideFlags: 0

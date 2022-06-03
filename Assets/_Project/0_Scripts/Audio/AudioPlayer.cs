@@ -6,17 +6,13 @@ namespace MT
 {
     public class AudioPlayer : MonoBehaviour, IStaticAwake, IStaticStart
     {
+        [SerializeField] private AudioConfig _config;
         [SerializeField] private AudioClipProvider _audioClipStore;
         [SerializeField] private AudioSource _BGMSource;
         [SerializeField] private AudioSource _SESource;
-        [SerializeField] private float _defaultBGMVolume;
-        [SerializeField] private float _defaultSEVolume;
 
         public static AudioPlayer Instance => _isntance;
         private static AudioPlayer _isntance;
-
-        private const string BGMVolumeKey = "BGMVolume";
-        private const string SEVolumeKey = "SEVolume";
 
         public void StaticAwake()
         {
@@ -25,10 +21,10 @@ namespace MT
 
         public void StaticStart()
         {
-            var BGMVolume = SaveDataManager.Load<float>(BGMVolumeKey, _defaultBGMVolume);
+            var BGMVolume = SaveDataManager.Load<float>(_config.BGMVolumeKey, _config.DefaultBGMVolume);
             SetBGMVolume(BGMVolume);
 
-            var SEVolume = SaveDataManager.Load<float>(SEVolumeKey, _defaultSEVolume);
+            var SEVolume = SaveDataManager.Load<float>(_config.SEVolumeKey, _config.DefaultSEVolume);
             SetSEVolume(SEVolume);
         }
 
@@ -61,7 +57,7 @@ namespace MT
         public void SetBGMVolume(float value)
         {
             _BGMSource.volume = value;
-            SaveDataManager.Save<float>(BGMVolumeKey, value);
+            SaveDataManager.Save<float>(_config.BGMVolumeKey, value);
         }
 
         public float GetBGMVolume()
@@ -72,7 +68,7 @@ namespace MT
         public void SetSEVolume(float value)
         {
             _SESource.volume = value;
-            SaveDataManager.Save<float>(SEVolumeKey, value);
+            SaveDataManager.Save<float>(_config.SEVolumeKey, value);
         }
 
         public float GetSEVolume()
