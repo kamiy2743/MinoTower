@@ -38,7 +38,7 @@ namespace MT
         public void OnPointerClick(PointerEventData eventData)
         {
             _eventSubject.Invoke();
-            AudioManager.Instance.PlaySE(_clickedSE);
+            AudioPlayer.Instance.PlaySE(_clickedSE);
         }
 
         public void OnPointerDown(PointerEventData eventData)

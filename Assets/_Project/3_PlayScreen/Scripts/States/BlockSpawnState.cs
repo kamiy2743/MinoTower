@@ -39,7 +39,7 @@ namespace MT.PlayScreen
             var rotation = Quaternion.identity;
             var block = _blockGenerator.RandomGenerate(position, rotation);
             _blockStore.Add(block);
-            AudioManager.Instance.PlaySE(_onSpawnSE);
+            AudioPlayer.Instance.PlaySE(_onSpawnSE);
             await block.OnSpwned();
         }
     }

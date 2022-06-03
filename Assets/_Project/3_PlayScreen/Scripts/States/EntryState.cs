@@ -29,7 +29,7 @@ namespace MT.PlayScreen
             Initialize();
 
             await Fader.Instance.FadeIn(_fadeInDuration);
-            AudioManager.Instance.PlayBGM(BGMType.Main);
+            AudioPlayer.Instance.PlayBGM(BGMType.Main);
             _nextState.Enter();
         }
 

@@ -17,18 +17,18 @@ namespace MT.OptionScreen
 
         public void Initialize()
         {
-            _BGMSlider.SetValue(AudioManager.Instance.GetBGMVolume());
-            _SESlider.SetValue(AudioManager.Instance.GetSEVolume());
+            _BGMSlider.SetValue(AudioPlayer.Instance.GetBGMVolume());
+            _SESlider.SetValue(AudioPlayer.Instance.GetSEVolume());
         }
 
         private void ApplyBGMVolume(float value)
         {
-            AudioManager.Instance.SetBGMVolume(value);
+            AudioPlayer.Instance.SetBGMVolume(value);
         }
 
         private void ApplySEVolume(float value)
         {
-            AudioManager.Instance.SetSEVolume(value);
+            AudioPlayer.Instance.SetSEVolume(value);
         }
     }
 }
