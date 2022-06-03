@@ -6,7 +6,7 @@ namespace MT
 {
     public class AudioManager : MonoBehaviour, IStaticAwake, IStaticStart
     {
-        [SerializeField] private AudioClipStore _audioClipStore;
+        [SerializeField] private AudioClipProvider _audioClipStore;
         [SerializeField] private AudioSource _BGMSource;
         [SerializeField] private AudioSource _SESource;
         [SerializeField] private float _defaultBGMVolume;
