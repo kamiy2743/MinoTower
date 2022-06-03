@@ -6,9 +6,9 @@ using UnityEngine.EventSystems;
 
 namespace MT.PlayScreen
 {
-    public class DropBlockEvent : MonoBehaviour, IEventListener, IStaticStart
+    public class DropBlockEvent : MonoBehaviour, ICustomEvent, IStaticStart
     {
-        private EventSubject _eventSubject = new EventSubject();
+        private CustomEvent _eventSubject = new CustomEvent();
 
         public void StaticStart()
         {

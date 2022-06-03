@@ -6,10 +6,10 @@ using UnityEngine.Events;
 
 namespace MT.OptionScreen
 {
-    public class SettingSlider : MonoBehaviour, IEventListener<float>, IStaticAwake
+    public class SettingSlider : MonoBehaviour, ICustomEvent<float>, IStaticAwake
     {
         private Slider _slider;
-        private EventSubject<float> _eventSubject = new EventSubject<float>();
+        private CustomEvent<float> _eventSubject = new CustomEvent<float>();
 
         public void StaticAwake()
         {

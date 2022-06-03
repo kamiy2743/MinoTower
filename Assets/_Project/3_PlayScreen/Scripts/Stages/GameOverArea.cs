@@ -5,9 +5,9 @@ using UnityEngine.Events;
 
 namespace MT.PlayScreen
 {
-    public class GameOverArea : MonoBehaviour, IEventListener
+    public class GameOverArea : MonoBehaviour, ICustomEvent
     {
-        private EventSubject _eventSubject = new EventSubject();
+        private CustomEvent _eventSubject = new CustomEvent();
 
         public void SetIsListened(bool value)
         {

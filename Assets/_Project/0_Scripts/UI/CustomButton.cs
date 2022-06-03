@@ -5,14 +5,14 @@ using UnityEngine.Events;
 
 namespace MT
 {
-    public class CustomButton : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler, IEventListener, IStaticAwake
+    public class CustomButton : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler, ICustomEvent, IStaticAwake
     {
         [SerializeField] private bool _startToListend = false;
         [SerializeField] private SEType _clickedSE;
 
         private CanvasGroup _canvasGroup;
 
-        private EventSubject _eventSubject = new EventSubject();
+        private CustomEvent _eventSubject = new CustomEvent();
 
         public void StaticAwake()
         {

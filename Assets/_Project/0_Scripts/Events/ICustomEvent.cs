@@ -5,13 +5,13 @@ using UnityEngine.Events;
 
 namespace MT
 {
-    public interface IEventListener
+    public interface ICustomEvent
     {
         void SetIsListened(bool value);
         void AddListener(UnityAction call);
     }
 
-    public interface IEventListener<T>
+    public interface ICustomEvent<T>
     {
         void SetIsListened(bool value);
         void AddListener(UnityAction<T> call);

@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 namespace MT
 {
-    public class EventSubject : IEventListener
+    public class CustomEvent : ICustomEvent
     {
         private Subject<string> _subject = new Subject<string>();
         public bool IsListened { get; private set; } = false;
@@ -29,7 +29,7 @@ namespace MT
         }
     }
 
-    public class EventSubject<T> : IEventListener<T>
+    public class CustomEvent<T> : ICustomEvent<T>
     {
         private Subject<T> _subject = new Subject<T>();
         public bool IsListened { get; private set; } = false;
