@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cysharp.Threading.Tasks;
 
 namespace MT.PlayScreen
 {
@@ -9,6 +10,7 @@ namespace MT.PlayScreen
         [SerializeField] private float _fadeInDuration;
         [SerializeField] private GameObject _nextStateObject;
 
+        [Header("初期化対象")]
         [SerializeField] private SessionData _sessionData;
         [SerializeField] private BlockStore _blockStore;
         [SerializeField] private ResultUI _resultUI;
@@ -26,20 +28,20 @@ namespace MT.PlayScreen
         public async void Enter()
         {
             await Fader.Instance.FadeOut(0);
-            Initialize();
+            await Initialize();
 
             await Fader.Instance.FadeIn(_fadeInDuration);
             _nextState.Enter();
         }
 
-        private void Initialize()
+        private async UniTask Initialize()
         {
             _sessionData.Initialize();
             _blockStore.Initialize();
             _resultUI.Initialize();
             _rotateButton.Initialize();
-            _screenScroller.Initialize();
             _resultEffect.Initialize();
+            await _screenScroller.Initialize();
         }
     }
 }

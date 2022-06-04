@@ -6,8 +6,8 @@ namespace MT.PlayScreen
 {
     public class ContinueState : MonoBehaviour, IState
     {
-        [SerializeField] private EntryState _entryState;
         [SerializeField] private float _fadeDuration;
+        [SerializeField] private EntryState _entryState;
 
         public async void Enter()
         {

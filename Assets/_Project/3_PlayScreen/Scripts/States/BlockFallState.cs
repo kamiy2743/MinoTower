@@ -8,6 +8,8 @@ namespace MT.PlayScreen
     public class BlockFallState : MonoBehaviour, IState, IStaticAwake
     {
         [SerializeField] private ActiveBlockProvider _activeBlockProvider;
+
+        [Space(20)]
         [SerializeField] private GameObject _nextStateObject;
 
         private IState _nextState;
@@ -22,6 +24,7 @@ namespace MT.PlayScreen
             _activeBlockProvider.Get().StartFall();
             // 十分に落下して加速するまで待つ
             await UniTask.Delay(1000);
+
             ToNext();
         }
 

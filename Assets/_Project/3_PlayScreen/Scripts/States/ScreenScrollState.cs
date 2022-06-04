@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cysharp.Threading.Tasks;
 
 namespace MT.PlayScreen
 {
     public class ScreenScrollState : MonoBehaviour, IState, IStaticAwake
     {
+        [SerializeField] private BlocksMaxYProvider _blocksMaxYProvider;
+
+        [Space(20)]
         [SerializeField] private ScreenScroller _screenScroller;
         [SerializeField] private float _scrollDuration;
-        [SerializeField] private BlocksMaxYProvider _blocksMaxYProvider;
+
+        [Space(20)]
         [SerializeField] private GameObject _nextStateObject;
 
         private IState _nextState;
@@ -18,9 +23,10 @@ namespace MT.PlayScreen
             _nextState = _nextStateObject.GetComponent<IState>();
         }
 
-        public void Enter()
+        public async void Enter()
         {
-            ScreenScroll();
+            await ScreenScroll();
+            ToNext();
         }
 
         public void ToNext()
@@ -28,11 +34,10 @@ namespace MT.PlayScreen
             _nextState.Enter();
         }
 
-        private async void ScreenScroll()
+        private async UniTask ScreenScroll()
         {
             var maxY = _blocksMaxYProvider.MaxY();
             await _screenScroller.SetScroll(new ScrollAmount(maxY), _scrollDuration);
-            ToNext();
         }
     }
 }

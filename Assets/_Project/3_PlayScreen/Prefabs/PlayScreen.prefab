@@ -829,9 +829,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd0698d21984f9d4bab4da08e1538c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ui: {fileID: 4768213161598187078}
+  _maxHeightText: {fileID: 995013741564683638}
   _fadeInDuration: 0.5
-  _maxHeight: {fileID: 995013741564683638}
 --- !u!1 &3924392241844558293
 GameObject:
   m_ObjectHideFlags: 0
@@ -1290,7 +1289,7 @@ GameObject:
   - component: {fileID: 1147874101601948766}
   - component: {fileID: 339267993073135735}
   m_Layer: 0
-  m_Name: BlockGenerator
+  m_Name: BlockFactory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1933,7 +1932,7 @@ MonoBehaviour:
   _config: {fileID: 11400000, guid: 4f2163568fc5fff48bd0a6a8f15ff356, type: 2}
   _blockSpawnPoint: {fileID: 5591687277695189648}
   _blockStore: {fileID: 2734507599868963625}
-  _blockGenerator: {fileID: 339267993073135735}
+  _blockFactory: {fileID: 339267993073135735}
   _nextStateObject: {fileID: 1288910189226862150}
 --- !u!1001 &227397765284790868
 PrefabInstance:

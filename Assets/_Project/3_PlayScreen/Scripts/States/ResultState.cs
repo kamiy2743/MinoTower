@@ -7,11 +7,17 @@ namespace MT.PlayScreen
     public class ResultState : MonoBehaviour, IState, IStaticStart
     {
         [SerializeField] private SessionData _sessionData;
+
+        [Space(20)]
         [SerializeField] private ResultUI _resultUI;
         [SerializeField] private ResultEffect _resultEffect;
         [SerializeField] private RotateButton _rotateButton;
+
+        [Space(20)]
         [SerializeField] private CustomButton _continueButton;
         [SerializeField] private ContinueState _continueState;
+
+        [Space(20)]
         [SerializeField] private CustomButton _exitButton;
         [SerializeField] private ToTopScreenState _toTopScreenState;
 
@@ -32,6 +38,7 @@ namespace MT.PlayScreen
         {
             _continueButton.SetIsListened(true);
             _exitButton.SetIsListened(true);
+
             ShowResultUI();
             PlayResultEffect();
         }
@@ -40,6 +47,7 @@ namespace MT.PlayScreen
         {
             _continueButton.SetIsListened(false);
             _exitButton.SetIsListened(false);
+
             nextState.Enter();
         }
 
@@ -47,6 +55,7 @@ namespace MT.PlayScreen
         {
             _resultUI.Show();
             _resultUI.SetMaxHeightText(_sessionData.MaxHeight.value);
+
             _rotateButton.Hide();
         }
 

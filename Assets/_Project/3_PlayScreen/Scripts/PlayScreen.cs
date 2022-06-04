@@ -7,6 +7,8 @@ namespace MT.PlayScreen
     public class PlayScreen : MonoBehaviour, IScreen
     {
         [SerializeField] private EntryState _entryState;
+
+        [Header("初期化対象")]
         [SerializeField] private ScreenScroller _screenScroller;
 
         public ScreenType Type { get; private set; } = ScreenType.Play;
@@ -14,14 +16,16 @@ namespace MT.PlayScreen
         public void Open()
         {
             if (gameObject.activeSelf) return;
+
             gameObject.SetActive(true);
             _entryState.Enter();
         }
 
-        public void Close()
+        public async void Close()
         {
             if (!gameObject.activeSelf) return;
-            _screenScroller.Initialize();
+
+            await _screenScroller.Initialize();
             gameObject.SetActive(false);
         }
     }

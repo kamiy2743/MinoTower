@@ -8,6 +8,7 @@ namespace MT.TopScreen
     {
         [SerializeField] private CustomButton _playButton;
         [SerializeField] private ToPlayScreenState _toPlayScreenState;
+
         [Space(20)]
         [SerializeField] private CustomButton _optionButton;
         [SerializeField] private ToOptionScreenState _toOptionScreenState;

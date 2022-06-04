@@ -6,11 +6,17 @@ using Cysharp.Threading.Tasks;
 
 namespace MT.PlayScreen
 {
-    public class ResultUI : MonoBehaviour
+    public class ResultUI : MonoBehaviour, IStaticAwake
     {
-        [SerializeField] private CanvasGroup _ui;
+        [SerializeField] private CustomText _maxHeightText;
         [SerializeField] private float _fadeInDuration;
-        [SerializeField] private CustomText _maxHeight;
+
+        private CanvasGroup _canvasGroup;
+
+        public void StaticAwake()
+        {
+            _canvasGroup = GetComponentInChildren<CanvasGroup>();
+        }
 
         public void Initialize()
         {
@@ -19,24 +25,26 @@ namespace MT.PlayScreen
 
         public async void Show()
         {
-            _ui.interactable = true;
-            _ui.blocksRaycasts = true;
-            _ui.DOKill();
-            await _ui.DOFade(1, _fadeInDuration);
+            _canvasGroup.interactable = true;
+            _canvasGroup.blocksRaycasts = true;
+
+            _canvasGroup.DOKill();
+            await _canvasGroup.DOFade(1, _fadeInDuration);
         }
 
         public void HideImmediately()
         {
-            _ui.interactable = false;
-            _ui.blocksRaycasts = false;
-            _ui.DOKill();
-            _ui.alpha = 0;
+            _canvasGroup.interactable = false;
+            _canvasGroup.blocksRaycasts = false;
+
+            _canvasGroup.DOKill();
+            _canvasGroup.alpha = 0;
         }
 
         public void SetMaxHeightText(float maxHeightValue)
         {
             var formattedHeight = Mathf.Floor(maxHeightValue * 10f) / 10f;
-            _maxHeight.SetText(formattedHeight.ToString() + "m");
+            _maxHeightText.SetText(formattedHeight.ToString() + "m");
         }
     }
 }

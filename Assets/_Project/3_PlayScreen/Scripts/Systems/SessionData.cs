@@ -4,15 +4,10 @@ using UnityEngine;
 
 namespace MT.PlayScreen
 {
-    public class SessionData : MonoBehaviour, IStaticAwake
+    public class SessionData : MonoBehaviour
     {
         // グローバル変数じゃないか
         public MaxHeight MaxHeight;
-
-        public void StaticAwake()
-        {
-            Initialize();
-        }
 
         public void Initialize()
         {

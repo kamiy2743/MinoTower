@@ -9,12 +9,15 @@ namespace MT.PlayScreen
     public class WaitForBlockSleepState : MonoBehaviour, IState, IStaticAwake, IStaticStart
     {
         [SerializeField] private BlockSleepProvider _blockSleepProvider;
+
+        [Space(20)]
         [SerializeField] private GameObject _defaultNextStateObject;
-        [SerializeField] private ResultState _resultState;
+
+        [Space(20)]
         [SerializeField] private GameOverArea _gameOverArea;
+        [SerializeField] private ResultState _resultState;
 
         private IState _defaultNextState;
-
         private CancellationTokenSource _cts;
 
         public void StaticAwake()

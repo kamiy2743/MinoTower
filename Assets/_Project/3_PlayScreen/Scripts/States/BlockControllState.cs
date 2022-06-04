@@ -7,11 +7,18 @@ namespace MT.PlayScreen
     public class BlockControllState : MonoBehaviour, IState, IStaticAwake, IStaticStart
     {
         [SerializeField] private PlayScreenConfig _config;
-        [SerializeField] private MoveBlockEvent _moveBlockEvent;
+
+        [Space(20)]
+        [SerializeField] private ActiveBlockProvider _ativeBlockProvider;
+
+        [Space(20)]
         [SerializeField] private DropBlockEvent _dropBlockEvent;
+        [SerializeField] private MoveBlockEvent _moveBlockEvent;
         [SerializeField] private PointerPositionProvider _pointerPositionProvider;
         [SerializeField] private CustomButton _rotateButton;
-        [SerializeField] private ActiveBlockProvider _ativeBlockProvider;
+
+
+        [Space(20)]
         [SerializeField] private GameObject _nextStateObject;
 
         private IState _nextState;

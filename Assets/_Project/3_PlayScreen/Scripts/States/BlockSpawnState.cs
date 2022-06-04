@@ -10,8 +10,12 @@ namespace MT.PlayScreen
     {
         [SerializeField] private PlayScreenConfig _config;
         [SerializeField] private Transform _blockSpawnPoint;
+
+        [Space(20)]
         [SerializeField] private BlockStore _blockStore;
-        [SerializeField] private BlockGenerator _blockGenerator;
+        [SerializeField] private BlockFactory _blockFactory;
+
+        [Space(20)]
         [SerializeField] private GameObject _nextStateObject;
 
         private IState _nextState;
@@ -36,8 +40,9 @@ namespace MT.PlayScreen
         {
             var cameraVertPos = new Vector3(0, Camera.main.transform.position.y, 0);
             var position = cameraVertPos + _blockSpawnPoint.position;
+
             // TODO　出現率は仮実装
-            var block = _blockGenerator.Generate(position, Random.Range(2, 10));
+            var block = _blockFactory.Generate(position, Random.Range(2, 10));
             _blockStore.Add(block);
             AudioPlayer.Instance.PlaySE(_config.OnSpawnSE);
             await block.OnSpwned();

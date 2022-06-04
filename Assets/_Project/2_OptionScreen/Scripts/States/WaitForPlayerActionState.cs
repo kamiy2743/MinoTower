@@ -9,6 +9,7 @@ namespace MT.OptionScreen
         [SerializeField] private SettingSlider _BGMSlider;
         [SerializeField] private SettingSlider _SESlider;
         [SerializeField] private CustomButton _backButton;
+
         [Space(20)]
         [SerializeField] private ToTopScreenState _toTopScreenState;
 

@@ -5,10 +5,11 @@ using MT.Extension;
 
 namespace MT
 {
-    public partial class BlockGenerator : MonoBehaviour
+    // TODO リファクタ
+    public partial class BlockFactory : MonoBehaviour
     {
-        [SerializeField] private Block _blockPrefab;
         [SerializeField] private BlockConfig _blockConfig;
+        [SerializeField] private Block _blockPrefab;
         [SerializeField] private GameObject _blockPiecePrefab;
 
         public Block Generate(Vector3 position, int pieceCount)

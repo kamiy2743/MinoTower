@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MT
 {
-    public partial class BlockGenerator
+    public partial class BlockFactory
     {
         private Vector2Int[] GeneratePieceCoordinates(int pieceCount)
         {
