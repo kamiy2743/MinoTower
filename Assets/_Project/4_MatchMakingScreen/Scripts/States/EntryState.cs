@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cysharp.Threading.Tasks;
 
 namespace MT.MatchMakingScreen
 {
@@ -10,7 +11,9 @@ namespace MT.MatchMakingScreen
         [SerializeField] private GameObject _nextStateObject;
 
         [Header("初期化対象")]
+        [SerializeField] private LoadingUI _loadingUI;
         [SerializeField] private SelectMatchUI _selectMatchUI;
+        [SerializeField] private FriendMatchUI _friendMatchUI;
 
         private IState _nextState;
 
@@ -30,7 +33,9 @@ namespace MT.MatchMakingScreen
 
         private void Initialize()
         {
+            _loadingUI.Initialize();
             _selectMatchUI.Initialize();
+            _friendMatchUI.Initialize();
         }
     }
 }

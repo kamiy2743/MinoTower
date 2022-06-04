@@ -5,7 +5,7 @@ using Cysharp.Threading.Tasks;
 
 namespace MT.MatchMakingScreen
 {
-    public class SelectMatchUI : MonoBehaviour, IStaticAwake
+    public class FriendMatchUI : MonoBehaviour, IStaticAwake
     {
         private CommonUI _commonUI;
 
@@ -16,7 +16,7 @@ namespace MT.MatchMakingScreen
 
         public async UniTask Initialize()
         {
-            await Show(0);
+            await Hide(0);
         }
 
         public async UniTask Show(float fadeDuration)

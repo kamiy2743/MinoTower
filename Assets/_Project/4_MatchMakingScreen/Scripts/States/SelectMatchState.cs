@@ -18,7 +18,7 @@ namespace MT.MatchMakingScreen
         [SerializeField] private FriendMatchState _friendMatchState;
 
         [Space(20)]
-        [SerializeField] private CustomButton _backButton;
+        [SerializeField] private CustomButton _toTopButton;
         [SerializeField] private ToTopScreenState _toTopScreenState;
 
         public void StaticStart()
@@ -33,7 +33,7 @@ namespace MT.MatchMakingScreen
                 Tonext(_friendMatchState);
             });
 
-            _backButton.AddListener(() =>
+            _toTopButton.AddListener(() =>
             {
                 Tonext(_toTopScreenState);
             });
@@ -43,7 +43,7 @@ namespace MT.MatchMakingScreen
         {
             _randomMatchButton.SetIsListened(true);
             _friendMatchButton.SetIsListened(true);
-            _backButton.SetIsListened(true);
+            _toTopButton.SetIsListened(true);
 
             await _selectMatchUI.Show(_fadeDuration);
         }
@@ -52,7 +52,7 @@ namespace MT.MatchMakingScreen
         {
             _randomMatchButton.SetIsListened(false);
             _friendMatchButton.SetIsListened(false);
-            _backButton.SetIsListened(false);
+            _toTopButton.SetIsListened(false);
 
             await _selectMatchUI.Hide(_fadeDuration);
             nextState.Enter();
