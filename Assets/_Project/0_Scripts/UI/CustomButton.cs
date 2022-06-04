@@ -12,7 +12,7 @@ namespace MT
 
         private CanvasGroup _canvasGroup;
 
-        private CustomEvent _eventSubject = new CustomEvent();
+        private CustomEvent _customEvent = new CustomEvent();
 
         public void StaticAwake()
         {
@@ -22,12 +22,12 @@ namespace MT
 
         public void SetIsListened(bool value)
         {
-            _eventSubject.SetIsListened(value);
+            _customEvent.SetIsListened(value);
         }
 
         public void AddListener(UnityAction call)
         {
-            _eventSubject.AddListener(call);
+            _customEvent.AddListener(call);
         }
 
         public void OnClickedSE(SEType type)
@@ -37,13 +37,13 @@ namespace MT
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            _eventSubject.Invoke();
+            _customEvent.Invoke();
             AudioPlayer.Instance.PlaySE(_clickedSE);
         }
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            if (!_eventSubject.IsListened) return;
+            if (!_customEvent.IsListened) return;
 
             transform.DOScale(0.95f, 0.24f).SetEase(Ease.OutCubic);
             _canvasGroup.DOFade(0.8f, 0.24f).SetEase(Ease.OutCubic);
