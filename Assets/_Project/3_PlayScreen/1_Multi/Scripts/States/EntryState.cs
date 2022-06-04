@@ -11,6 +11,7 @@ namespace MT.PlayScreen.Multi
         [SerializeField] private GameObject _nextStateObject;
 
         [Header("初期化対象")]
+        [SerializeField] private PlayerTurnProvider _playerTurnProvider;
         [SerializeField] private BlockStore _blockStore;
         [SerializeField] private RotateButton _rotateButton;
         [SerializeField] private ScreenScroller _screenScroller;
@@ -33,6 +34,7 @@ namespace MT.PlayScreen.Multi
 
         private async UniTask Initialize()
         {
+            _playerTurnProvider.Initialize();
             _blockStore.Initialize();
             _rotateButton.Initialize();
             await _screenScroller.Initialize();
