@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 
-namespace MT.PlayScreen
+namespace MT.PlayScreen.Single
 {
     public class WaitForBlockSleepState : MonoBehaviour, IState, IStaticAwake, IStaticStart
     {

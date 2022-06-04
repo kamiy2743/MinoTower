@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MT.PlayScreen
+namespace MT.PlayScreen.Single
 {
     public class ContinueState : MonoBehaviour, IState
     {
