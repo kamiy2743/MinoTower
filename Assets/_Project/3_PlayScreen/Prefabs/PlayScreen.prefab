@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _blockSleepProvider: {fileID: 5186801145908039570}
   _defaultNextStateObject: {fileID: 9045013810753127237}
-  _resultState: {fileID: 140450598018068685}
   _gameOverArea: {fileID: 995571414687687101}
+  _resultState: {fileID: 140450598018068685}
 --- !u!1 &134705386638374265
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,11 +304,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _config: {fileID: 11400000, guid: 4f2163568fc5fff48bd0a6a8f15ff356, type: 2}
-  _moveBlockEvent: {fileID: 283365550094661804}
+  _ativeBlockProvider: {fileID: 6149047362443749521}
   _dropBlockEvent: {fileID: 8890418050640818585}
+  _moveBlockEvent: {fileID: 283365550094661804}
   _pointerPositionProvider: {fileID: 1027119013285246143}
   _rotateButton: {fileID: 2702569206322589012}
-  _ativeBlockProvider: {fileID: 6149047362443749521}
   _nextStateObject: {fileID: 1784461208354424330}
 --- !u!1 &1749265928814742316
 GameObject:
@@ -354,8 +354,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bfcc51f0fdd8424cb3985c8d3ce60d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entryState: {fileID: 1671800625636424476}
   _fadeDuration: 0.5
+  _entryState: {fileID: 1671800625636424476}
 --- !u!1 &1784461208354424330
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,9 +1237,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d99c40c219959142a5d6cdfb28782fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _blocksMaxYProvider: {fileID: 3477530872413171192}
   _screenScroller: {fileID: 7199898353998925582}
   _scrollDuration: 0.3
-  _blocksMaxYProvider: {fileID: 3477530872413171192}
   _nextStateObject: {fileID: 1171206136631915893}
 --- !u!1 &6853650954370983166
 GameObject:
@@ -1323,7 +1323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _blockPrefab: {fileID: 4119066990579474093, guid: 423f3848956cf2449af8fd47fc00a21a, type: 3}
-  _blockConfig: {fileID: 11400000, guid: 5e843cf746230ed448f733573082f284, type: 2}
+  _config: {fileID: 11400000, guid: 5e843cf746230ed448f733573082f284, type: 2}
   _blockPiecePrefab: {fileID: 8304662315663668089, guid: 5027b87cb692da142985fd4c11846fdc, type: 3}
 --- !u!1 &7111453136148702894
 GameObject:
