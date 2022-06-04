@@ -11,7 +11,7 @@ namespace MT.TopScreen
 
         [Space(20)]
         [SerializeField] private CustomButton _multiPlayButton;
-        [SerializeField] private ToMultiPlayScreenState _toMultiPlayScreenState;
+        [SerializeField] private ToMatchMakingScreenState _toMultiPlayScreenState;
 
         [Space(20)]
         [SerializeField] private CustomButton _optionButton;

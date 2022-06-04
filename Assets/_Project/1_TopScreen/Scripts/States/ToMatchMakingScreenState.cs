@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace MT.TopScreen
 {
-    public class ToMultiPlayScreenState : MonoBehaviour, IState
+    public class ToMatchMakingScreenState : MonoBehaviour, IState
     {
         [SerializeField] private float _fadeOutDuration;
 
         public async void Enter()
         {
             await Fader.Instance.FadeOut(_fadeOutDuration);
-            ScreenSwitcher.Instance.Switch(ScreenType.MultiPlay);
+            ScreenSwitcher.Instance.Switch(ScreenType.MatchMaking);
         }
     }
 }

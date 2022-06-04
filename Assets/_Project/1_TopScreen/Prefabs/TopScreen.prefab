@@ -624,7 +624,7 @@ GameObject:
   - component: {fileID: 2798203025644701074}
   - component: {fileID: 7707116680446423421}
   m_Layer: 0
-  m_Name: ToMultiPlayScreenState
+  m_Name: ToMatchMakingScreenState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

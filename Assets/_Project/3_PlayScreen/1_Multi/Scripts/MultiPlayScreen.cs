@@ -6,10 +6,10 @@ namespace MT.PlayScreen.Multi
 {
     public class MultiPlayScreen : MonoBehaviour, IScreen
     {
-        [SerializeField] private EntryState _entryState;
+        // [SerializeField] private EntryState _entryState;
 
-        [Header("初期化対象")]
-        [SerializeField] private ScreenScroller _screenScroller;
+        // [Header("初期化対象")]
+        // [SerializeField] private ScreenScroller _screenScroller;
 
         public ScreenType Type { get; private set; } = ScreenType.MultiPlay;
 
@@ -18,14 +18,14 @@ namespace MT.PlayScreen.Multi
             if (gameObject.activeSelf) return;
 
             gameObject.SetActive(true);
-            _entryState.Enter();
+            // _entryState.Enter();
         }
 
         public async void Close()
         {
             if (!gameObject.activeSelf) return;
 
-            await _screenScroller.Initialize();
+            // await _screenScroller.Initialize();
             gameObject.SetActive(false);
         }
     }
