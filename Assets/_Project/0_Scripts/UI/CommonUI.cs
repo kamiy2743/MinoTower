@@ -17,12 +17,18 @@ namespace MT
 
         public async UniTask Show(float fadeDuration)
         {
+            _canvasGroup.interactable = true;
+            _canvasGroup.blocksRaycasts = true;
+
             _canvasGroup.DOKill();
             await _canvasGroup.DOFade(1, fadeDuration);
         }
 
         public async UniTask Hide(float fadeDuration)
         {
+            _canvasGroup.interactable = false;
+            _canvasGroup.blocksRaycasts = false;
+
             _canvasGroup.DOKill();
             await _canvasGroup.DOFade(0, fadeDuration);
         }
