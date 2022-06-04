@@ -4,6 +4,7 @@ namespace MT
     {
         Top = 0,
         Option = 2,
-        Play = 1,
+        SinglePlay = 1,
+        MultiPlay = 3,
     }
 }

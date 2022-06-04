@@ -887,7 +887,7 @@ GameObject:
   - component: {fileID: 2487771280455601670}
   - component: {fileID: 7225181558044943070}
   m_Layer: 0
-  m_Name: PlayScreen
+  m_Name: SinglePlayScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace MT.PlayScreen
 {
-    public class PlayScreen : MonoBehaviour, IScreen
+    public class SinglePlayScreen : MonoBehaviour, IScreen
     {
         [SerializeField] private EntryState _entryState;
 
         [Header("初期化対象")]
         [SerializeField] private ScreenScroller _screenScroller;
 
-        public ScreenType Type { get; private set; } = ScreenType.Play;
+        public ScreenType Type { get; private set; } = ScreenType.SinglePlay;
 
         public void Open()
         {

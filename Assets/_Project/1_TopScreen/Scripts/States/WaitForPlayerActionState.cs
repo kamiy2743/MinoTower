@@ -6,8 +6,12 @@ namespace MT.TopScreen
 {
     public class WaitForPlayerActionState : MonoBehaviour, IState, IStaticStart
     {
-        [SerializeField] private CustomButton _playButton;
-        [SerializeField] private ToPlayScreenState _toPlayScreenState;
+        [SerializeField] private CustomButton _singlePlayButton;
+        [SerializeField] private ToSinglePlayScreenState _toSinglePlayScreenState;
+
+        [Space(20)]
+        [SerializeField] private CustomButton _multiPlayButton;
+        [SerializeField] private ToMultiPlayScreenState _toMultiPlayScreenState;
 
         [Space(20)]
         [SerializeField] private CustomButton _optionButton;
@@ -15,9 +19,14 @@ namespace MT.TopScreen
 
         public void StaticStart()
         {
-            _playButton.AddListener(() =>
+            _singlePlayButton.AddListener(() =>
             {
-                Tonext(_toPlayScreenState);
+                Tonext(_toSinglePlayScreenState);
+            });
+
+            _multiPlayButton.AddListener(() =>
+            {
+                Tonext(_toMultiPlayScreenState);
             });
 
             _optionButton.AddListener(() =>
@@ -28,14 +37,17 @@ namespace MT.TopScreen
 
         public void Enter()
         {
-            _playButton.SetIsListened(true);
+            _singlePlayButton.SetIsListened(true);
+            _multiPlayButton.SetIsListened(true);
             _optionButton.SetIsListened(true);
         }
 
         private void Tonext(IState nextState)
         {
-            _playButton.SetIsListened(false);
+            _singlePlayButton.SetIsListened(false);
+            _multiPlayButton.SetIsListened(false);
             _optionButton.SetIsListened(false);
+
             nextState.Enter();
         }
     }
