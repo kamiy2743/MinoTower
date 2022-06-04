@@ -42,7 +42,7 @@ namespace MT.PlayScreen
             var position = cameraVertPos + _blockSpawnPoint.position;
 
             // TODO　出現率は仮実装
-            var block = _blockFactory.Generate(position, Random.Range(2, 10));
+            var block = _blockFactory.Create(position, Random.Range(2, 10));
             _blockStore.Add(block);
             AudioPlayer.Instance.PlaySE(_config.OnSpawnSE);
             await block.OnSpwned();

@@ -6,7 +6,7 @@ namespace MT
 {
     public partial class BlockFactory
     {
-        private Vector2Int[] GeneratePieceCoordinates(int pieceCount)
+        private Vector2Int[] CreatePieceCoordinates(int pieceCount)
         {
             var coordinates = new List<Vector2Int>() { Vector2Int.zero };
 
