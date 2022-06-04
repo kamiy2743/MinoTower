@@ -48,8 +48,11 @@ namespace MT.MatchMakingScreen
             {
                 var token = _cts.Token;
 
-                // サーバに接続する
-                await Pun2TaskNetwork.ConnectUsingSettingsAsync(token);
+                if (!PhotonNetwork.IsConnected)
+                {
+                    // サーバに接続する
+                    await Pun2TaskNetwork.ConnectUsingSettingsAsync(token);
+                }
 
                 var roomOptions = new RoomOptions();
                 roomOptions.MaxPlayers = 2;
