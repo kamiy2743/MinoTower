@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 namespace MT
 {
-    public class CustomButton : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler, ICustomEvent, IStaticAwake
+    public class CustomButton : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler, ICustomEvent, IStaticAwake, IStaticStart
     {
         [SerializeField] private bool _startToListend = false;
         [SerializeField] private SEType _clickedSE;
@@ -18,6 +18,14 @@ namespace MT
         {
             SetIsListened(_startToListend);
             _canvasGroup = GetComponent<CanvasGroup>();
+        }
+
+        public void StaticStart()
+        {
+            AddListener(() =>
+            {
+                AudioPlayer.Instance.PlaySE(_clickedSE);
+            });
         }
 
         public void SetIsListened(bool value)
@@ -38,7 +46,6 @@ namespace MT
         public void OnPointerClick(PointerEventData eventData)
         {
             _customEvent.Invoke();
-            AudioPlayer.Instance.PlaySE(_clickedSE);
         }
 
         public void OnPointerDown(PointerEventData eventData)
