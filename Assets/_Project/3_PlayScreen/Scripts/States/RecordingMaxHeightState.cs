@@ -6,8 +6,7 @@ namespace MT.PlayScreen
 {
     public class RecordingMaxHeightState : MonoBehaviour, IState, IStaticAwake
     {
-        // TODO config
-        [SerializeField] private float _heightMagnification;
+        [SerializeField] private BlockConfig _config;
 
         [Space(20)]
         [SerializeField] private SessionData _sessionData;
@@ -34,7 +33,8 @@ namespace MT.PlayScreen
         {
             var maxY = _blocksMaxYProvider.MaxY();
             var maxHeightValue = maxY - _foundation.GetTop();
-            _sessionData.MaxHeight = new MaxHeight(maxHeightValue * _heightMagnification);
+            var heightMagnification = 1 / _config.BlockScale;
+            _sessionData.MaxHeight = new MaxHeight(maxHeightValue * heightMagnification);
         }
     }
 }
