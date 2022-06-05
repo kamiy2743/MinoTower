@@ -54,7 +54,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7623264242636802648}
-  - component: {fileID: 133935195451064514}
   m_Layer: 0
   m_Name: WaitForBlockSleepState
   m_TagString: Untagged
@@ -77,22 +76,6 @@ Transform:
   m_Father: {fileID: 3725664664867175021}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &133935195451064514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155552293541684260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f872f2f158e615c459cd4e26a3415f40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _blockSleepProvider: {fileID: 8727433858621030682}
-  _defaultNextStateObject: {fileID: 0}
-  _gameOverArea: {fileID: 0}
-  _resultState: {fileID: 0}
 --- !u!1 &1575289847541375678
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,7 +578,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7632514281919856586}
-  - component: {fileID: 3794988389324598453}
   m_Layer: 0
   m_Name: BlockControllState
   m_TagString: Untagged
@@ -618,25 +600,6 @@ Transform:
   m_Father: {fileID: 3725664664867175021}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3794988389324598453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3818646924838379892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89269f712551b664f8f3256b436495b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _config: {fileID: 11400000, guid: 4f2163568fc5fff48bd0a6a8f15ff356, type: 2}
-  _ativeBlockProvider: {fileID: 1873590738204560071}
-  _dropBlockEvent: {fileID: 3519838458197183875}
-  _moveBlockEvent: {fileID: 3577614366560189361}
-  _pointerPositionProvider: {fileID: 3431568019735781962}
-  _rotateButton: {fileID: 0}
-  _nextStateObject: {fileID: 5769694651038102672}
 --- !u!1 &3940982562635026737
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,7 +994,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2980380607079020741}
-  - component: {fileID: 6102192046353487140}
   m_Layer: 0
   m_Name: BlockFallState
   m_TagString: Untagged
@@ -1054,20 +1016,6 @@ Transform:
   m_Father: {fileID: 3725664664867175021}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6102192046353487140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5769694651038102672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 198a87e8096cd7a4c909549cbac1be12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _activeBlockProvider: {fileID: 1873590738204560071}
-  _nextStateObject: {fileID: 1155552293541684260}
 --- !u!1 &5795484175838705815
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,7 +1106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerTurnProvider: {fileID: 5049311327778402279}
   _blockSynchronizer: {fileID: 1398055474015924066}
-  _nextStateObject: {fileID: 6925004085774155568}
+  _nextStateObject: {fileID: 5395362408375412343}
 --- !u!1 &6361193758019692172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,7 +1160,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5044735437154604842}
-  - component: {fileID: 1287768750664293654}
   m_Layer: 0
   m_Name: ScreenScrollState
   m_TagString: Untagged
@@ -1235,22 +1182,6 @@ Transform:
   m_Father: {fileID: 3725664664867175021}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1287768750664293654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6680261299805854220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d99c40c219959142a5d6cdfb28782fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _blocksMaxYProvider: {fileID: 0}
-  _screenScroller: {fileID: 8766313766676756}
-  _scrollDuration: 0.3
-  _nextStateObject: {fileID: 5395362408375412343}
 --- !u!1 &6925004085774155568
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,7 +1191,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4410376464899464922}
-  - component: {fileID: 2362573826355178678}
   m_Layer: 0
   m_Name: BlockSpawnState
   m_TagString: Untagged
@@ -1284,23 +1214,6 @@ Transform:
   m_Father: {fileID: 3725664664867175021}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2362573826355178678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6925004085774155568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4058d8dd4ce8a0478d012ce037f8c4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _config: {fileID: 11400000, guid: 4f2163568fc5fff48bd0a6a8f15ff356, type: 2}
-  _blockSpawnPoint: {fileID: 5943580818968784166}
-  _blockStore: {fileID: 7961613299133461135}
-  _blockFactory: {fileID: 5563374015343033626}
-  _nextStateObject: {fileID: 3818646924838379892}
 --- !u!1 &8665585150917409262
 GameObject:
   m_ObjectHideFlags: 0

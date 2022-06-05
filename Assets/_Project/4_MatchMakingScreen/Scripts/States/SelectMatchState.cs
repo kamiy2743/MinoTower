@@ -15,7 +15,7 @@ namespace MT.MatchMakingScreen
 
         [Space(20)]
         [SerializeField] private CustomButton _friendMatchButton;
-        [SerializeField] private FriendMatchState _friendMatchState;
+        [SerializeField] private FriendMatchSettingState _friendMatchState;
 
         [Space(20)]
         [SerializeField] private CustomButton _toTopButton;
