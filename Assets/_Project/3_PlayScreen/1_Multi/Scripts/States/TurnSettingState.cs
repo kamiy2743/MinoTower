@@ -30,7 +30,7 @@ namespace MT.PlayScreen.Multi
 
             }
 
-            // ToNext();
+            ToNext();
         }
 
         private void ToNext()

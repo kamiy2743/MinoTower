@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
+using Photon.Pun;
 
 namespace MT.PlayScreen.Multi
 {
@@ -11,6 +12,7 @@ namespace MT.PlayScreen.Multi
         [SerializeField] private GameObject _nextStateObject;
 
         [Header("初期化対象")]
+        [SerializeField] private RandomProvider _randomProvider;
         [SerializeField] private PlayerTurnProvider _playerTurnProvider;
         [SerializeField] private BlockStore _blockStore;
         [SerializeField] private RotateButton _rotateButton;
@@ -34,10 +36,22 @@ namespace MT.PlayScreen.Multi
 
         private async UniTask Initialize()
         {
+            RandomInitialize();
             _playerTurnProvider.Initialize();
             _blockStore.Initialize();
             _rotateButton.Initialize();
             await _screenScroller.Initialize();
+        }
+
+        // TODO ここに書くな
+        private void RandomInitialize()
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+            }
+            var seed = (int)System.DateTime.Now.Ticks;
+            seed = 10;
+            _randomProvider.RandomForBlock = new CustomRandom(seed);
         }
     }
 }

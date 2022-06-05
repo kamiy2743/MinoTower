@@ -10,14 +10,14 @@ namespace MT
         {
             private List<Vector2Int> _coordinates;
 
-            public PieceCoordinate(int pieceCount)
+            public PieceCoordinate(int pieceCount, CustomRandom random)
             {
                 var coordinates = new List<Vector2Int>() { Vector2Int.zero };
 
                 for (int i = 0; i < pieceCount - 1; i++)
                 {
                     var placableCoodinates = GetPlacableCoordinates(coordinates);
-                    var randIndex = CustomRandom.Instance.Range(0, placableCoodinates.Count);
+                    var randIndex = random.Range(0, placableCoodinates.Count);
                     coordinates.Add(placableCoodinates[randIndex]);
                 }
 

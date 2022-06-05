@@ -10,6 +10,7 @@ namespace MT.PlayScreen
     {
         [SerializeField] private PlayScreenConfig _config;
         [SerializeField] private Transform _blockSpawnPoint;
+        [SerializeField] private RandomProvider _randomProvider;
 
         [Space(20)]
         [SerializeField] private BlockStore _blockStore;
@@ -19,6 +20,7 @@ namespace MT.PlayScreen
         [SerializeField] private GameObject _nextStateObject;
 
         private IState _nextState;
+        private CustomRandom _random => _randomProvider.RandomForBlock;
 
         public void StaticAwake()
         {
@@ -42,7 +44,7 @@ namespace MT.PlayScreen
             var position = cameraVertPos + _blockSpawnPoint.position;
 
             // TODO　出現率は仮実装
-            var block = _blockFactory.Create(position, CustomRandom.Instance.Range(2, 10));
+            var block = _blockFactory.Create(position, _random.Range(2, 10));
             _blockStore.Add(block);
             AudioPlayer.Instance.PlaySE(_config.OnSpawnSE);
             await block.OnSpwned();

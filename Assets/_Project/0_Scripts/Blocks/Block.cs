@@ -15,13 +15,14 @@ namespace MT
 
         private float _sleepingElapsed;
 
-        public void OnCreate()
+        public void OnCreate(CustomRandom random)
         {
             _rigidbody = GetComponentInChildren<Rigidbody2D>();
             _colliders = GetComponentsInChildren<BoxCollider2D>();
             SetColliderEnabled(true);
             SetRigidbodySimulated(true);
-            SetColor(Color.HSVToRGB(CustomRandom.Instance.Value(), CustomRandom.Instance.Range(0.3f, 1f), CustomRandom.Instance.Range(0.8f, 1f)));
+
+            SetColor(Color.HSVToRGB(random.Value(), random.Range(0.3f, 1f), random.Range(0.8f, 1f)));
         }
 
         private void SetColor(Color color)
