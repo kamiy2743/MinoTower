@@ -53,6 +53,9 @@ namespace MT.PlayScreen.Multi
                 photonView.RPC(nameof(RandomInitialize), RpcTarget.All, seed);
             }
 
+            PhotonNetwork.SendRate = 60;
+            PhotonNetwork.SerializationRate = 60;
+
             _blockStore.Initialize();
             _resultUI.Initialize();
             await _rotateButton.Hide(0);

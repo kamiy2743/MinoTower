@@ -75,7 +75,8 @@ namespace MT
         private void ApplyConditions(BlockCondition[] conditions)
         {
             var blocks = _blockStore.Blocks();
-            for (int i = 0; i < blocks.Length; i++)
+            // TODO 応急処置
+            for (int i = 0; i < Mathf.Min(blocks.Length, conditions.Length); i++)
             {
                 var tf = blocks[i].transform;
                 var condition = conditions[i];
