@@ -26,9 +26,7 @@ namespace MT.PlayScreen.Multi
             if (!PhotonNetwork.IsMasterClient) return;
 
             var randValue = new CustomRandom().Value();
-            // SetIsMasterClientTurn(randValue > 0.5f);
-            // TODO test
-            await SetIsMasterClientTurn(!PhotonNetwork.IsMasterClient);
+            await SetIsMasterClientTurn(randValue > 0.5f);
         }
 
         public async UniTask NextTurn()
