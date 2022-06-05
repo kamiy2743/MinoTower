@@ -10,6 +10,7 @@ namespace MT.PlayScreen.Multi
 
         [Space(20)]
         [SerializeField] private ActiveBlockProvider _ativeBlockProvider;
+        [SerializeField] private BlockSynchronizer _blockSynchronizer;
 
         [Space(20)]
         [SerializeField] private DropBlockEvent _dropBlockEvent;
@@ -57,6 +58,8 @@ namespace MT.PlayScreen.Multi
             _moveBlockEvent.SetIsListened(true);
             _dropBlockEvent.SetIsListened(true);
             _rotateButton.SetIsListened(true);
+
+            _blockSynchronizer.SetIsSynchronize(true);
         }
 
         public void ToNext()
@@ -64,6 +67,7 @@ namespace MT.PlayScreen.Multi
             _moveBlockEvent.SetIsListened(false);
             _dropBlockEvent.SetIsListened(false);
             _rotateButton.SetIsListened(false);
+
             _nextState.Enter();
         }
     }
