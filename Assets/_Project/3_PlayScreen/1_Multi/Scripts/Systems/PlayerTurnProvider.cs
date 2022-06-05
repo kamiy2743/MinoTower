@@ -35,7 +35,7 @@ namespace MT.PlayScreen.Multi
         {
             var isMasterClient = PhotonNetwork.IsMasterClient;
             var isMasterClientTurn = Get();
-            return isMasterClient && isMasterClientTurn;
+            return isMasterClient ^ isMasterClientTurn;
         }
     }
 }
