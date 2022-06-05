@@ -18,7 +18,7 @@ namespace MT.PlayScreen.Multi
 
         [Space(20)]
         [SerializeField] private GameOverArea _gameOverArea;
-        // [SerializeField] private ResultState _resultState;
+        [SerializeField] private ResultState _resultState;
 
         private IState _defaultNextState;
         private CancellationTokenSource _cts;
@@ -35,7 +35,7 @@ namespace MT.PlayScreen.Multi
                 if (!_playerTurnProvider.IsMyTurn()) return;
 
                 _cts.Cancel();
-                // photonView.RPC(nameof(GameOver), RpcTarget.All);
+                photonView.RPC(nameof(GameOver), RpcTarget.All);
             });
         }
 
@@ -57,7 +57,7 @@ namespace MT.PlayScreen.Multi
         [PunRPC]
         private void GameOver()
         {
-            // ToNext(_resultState);
+            ToNext(_resultState);
         }
 
         private void ToNext(IState nextState)

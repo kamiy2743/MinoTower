@@ -17,6 +17,7 @@ namespace MT.PlayScreen.Multi
         [SerializeField] private BlockStore _blockStore;
         [SerializeField] private RotateButton _rotateButton;
         [SerializeField] private ScreenScroller _screenScroller;
+        [SerializeField] private ResultUI _resultUI;
 
         private IState _nextState;
 
@@ -44,6 +45,7 @@ namespace MT.PlayScreen.Multi
 
             _playerTurnProvider.Initialize();
             _blockStore.Initialize();
+            _resultUI.Initialize();
             await _rotateButton.Hide(0);
             await _screenScroller.Initialize();
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using Cysharp.Threading.Tasks;
 
-namespace MT.PlayScreen
+namespace MT.PlayScreen.Single
 {
     public class ResultUI : MonoBehaviour, IStaticAwake
     {
