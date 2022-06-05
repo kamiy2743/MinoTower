@@ -43,11 +43,11 @@ namespace MT.PlayScreen.Multi
                 photonView.RPC(nameof(RandomInitialize), RpcTarget.All, seed);
             }
 
-            _playerTurnProvider.Initialize();
             _blockStore.Initialize();
             _resultUI.Initialize();
             await _rotateButton.Hide(0);
             await _screenScroller.Initialize();
+            await _playerTurnProvider.Initialize();
         }
 
         // TODO ここに書くな

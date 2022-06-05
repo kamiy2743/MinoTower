@@ -21,7 +21,7 @@ namespace MT.PlayScreen.Multi
             return CustomPropertyAccessor.Instance.Get<bool>(_config.IsMasterClientTurnKey);
         }
 
-        public async void Initialize()
+        public async UniTask Initialize()
         {
             if (PhotonNetwork.IsMasterClient)
             {
