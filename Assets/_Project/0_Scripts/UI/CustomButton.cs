@@ -71,6 +71,7 @@ namespace MT
         {
             if (!_isPointerDowned) return;
 
+            _isPointerDowned = false;
             transform.DOScale(1f, 0.24f).SetEase(Ease.OutCubic);
             _canvasGroup.DOFade(1f, 0.24f).SetEase(Ease.OutCubic);
         }
