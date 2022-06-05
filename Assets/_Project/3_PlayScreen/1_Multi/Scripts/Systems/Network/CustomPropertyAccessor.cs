@@ -17,13 +17,23 @@ namespace MT.PlayScreen.Multi
 
         public void Set<T>(string key, T value)
         {
-            var hashtable = new ExitGames.Client.Photon.Hashtable();
-            hashtable[key] = value;
-            PhotonNetwork.LocalPlayer.SetCustomProperties(hashtable);
+            if (!PhotonNetwork.InRoom)
+            {
+                Debug.LogError("not in room");
+            }
+
+            var cp = PhotonNetwork.CurrentRoom.CustomProperties;
+            cp[key] = value;
+            PhotonNetwork.CurrentRoom.SetCustomProperties(cp);
         }
 
         public T Get<T>(string key)
         {
+            if (!PhotonNetwork.InRoom)
+            {
+                Debug.LogError("not in room");
+            }
+
             var value = PhotonNetwork.CurrentRoom.CustomProperties[key];
             return (T)value;
         }
