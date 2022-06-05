@@ -9,12 +9,12 @@ namespace MT.PlayScreen.Multi
     {
         [SerializeField] private CustomPropertyConfig _config;
 
-        private void Set(bool value)
+        private void SetIsMasterClientTurn(bool value)
         {
             CustomPropertyAccessor.Instance.Set<bool>(_config.IsMasterClientTurnKey, value);
         }
 
-        private bool Get()
+        private bool GetIsMasterClientTurn()
         {
             return CustomPropertyAccessor.Instance.Get<bool>(_config.IsMasterClientTurnKey);
         }
@@ -24,22 +24,24 @@ namespace MT.PlayScreen.Multi
             if (!PhotonNetwork.IsMasterClient) return;
 
             var randValue = new CustomRandom().Value();
-            Set(randValue > 0.5f);
+            SetIsMasterClientTurn(randValue > 0.5f);
+            // TODO test
+            SetIsMasterClientTurn(!PhotonNetwork.IsMasterClient);
         }
 
         public void NextTurn()
         {
             if (!PhotonNetwork.IsMasterClient) return;
 
-            var currentTurn = Get();
-            Set(!currentTurn);
+            var currentTurn = GetIsMasterClientTurn();
+            SetIsMasterClientTurn(!currentTurn);
         }
 
         public bool IsMyTurn()
         {
             var isMasterClient = PhotonNetwork.IsMasterClient;
-            var isMasterClientTurn = Get();
-            return isMasterClient ^ isMasterClientTurn;
+            var isMasterClientTurn = GetIsMasterClientTurn();
+            return isMasterClient == isMasterClientTurn;
         }
     }
 }
