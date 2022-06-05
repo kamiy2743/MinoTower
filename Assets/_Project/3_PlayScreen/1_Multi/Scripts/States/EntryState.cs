@@ -6,7 +6,7 @@ using Photon.Pun;
 
 namespace MT.PlayScreen.Multi
 {
-    public class EntryState : MonoBehaviour, IState, IStaticAwake
+    public class EntryState : MonoBehaviourPunCallbacks, IState, IStaticAwake
     {
         [SerializeField] private float _fadeInDuration;
         [SerializeField] private GameObject _nextStateObject;
@@ -36,7 +36,12 @@ namespace MT.PlayScreen.Multi
 
         private async UniTask Initialize()
         {
-            RandomInitialize();
+            if (PhotonNetwork.IsMasterClient)
+            {
+                var seed = (int)System.DateTime.Now.Ticks;
+                photonView.RPC(nameof(RandomInitialize), RpcTarget.All, seed);
+            }
+
             _playerTurnProvider.Initialize();
             _blockStore.Initialize();
             _rotateButton.Initialize();
@@ -44,13 +49,9 @@ namespace MT.PlayScreen.Multi
         }
 
         // TODO ここに書くな
-        private void RandomInitialize()
+        [PunRPC]
+        private void RandomInitialize(int seed)
         {
-            if (PhotonNetwork.IsMasterClient)
-            {
-            }
-            var seed = (int)System.DateTime.Now.Ticks;
-            seed = 10;
             _randomProvider.RandomForBlock = new CustomRandom(seed);
         }
     }
