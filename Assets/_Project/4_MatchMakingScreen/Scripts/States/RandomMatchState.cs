@@ -6,7 +6,7 @@ namespace MT.MatchMakingScreen
 {
     public class RandomMatchState : MonoBehaviour, IState
     {
-        public void EnterAsync()
+        public void Enter()
         {
 
         }

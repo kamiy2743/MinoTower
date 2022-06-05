@@ -23,10 +23,10 @@ namespace MT.PlayScreen.Single
             _nextState = _nextStateObject.GetComponent<IState>();
         }
 
-        public void EnterAsync()
+        public void Enter()
         {
             RecordMaxHeight();
-            _nextState.EnterAsync();
+            _nextState.Enter();
         }
 
         private void RecordMaxHeight()

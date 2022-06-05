@@ -19,7 +19,7 @@ namespace MT.PlayScreen.Single
             _nextState = _nextStateObject.GetComponent<IState>();
         }
 
-        public async void EnterAsync()
+        public async void Enter()
         {
             _activeBlockProvider.Get().StartFall();
             // 十分に落下して加速するまで待つ
@@ -30,7 +30,7 @@ namespace MT.PlayScreen.Single
 
         public void ToNext()
         {
-            _nextState.EnterAsync();
+            _nextState.Enter();
         }
     }
 }

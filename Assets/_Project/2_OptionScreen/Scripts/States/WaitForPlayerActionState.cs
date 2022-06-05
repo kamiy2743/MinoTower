@@ -21,7 +21,7 @@ namespace MT.OptionScreen
             });
         }
 
-        public void EnterAsync()
+        public void Enter()
         {
             _BGMSlider.SetIsListened(true);
             _SESlider.SetIsListened(true);
@@ -33,7 +33,7 @@ namespace MT.OptionScreen
             _BGMSlider.SetIsListened(false);
             _SESlider.SetIsListened(false);
             _backButton.SetIsListened(false);
-            _toTopScreenState.EnterAsync();
+            _toTopScreenState.Enter();
         }
     }
 }

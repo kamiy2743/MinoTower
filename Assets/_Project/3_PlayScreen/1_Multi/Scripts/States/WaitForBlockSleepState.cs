@@ -39,7 +39,7 @@ namespace MT.PlayScreen.Multi
             });
         }
 
-        public void EnterAsync()
+        public void Enter()
         {
             if (!_playerTurnProvider.IsMyTurn()) return;
 
@@ -63,7 +63,7 @@ namespace MT.PlayScreen.Multi
         private void ToNext(IState nextState)
         {
             _gameOverArea.SetIsListened(false);
-            nextState.EnterAsync();
+            nextState.Enter();
         }
 
         private async void WaitForBlockSleepAsync()

@@ -35,7 +35,7 @@ namespace MT.PlayScreen.Single
             });
         }
 
-        public void EnterAsync()
+        public void Enter()
         {
             _continueButton.SetIsListened(true);
             _exitButton.SetIsListened(true);
@@ -49,7 +49,7 @@ namespace MT.PlayScreen.Single
             _continueButton.SetIsListened(false);
             _exitButton.SetIsListened(false);
 
-            nextState.EnterAsync();
+            nextState.Enter();
         }
 
         private async void ShowResultUIAsync()

@@ -26,7 +26,7 @@ namespace MT.PlayScreen.Multi
             _nextState = _nextStateObject.GetComponent<IState>();
         }
 
-        public async void EnterAsync()
+        public async void Enter()
         {
             await Fader.Instance.FadeOutAsync(0);
             await InitializeAsync();
@@ -41,7 +41,7 @@ namespace MT.PlayScreen.Multi
         private async void ToNextAsync()
         {
             await Fader.Instance.FadeInAsync(_fadeInDuration);
-            _nextState.EnterAsync();
+            _nextState.Enter();
         }
 
         private async UniTask InitializeAsync()

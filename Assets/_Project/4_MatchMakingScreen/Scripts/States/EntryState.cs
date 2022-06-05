@@ -22,13 +22,13 @@ namespace MT.MatchMakingScreen
             _nextState = _nextStateObject.GetComponent<IState>();
         }
 
-        public async void EnterAsync()
+        public async void Enter()
         {
             await Fader.Instance.FadeOutAsync(0);
             Initialize();
 
             await Fader.Instance.FadeInAsync(_fadeInDuration);
-            _nextState.EnterAsync();
+            _nextState.Enter();
         }
 
         private void Initialize()

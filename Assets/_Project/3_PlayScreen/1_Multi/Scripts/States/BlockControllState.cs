@@ -60,7 +60,7 @@ namespace MT.PlayScreen.Multi
             });
         }
 
-        public void EnterAsync()
+        public void Enter()
         {
             if (_playerTurnProvider.IsMyTurn())
             {
@@ -79,7 +79,7 @@ namespace MT.PlayScreen.Multi
             _dropBlockEvent.SetIsListened(false);
             _rotateButton.SetIsListened(false);
 
-            _nextState.EnterAsync();
+            _nextState.Enter();
         }
     }
 }

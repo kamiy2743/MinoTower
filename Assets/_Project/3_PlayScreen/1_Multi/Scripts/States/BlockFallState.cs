@@ -20,7 +20,7 @@ namespace MT.PlayScreen.Multi
             _nextState = _nextStateObject.GetComponent<IState>();
         }
 
-        public async void EnterAsync()
+        public async void Enter()
         {
             if (_playerTurnProvider.IsMyTurn())
             {
@@ -35,7 +35,7 @@ namespace MT.PlayScreen.Multi
 
         public void ToNext()
         {
-            _nextState.EnterAsync();
+            _nextState.Enter();
         }
     }
 }

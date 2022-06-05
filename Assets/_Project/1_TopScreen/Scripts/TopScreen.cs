@@ -15,7 +15,7 @@ namespace MT.TopScreen
             if (gameObject.activeSelf) return;
 
             gameObject.SetActive(true);
-            _entryState.EnterAsync();
+            _entryState.Enter();
         }
 
         public void CloseAsync()

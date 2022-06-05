@@ -52,7 +52,7 @@ namespace MT.PlayScreen.Single
             });
         }
 
-        public void EnterAsync()
+        public void Enter()
         {
             _moveBlockEvent.SetIsListened(true);
             _dropBlockEvent.SetIsListened(true);
@@ -64,7 +64,7 @@ namespace MT.PlayScreen.Single
             _moveBlockEvent.SetIsListened(false);
             _dropBlockEvent.SetIsListened(false);
             _rotateButton.SetIsListened(false);
-            _nextState.EnterAsync();
+            _nextState.Enter();
         }
     }
 }

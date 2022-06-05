@@ -31,7 +31,7 @@ namespace MT.MatchMakingScreen
             });
         }
 
-        public async void EnterAsync()
+        public async void Enter()
         {
             await _friendMatchUI.ShowAsync(_fadeDuration);
 
@@ -46,7 +46,7 @@ namespace MT.MatchMakingScreen
 
             await _friendMatchUI.HideAsync(_fadeDuration);
 
-            nextState.EnterAsync();
+            nextState.Enter();
         }
 
         private void OnDecidedButton()

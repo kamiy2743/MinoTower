@@ -18,7 +18,7 @@ namespace MT.PlayScreen.Multi
             if (gameObject.activeSelf) return;
 
             gameObject.SetActive(true);
-            _entryState.EnterAsync();
+            _entryState.Enter();
         }
 
         public async void CloseAsync()

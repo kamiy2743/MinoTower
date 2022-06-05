@@ -23,7 +23,7 @@ namespace MT.PlayScreen
             _nextState = _nextStateObject.GetComponent<IState>();
         }
 
-        public async void EnterAsync()
+        public async void Enter()
         {
             await ScreenScrollAsync();
             ToNext();
@@ -31,7 +31,7 @@ namespace MT.PlayScreen
 
         public void ToNext()
         {
-            _nextState.EnterAsync();
+            _nextState.Enter();
         }
 
         private async UniTask ScreenScrollAsync()

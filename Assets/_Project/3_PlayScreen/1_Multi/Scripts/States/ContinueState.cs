@@ -8,7 +8,7 @@ namespace MT.PlayScreen.Multi
     {
         [SerializeField] private float _fadeDuration;
 
-        public async void EnterAsync()
+        public async void Enter()
         {
             await Fader.Instance.FadeOutAsync(_fadeDuration);
         }

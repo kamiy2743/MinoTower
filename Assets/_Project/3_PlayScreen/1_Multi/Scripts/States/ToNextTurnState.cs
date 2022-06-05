@@ -19,7 +19,7 @@ namespace MT.PlayScreen.Multi
             _nextState = _nextStateObject.GetComponent<IState>();
         }
 
-        public async void EnterAsync()
+        public async void Enter()
         {
             await _playerTurnProvider.NextTurnAsync();
 
@@ -32,7 +32,7 @@ namespace MT.PlayScreen.Multi
         [PunRPC]
         private void ToNext()
         {
-            _nextState.EnterAsync();
+            _nextState.Enter();
         }
     }
 }

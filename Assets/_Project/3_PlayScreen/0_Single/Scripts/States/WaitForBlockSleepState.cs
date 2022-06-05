@@ -34,7 +34,7 @@ namespace MT.PlayScreen.Single
             });
         }
 
-        public void EnterAsync()
+        public void Enter()
         {
             _gameOverArea.SetIsListened(true);
             WaitForBlockSleepAsync();
@@ -43,7 +43,7 @@ namespace MT.PlayScreen.Single
         private void ToNext(IState nextState)
         {
             _gameOverArea.SetIsListened(false);
-            nextState.EnterAsync();
+            nextState.Enter();
         }
 
         private async void WaitForBlockSleepAsync()

@@ -39,7 +39,7 @@ namespace MT.MatchMakingScreen
             });
         }
 
-        public async void EnterAsync()
+        public async void Enter()
         {
             _randomMatchButton.SetIsListened(true);
             _friendMatchButton.SetIsListened(true);
@@ -55,7 +55,7 @@ namespace MT.MatchMakingScreen
             _toTopButton.SetIsListened(false);
 
             await _selectMatchUI.HideAsync(_fadeDuration);
-            nextState.EnterAsync();
+            nextState.Enter();
         }
     }
 }

@@ -15,9 +15,9 @@ namespace MT.PlayScreen
             _nextState = _nextStateObject.GetComponent<IState>();
         }
 
-        public void EnterAsync()
+        public void Enter()
         {
-            _nextState.EnterAsync();
+            _nextState.Enter();
         }
     }
 }

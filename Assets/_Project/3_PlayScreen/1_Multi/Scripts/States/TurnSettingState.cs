@@ -23,7 +23,7 @@ namespace MT.PlayScreen.Multi
             _nextState = _nextStateObject.GetComponent<IState>();
         }
 
-        public async void EnterAsync()
+        public async void Enter()
         {
             _blockSynchronizer.SetIsSynchronize(true);
 
@@ -42,7 +42,7 @@ namespace MT.PlayScreen.Multi
 
         private void ToNext()
         {
-            _nextState.EnterAsync();
+            _nextState.Enter();
         }
     }
 }

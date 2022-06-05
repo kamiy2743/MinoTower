@@ -16,11 +16,11 @@ namespace MT.TopScreen
             _nextState = _nextStateObject.GetComponent<IState>();
         }
 
-        public async void EnterAsync()
+        public async void Enter()
         {
             await Fader.Instance.FadeOutAsync(0);
             await Fader.Instance.FadeInAsync(_fadeInDuration);
-            _nextState.EnterAsync();
+            _nextState.Enter();
         }
     }
 }
