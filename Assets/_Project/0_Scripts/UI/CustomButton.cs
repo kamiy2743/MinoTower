@@ -14,6 +14,9 @@ namespace MT
 
         private CustomEvent _customEvent = new CustomEvent();
 
+        // TODO 状態変数
+        private bool _isAdded = false;
+
         public void StaticAwake()
         {
             SetIsListened(_startToListend);
@@ -26,6 +29,8 @@ namespace MT
             {
                 AudioPlayer.Instance.PlaySE(_clickedSE);
             });
+
+            _isAdded = false;
         }
 
         public void SetIsListened(bool value)
@@ -35,6 +40,9 @@ namespace MT
 
         public void AddListener(UnityAction call)
         {
+            if (_isAdded) Debug.Log(gameObject.name + ": 複数のイベントを登録しています。");
+            _isAdded = true;
+
             _customEvent.AddListener(call);
         }
 
