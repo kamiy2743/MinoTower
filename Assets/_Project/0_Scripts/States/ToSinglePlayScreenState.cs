@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MT.PlayScreen
+namespace MT
 {
-    public class ToTopScreenState : MonoBehaviour, IState
+    public class ToSinglePlayScreenState : MonoBehaviour, IState
     {
         [SerializeField] private float _fadeOutDuration;
 
-        public async void EnterAsync()
+        public async void Enter()
         {
             await Fader.Instance.FadeOutAsync(_fadeOutDuration);
-            ScreenSwitcher.Instance.Switch(ScreenType.Top);
+            ScreenSwitcher.Instance.Switch(ScreenType.SinglePlay);
         }
     }
 }
