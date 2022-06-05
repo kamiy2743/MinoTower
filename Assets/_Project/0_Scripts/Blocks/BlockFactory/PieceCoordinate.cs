@@ -17,7 +17,7 @@ namespace MT
                 for (int i = 0; i < pieceCount - 1; i++)
                 {
                     var placableCoodinates = GetPlacableCoordinates(coordinates);
-                    var randIndex = Random.Range(0, placableCoodinates.Count);
+                    var randIndex = CustomRandom.Instance.Range(0, placableCoodinates.Count);
                     coordinates.Add(placableCoodinates[randIndex]);
                 }
 

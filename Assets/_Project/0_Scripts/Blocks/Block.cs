@@ -21,7 +21,7 @@ namespace MT
             _colliders = GetComponentsInChildren<BoxCollider2D>();
             SetColliderEnabled(true);
             SetRigidbodySimulated(true);
-            SetColor(Color.HSVToRGB(Random.value, Random.Range(0.3f, 1f), Random.Range(0.8f, 1f)));
+            SetColor(Color.HSVToRGB(CustomRandom.Instance.Value(), CustomRandom.Instance.Range(0.3f, 1f), CustomRandom.Instance.Range(0.8f, 1f)));
         }
 
         private void SetColor(Color color)

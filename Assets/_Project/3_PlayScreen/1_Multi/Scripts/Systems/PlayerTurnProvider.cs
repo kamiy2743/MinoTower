@@ -23,7 +23,7 @@ namespace MT.PlayScreen.Multi
         {
             if (!PhotonNetwork.IsMasterClient) return;
 
-            var randValue = Random.value;
+            var randValue = CustomRandom.Instance.Value();
             Set(randValue > 0.5f);
         }
 
