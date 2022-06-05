@@ -12,6 +12,7 @@ namespace MT.PlayScreen.Single
         [SerializeField] private ResultUI _resultUI;
         [SerializeField] private ResultEffect _resultEffect;
         [SerializeField] private RotateButton _rotateButton;
+        [SerializeField] private float _fadeDuration;
 
         [Space(20)]
         [SerializeField] private CustomButton _continueButton;
@@ -51,12 +52,12 @@ namespace MT.PlayScreen.Single
             nextState.Enter();
         }
 
-        private void ShowResultUI()
+        private async void ShowResultUI()
         {
             _resultUI.Show();
             _resultUI.SetMaxHeightText(_sessionData.MaxHeight.value);
 
-            _rotateButton.Hide();
+            await _rotateButton.Hide(_fadeDuration);
         }
 
         private void PlayResultEffect()

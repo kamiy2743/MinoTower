@@ -3,35 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Cysharp.Threading.Tasks;
+using UnityEngine.Events;
 
 namespace MT.PlayScreen
 {
-    public class RotateButton : MonoBehaviour, IStaticAwake
+    public class RotateButton : MonoBehaviour, IStaticAwake, ICustomEvent
     {
-        [SerializeField] private float _hideDuration;
-
         private CanvasGroup _canvasGroup;
+        private CustomButton _customButton;
 
         public void StaticAwake()
         {
             _canvasGroup = GetComponent<CanvasGroup>();
+            _customButton = GetComponent<CustomButton>();
         }
 
-        public void Initialize()
+        public void SetIsListened(bool value)
         {
-            ShowImmediately();
+            _customButton.SetIsListened(value);
         }
 
-        public void ShowImmediately()
+        public void AddListener(UnityAction call)
+        {
+            _customButton.AddListener(call);
+        }
+
+        public async UniTask Show(float fadeDuration)
         {
             _canvasGroup.DOKill();
-            _canvasGroup.alpha = 1;
+            await _canvasGroup.DOFade(1, fadeDuration);
         }
 
-        public async void Hide()
+        public async UniTask Hide(float fadeDuration)
         {
             _canvasGroup.DOKill();
-            await _canvasGroup.DOFade(0, _hideDuration);
+            await _canvasGroup.DOFade(0, fadeDuration);
         }
     }
 }

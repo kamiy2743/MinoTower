@@ -219,7 +219,7 @@ MonoBehaviour:
   _dropBlockEvent: {fileID: 8890418050640818585}
   _moveBlockEvent: {fileID: 283365550094661804}
   _pointerPositionProvider: {fileID: 1027119013285246143}
-  _rotateButton: {fileID: 2702569206322589012}
+  _rotateButton: {fileID: 3964270710671548604}
   _nextStateObject: {fileID: 1784461208354424330}
 --- !u!1 &1749265928814742316
 GameObject:
@@ -1321,6 +1321,7 @@ MonoBehaviour:
   _resultUI: {fileID: 8133737851317955638}
   _resultEffect: {fileID: 8029827814758384353}
   _rotateButton: {fileID: 3964270710671548604}
+  _fadeDuration: 0.3
   _continueButton: {fileID: 6873385860675655781}
   _continueState: {fileID: 4932676096627093330}
   _exitButton: {fileID: 2663510397422058978}
@@ -1522,17 +1523,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a1e345e926a5c342b9c89da266aec15, type: 3}
---- !u!114 &2702569206322589012 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2694361210827433552, guid: 1a1e345e926a5c342b9c89da266aec15, type: 3}
-  m_PrefabInstance: {fileID: 64527456051235588}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbc9157f3b84bc043ae3f858719f31f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &2702569206322589015 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2694361210827433555, guid: 1a1e345e926a5c342b9c89da266aec15, type: 3}

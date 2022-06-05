@@ -10,6 +10,10 @@ namespace MT.PlayScreen.Multi
         [SerializeField] private BlockSynchronizer _blockSynchronizer;
 
         [Space(20)]
+        [SerializeField] private RotateButton _rotateButton;
+        [SerializeField] private float _fadeDuraiton;
+
+        [Space(20)]
         [SerializeField] private GameObject _nextStateObject;
 
         private IState _nextState;
@@ -19,15 +23,15 @@ namespace MT.PlayScreen.Multi
             _nextState = _nextStateObject.GetComponent<IState>();
         }
 
-        public void Enter()
+        public async void Enter()
         {
             if (_playerTurnProvider.IsMyTurn())
             {
-
+                await _rotateButton.Show(_fadeDuraiton);
             }
             else
             {
-
+                await _rotateButton.Hide(_fadeDuraiton);
             }
 
             ToNext();

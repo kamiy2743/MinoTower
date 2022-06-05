@@ -15,7 +15,7 @@ namespace MT.PlayScreen
         [SerializeField] private DropBlockEvent _dropBlockEvent;
         [SerializeField] private MoveBlockEvent _moveBlockEvent;
         [SerializeField] private PointerPositionProvider _pointerPositionProvider;
-        [SerializeField] private CustomButton _rotateButton;
+        [SerializeField] private RotateButton _rotateButton;
 
 
         [Space(20)]

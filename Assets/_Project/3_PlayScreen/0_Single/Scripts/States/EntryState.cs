@@ -41,8 +41,8 @@ namespace MT.PlayScreen.Single
             _sessionData.Initialize();
             _blockStore.Initialize();
             _resultUI.Initialize();
-            _rotateButton.Initialize();
             _resultEffect.Initialize();
+            await _rotateButton.Show(0);
             await _screenScroller.Initialize();
         }
     }

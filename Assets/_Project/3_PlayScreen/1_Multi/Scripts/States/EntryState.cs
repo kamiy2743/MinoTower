@@ -44,7 +44,7 @@ namespace MT.PlayScreen.Multi
 
             _playerTurnProvider.Initialize();
             _blockStore.Initialize();
-            _rotateButton.Initialize();
+            await _rotateButton.Hide(0);
             await _screenScroller.Initialize();
         }
 

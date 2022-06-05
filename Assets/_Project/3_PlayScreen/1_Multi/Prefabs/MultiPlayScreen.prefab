@@ -965,6 +965,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerTurnProvider: {fileID: 5049311327778402279}
   _blockSynchronizer: {fileID: 1398055474015924066}
+  _rotateButton: {fileID: 5219997247795198278}
+  _fadeDuraiton: 0.3
   _nextStateObject: {fileID: 6925004085774155568}
 --- !u!1 &6361193758019692172
 GameObject:
