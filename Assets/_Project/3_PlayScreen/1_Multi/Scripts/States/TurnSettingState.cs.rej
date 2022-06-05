@@ -1,9 +1,0 @@
-diff a/Assets/_Project/3_PlayScreen/1_Multi/Scripts/States/TurnSettingState.cs b/Assets/_Project/3_PlayScreen/1_Multi/Scripts/States/TurnSettingState.cs	(rejected hunks)
-@@ -26,6 +26,7 @@
-         public async void Enter()
-         {
-             _blockSynchronizer.SetIsSynchronize(true);
-+            _playerTurnProvider.NextTurn();
- 
-             if (_playerTurnProvider.IsMyTurn())
-             {
