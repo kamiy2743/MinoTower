@@ -16,7 +16,7 @@ namespace MT.PlayScreen.Multi
 
         [Space(20)]
         [SerializeField] private CustomButton _continueButton;
-        // [SerializeField] private ContinueState _continueState;
+        [SerializeField] private ContinueState _continueState;
 
         [Space(20)]
         [SerializeField] private CustomButton _exitButton;
@@ -26,7 +26,7 @@ namespace MT.PlayScreen.Multi
         {
             _continueButton.AddListener(() =>
             {
-                // Tonext(_continueState);
+                Tonext(_continueState);
             });
 
             _exitButton.AddListener(() =>

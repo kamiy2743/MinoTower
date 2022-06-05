@@ -127,6 +127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7667179189998316268}
+  - component: {fileID: 3823358623982548841}
   m_Layer: 0
   m_Name: ContinueState
   m_TagString: Untagged
@@ -149,6 +150,19 @@ Transform:
   m_Father: {fileID: 3073961761636262735}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3823358623982548841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575289847541375678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b27b37c0355ac6847a610aba0f64ab91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadeDuration: 0.5
 --- !u!1 &1834353332934073320
 GameObject:
   m_ObjectHideFlags: 0
@@ -1228,6 +1242,7 @@ MonoBehaviour:
   _rotateButton: {fileID: 5219997247795198278}
   _fadeDuration: 0.3
   _continueButton: {fileID: 5305146283581493508}
+  _continueState: {fileID: 3823358623982548841}
   _exitButton: {fileID: 7877869770437660757}
   _toTopScreenState: {fileID: 4438232065177961129}
 --- !u!1 &8770052231211742432
