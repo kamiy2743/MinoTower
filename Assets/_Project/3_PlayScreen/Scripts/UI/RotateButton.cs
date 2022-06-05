@@ -9,12 +9,12 @@ namespace MT.PlayScreen
 {
     public class RotateButton : MonoBehaviour, IStaticAwake, ICustomEvent
     {
-        private CanvasGroup _canvasGroup;
+        private CommonUI _commonUI;
         private CustomButton _customButton;
 
         public void StaticAwake()
         {
-            _canvasGroup = GetComponent<CanvasGroup>();
+            _commonUI = GetComponent<CommonUI>();
             _customButton = GetComponent<CustomButton>();
         }
 
@@ -30,14 +30,12 @@ namespace MT.PlayScreen
 
         public async UniTask ShowAsync(float fadeDuration)
         {
-            _canvasGroup.DOKill();
-            await _canvasGroup.DOFade(1, fadeDuration);
+            await _commonUI.ShowAsync(fadeDuration);
         }
 
         public async UniTask HideAsync(float fadeDuration)
         {
-            _canvasGroup.DOKill();
-            await _canvasGroup.DOFade(0, fadeDuration);
+            await _commonUI.HideAsync(fadeDuration);
         }
     }
 }
