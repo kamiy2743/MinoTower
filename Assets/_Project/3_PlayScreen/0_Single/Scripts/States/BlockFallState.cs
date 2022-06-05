@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 
-namespace MT.PlayScreen
+namespace MT.PlayScreen.Single
 {
     public class BlockFallState : MonoBehaviour, IState, IStaticAwake
     {
