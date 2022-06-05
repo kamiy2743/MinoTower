@@ -21,12 +21,16 @@ namespace MT.PlayScreen.Multi
 
         public void Initialize()
         {
+            if (!PhotonNetwork.IsMasterClient) return;
+
             var randValue = Random.value;
             Set(randValue > 0.5f);
         }
 
         public void NextTurn()
         {
+            if (!PhotonNetwork.IsMasterClient) return;
+
             var currentTurn = Get();
             Set(!currentTurn);
         }
