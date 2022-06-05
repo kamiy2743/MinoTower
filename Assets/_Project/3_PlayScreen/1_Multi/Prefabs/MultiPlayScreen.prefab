@@ -54,6 +54,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7623264242636802648}
+  - component: {fileID: 1636375188818081254}
   m_Layer: 0
   m_Name: WaitForBlockSleepState
   m_TagString: Untagged
@@ -76,6 +77,18 @@ Transform:
   m_Father: {fileID: 3725664664867175021}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1636375188818081254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155552293541684260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43a435151cf52324fa67fa0d91ff37f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1575289847541375678
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,6 +800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _blockStore: {fileID: 326775941364172861}
+  _playerTurnProvider: {fileID: 5049311327778402279}
 --- !u!1 &5070794428844573346
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,7 +899,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2980380607079020741}
-  - component: {fileID: 4515682565514485920}
+  - component: {fileID: 5404928581927814623}
   m_Layer: 0
   m_Name: BlockFallState
   m_TagString: Untagged
@@ -908,7 +922,7 @@ Transform:
   m_Father: {fileID: 3725664664867175021}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4515682565514485920
+--- !u!114 &5404928581927814623
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -917,9 +931,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5769694651038102672}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43a435151cf52324fa67fa0d91ff37f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 2fba7f3cab96f4a4aad98be6cb34404e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _activeBlockProvider: {fileID: 2366264092088387562}
+  _playerTurnProvider: {fileID: 5049311327778402279}
+  _nextStateObject: {fileID: 1155552293541684260}
 --- !u!1 &5795484175838705815
 GameObject:
   m_ObjectHideFlags: 0

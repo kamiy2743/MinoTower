@@ -62,8 +62,6 @@ namespace MT.PlayScreen.Multi
 
         public void Enter()
         {
-            _blockSynchronizer.SetIsSynchronize(true);
-
             if (_playerTurnProvider.IsMyTurn())
             {
                 _moveBlockEvent.SetIsListened(true);
@@ -71,7 +69,6 @@ namespace MT.PlayScreen.Multi
                 _rotateButton.SetIsListened(true);
 
                 photonView.RequestOwnership();
-                _blockSynchronizer.photonView.RequestOwnership();
             }
         }
 

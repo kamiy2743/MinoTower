@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using MSLIMA.Serializer;
+using MT.PlayScreen.Multi;
 
 namespace MT
 {
     public class BlockSynchronizer : MonoBehaviourPunCallbacks, IPunObservable, IStaticAwake
     {
         [SerializeField] private BlockStore _blockStore;
+        [SerializeField] private PlayerTurnProvider _playerTurnProvider;
 
         private bool _isSynchronize = false;
 
@@ -20,6 +22,24 @@ namespace MT
         public void SetIsSynchronize(bool value)
         {
             _isSynchronize = value;
+
+            if (!_isSynchronize)
+            {
+                foreach (var block in _blockStore.Blocks())
+                {
+                    block.SetColliderEnabled(true);
+                    block.SetRigidbodySimulated(true);
+                }
+
+                return;
+            }
+
+            foreach (var block in _blockStore.Blocks())
+            {
+                var isMyTurn = _playerTurnProvider.IsMyTurn();
+                block.SetColliderEnabled(isMyTurn);
+                block.SetRigidbodySimulated(isMyTurn);
+            }
         }
 
         public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)

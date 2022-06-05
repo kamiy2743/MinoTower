@@ -7,6 +7,7 @@ namespace MT.PlayScreen.Multi
     public class TurnSettingState : MonoBehaviour, IState, IStaticAwake
     {
         [SerializeField] private PlayerTurnProvider _playerTurnProvider;
+        [SerializeField] private BlockSynchronizer _blockSynchronizer;
 
         [Space(20)]
         [SerializeField] private RotateButton _rotateButton;
@@ -24,8 +25,11 @@ namespace MT.PlayScreen.Multi
 
         public async void Enter()
         {
+            _blockSynchronizer.SetIsSynchronize(true);
+
             if (_playerTurnProvider.IsMyTurn())
             {
+                _blockSynchronizer.photonView.RequestOwnership();
                 await _rotateButton.Show(_fadeDuraiton);
             }
             else

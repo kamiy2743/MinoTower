@@ -57,7 +57,7 @@ namespace MT
             SetRigidbodySimulated(true);
         }
 
-        private void SetColliderEnabled(bool enabled)
+        public void SetColliderEnabled(bool enabled)
         {
             foreach (var collider in _colliders)
             {
@@ -65,7 +65,7 @@ namespace MT
             }
         }
 
-        private void SetRigidbodySimulated(bool simulated)
+        public void SetRigidbodySimulated(bool simulated)
         {
             _rigidbody.simulated = simulated;
         }
