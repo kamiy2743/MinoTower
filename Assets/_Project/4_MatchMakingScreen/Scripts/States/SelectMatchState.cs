@@ -25,17 +25,17 @@ namespace MT.MatchMakingScreen
         {
             _randomMatchButton.AddListener(() =>
             {
-                Tonext(_randomMatchState);
+                ToNext(_randomMatchState);
             });
 
             _friendMatchButton.AddListener(() =>
             {
-                Tonext(_friendMatchState);
+                ToNext(_friendMatchState);
             });
 
             _toTopButton.AddListener(() =>
             {
-                Tonext(_toTopScreenState);
+                ToNext(_toTopScreenState);
             });
         }
 
@@ -48,7 +48,7 @@ namespace MT.MatchMakingScreen
             await _selectMatchUI.Show(_fadeDuration);
         }
 
-        private async void Tonext(IState nextState)
+        private async void ToNext(IState nextState)
         {
             _randomMatchButton.SetIsListened(false);
             _friendMatchButton.SetIsListened(false);

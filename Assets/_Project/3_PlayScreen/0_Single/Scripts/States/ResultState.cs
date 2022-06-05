@@ -26,12 +26,12 @@ namespace MT.PlayScreen.Single
         {
             _continueButton.AddListener(() =>
             {
-                Tonext(_continueState);
+                ToNext(_continueState);
             });
 
             _exitButton.AddListener(() =>
             {
-                Tonext(_toTopScreenState);
+                ToNext(_toTopScreenState);
             });
         }
 
@@ -44,7 +44,7 @@ namespace MT.PlayScreen.Single
             PlayResultEffect();
         }
 
-        private void Tonext(IState nextState)
+        private void ToNext(IState nextState)
         {
             _continueButton.SetIsListened(false);
             _exitButton.SetIsListened(false);

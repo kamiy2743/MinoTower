@@ -26,13 +26,13 @@ namespace MT.PlayScreen.Multi
         {
             _continueButton.AddListener(() =>
             {
-                Tonext(_continueState);
+                ToNext(_continueState);
             });
 
             _exitButton.AddListener(() =>
             {
                 PhotonNetwork.LeaveRoom();
-                Tonext(_toTopScreenState);
+                ToNext(_toTopScreenState);
             });
         }
 
@@ -44,7 +44,7 @@ namespace MT.PlayScreen.Multi
             ShowResultUI();
         }
 
-        private void Tonext(IState nextState)
+        private void ToNext(IState nextState)
         {
             _continueButton.SetIsListened(false);
             _exitButton.SetIsListened(false);

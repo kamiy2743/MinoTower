@@ -17,7 +17,7 @@ namespace MT.OptionScreen
         {
             _backButton.AddListener(() =>
             {
-                Tonext();
+                ToNext();
             });
         }
 
@@ -28,7 +28,7 @@ namespace MT.OptionScreen
             _backButton.SetIsListened(true);
         }
 
-        private void Tonext()
+        private void ToNext()
         {
             _BGMSlider.SetIsListened(false);
             _SESlider.SetIsListened(false);

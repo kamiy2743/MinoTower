@@ -33,13 +33,12 @@ namespace MT.PlayScreen.Multi
 
             if (PhotonNetwork.IsMasterClient)
             {
-                photonView.RPC(nameof(Tonext), RpcTarget.All);
+                photonView.RPC(nameof(ToNext), RpcTarget.All);
             }
         }
 
         [PunRPC]
-        // TODO タイポ Tonext => ToNext
-        private async void Tonext()
+        private async void ToNext()
         {
             await Fader.Instance.FadeIn(_fadeInDuration);
             _nextState.Enter();

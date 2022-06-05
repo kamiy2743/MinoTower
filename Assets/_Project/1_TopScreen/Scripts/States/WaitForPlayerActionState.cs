@@ -21,17 +21,17 @@ namespace MT.TopScreen
         {
             _singlePlayButton.AddListener(() =>
             {
-                Tonext(_toSinglePlayScreenState);
+                ToNext(_toSinglePlayScreenState);
             });
 
             _multiPlayButton.AddListener(() =>
             {
-                Tonext(_toMultiPlayScreenState);
+                ToNext(_toMultiPlayScreenState);
             });
 
             _optionButton.AddListener(() =>
             {
-                Tonext(_toOptionScreenState);
+                ToNext(_toOptionScreenState);
             });
         }
 
@@ -42,7 +42,7 @@ namespace MT.TopScreen
             _optionButton.SetIsListened(true);
         }
 
-        private void Tonext(IState nextState)
+        private void ToNext(IState nextState)
         {
             _singlePlayButton.SetIsListened(false);
             _multiPlayButton.SetIsListened(false);
