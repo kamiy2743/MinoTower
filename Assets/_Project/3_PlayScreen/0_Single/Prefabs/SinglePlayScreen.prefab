@@ -232,7 +232,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2824440208622246604}
-  - component: {fileID: 4768213161598187078}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -264,18 +263,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!225 &4768213161598187078
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005727174864124753}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &2177079778043289189
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,6 +505,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8261387107417715382}
   - component: {fileID: 8133737851317955638}
+  - component: {fileID: 639732154893616671}
+  - component: {fileID: 1434752303232954231}
   m_Layer: 5
   m_Name: ResultUI
   m_TagString: Untagged
@@ -560,7 +549,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHeightText: {fileID: 995013741564683638}
-  _fadeInDuration: 0.5
+--- !u!114 &639732154893616671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3643786805690711472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dd649d9e976ab947be1defc0d6059f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!225 &1434752303232954231
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3643786805690711472}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3924392241844558293
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,9 +971,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sessionData: {fileID: 2930115139255164885}
   _resultUI: {fileID: 8133737851317955638}
+  _resultUIFadeInDutaion: 0.5
   _resultEffect: {fileID: 8029827814758384353}
   _rotateButton: {fileID: 3964270710671548604}
-  _fadeDuration: 0.3
+  _rotateButtonFadeOutDuration: 0.5
   _continueButton: {fileID: 6873385860675655781}
   _continueState: {fileID: 4932676096627093330}
   _exitButton: {fileID: 2663510397422058978}

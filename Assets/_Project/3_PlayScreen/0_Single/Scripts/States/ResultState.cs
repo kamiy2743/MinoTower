@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cysharp.Threading.Tasks;
 
 namespace MT.PlayScreen.Single
 {
@@ -10,9 +11,12 @@ namespace MT.PlayScreen.Single
 
         [Space(20)]
         [SerializeField] private ResultUI _resultUI;
+        [SerializeField] private float _resultUIFadeInDutaion;
         [SerializeField] private ResultEffect _resultEffect;
+
+        [Space(20)]
         [SerializeField] private RotateButton _rotateButton;
-        [SerializeField] private float _fadeDuration;
+        [SerializeField] private float _rotateButtonFadeOutDuration;
 
         [Space(20)]
         [SerializeField] private CustomButton _continueButton;
@@ -54,10 +58,12 @@ namespace MT.PlayScreen.Single
 
         private async void ShowResultUIAsync()
         {
-            _resultUI.ShowAsync();
             _resultUI.SetMaxHeightText(_sessionData.MaxHeight.value);
 
-            await _rotateButton.HideAsync(_fadeDuration);
+            await UniTask.WhenAll(
+                _resultUI.ShowAsync(_resultUIFadeInDutaion),
+                _rotateButton.HideAsync(_rotateButtonFadeOutDuration)
+            );
         }
 
         private void PlayResultEffect()

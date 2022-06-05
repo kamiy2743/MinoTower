@@ -9,13 +9,12 @@ namespace MT.PlayScreen.Single
     public class ResultUI : MonoBehaviour, IStaticAwake
     {
         [SerializeField] private CustomText _maxHeightText;
-        [SerializeField] private float _fadeInDuration;
 
-        private CanvasGroup _canvasGroup;
+        private CommonUI _commonUI;
 
         public void StaticAwake()
         {
-            _canvasGroup = GetComponentInChildren<CanvasGroup>();
+            _commonUI = GetComponentInChildren<CommonUI>();
         }
 
         public void Initialize()
@@ -23,22 +22,14 @@ namespace MT.PlayScreen.Single
             HideImmediately();
         }
 
-        public async void ShowAsync()
+        public async UniTask ShowAsync(float fadeDuration)
         {
-            _canvasGroup.interactable = true;
-            _canvasGroup.blocksRaycasts = true;
-
-            _canvasGroup.DOKill();
-            await _canvasGroup.DOFade(1, _fadeInDuration);
+            await _commonUI.ShowAsync(fadeDuration);
         }
 
-        public void HideImmediately()
+        public async void HideImmediately()
         {
-            _canvasGroup.interactable = false;
-            _canvasGroup.blocksRaycasts = false;
-
-            _canvasGroup.DOKill();
-            _canvasGroup.alpha = 0;
+            await _commonUI.HideAsync(0);
         }
 
         public void SetMaxHeightText(float maxHeightValue)
