@@ -7,7 +7,6 @@ namespace MT.PlayScreen.Multi
     public class TurnSettingState : MonoBehaviour, IState, IStaticAwake
     {
         [SerializeField] private PlayerTurnProvider _playerTurnProvider;
-        [SerializeField] private BlockSynchronizer _blockSynchronizer;
 
         [Space(20)]
         [SerializeField] private RotateButton _rotateButton;

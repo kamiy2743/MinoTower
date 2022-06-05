@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 namespace MT.PlayScreen.Multi
 {
-    public class BlockControllState : MonoBehaviour, IState, IStaticAwake, IStaticStart
+    public class BlockControllState : MonoBehaviourPunCallbacks, IState, IStaticAwake, IStaticStart
     {
         [SerializeField] private PlayScreenConfig _config;
+        [SerializeField] private PlayerTurnProvider _playerTurnProvider;
 
         [Space(20)]
         [SerializeField] private ActiveBlockProvider _ativeBlockProvider;
@@ -17,7 +19,6 @@ namespace MT.PlayScreen.Multi
         [SerializeField] private MoveBlockEvent _moveBlockEvent;
         [SerializeField] private PointerPositionProvider _pointerPositionProvider;
         [SerializeField] private RotateButton _rotateButton;
-
 
         [Space(20)]
         [SerializeField] private GameObject _nextStateObject;
@@ -34,6 +35,8 @@ namespace MT.PlayScreen.Multi
         {
             _rotateButton.AddListener(async () =>
             {
+                if (!_playerTurnProvider.IsMyTurn()) return;
+
                 _rotateButton.SetIsListened(false);
                 AudioPlayer.Instance.PlaySE(_config.OnRotateSE);
                 await _activeBlock.Rotate();
@@ -42,6 +45,8 @@ namespace MT.PlayScreen.Multi
 
             _moveBlockEvent.AddListener(() =>
             {
+                if (!_playerTurnProvider.IsMyTurn()) return;
+
                 var pos = _activeBlock.transform.position;
                 pos.x = _pointerPositionProvider.Get().x;
                 _activeBlock.transform.position = pos;
@@ -49,24 +54,34 @@ namespace MT.PlayScreen.Multi
 
             _dropBlockEvent.AddListener(() =>
             {
-                ToNext();
+                if (!_playerTurnProvider.IsMyTurn()) return;
+
+                photonView.RPC(nameof(ToNext), RpcTarget.All);
             });
         }
 
         public void Enter()
         {
-            _moveBlockEvent.SetIsListened(true);
-            _dropBlockEvent.SetIsListened(true);
-            _rotateButton.SetIsListened(true);
-
             _blockSynchronizer.SetIsSynchronize(true);
+
+            if (_playerTurnProvider.IsMyTurn())
+            {
+                _moveBlockEvent.SetIsListened(true);
+                _dropBlockEvent.SetIsListened(true);
+                _rotateButton.SetIsListened(true);
+
+                photonView.RequestOwnership();
+                _blockSynchronizer.photonView.RequestOwnership();
+            }
         }
 
+        [PunRPC]
         public void ToNext()
         {
             _moveBlockEvent.SetIsListened(false);
             _dropBlockEvent.SetIsListened(false);
             _rotateButton.SetIsListened(false);
+            Debug.Log("next");
 
             _nextState.Enter();
         }

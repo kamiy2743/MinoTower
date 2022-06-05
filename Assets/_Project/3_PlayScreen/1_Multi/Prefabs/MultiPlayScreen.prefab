@@ -444,6 +444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7632514281919856586}
   - component: {fileID: 8532669274169548959}
+  - component: {fileID: 1776430890541376536}
   m_Layer: 0
   m_Name: BlockControllState
   m_TagString: Untagged
@@ -479,6 +480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _config: {fileID: 11400000, guid: 4f2163568fc5fff48bd0a6a8f15ff356, type: 2}
+  _playerTurnProvider: {fileID: 5049311327778402279}
   _ativeBlockProvider: {fileID: 2366264092088387562}
   _blockSynchronizer: {fileID: 1398055474015924066}
   _dropBlockEvent: {fileID: 3519838458197183875}
@@ -486,6 +488,28 @@ MonoBehaviour:
   _pointerPositionProvider: {fileID: 3431568019735781962}
   _rotateButton: {fileID: 5219997247795198278}
   _nextStateObject: {fileID: 5769694651038102672}
+--- !u!114 &1776430890541376536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3818646924838379892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 1
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &3940982562635026737
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,7 +767,7 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 3
-  OwnershipTransfer: 0
+  OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents:
   - {fileID: 1398055474015924066}
