@@ -6,7 +6,7 @@ namespace MT
 {
     public class EmptyState : MonoBehaviour, IState
     {
-        public void Enter()
+        public void EnterAsync()
         {
             Debug.Log("empty state");
         }

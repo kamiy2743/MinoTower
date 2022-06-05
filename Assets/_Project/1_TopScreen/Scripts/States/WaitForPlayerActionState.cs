@@ -35,7 +35,7 @@ namespace MT.TopScreen
             });
         }
 
-        public void Enter()
+        public void EnterAsync()
         {
             _singlePlayButton.SetIsListened(true);
             _multiPlayButton.SetIsListened(true);
@@ -48,7 +48,7 @@ namespace MT.TopScreen
             _multiPlayButton.SetIsListened(false);
             _optionButton.SetIsListened(false);
 
-            nextState.Enter();
+            nextState.EnterAsync();
         }
     }
 }

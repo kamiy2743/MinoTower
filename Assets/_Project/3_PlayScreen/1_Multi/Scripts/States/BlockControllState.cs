@@ -39,7 +39,7 @@ namespace MT.PlayScreen.Multi
 
                 _rotateButton.SetIsListened(false);
                 AudioPlayer.Instance.PlaySE(_config.OnRotateSE);
-                await _activeBlock.Rotate();
+                await _activeBlock.RotateAsync();
                 _rotateButton.SetIsListened(true);
             });
 
@@ -60,7 +60,7 @@ namespace MT.PlayScreen.Multi
             });
         }
 
-        public void Enter()
+        public void EnterAsync()
         {
             if (_playerTurnProvider.IsMyTurn())
             {
@@ -79,7 +79,7 @@ namespace MT.PlayScreen.Multi
             _dropBlockEvent.SetIsListened(false);
             _rotateButton.SetIsListened(false);
 
-            _nextState.Enter();
+            _nextState.EnterAsync();
         }
     }
 }

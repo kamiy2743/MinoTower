@@ -22,20 +22,20 @@ namespace MT.MatchMakingScreen
             _nextState = _nextStateObject.GetComponent<IState>();
         }
 
-        public async void Enter()
+        public async void EnterAsync()
         {
-            await Fader.Instance.FadeOut(0);
+            await Fader.Instance.FadeOutAsync(0);
             Initialize();
 
-            await Fader.Instance.FadeIn(_fadeInDuration);
-            _nextState.Enter();
+            await Fader.Instance.FadeInAsync(_fadeInDuration);
+            _nextState.EnterAsync();
         }
 
         private void Initialize()
         {
-            _loadingUI.Initialize();
-            _selectMatchUI.Initialize();
-            _friendMatchUI.Initialize();
+            _loadingUI.InitializeAsync();
+            _selectMatchUI.InitializeAsync();
+            _friendMatchUI.InitializeAsync();
         }
     }
 }

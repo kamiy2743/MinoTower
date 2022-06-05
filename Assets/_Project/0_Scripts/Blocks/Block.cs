@@ -37,14 +37,14 @@ namespace MT
             }
         }
 
-        public async UniTask OnSpwned()
+        public async UniTask OnSpwnedAsync()
         {
             SetColliderEnabled(false);
             SetRigidbodySimulated(false);
-            await SpawnAnimation();
+            await SpawnAnimationAsync();
         }
 
-        private async UniTask SpawnAnimation()
+        private async UniTask SpawnAnimationAsync()
         {
             transform.localScale = Vector3.zero;
             transform.rotation = Quaternion.Euler(0, 0, 360 - 45);
@@ -74,7 +74,7 @@ namespace MT
             _rigidbody.simulated = simulated;
         }
 
-        public async UniTask Rotate()
+        public async UniTask RotateAsync()
         {
             var currentAngle = transform.eulerAngles;
             var targetAngle = currentAngle + new Vector3(0, 0, _blockConfig.RotateAngle);

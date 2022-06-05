@@ -31,22 +31,22 @@ namespace MT.MatchMakingScreen
             });
         }
 
-        public async void Enter()
+        public async void EnterAsync()
         {
-            await _friendMatchUI.Show(_fadeDuration);
+            await _friendMatchUI.ShowAsync(_fadeDuration);
 
             _decideButton.SetIsListened(true);
             _backButton.SetIsListened(true);
         }
 
-        private async void ToNext(IState nextState)
+        private async void ToNextAsync(IState nextState)
         {
             _decideButton.SetIsListened(false);
             _backButton.SetIsListened(false);
 
-            await _friendMatchUI.Hide(_fadeDuration);
+            await _friendMatchUI.HideAsync(_fadeDuration);
 
-            nextState.Enter();
+            nextState.EnterAsync();
         }
 
         private void OnDecidedButton()
@@ -57,12 +57,12 @@ namespace MT.MatchMakingScreen
                 return;
             }
 
-            ToNext(_friendMatchLoadingState);
+            ToNextAsync(_friendMatchLoadingState);
         }
 
         private void OnBackButton()
         {
-            ToNext(selectMatchState);
+            ToNextAsync(selectMatchState);
         }
     }
 }

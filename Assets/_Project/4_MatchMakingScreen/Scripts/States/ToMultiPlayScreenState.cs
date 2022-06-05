@@ -8,9 +8,9 @@ namespace MT.MatchMakingScreen
     {
         [SerializeField] private float _fadeOutDuration;
 
-        public async void Enter()
+        public async void EnterAsync()
         {
-            await Fader.Instance.FadeOut(_fadeOutDuration);
+            await Fader.Instance.FadeOutAsync(_fadeOutDuration);
             ScreenSwitcher.Instance.Switch(ScreenType.MultiPlay);
         }
     }

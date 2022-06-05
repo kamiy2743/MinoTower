@@ -28,13 +28,13 @@ namespace MT.PlayScreen
             _customButton.AddListener(call);
         }
 
-        public async UniTask Show(float fadeDuration)
+        public async UniTask ShowAsync(float fadeDuration)
         {
             _canvasGroup.DOKill();
             await _canvasGroup.DOFade(1, fadeDuration);
         }
 
-        public async UniTask Hide(float fadeDuration)
+        public async UniTask HideAsync(float fadeDuration)
         {
             _canvasGroup.DOKill();
             await _canvasGroup.DOFade(0, fadeDuration);

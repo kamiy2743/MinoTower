@@ -19,9 +19,9 @@ namespace MT.PlayScreen.Multi
             _nextState = _nextStateObject.GetComponent<IState>();
         }
 
-        public async void Enter()
+        public async void EnterAsync()
         {
-            await _playerTurnProvider.NextTurn();
+            await _playerTurnProvider.NextTurnAsync();
 
             if (PhotonNetwork.IsMasterClient)
             {
@@ -32,7 +32,7 @@ namespace MT.PlayScreen.Multi
         [PunRPC]
         private void ToNext()
         {
-            _nextState.Enter();
+            _nextState.EnterAsync();
         }
     }
 }

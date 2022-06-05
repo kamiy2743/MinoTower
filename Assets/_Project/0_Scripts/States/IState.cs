@@ -2,6 +2,6 @@ namespace MT
 {
     public interface IState
     {
-        void Enter();
+        void EnterAsync();
     }
 }

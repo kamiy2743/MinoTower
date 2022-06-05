@@ -35,7 +35,7 @@ namespace MT.PlayScreen.Single
             {
                 _rotateButton.SetIsListened(false);
                 AudioPlayer.Instance.PlaySE(_config.OnRotateSE);
-                await _activeBlock.Rotate();
+                await _activeBlock.RotateAsync();
                 _rotateButton.SetIsListened(true);
             });
 
@@ -52,7 +52,7 @@ namespace MT.PlayScreen.Single
             });
         }
 
-        public void Enter()
+        public void EnterAsync()
         {
             _moveBlockEvent.SetIsListened(true);
             _dropBlockEvent.SetIsListened(true);
@@ -64,7 +64,7 @@ namespace MT.PlayScreen.Single
             _moveBlockEvent.SetIsListened(false);
             _dropBlockEvent.SetIsListened(false);
             _rotateButton.SetIsListened(false);
-            _nextState.Enter();
+            _nextState.EnterAsync();
         }
     }
 }

@@ -11,9 +11,9 @@ namespace MT.PlayScreen.Multi
     {
         [SerializeField] private CustomPropertyConfig _config;
 
-        private async UniTask SetIsMasterClientTurn(bool value)
+        private async UniTask SetIsMasterClientTurnAsync(bool value)
         {
-            await CustomPropertyAccessor.Instance.Set<bool>(_config.IsMasterClientTurnKey, value);
+            await CustomPropertyAccessor.Instance.SetAsync<bool>(_config.IsMasterClientTurnKey, value);
         }
 
         private bool GetIsMasterClientTurn()
@@ -21,20 +21,20 @@ namespace MT.PlayScreen.Multi
             return CustomPropertyAccessor.Instance.Get<bool>(_config.IsMasterClientTurnKey);
         }
 
-        public async UniTask Initialize()
+        public async UniTask InitializeAsync()
         {
             if (!PhotonNetwork.IsMasterClient) return;
 
             var randValue = new CustomRandom().Value();
-            await SetIsMasterClientTurn(randValue > 0.5f);
+            await SetIsMasterClientTurnAsync(randValue > 0.5f);
         }
 
-        public async UniTask NextTurn()
+        public async UniTask NextTurnAsync()
         {
             if (!PhotonNetwork.IsMasterClient) return;
 
             var currentTurn = GetIsMasterClientTurn();
-            await SetIsMasterClientTurn(!currentTurn);
+            await SetIsMasterClientTurnAsync(!currentTurn);
         }
 
         public bool IsMyTurn()

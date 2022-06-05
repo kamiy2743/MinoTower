@@ -30,9 +30,9 @@ namespace MT.MatchMakingScreen
             });
         }
 
-        public async void Enter()
+        public async void EnterAsync()
         {
-            await _loadingUI.Show(_fadeDuration);
+            await _loadingUI.ShowAsync(_fadeDuration);
 
             _backButton.SetIsListened(true);
 
@@ -45,9 +45,9 @@ namespace MT.MatchMakingScreen
         {
             _backButton.SetIsListened(false);
 
-            await _loadingUI.Hide(_fadeDuration);
+            await _loadingUI.HideAsync(_fadeDuration);
 
-            nextState.Enter();
+            nextState.EnterAsync();
         }
 
         private async UniTask CreateMatchAsync()

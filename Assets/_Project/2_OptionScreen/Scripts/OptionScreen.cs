@@ -15,10 +15,10 @@ namespace MT.OptionScreen
             if (gameObject.activeSelf) return;
 
             gameObject.SetActive(true);
-            _entryState.Enter();
+            _entryState.EnterAsync();
         }
 
-        public void Close()
+        public void CloseAsync()
         {
             if (!gameObject.activeSelf) return;
 

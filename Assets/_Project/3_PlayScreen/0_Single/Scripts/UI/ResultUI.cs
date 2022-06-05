@@ -23,7 +23,7 @@ namespace MT.PlayScreen.Single
             HideImmediately();
         }
 
-        public async void Show()
+        public async void ShowAsync()
         {
             _canvasGroup.interactable = true;
             _canvasGroup.blocksRaycasts = true;

@@ -23,18 +23,18 @@ namespace MT.PlayScreen.Multi
             _nextState = _nextStateObject.GetComponent<IState>();
         }
 
-        public async void Enter()
+        public async void EnterAsync()
         {
             _blockSynchronizer.SetIsSynchronize(true);
 
             if (_playerTurnProvider.IsMyTurn())
             {
                 _blockSynchronizer.photonView.RequestOwnership();
-                await _rotateButton.Show(_fadeDuraiton);
+                await _rotateButton.ShowAsync(_fadeDuraiton);
             }
             else
             {
-                await _rotateButton.Hide(_fadeDuraiton);
+                await _rotateButton.HideAsync(_fadeDuraiton);
             }
 
             ToNext();
@@ -42,7 +42,7 @@ namespace MT.PlayScreen.Multi
 
         private void ToNext()
         {
-            _nextState.Enter();
+            _nextState.EnterAsync();
         }
     }
 }

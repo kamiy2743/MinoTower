@@ -25,37 +25,37 @@ namespace MT.MatchMakingScreen
         {
             _randomMatchButton.AddListener(() =>
             {
-                ToNext(_randomMatchState);
+                ToNextAsync(_randomMatchState);
             });
 
             _friendMatchButton.AddListener(() =>
             {
-                ToNext(_friendMatchState);
+                ToNextAsync(_friendMatchState);
             });
 
             _toTopButton.AddListener(() =>
             {
-                ToNext(_toTopScreenState);
+                ToNextAsync(_toTopScreenState);
             });
         }
 
-        public async void Enter()
+        public async void EnterAsync()
         {
             _randomMatchButton.SetIsListened(true);
             _friendMatchButton.SetIsListened(true);
             _toTopButton.SetIsListened(true);
 
-            await _selectMatchUI.Show(_fadeDuration);
+            await _selectMatchUI.ShowAsync(_fadeDuration);
         }
 
-        private async void ToNext(IState nextState)
+        private async void ToNextAsync(IState nextState)
         {
             _randomMatchButton.SetIsListened(false);
             _friendMatchButton.SetIsListened(false);
             _toTopButton.SetIsListened(false);
 
-            await _selectMatchUI.Hide(_fadeDuration);
-            nextState.Enter();
+            await _selectMatchUI.HideAsync(_fadeDuration);
+            nextState.EnterAsync();
         }
     }
 }

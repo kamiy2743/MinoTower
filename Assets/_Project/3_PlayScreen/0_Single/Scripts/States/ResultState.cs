@@ -35,12 +35,12 @@ namespace MT.PlayScreen.Single
             });
         }
 
-        public void Enter()
+        public void EnterAsync()
         {
             _continueButton.SetIsListened(true);
             _exitButton.SetIsListened(true);
 
-            ShowResultUI();
+            ShowResultUIAsync();
             PlayResultEffect();
         }
 
@@ -49,15 +49,15 @@ namespace MT.PlayScreen.Single
             _continueButton.SetIsListened(false);
             _exitButton.SetIsListened(false);
 
-            nextState.Enter();
+            nextState.EnterAsync();
         }
 
-        private async void ShowResultUI()
+        private async void ShowResultUIAsync()
         {
-            _resultUI.Show();
+            _resultUI.ShowAsync();
             _resultUI.SetMaxHeightText(_sessionData.MaxHeight.value);
 
-            await _rotateButton.Hide(_fadeDuration);
+            await _rotateButton.HideAsync(_fadeDuration);
         }
 
         private void PlayResultEffect()

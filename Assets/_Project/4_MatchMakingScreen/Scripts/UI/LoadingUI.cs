@@ -14,19 +14,19 @@ namespace MT.MatchMakingScreen
             _commonUI = GetComponent<CommonUI>();
         }
 
-        public async UniTask Initialize()
+        public async UniTask InitializeAsync()
         {
-            await Hide(0);
+            await HideAsync(0);
         }
 
-        public async UniTask Show(float fadeDuration)
+        public async UniTask ShowAsync(float fadeDuration)
         {
-            await _commonUI.Show(fadeDuration);
+            await _commonUI.ShowAsync(fadeDuration);
         }
 
-        public async UniTask Hide(float fadeDuration)
+        public async UniTask HideAsync(float fadeDuration)
         {
-            await _commonUI.Hide(fadeDuration);
+            await _commonUI.HideAsync(fadeDuration);
         }
     }
 }

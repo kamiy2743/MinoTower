@@ -40,7 +40,7 @@ namespace MT
                 }
                 else
                 {
-                    screen.Close();
+                    screen.CloseAsync();
                 }
             }
         }

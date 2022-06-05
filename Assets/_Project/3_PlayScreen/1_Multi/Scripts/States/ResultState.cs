@@ -36,12 +36,12 @@ namespace MT.PlayScreen.Multi
             });
         }
 
-        public void Enter()
+        public void EnterAsync()
         {
             _continueButton.SetIsListened(true);
             _exitButton.SetIsListened(true);
 
-            ShowResultUI();
+            ShowResultUIAsync();
         }
 
         private void ToNext(IState nextState)
@@ -49,16 +49,16 @@ namespace MT.PlayScreen.Multi
             _continueButton.SetIsListened(false);
             _exitButton.SetIsListened(false);
 
-            nextState.Enter();
+            nextState.EnterAsync();
         }
 
-        private async void ShowResultUI()
+        private async void ShowResultUIAsync()
         {
-            _resultUI.Show();
+            _resultUI.ShowAsync();
             _resultUI.SetWinOrLoseText(!_playerTurnProvider.IsMyTurn());
             _resultUI.SetTotalResultText(1, 5);
 
-            await _rotateButton.Hide(_fadeDuration);
+            await _rotateButton.HideAsync(_fadeDuration);
         }
     }
 }

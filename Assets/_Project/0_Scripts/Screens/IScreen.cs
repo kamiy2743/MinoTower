@@ -4,6 +4,6 @@ namespace MT
     {
         ScreenType Type { get; }
         void Open();
-        void Close();
+        void CloseAsync();
     }
 }

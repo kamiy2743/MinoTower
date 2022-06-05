@@ -19,13 +19,13 @@ namespace MT
             _canvasGroup = GetComponent<CanvasGroup>();
         }
 
-        public async UniTask FadeIn(float duration)
+        public async UniTask FadeInAsync(float duration)
         {
             _canvasGroup.DOKill();
             await _canvasGroup.DOFade(0, duration);
         }
 
-        public async UniTask FadeOut(float duration)
+        public async UniTask FadeOutAsync(float duration)
         {
             _canvasGroup.DOKill();
             await _canvasGroup.DOFade(1, duration);

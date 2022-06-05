@@ -20,7 +20,7 @@ namespace MT.PlayScreen.Multi
             _instance = this;
         }
 
-        public async UniTask Set<T>(string key, T value)
+        public async UniTask SetAsync<T>(string key, T value)
         {
             if (!PhotonNetwork.InRoom)
             {

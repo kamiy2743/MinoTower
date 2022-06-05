@@ -23,21 +23,21 @@ namespace MT.PlayScreen
             _nextState = _nextStateObject.GetComponent<IState>();
         }
 
-        public async void Enter()
+        public async void EnterAsync()
         {
-            await ScreenScroll();
+            await ScreenScrollAsync();
             ToNext();
         }
 
         public void ToNext()
         {
-            _nextState.Enter();
+            _nextState.EnterAsync();
         }
 
-        private async UniTask ScreenScroll()
+        private async UniTask ScreenScrollAsync()
         {
             var maxY = _blocksMaxYProvider.MaxY();
-            await _screenScroller.SetScroll(new ScrollAmount(maxY), _scrollDuration);
+            await _screenScroller.SetScrollAsync(new ScrollAmount(maxY), _scrollDuration);
         }
     }
 }

@@ -26,24 +26,24 @@ namespace MT.PlayScreen.Single
             _nextState = _nextStateObject.GetComponent<IState>();
         }
 
-        public async void Enter()
+        public async void EnterAsync()
         {
-            await Fader.Instance.FadeOut(0);
-            await Initialize();
+            await Fader.Instance.FadeOutAsync(0);
+            await InitializeAsync();
 
-            await Fader.Instance.FadeIn(_fadeInDuration);
-            _nextState.Enter();
+            await Fader.Instance.FadeInAsync(_fadeInDuration);
+            _nextState.EnterAsync();
         }
 
-        private async UniTask Initialize()
+        private async UniTask InitializeAsync()
         {
             _randomProvider.RandomForBlock = new CustomRandom();
             _sessionData.Initialize();
             _blockStore.Initialize();
             _resultUI.Initialize();
             _resultEffect.Initialize();
-            await _rotateButton.Show(0);
-            await _screenScroller.Initialize();
+            await _rotateButton.ShowAsync(0);
+            await _screenScroller.InitializeAsync();
         }
     }
 }

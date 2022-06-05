@@ -34,19 +34,19 @@ namespace MT.PlayScreen.Single
             });
         }
 
-        public void Enter()
+        public void EnterAsync()
         {
             _gameOverArea.SetIsListened(true);
-            WaitForBlockSleep();
+            WaitForBlockSleepAsync();
         }
 
         private void ToNext(IState nextState)
         {
             _gameOverArea.SetIsListened(false);
-            nextState.Enter();
+            nextState.EnterAsync();
         }
 
-        private async void WaitForBlockSleep()
+        private async void WaitForBlockSleepAsync()
         {
             // ブロックがすべて停止してから遷移
             try

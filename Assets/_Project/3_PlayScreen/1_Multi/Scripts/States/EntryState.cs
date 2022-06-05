@@ -26,25 +26,25 @@ namespace MT.PlayScreen.Multi
             _nextState = _nextStateObject.GetComponent<IState>();
         }
 
-        public async void Enter()
+        public async void EnterAsync()
         {
-            await Fader.Instance.FadeOut(0);
-            await Initialize();
+            await Fader.Instance.FadeOutAsync(0);
+            await InitializeAsync();
 
             if (PhotonNetwork.IsMasterClient)
             {
-                photonView.RPC(nameof(ToNext), RpcTarget.All);
+                photonView.RPC(nameof(ToNextAsync), RpcTarget.All);
             }
         }
 
         [PunRPC]
-        private async void ToNext()
+        private async void ToNextAsync()
         {
-            await Fader.Instance.FadeIn(_fadeInDuration);
-            _nextState.Enter();
+            await Fader.Instance.FadeInAsync(_fadeInDuration);
+            _nextState.EnterAsync();
         }
 
-        private async UniTask Initialize()
+        private async UniTask InitializeAsync()
         {
             if (PhotonNetwork.IsMasterClient)
             {
@@ -57,9 +57,9 @@ namespace MT.PlayScreen.Multi
 
             _blockStore.Initialize();
             _resultUI.Initialize();
-            await _rotateButton.Hide(0);
-            await _screenScroller.Initialize();
-            await _playerTurnProvider.Initialize();
+            await _rotateButton.HideAsync(0);
+            await _screenScroller.InitializeAsync();
+            await _playerTurnProvider.InitializeAsync();
         }
 
         // TODO ここに書くな

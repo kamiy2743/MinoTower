@@ -16,12 +16,12 @@ namespace MT.PlayScreen
             _cameraTransfrom = Camera.main.transform;
         }
 
-        public async UniTask Initialize()
+        public async UniTask InitializeAsync()
         {
-            await SetScroll(ScrollAmount.Min, 0);
+            await SetScrollAsync(ScrollAmount.Min, 0);
         }
 
-        public async UniTask SetScroll(ScrollAmount scrollAmount, float duration)
+        public async UniTask SetScrollAsync(ScrollAmount scrollAmount, float duration)
         {
             _scrollAmount = scrollAmount;
             await _cameraTransfrom.DOMoveY(scrollAmount.value, duration);

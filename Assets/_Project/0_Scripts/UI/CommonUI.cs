@@ -15,7 +15,7 @@ namespace MT
             _canvasGroup = GetComponent<CanvasGroup>();
         }
 
-        public async UniTask Show(float fadeDuration)
+        public async UniTask ShowAsync(float fadeDuration)
         {
             _canvasGroup.interactable = true;
             _canvasGroup.blocksRaycasts = true;
@@ -24,7 +24,7 @@ namespace MT
             await _canvasGroup.DOFade(1, fadeDuration);
         }
 
-        public async UniTask Hide(float fadeDuration)
+        public async UniTask HideAsync(float fadeDuration)
         {
             _canvasGroup.interactable = false;
             _canvasGroup.blocksRaycasts = false;

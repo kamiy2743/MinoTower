@@ -9,10 +9,10 @@ namespace MT.PlayScreen.Single
         [SerializeField] private float _fadeDuration;
         [SerializeField] private EntryState _entryState;
 
-        public async void Enter()
+        public async void EnterAsync()
         {
-            await Fader.Instance.FadeOut(_fadeDuration);
-            _entryState.Enter();
+            await Fader.Instance.FadeOutAsync(_fadeDuration);
+            _entryState.EnterAsync();
         }
     }
 }

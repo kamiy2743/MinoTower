@@ -39,13 +39,13 @@ namespace MT.PlayScreen.Multi
             });
         }
 
-        public void Enter()
+        public void EnterAsync()
         {
             if (!_playerTurnProvider.IsMyTurn()) return;
 
             _gameOverArea.SetIsListened(true);
             photonView.RequestOwnership();
-            WaitForBlockSleep();
+            WaitForBlockSleepAsync();
         }
 
         [PunRPC]
@@ -63,10 +63,10 @@ namespace MT.PlayScreen.Multi
         private void ToNext(IState nextState)
         {
             _gameOverArea.SetIsListened(false);
-            nextState.Enter();
+            nextState.EnterAsync();
         }
 
-        private async void WaitForBlockSleep()
+        private async void WaitForBlockSleepAsync()
         {
             // ブロックがすべて停止してから遷移
             try
