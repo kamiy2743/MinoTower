@@ -11,6 +11,7 @@ namespace MT.PlayScreen.Multi
     {
         [SerializeField] private BlockSleepProvider _blockSleepProvider;
         [SerializeField] private PlayerTurnProvider _playerTurnProvider;
+        [SerializeField] private BlockSynchronizer _blockSynchronizer;
 
         [Space(20)]
         [SerializeField] private GameObject _defaultNextStateObject;
@@ -73,6 +74,7 @@ namespace MT.PlayScreen.Multi
                 _cts = new CancellationTokenSource();
                 await UniTask.WaitUntil(() => _blockSleepProvider.IsSleeping(), cancellationToken: _cts.Token);
 
+                _blockSynchronizer.SetIsSynchronize(false);
                 photonView.RPC(nameof(ToDefaultState), RpcTarget.All);
             }
             catch (System.OperationCanceledException e)

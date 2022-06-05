@@ -26,7 +26,7 @@ namespace MT.PlayScreen.Multi
         public async void Enter()
         {
             _blockSynchronizer.SetIsSynchronize(true);
-            _playerTurnProvider.NextTurn();
+            // _playerTurnProvider.NextTurn();
 
             if (_playerTurnProvider.IsMyTurn())
             {

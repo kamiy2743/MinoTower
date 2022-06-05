@@ -15,6 +15,9 @@ namespace MT
 
         private float _sleepingElapsed;
 
+        // TODO 状態変数
+        private bool _isColliderEnabled;
+
         public void OnCreate(CustomRandom random)
         {
             _rigidbody = GetComponentInChildren<Rigidbody2D>();
@@ -59,6 +62,7 @@ namespace MT
 
         public void SetColliderEnabled(bool enabled)
         {
+            _isColliderEnabled = enabled;
             foreach (var collider in _colliders)
             {
                 collider.enabled = enabled;
@@ -99,6 +103,10 @@ namespace MT
         {
             var maxY = float.NegativeInfinity;
 
+            // TODO 汚い
+            var last = _isColliderEnabled;
+            SetColliderEnabled(true);
+
             foreach (var collider in _colliders)
             {
                 var mesh = collider.CreateMesh(true, true);
@@ -111,6 +119,8 @@ namespace MT
                     }
                 }
             }
+
+            SetColliderEnabled(last);
 
             return maxY;
         }
