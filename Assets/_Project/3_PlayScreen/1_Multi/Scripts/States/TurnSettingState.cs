@@ -21,6 +21,7 @@ namespace MT.PlayScreen.Multi
 
         public void Enter()
         {
+            Debug.Log(_playerTurnProvider.IsMyTurn());
             if (_playerTurnProvider.IsMyTurn())
             {
 
@@ -30,7 +31,7 @@ namespace MT.PlayScreen.Multi
 
             }
 
-            ToNext();
+            // ToNext();
         }
 
         private void ToNext()
