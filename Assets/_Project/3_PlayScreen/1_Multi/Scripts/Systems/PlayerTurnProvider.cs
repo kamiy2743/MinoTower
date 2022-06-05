@@ -45,12 +45,10 @@ namespace MT.PlayScreen.Multi
             await Pun2TaskCallback.OnRoomPropertiesUpdateAsync();
         }
 
-        public bool IsMyTurn(bool log = false)
+        public bool IsMyTurn()
         {
             var isMasterClient = PhotonNetwork.IsMasterClient;
             var isMasterClientTurn = GetIsMasterClientTurn();
-            if (log)
-                Debug.Log("provider: " + (isMasterClient == isMasterClientTurn));
             return isMasterClient == isMasterClientTurn;
         }
     }
