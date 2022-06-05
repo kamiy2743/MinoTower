@@ -4,23 +4,23 @@ using UnityEngine;
 
 namespace MT
 {
-    public class CustomRandom : MonoBehaviour, IStaticAwake
+    public class CustomRandom
     {
-        public static CustomRandom Instance => _instance;
-        private static CustomRandom _instance;
-
         private Random.State _state;
 
-        public void StaticAwake()
+        public CustomRandom() : this((int)System.DateTime.Now.Ticks) { }
+
+        public CustomRandom(int seed)
         {
-            _instance = this;
-            SetSeed((int)System.DateTime.Now.Ticks);
+            SetSeed(seed);
         }
 
         public void SetSeed(int seed)
         {
             var prevState = Random.state;
+
             Random.InitState(seed);
+
             _state = Random.state;
             Random.state = prevState;
         }
