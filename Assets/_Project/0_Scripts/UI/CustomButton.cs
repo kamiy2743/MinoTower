@@ -17,6 +17,8 @@ namespace MT
         // TODO 状態変数
         private bool _isAdded = false;
 
+        private bool _isPointerDowned = false;
+
         public void StaticAwake()
         {
             SetIsListened(_startToListend);
@@ -60,12 +62,15 @@ namespace MT
         {
             if (!_customEvent.IsListened) return;
 
+            _isPointerDowned = true;
             transform.DOScale(0.95f, 0.24f).SetEase(Ease.OutCubic);
             _canvasGroup.DOFade(0.8f, 0.24f).SetEase(Ease.OutCubic);
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
+            if (!_isPointerDowned) return;
+
             transform.DOScale(1f, 0.24f).SetEase(Ease.OutCubic);
             _canvasGroup.DOFade(1f, 0.24f).SetEase(Ease.OutCubic);
         }
