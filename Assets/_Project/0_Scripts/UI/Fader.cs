@@ -11,24 +11,22 @@ namespace MT
         public static Fader Instance => _instance;
         private static Fader _instance;
 
-        private CanvasGroup _canvasGroup;
+        private CommonUI _commonUI;
 
         public void StaticAwake()
         {
             _instance = this;
-            _canvasGroup = GetComponent<CanvasGroup>();
+            _commonUI = GetComponent<CommonUI>();
         }
 
         public async UniTask FadeInAsync(float duration)
         {
-            _canvasGroup.DOKill();
-            await _canvasGroup.DOFade(0, duration);
+            await _commonUI.HideAsync(duration);
         }
 
         public async UniTask FadeOutAsync(float duration)
         {
-            _canvasGroup.DOKill();
-            await _canvasGroup.DOFade(1, duration);
+            await _commonUI.ShowAsync(duration);
         }
     }
 }
