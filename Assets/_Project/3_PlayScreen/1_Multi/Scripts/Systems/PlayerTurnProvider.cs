@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Pun2Task;
+using Cysharp.Threading.Tasks;
 
 namespace MT.PlayScreen.Multi
 {
@@ -19,28 +21,36 @@ namespace MT.PlayScreen.Multi
             return CustomPropertyAccessor.Instance.Get<bool>(_config.IsMasterClientTurnKey);
         }
 
-        public void Initialize()
+        public async void Initialize()
         {
-            if (!PhotonNetwork.IsMasterClient) return;
+            if (PhotonNetwork.IsMasterClient)
+            {
+                var randValue = new CustomRandom().Value();
+                // SetIsMasterClientTurn(randValue > 0.5f);
+                // TODO test
+                SetIsMasterClientTurn(!PhotonNetwork.IsMasterClient);
+            }
 
-            var randValue = new CustomRandom().Value();
-            SetIsMasterClientTurn(randValue > 0.5f);
-            // TODO test
-            SetIsMasterClientTurn(!PhotonNetwork.IsMasterClient);
+            await Pun2TaskCallback.OnRoomPropertiesUpdateAsync();
         }
 
-        public void NextTurn()
+        public async UniTask NextTurn()
         {
-            if (!PhotonNetwork.IsMasterClient) return;
+            if (PhotonNetwork.IsMasterClient)
+            {
+                var currentTurn = GetIsMasterClientTurn();
+                SetIsMasterClientTurn(!currentTurn);
+            }
 
-            var currentTurn = GetIsMasterClientTurn();
-            SetIsMasterClientTurn(!currentTurn);
+            await Pun2TaskCallback.OnRoomPropertiesUpdateAsync();
         }
 
-        public bool IsMyTurn()
+        public bool IsMyTurn(bool log = false)
         {
             var isMasterClient = PhotonNetwork.IsMasterClient;
             var isMasterClientTurn = GetIsMasterClientTurn();
+            if (log)
+                Debug.Log("provider: " + (isMasterClient == isMasterClientTurn));
             return isMasterClient == isMasterClientTurn;
         }
     }

@@ -18,9 +18,9 @@ namespace MT.PlayScreen.Multi
             _nextState = _nextStateObject.GetComponent<IState>();
         }
 
-        public void Enter()
+        public async void Enter()
         {
-            _playerTurnProvider.NextTurn();
+            await _playerTurnProvider.NextTurn();
             ToNext();
         }
 
