@@ -78,7 +78,6 @@ namespace MT.PlayScreen.Multi
             _moveBlockEvent.SetIsListened(false);
             _dropBlockEvent.SetIsListened(false);
             _rotateButton.SetIsListened(false);
-            Debug.Log("next");
 
             _nextState.Enter();
         }
