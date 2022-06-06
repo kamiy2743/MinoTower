@@ -12,6 +12,9 @@ namespace MT.ConnectFriendMatchScreen
         [SerializeField] private RoomSettingState _roomSettingState;
         [SerializeField] private ConnectMatchState _connectMatchState;
 
+        [Space(20)]
+        [SerializeField] private TryConnectRoomNameProvider _tryConnectRoomNameProvider;
+
         [Header("初期化対象")]
         [SerializeField] private RoomSettingUI _roomSettingUI;
         [SerializeField] private LoadingUI _loadingUI;
@@ -19,21 +22,19 @@ namespace MT.ConnectFriendMatchScreen
         public async void Enter()
         {
             await Fader.Instance.FadeOutAsync(0);
-            Initialize();
+            await InitializeAsync();
 
-            await Pun2TaskNetwork.ConnectUsingSettingsAsync();
-
-            if (false)
-            {
-                _connectMatchState.Enter();
-            }
-            else
+            if (_tryConnectRoomNameProvider.IsEmpty())
             {
                 _roomSettingState.Enter();
             }
+            else
+            {
+                _connectMatchState.Enter();
+            }
         }
 
-        private async void Initialize()
+        private async UniTask InitializeAsync()
         {
             await _roomSettingUI.HideAsync(0);
             await _loadingUI.HideAsync(0);

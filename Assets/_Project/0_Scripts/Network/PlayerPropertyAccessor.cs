@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
 using UniRx;
 using Cysharp.Threading.Tasks;
 
@@ -25,7 +26,7 @@ namespace MT
             var time = System.DateTime.Now.Ticks;
             var id = time + key + _separator + value;
 
-            var cp = PhotonNetwork.CurrentRoom.CustomProperties;
+            var cp = PhotonNetwork.LocalPlayer.CustomProperties;
             cp[key] = id;
             PhotonNetwork.LocalPlayer.SetCustomProperties(cp);
 
@@ -41,8 +42,9 @@ namespace MT
         }
 
         // TODO えぐい
-        public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
+        public override void OnPlayerPropertiesUpdate(Player target, ExitGames.Client.Photon.Hashtable propertiesThatChanged)
         {
+            Debug.Log("update");
             foreach (var value in propertiesThatChanged.Values)
             {
                 foreach (var key in _dic.Keys)

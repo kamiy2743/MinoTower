@@ -11,6 +11,7 @@ namespace MT.ConnectFriendMatchScreen
 
         [Space(20)]
         [SerializeField] private CustomInput _roomNameInput;
+        [SerializeField] private TryConnectRoomNameProvider _tryConnectRoomNameProvider;
         [SerializeField] private CustomButton _decideButton;
         [SerializeField] private ConnectMatchState _connectMatchState;
 
@@ -57,7 +58,7 @@ namespace MT.ConnectFriendMatchScreen
                 return;
             }
 
-            // TODO TryConnectRoomName設定
+            _tryConnectRoomNameProvider.SetRoomName(_roomNameInput.Text);
 
             ToNextAsync(_connectMatchState);
         }

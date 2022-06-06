@@ -1,22 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cysharp.Threading.Tasks;
 
 namespace MT
 {
     public class TryConnectRoomNameProvider : MonoBehaviour
     {
         [SerializeField] private CustomPropertyConfig _config;
+        private string _roomName = "";
 
-        private async UniTask SetRoomName(string value)
+        public void SetRoomName(string value)
         {
-            await RoomPropertyAccessor.Instance.SetAsync<string>(_config.TryConnectRoomNameKey, value);
+            _roomName = value;
         }
 
-        private string GetRoomName()
+        public string GetRoomName()
         {
-            return RoomPropertyAccessor.Instance.Get<string>(_config.TryConnectRoomNameKey);
+            return _roomName;
+        }
+
+        public bool IsEmpty()
+        {
+            return GetRoomName() == "";
         }
     }
 }

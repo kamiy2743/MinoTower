@@ -14,11 +14,6 @@ namespace MT.ConnectFriendMatchScreen
             _commonUI = GetComponent<CommonUI>();
         }
 
-        public async UniTask InitializeAsync()
-        {
-            await HideAsync(0);
-        }
-
         public async UniTask ShowAsync(float fadeDuration)
         {
             await _commonUI.ShowAsync(fadeDuration);

@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &202363430166994062
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8416957167883152917}
+  - component: {fileID: 6483244382240674821}
+  m_Layer: 0
+  m_Name: TryConnectRoomNameProvider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8416957167883152917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202363430166994062}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8769645175188734271}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6483244382240674821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202363430166994062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b2167a8c85929740952fd1a61c39c4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _config: {fileID: 11400000, guid: b8dd2393c205b634da02701edf823b25, type: 2}
 --- !u!1 &210904875965638328
 GameObject:
   m_ObjectHideFlags: 0
@@ -46,6 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _loadingUI: {fileID: 2427120483741770697}
   _fadeDuration: 0.5
+  _tryConnectRoomNameProvider: {fileID: 6483244382240674821}
   _backButton: {fileID: 136705237713004281}
   _roomSettingState: {fileID: 5721980085474612965}
   _toMultiPlayScreenState: {fileID: 6258900367699840954}
@@ -79,6 +125,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1924780037169636342}
+  - {fileID: 8769645175188734271}
   - {fileID: 2938749519802845853}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -143,6 +190,7 @@ MonoBehaviour:
   _roomSettingUI: {fileID: 2285316192142240000}
   _fadeDuration: 0.5
   _roomNameInput: {fileID: 3861795425571680722}
+  _tryConnectRoomNameProvider: {fileID: 6483244382240674821}
   _decideButton: {fileID: 1502378127312924992}
   _connectMatchState: {fileID: 3651318184485292309}
   _backButton: {fileID: 5611570750423161078}
@@ -181,7 +229,7 @@ Transform:
   - {fileID: 9161235999413083096}
   - {fileID: 2410121811874683785}
   m_Father: {fileID: 843233840353794591}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2165997112733464009
 GameObject:
@@ -269,6 +317,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c0fe366000d5dc4880b0cb984c89f5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &3996283323182886937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8769645175188734271}
+  m_Layer: 0
+  m_Name: Systems
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8769645175188734271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3996283323182886937}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8416957167883152917}
+  m_Father: {fileID: 843233840353794591}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4742814509950847772
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,6 +396,7 @@ MonoBehaviour:
   _fadeInDuration: 0.5
   _roomSettingState: {fileID: 5721980085474612965}
   _connectMatchState: {fileID: 3651318184485292309}
+  _tryConnectRoomNameProvider: {fileID: 6483244382240674821}
   _roomSettingUI: {fileID: 2285316192142240000}
   _loadingUI: {fileID: 2427120483741770697}
 --- !u!1 &4783628728301542532

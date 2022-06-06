@@ -11,6 +11,9 @@ namespace MT.ConnectFriendMatchScreen
         [SerializeField] private float _fadeDuration;
 
         [Space(20)]
+        [SerializeField] private TryConnectRoomNameProvider _tryConnectRoomNameProvider;
+
+        [Space(20)]
         [SerializeField] private CustomButton _backButton;
         [SerializeField] private RoomSettingState _roomSettingState;
 
@@ -23,20 +26,22 @@ namespace MT.ConnectFriendMatchScreen
         {
             _backButton.AddListener(() =>
             {
-                // _friendMatch.Disconnect();
+                _friendMatch?.Disconnect();
                 ToNext(_roomSettingState);
             });
         }
 
         public async void Enter()
         {
-            await _loadingUI.ShowAsync(_fadeDuration);
+            await Fader.Instance.FadeOutAsync(0);
+            await _loadingUI.ShowAsync(0);
+            await Fader.Instance.FadeInAsync(_fadeDuration);
 
             _backButton.SetIsListened(true);
 
-            // await CreateMatchAsync();
+            await ConnectMatchAsync();
 
-            // OnMatchCompleted();
+            OnMatchCompleted();
         }
 
         private async void ToNext(IState nextState)
@@ -48,11 +53,13 @@ namespace MT.ConnectFriendMatchScreen
             nextState.Enter();
         }
 
-        private async UniTask CreateMatchAsync()
+        private async UniTask ConnectMatchAsync()
         {
-            // _friendMatch = new FriendMatch();
-            // var roomName = _roomNameInput.Text;
-            // await _friendMatch.RequestAsync(roomName);
+            var roomName = _tryConnectRoomNameProvider.GetRoomName();
+            Debug.Log("RoomName: " + roomName);
+
+            _friendMatch = new FriendMatch();
+            await _friendMatch.RequestAsync(roomName);
         }
 
         private void OnMatchCompleted()
