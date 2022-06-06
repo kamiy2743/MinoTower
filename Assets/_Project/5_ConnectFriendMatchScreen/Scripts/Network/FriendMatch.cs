@@ -12,7 +12,6 @@ namespace MT.ConnectFriendMatchScreen
     public class FriendMatch
     {
         private CancellationTokenSource _cts;
-        private bool isInRoom;
 
         public FriendMatch()
         {
@@ -25,6 +24,7 @@ namespace MT.ConnectFriendMatchScreen
 
             if (PhotonNetwork.InRoom)
             {
+                Debug.Log("leave");
                 PhotonNetwork.LeaveRoom();
             }
         }
@@ -69,16 +69,24 @@ namespace MT.ConnectFriendMatchScreen
             catch (Pun2TaskNetwork.ConnectionFailedException ex)
             {
                 // サーバに接続できなかった
+                Debug.Log("サーバに接続できなかった");
                 Debug.LogError(ex);
             }
             catch (Pun2TaskNetwork.FailedToCreateRoomException ex)
             {
                 // 何らかの理由で部屋が作れなかった
+                Debug.Log("何らかの理由で部屋が作れなかった");
                 Debug.LogError(ex);
             }
             catch (Pun2TaskNetwork.FailedToJoinRoomException ex)
             {
                 // 部屋に参加できなかった
+                Debug.Log("部屋に参加できなかった");
+                Debug.LogError(ex);
+            }
+            catch (System.OperationCanceledException ex)
+            {
+                Debug.Log("cancelled");
                 Debug.LogError(ex);
             }
 
