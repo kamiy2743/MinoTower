@@ -7,7 +7,7 @@ namespace MT
     public class TryConnectRoomNameProvider : MonoBehaviour
     {
         [SerializeField] private CustomPropertyConfig _config;
-        private string _roomName = "";
+        private static string _roomName = "";
 
         public void SetRoomName(string value)
         {
