@@ -13,12 +13,12 @@ namespace MT.PlayScreen.Multi
 
         private async UniTask SetIsMasterClientTurnAsync(bool value)
         {
-            await CustomPropertyAccessor.Instance.SetAsync<bool>(_config.IsMasterClientTurnKey, value);
+            await RoomPropertyAccessor.Instance.SetAsync<bool>(_config.IsMasterClientTurnKey, value);
         }
 
         private bool GetIsMasterClientTurn()
         {
-            return CustomPropertyAccessor.Instance.Get<bool>(_config.IsMasterClientTurnKey);
+            return RoomPropertyAccessor.Instance.Get<bool>(_config.IsMasterClientTurnKey);
         }
 
         public async UniTask InitializeAsync()
