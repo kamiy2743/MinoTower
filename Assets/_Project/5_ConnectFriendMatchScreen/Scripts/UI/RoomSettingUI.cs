@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 
-namespace MT.SelectMatchScreen
+namespace MT.ConnectFriendMatchScreen
 {
-    public class FriendMatchUI : MonoBehaviour, IStaticAwake
+    public class RoomSettingUI : MonoBehaviour, IStaticAwake
     {
         private CommonUI _commonUI;
 

@@ -434,7 +434,7 @@ MonoBehaviour:
   _singlePlayButton: {fileID: 399219091439096401}
   _toSinglePlayScreenState: {fileID: 2000856142644046847}
   _multiPlayButton: {fileID: 4369281886903174120}
-  _toMultiPlayScreenState: {fileID: 7707116680446423421}
+  _toSelectMatchScreenState: {fileID: 7707116680446423421}
   _optionButton: {fileID: 346262441940691122}
   _toOptionScreenState: {fileID: 3866980639095099762}
 --- !u!1 &8196940535314638981
@@ -1328,7 +1328,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3798618345433005157, guid: 9c04e131d24e5b043ad559aaa073103d, type: 3}
       propertyPath: m_Name
-      value: ToMatchMakingScreenState
+      value: ToSelectMatchScreenState
       objectReference: {fileID: 0}
     - target: {fileID: 5181740285395092063, guid: 9c04e131d24e5b043ad559aaa073103d, type: 3}
       propertyPath: m_RootOrder

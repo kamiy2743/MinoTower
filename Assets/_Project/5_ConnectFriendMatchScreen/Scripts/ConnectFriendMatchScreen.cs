@@ -6,7 +6,7 @@ namespace MT.ConnectFriendMatchScreen
 {
     public class ConnectFriendMatchScreen : MonoBehaviour, IScreen
     {
-        // [SerializeField] private EntryState _entryState;
+        [SerializeField] private EntryState _entryState;
 
         public ScreenType Type { get; private set; } = ScreenType.ConnectFriendMatch;
 
@@ -15,7 +15,7 @@ namespace MT.ConnectFriendMatchScreen
             if (gameObject.activeSelf) return;
 
             gameObject.SetActive(true);
-            // _entryState.Enter();
+            _entryState.Enter();
         }
 
         public void CloseAsync()

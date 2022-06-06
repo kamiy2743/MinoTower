@@ -7,7 +7,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using System.Threading;
 
-namespace MT.SelectMatchScreen
+namespace MT.ConnectFriendMatchScreen
 {
     public class FriendMatch
     {
