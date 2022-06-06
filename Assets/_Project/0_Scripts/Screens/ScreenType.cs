@@ -5,7 +5,8 @@ namespace MT
         Top = 0,
         Option = 2,
         SinglePlay = 1,
-        MatchMaking = 4,
+        SelectMatch = 4,
+        ConnectFriendMatch = 5,
         MultiPlay = 3,
     }
 }

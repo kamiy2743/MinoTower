@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace MT
 {
-    public class ToMatchMakingScreenState : MonoBehaviour, IState
+    public class ToConnectFriendMatchScreenState : MonoBehaviour, IState
     {
         [SerializeField] private float _fadeOutDuration;
 
         public async void Enter()
         {
             await Fader.Instance.FadeOutAsync(_fadeOutDuration);
-            ScreenSwitcher.Instance.Switch(ScreenType.SelectMatch);
+            ScreenSwitcher.Instance.Switch(ScreenType.ConnectFriendMatch);
         }
     }
 }
