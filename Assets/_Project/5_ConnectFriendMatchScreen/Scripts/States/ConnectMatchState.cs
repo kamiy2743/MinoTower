@@ -58,6 +58,7 @@ namespace MT.ConnectFriendMatchScreen
             var roomName = _tryConnectRoomNameProvider.GetRoomName();
             Debug.Log("RoomName: " + roomName);
 
+            _friendMatch?.Disconnect();
             _friendMatch = new FriendMatch();
             await _friendMatch.RequestAsync(roomName);
         }
