@@ -8,6 +8,8 @@ namespace MT.PlayScreen.Multi
     public class ResultState : MonoBehaviour, IState, IStaticStart
     {
         [SerializeField] private PlayerTurnProvider _playerTurnProvider;
+        [SerializeField] private TryConnectRoomNameProvider _tryConnectRoomNameProvider;
+        [SerializeField] private BlockSynchronizer _blockSynchronizer;
 
         [Space(20)]
         [SerializeField] private ResultUI _resultUI;
@@ -31,13 +33,16 @@ namespace MT.PlayScreen.Multi
 
             _exitButton.AddListener(() =>
             {
-                PhotonNetwork.LeaveRoom();
+                _tryConnectRoomNameProvider.SetEmpty();
                 ToNext(_toTopScreenState);
             });
         }
 
         public void Enter()
         {
+            PhotonNetwork.LeaveRoom();
+            _blockSynchronizer.SetIsSynchronize(false);
+
             _continueButton.SetIsListened(true);
             _exitButton.SetIsListened(true);
 

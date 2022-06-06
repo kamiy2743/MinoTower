@@ -19,6 +19,11 @@ namespace MT
             return _roomName;
         }
 
+        public void SetEmpty()
+        {
+            SetRoomName("");
+        }
+
         public bool IsEmpty()
         {
             return GetRoomName() == "";
