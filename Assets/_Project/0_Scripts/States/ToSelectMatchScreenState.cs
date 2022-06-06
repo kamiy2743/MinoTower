@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MT
 {
-    public class ToMatchMakingScreenState : MonoBehaviour, IState
+    public class ToSelectMatchScreenState : MonoBehaviour, IState
     {
         [SerializeField] private float _fadeOutDuration;
 

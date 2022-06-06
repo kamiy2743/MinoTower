@@ -11,7 +11,7 @@ namespace MT.TopScreen
 
         [Space(20)]
         [SerializeField] private CustomButton _multiPlayButton;
-        [SerializeField] private ToMatchMakingScreenState _toMultiPlayScreenState;
+        [SerializeField] private ToSelectMatchScreenState _toSelectMatchScreenState;
 
         [Space(20)]
         [SerializeField] private CustomButton _optionButton;
@@ -26,7 +26,7 @@ namespace MT.TopScreen
 
             _multiPlayButton.AddListener(() =>
             {
-                ToNext(_toMultiPlayScreenState);
+                ToNext(_toSelectMatchScreenState);
             });
 
             _optionButton.AddListener(() =>

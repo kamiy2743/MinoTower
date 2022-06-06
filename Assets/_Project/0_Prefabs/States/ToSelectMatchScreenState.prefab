@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5181740285395092063}
   - component: {fileID: 849252125510252208}
   m_Layer: 0
-  m_Name: ToMatchMakingScreenState
+  m_Name: ToSelectMatchScreenState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
