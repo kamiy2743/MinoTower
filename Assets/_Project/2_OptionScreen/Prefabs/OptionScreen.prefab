@@ -159,7 +159,7 @@ MonoBehaviour:
   _BGMSlider: {fileID: 2316213196707543648}
   _SESlider: {fileID: 2462502586316107929}
   _backButton: {fileID: 7446073716485724144}
-  _toTopScreenState: {fileID: 1969344032601120280}
+  _toTopScreenState: {fileID: 6026249431474134562}
 --- !u!1 &1864572495068221200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,22 +1063,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdc79e4c3baa89d43bacac509f1c3019, type: 3}
---- !u!114 &1969344032601120280 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4415857698873392038, guid: bdc79e4c3baa89d43bacac509f1c3019, type: 3}
-  m_PrefabInstance: {fileID: 2746286309071660478}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d659841ae0cdf344a971e1dfeb94a3a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &5455770526666229360 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7902144695285883854, guid: bdc79e4c3baa89d43bacac509f1c3019, type: 3}
   m_PrefabInstance: {fileID: 2746286309071660478}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6026249431474134562 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8484022163288259484, guid: bdc79e4c3baa89d43bacac509f1c3019, type: 3}
+  m_PrefabInstance: {fileID: 2746286309071660478}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c791693f55ac540964b194698e3623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3863543961774193415
 PrefabInstance:
   m_ObjectHideFlags: 0

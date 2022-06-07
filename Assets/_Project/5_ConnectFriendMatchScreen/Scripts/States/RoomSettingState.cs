@@ -17,7 +17,7 @@ namespace MT.ConnectFriendMatchScreen
 
         [Space(20)]
         [SerializeField] private CustomButton _backButton;
-        [SerializeField] private ToSelectMatchScreenState _toSelectMatchScreenState;
+        [SerializeField] private SwitchScreenState _toSelectMatchScreenState;
 
         public void StaticStart()
         {

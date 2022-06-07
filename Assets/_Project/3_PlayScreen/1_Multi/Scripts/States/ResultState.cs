@@ -22,7 +22,7 @@ namespace MT.PlayScreen.Multi
 
         [Space(20)]
         [SerializeField] private CustomButton _exitButton;
-        [SerializeField] private ToTopScreenState _toTopScreenState;
+        [SerializeField] private SwitchScreenState _toTopScreenState;
 
         public void StaticStart()
         {

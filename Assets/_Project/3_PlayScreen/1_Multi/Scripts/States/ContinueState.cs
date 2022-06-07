@@ -8,7 +8,7 @@ namespace MT.PlayScreen.Multi
     public class ContinueState : MonoBehaviour, IState
     {
         [SerializeField] private float _fadeDuration;
-        [SerializeField] private ToConnectFriendMatchScreenState _toConnectFriendMatchScreenState;
+        [SerializeField] private SwitchScreenState _toConnectFriendMatchScreenState;
 
         public async void Enter()
         {

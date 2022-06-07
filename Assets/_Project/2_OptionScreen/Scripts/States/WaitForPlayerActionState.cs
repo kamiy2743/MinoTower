@@ -11,7 +11,7 @@ namespace MT.OptionScreen
         [SerializeField] private CustomButton _backButton;
 
         [Space(20)]
-        [SerializeField] private ToTopScreenState _toTopScreenState;
+        [SerializeField] private SwitchScreenState _toTopScreenState;
 
         public void StaticStart()
         {

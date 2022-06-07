@@ -7,15 +7,15 @@ namespace MT.TopScreen
     public class WaitForPlayerActionState : MonoBehaviour, IState, IStaticStart
     {
         [SerializeField] private CustomButton _singlePlayButton;
-        [SerializeField] private ToSinglePlayScreenState _toSinglePlayScreenState;
+        [SerializeField] private SwitchScreenState _toSinglePlayScreenState;
 
         [Space(20)]
         [SerializeField] private CustomButton _multiPlayButton;
-        [SerializeField] private ToSelectMatchScreenState _toSelectMatchScreenState;
+        [SerializeField] private SwitchScreenState _toSelectMatchScreenState;
 
         [Space(20)]
         [SerializeField] private CustomButton _optionButton;
-        [SerializeField] private ToOptionScreenState _toOptionScreenState;
+        [SerializeField] private SwitchScreenState _toOptionScreenState;
 
         public void StaticStart()
         {

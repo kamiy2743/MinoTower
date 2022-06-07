@@ -18,7 +18,7 @@ namespace MT.ConnectFriendMatchScreen
         [SerializeField] private RoomSettingState _roomSettingState;
 
         [Space(20)]
-        [SerializeField] private ToMultiPlayScreenState _toMultiPlayScreenState;
+        [SerializeField] private SwitchScreenState _toMultiPlayScreenState;
 
         private FriendMatch _friendMatch;
 

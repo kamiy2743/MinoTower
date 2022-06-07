@@ -11,11 +11,11 @@ namespace MT.SelectMatchScreen
 
         [Space(20)]
         [SerializeField] private CustomButton _friendMatchButton;
-        [SerializeField] private ToConnectFriendMatchScreenState _connectFriendMatchScreenState;
+        [SerializeField] private SwitchScreenState _connectFriendMatchScreenState;
 
         [Space(20)]
         [SerializeField] private CustomButton _toTopButton;
-        [SerializeField] private ToTopScreenState _toTopScreenState;
+        [SerializeField] private SwitchScreenState _toTopScreenState;
 
         public void StaticStart()
         {
