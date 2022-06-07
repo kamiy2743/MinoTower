@@ -18,7 +18,7 @@ namespace MT.ConnectFriendMatchScreen
             _cts = new CancellationTokenSource();
         }
 
-        public void Disconnect()
+        public async UniTask Disconnect()
         {
             _cts.Cancel();
 
@@ -26,23 +26,35 @@ namespace MT.ConnectFriendMatchScreen
             {
                 Debug.Log("leave");
                 PhotonNetwork.LeaveRoom();
+                await Pun2TaskCallback.OnLeftRoomAsync();
             }
         }
 
-        public async UniTask RequestAsync(string roomName)
+        /// <returns>success</returns>
+        public async UniTask<bool> ConnectAsync(string roomName)
         {
-            var isFirstUser = await JoinOrCreateRoomAsync(roomName);
+            var (success, isFirstUser) = await JoinOrCreateRoomAsync(roomName);
+            Debug.Log(success ? "接続成功" : "接続失敗");
+
+            if (!success)
+            {
+                Debug.Log("failed");
+                return false;
+            }
+
             if (!isFirstUser)
             {
                 Debug.Log("二人目");
-                return;
+                return true;
             }
 
             Debug.Log("一人目");
             await Pun2TaskCallback.OnPlayerEnteredRoomAsync();
+            return true;
         }
 
-        private async UniTask<bool> JoinOrCreateRoomAsync(string roomName)
+        /// <returns>(success isFirtUser)</returns>
+        private async UniTask<(bool, bool)> JoinOrCreateRoomAsync(string roomName)
         {
             try
             {
@@ -64,7 +76,7 @@ namespace MT.ConnectFriendMatchScreen
                     typedLobby: default,
                     token: token);
 
-                return isFirstUser;
+                return (true, isFirstUser);
             }
             catch (Pun2TaskNetwork.ConnectionFailedException ex)
             {
@@ -90,7 +102,7 @@ namespace MT.ConnectFriendMatchScreen
                 Debug.LogError(ex);
             }
 
-            return false;
+            return (false, false);
         }
     }
 }

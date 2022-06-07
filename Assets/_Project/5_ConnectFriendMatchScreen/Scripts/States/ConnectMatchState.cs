@@ -24,9 +24,12 @@ namespace MT.ConnectFriendMatchScreen
 
         public void StaticStart()
         {
-            _backButton.AddListener(() =>
+            _backButton.AddListener(async () =>
             {
-                _friendMatch?.Disconnect();
+                if (_friendMatch != null)
+                {
+                    await _friendMatch.Disconnect();
+                }
                 ToNext(_roomSettingState);
             });
         }
@@ -40,8 +43,6 @@ namespace MT.ConnectFriendMatchScreen
             _backButton.SetIsListened(true);
 
             await ConnectMatchAsync();
-
-            OnMatchCompleted();
         }
 
         private async void ToNext(IState nextState)
@@ -58,14 +59,17 @@ namespace MT.ConnectFriendMatchScreen
             var roomName = _tryConnectRoomNameProvider.GetRoomName();
             Debug.Log("RoomName: " + roomName);
 
-            _friendMatch?.Disconnect();
-            _friendMatch = new FriendMatch();
-            await _friendMatch.RequestAsync(roomName);
-        }
+            if (_friendMatch != null)
+            {
+                await _friendMatch.Disconnect();
+            }
 
-        private void OnMatchCompleted()
-        {
-            Debug.Log("成功");
+            _friendMatch = new FriendMatch();
+            var success = await _friendMatch.ConnectAsync(roomName);
+
+            if (!success) return;
+
+            Debug.Log("マッチ成功");
             ToNext(_toMultiPlayScreenState);
         }
     }
