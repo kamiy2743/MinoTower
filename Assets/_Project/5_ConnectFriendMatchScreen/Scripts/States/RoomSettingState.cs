@@ -28,7 +28,7 @@ namespace MT.ConnectFriendMatchScreen
 
             _backButton.AddListener(() =>
             {
-                ToNextAsync(_toSelectMatchScreenState);
+                ToNext(_toSelectMatchScreenState);
             });
         }
 
@@ -42,16 +42,15 @@ namespace MT.ConnectFriendMatchScreen
             _backButton.SetIsListened(true);
         }
 
-        private async void ToNextAsync(IState nextState)
+        private void ToNext(IState nextState)
         {
             _decideButton.SetIsListened(false);
             _backButton.SetIsListened(false);
 
-            await _roomSettingUI.HideAsync(_fadeDuration);
             nextState.Enter();
         }
 
-        private void OnDecidedButton()
+        private async void OnDecidedButton()
         {
             if (_roomNameInput.IsEmpty())
             {
@@ -60,7 +59,9 @@ namespace MT.ConnectFriendMatchScreen
 
             _tryConnectRoomNameProvider.SetRoomName(_roomNameInput.Text);
 
-            ToNextAsync(_connectMatchState);
+            await _roomSettingUI.HideAsync(_fadeDuration);
+
+            ToNext(_connectMatchState);
         }
     }
 }
