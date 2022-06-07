@@ -11,7 +11,7 @@ namespace MT.PlayScreen.Single
 
         [Space(20)]
         [SerializeField] private ResultUI _resultUI;
-        [SerializeField] private float _resultUIFadeInDutaion;
+        [SerializeField] private float _resultUIFadeInDuration;
         [SerializeField] private ResultEffect _resultEffect;
 
         [Space(20)]
@@ -61,7 +61,7 @@ namespace MT.PlayScreen.Single
             _resultUI.SetMaxHeightText(_sessionData.MaxHeight.value);
 
             await UniTask.WhenAll(
-                _resultUI.ShowAsync(_resultUIFadeInDutaion),
+                _resultUI.ShowAsync(_resultUIFadeInDuration),
                 _rotateButton.HideAsync(_rotateButtonFadeOutDuration)
             );
         }

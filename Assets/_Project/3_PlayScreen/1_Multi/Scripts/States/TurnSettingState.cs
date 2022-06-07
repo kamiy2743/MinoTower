@@ -11,7 +11,7 @@ namespace MT.PlayScreen.Multi
 
         [Space(20)]
         [SerializeField] private RotateButton _rotateButton;
-        [SerializeField] private float _fadeDuraiton;
+        [SerializeField] private float _fadeDuration;
 
         [Space(20)]
         [SerializeField] private GameObject _nextStateObject;
@@ -30,11 +30,11 @@ namespace MT.PlayScreen.Multi
             if (_playerTurnProvider.IsMyTurn())
             {
                 _blockSynchronizer.photonView.RequestOwnership();
-                await _rotateButton.ShowAsync(_fadeDuraiton);
+                await _rotateButton.ShowAsync(_fadeDuration);
             }
             else
             {
-                await _rotateButton.HideAsync(_fadeDuraiton);
+                await _rotateButton.HideAsync(_fadeDuration);
             }
 
             ToNext();
