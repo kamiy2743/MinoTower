@@ -62,7 +62,6 @@ namespace MT.PlayScreen.Multi
             await _playerTurnProvider.InitializeAsync();
         }
 
-        // TODO ここに書くな
         [PunRPC]
         private void RandomInitialize(int seed)
         {
