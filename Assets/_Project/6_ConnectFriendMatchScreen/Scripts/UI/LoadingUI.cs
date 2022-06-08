@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 
-namespace MT.ConnectFriendMatchScreen
+namespace MT
 {
     public class LoadingUI : MonoBehaviour, IStaticAwake
     {

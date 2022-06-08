@@ -8,10 +8,11 @@ namespace MT.SelectMatchScreen
     {
         [Space(20)]
         [SerializeField] private CustomButton _randomMatchButton;
+        [SerializeField] private SwitchScreenState _toConnectRadnomMatchScreenState;
 
         [Space(20)]
         [SerializeField] private CustomButton _friendMatchButton;
-        [SerializeField] private SwitchScreenState _connectFriendMatchScreenState;
+        [SerializeField] private SwitchScreenState _toConnectFriendMatchScreenState;
 
         [Space(20)]
         [SerializeField] private CustomButton _toTopButton;
@@ -21,12 +22,12 @@ namespace MT.SelectMatchScreen
         {
             _randomMatchButton.AddListener(() =>
             {
-                // ToNext(_randomMatchState);
+                ToNext(_toConnectRadnomMatchScreenState);
             });
 
             _friendMatchButton.AddListener(() =>
             {
-                ToNext(_connectFriendMatchScreenState);
+                ToNext(_toConnectFriendMatchScreenState);
             });
 
             _toTopButton.AddListener(() =>
