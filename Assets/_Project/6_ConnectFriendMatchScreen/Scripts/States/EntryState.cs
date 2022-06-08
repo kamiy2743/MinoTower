@@ -8,7 +8,6 @@ namespace MT.ConnectFriendMatchScreen
 {
     public class EntryState : MonoBehaviour, IState
     {
-        [SerializeField] private float _fadeInDuration;
         [SerializeField] private RoomSettingState _roomSettingState;
         [SerializeField] private ConnectMatchState _connectMatchState;
 
