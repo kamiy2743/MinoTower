@@ -4,11 +4,19 @@ using UnityEngine;
 
 namespace MT.SelectMatchScreen
 {
-    public class SelectMatchScreen : MonoBehaviour, IScreen
+    public class CommonScreen : MonoBehaviour, IScreen, IStaticAwake
     {
-        [SerializeField] private EntryState _entryState;
+        [SerializeField] private GameObject _entryStateObject;
+        [SerializeField] private ScreenType _screenType;
 
-        public ScreenType Type { get; private set; } = ScreenType.SelectMatch;
+        public ScreenType Type => _screenType;
+
+        private IState _entryState;
+
+        public void StaticAwake()
+        {
+            _entryState = _entryStateObject.GetComponent<IState>();
+        }
 
         public void Open()
         {

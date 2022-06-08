@@ -348,7 +348,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7036608860831686559}
-  - component: {fileID: 7261736172010917247}
+  - component: {fileID: 7389074514883262528}
   m_Layer: 0
   m_Name: TopScreen
   m_TagString: Untagged
@@ -374,7 +374,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7261736172010917247
+--- !u!114 &7389074514883262528
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -383,10 +383,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7036608860831686544}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a85feb475ddc5a848b801cec6081342e, type: 3}
+  m_Script: {fileID: 11500000, guid: e7b1539237fd4c84f9343afb20a4f21a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entryState: {fileID: 1001714337568447774}
+  _entryStateObject: {fileID: 5964703309953708223}
+  _screenType: 0
 --- !u!1 &7728803297274535607
 GameObject:
   m_ObjectHideFlags: 0

@@ -59,7 +59,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 843233840353794591}
-  - component: {fileID: 316602445435847358}
+  - component: {fileID: 6819977348976319579}
   m_Layer: 0
   m_Name: ConnectFriendMatchScreen
   m_TagString: Untagged
@@ -85,7 +85,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &316602445435847358
+--- !u!114 &6819977348976319579
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,10 +94,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 843233840353794588}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6b9badc07ff0894595f7ddebdd5003b, type: 3}
+  m_Script: {fileID: 11500000, guid: e7b1539237fd4c84f9343afb20a4f21a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entryState: {fileID: 1826357174156258717}
+  _entryStateObject: {fileID: 4742814509950847772}
+  _screenType: 5
 --- !u!1 &1134402117348466887
 GameObject:
   m_ObjectHideFlags: 0

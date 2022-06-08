@@ -447,7 +447,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2487771280455601670}
-  - component: {fileID: 7555590170536488947}
+  - component: {fileID: 8441161323863849278}
   m_Layer: 0
   m_Name: MultiPlayScreen
   m_TagString: Untagged
@@ -474,7 +474,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7555590170536488947
+--- !u!114 &8441161323863849278
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -483,11 +483,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3940982562635026737}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e8e86c5c4ad30642a88ad2755636354, type: 3}
+  m_Script: {fileID: 11500000, guid: e7b1539237fd4c84f9343afb20a4f21a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entryState: {fileID: 3844510900952161756}
-  _screenScroller: {fileID: 8551973842212441549}
+  _entryStateObject: {fileID: 4127906349248151982}
+  _screenType: 3
 --- !u!1 &4127906349248151982
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,7 +977,7 @@ MonoBehaviour:
   _playerTurnProvider: {fileID: 5049311327778402279}
   _blockSynchronizer: {fileID: 1398055474015924066}
   _rotateButton: {fileID: 5219997247795198278}
-  _fadeDuraiton: 0.3
+  _fadeDuration: 0
   _nextStateObject: {fileID: 6925004085774155568}
 --- !u!1 &6781927071778986531
 GameObject:

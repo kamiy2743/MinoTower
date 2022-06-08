@@ -475,7 +475,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5986478696218995790}
-  - component: {fileID: 5986478696218995789}
+  - component: {fileID: 8103614610742536749}
   m_Layer: 0
   m_Name: OptionScreen
   m_TagString: Untagged
@@ -501,7 +501,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5986478696218995789
+--- !u!114 &8103614610742536749
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -510,10 +510,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5986478696218995788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c0d978eb71e00d4a82d04230e22af15, type: 3}
+  m_Script: {fileID: 11500000, guid: e7b1539237fd4c84f9343afb20a4f21a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entryState: {fileID: 465017137050286222}
+  _entryStateObject: {fileID: 959975069660075482}
+  _screenType: 2
 --- !u!1 &6163185079771664390
 GameObject:
   m_ObjectHideFlags: 0
