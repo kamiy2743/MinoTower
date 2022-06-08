@@ -56,7 +56,7 @@ namespace MT.PlayScreen.Multi
             PhotonNetwork.SerializationRate = 60;
 
             _blockStore.Initialize();
-            _resultUI.Initialize();
+            _resultUI.HideAsync(0).Forget();
             _screenScroller.Initialize();
             _rotateButton.HideAsync(0).Forget();
             await _playerTurnProvider.InitializeAsync();

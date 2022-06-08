@@ -14,8 +14,9 @@ namespace MT.PlayScreen.Multi
 
         [Space(20)]
         [SerializeField] private ResultUI _resultUI;
+        [SerializeField] private float _resultUIFadeInDuration;
         [SerializeField] private RotateButton _rotateButton;
-        [SerializeField] private float _fadeDuration;
+        [SerializeField] private float _rotateButtonFadeOutDuration;
 
         [Space(20)]
         [SerializeField] private CustomButton _continueButton;
@@ -60,11 +61,13 @@ namespace MT.PlayScreen.Multi
 
         private async UniTask ShowResultUIAsync()
         {
-            _resultUI.ShowAsync();
             _resultUI.SetWinOrLoseText(!_playerTurnProvider.IsMyTurn());
             _resultUI.SetTotalResultText(1, 5);
 
-            await _rotateButton.HideAsync(_fadeDuration);
+            await UniTask.WhenAll(
+                _resultUI.ShowAsync(_resultUIFadeInDuration),
+                _rotateButton.HideAsync(_rotateButtonFadeOutDuration)
+            );
         }
     }
 }

@@ -10,37 +10,22 @@ namespace MT.PlayScreen.Multi
     {
         [SerializeField] private CustomText _winOrLoseText;
         [SerializeField] private CustomText _totalResultText;
-        [SerializeField] private float _fadeInDuration;
 
-        private CanvasGroup _canvasGroup;
+        private CommonUI _commonUI;
 
         public void StaticAwake()
         {
-            _canvasGroup = GetComponentInChildren<CanvasGroup>();
+            _commonUI = GetComponent<CommonUI>();
         }
 
-        public void Initialize()
+        public async UniTask ShowAsync(float fadeDuration)
         {
-            HideImmediately();
+            await _commonUI.ShowAsync(fadeDuration);
         }
 
-        // TODO CommonUI
-        public async void ShowAsync()
+        public async UniTask HideAsync(float fadeDuration)
         {
-            _canvasGroup.interactable = true;
-            _canvasGroup.blocksRaycasts = true;
-
-            _canvasGroup.DOKill();
-            await _canvasGroup.DOFade(1, _fadeInDuration);
-        }
-
-        public void HideImmediately()
-        {
-            _canvasGroup.interactable = false;
-            _canvasGroup.blocksRaycasts = false;
-
-            _canvasGroup.DOKill();
-            _canvasGroup.alpha = 0;
+            await _commonUI.HideAsync(fadeDuration);
         }
 
         public void SetTotalResultText(int winCount, int loseCount)
