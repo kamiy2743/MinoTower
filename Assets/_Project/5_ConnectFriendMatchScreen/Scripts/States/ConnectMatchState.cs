@@ -42,7 +42,13 @@ namespace MT.ConnectFriendMatchScreen
 
             _backButton.SetIsListened(true);
 
-            await ConnectMatchAsync();
+            var success = await ConnectMatchAsync();
+
+            if (success)
+            {
+                Debug.Log("マッチ成功");
+                ToNext(_toMultiPlayScreenState);
+            }
         }
 
         private async void ToNext(IState nextState)
@@ -54,7 +60,8 @@ namespace MT.ConnectFriendMatchScreen
             nextState.Enter();
         }
 
-        private async UniTask ConnectMatchAsync()
+        /// <returns>success</returns>
+        private async UniTask<bool> ConnectMatchAsync()
         {
             var roomName = _tryConnectRoomNameProvider.GetRoomName();
             Debug.Log("RoomName: " + roomName);
@@ -67,11 +74,7 @@ namespace MT.ConnectFriendMatchScreen
             _friendMatch = new FriendMatch();
             var success = await _friendMatch.ConnectAsync(roomName);
 
-            if (!success) return;
-
-            // TODO 遷移ここでしない
-            Debug.Log("マッチ成功");
-            ToNext(_toMultiPlayScreenState);
+            return success;
         }
     }
 }
