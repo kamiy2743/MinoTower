@@ -69,6 +69,7 @@ namespace MT.ConnectFriendMatchScreen
 
             if (!success) return;
 
+            // TODO 遷移ここでしない
             Debug.Log("マッチ成功");
             ToNext(_toMultiPlayScreenState);
         }

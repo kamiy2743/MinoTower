@@ -16,9 +16,9 @@ namespace MT.PlayScreen
             _cameraTransfrom = Camera.main.transform;
         }
 
-        public async UniTask InitializeAsync()
+        public void Initialize()
         {
-            await SetScrollAsync(ScrollAmount.Min, 0);
+            SetScrollAsync(ScrollAmount.Min, 0).Forget();
         }
 
         public async UniTask SetScrollAsync(ScrollAmount scrollAmount, float duration)

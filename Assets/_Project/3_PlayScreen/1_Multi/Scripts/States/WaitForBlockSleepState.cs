@@ -39,13 +39,16 @@ namespace MT.PlayScreen.Multi
             });
         }
 
-        public void Enter()
+        public async void Enter()
         {
             if (!_playerTurnProvider.IsMyTurn()) return;
 
             _gameOverArea.SetIsListened(true);
+
             photonView.RequestOwnership();
-            WaitForBlockSleepAsync();
+            await WaitForBlockSleepAsync();
+
+            photonView.RPC(nameof(ToDefaultState), RpcTarget.All);
         }
 
         [PunRPC]
@@ -66,7 +69,7 @@ namespace MT.PlayScreen.Multi
             nextState.Enter();
         }
 
-        private async void WaitForBlockSleepAsync()
+        private async UniTask WaitForBlockSleepAsync()
         {
             // ブロックがすべて停止してから遷移
             try
@@ -75,7 +78,6 @@ namespace MT.PlayScreen.Multi
                 await UniTask.WaitUntil(() => _blockSleepProvider.IsSleeping(), cancellationToken: _cts.Token);
 
                 _blockSynchronizer.SetIsSynchronize(false);
-                photonView.RPC(nameof(ToDefaultState), RpcTarget.All);
             }
             catch (System.OperationCanceledException e)
             {

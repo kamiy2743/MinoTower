@@ -33,12 +33,12 @@ namespace MT.PlayScreen.Multi
 
             if (PhotonNetwork.IsMasterClient)
             {
-                photonView.RPC(nameof(ToNextAsync), RpcTarget.All);
+                photonView.RPC(nameof(ToNext), RpcTarget.All);
             }
         }
 
         [PunRPC]
-        private async void ToNextAsync()
+        private async void ToNext()
         {
             await Fader.Instance.FadeInAsync(_fadeInDuration);
             _nextState.Enter();
@@ -57,8 +57,8 @@ namespace MT.PlayScreen.Multi
 
             _blockStore.Initialize();
             _resultUI.Initialize();
-            await _rotateButton.HideAsync(0);
-            await _screenScroller.InitializeAsync();
+            _screenScroller.Initialize();
+            _rotateButton.HideAsync(0).Forget();
             await _playerTurnProvider.InitializeAsync();
         }
 

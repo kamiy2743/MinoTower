@@ -34,10 +34,12 @@ namespace MT.PlayScreen.Single
             });
         }
 
-        public void Enter()
+        public async void Enter()
         {
             _gameOverArea.SetIsListened(true);
-            WaitForBlockSleepAsync();
+            await WaitForBlockSleepAsync();
+
+            ToNext(_defaultNextState);
         }
 
         private void ToNext(IState nextState)
@@ -46,14 +48,13 @@ namespace MT.PlayScreen.Single
             nextState.Enter();
         }
 
-        private async void WaitForBlockSleepAsync()
+        private async UniTask WaitForBlockSleepAsync()
         {
             // ブロックがすべて停止してから遷移
             try
             {
                 _cts = new CancellationTokenSource();
                 await UniTask.WaitUntil(() => _blockSleepProvider.IsSleeping(), cancellationToken: _cts.Token);
-                ToNext(_defaultNextState);
             }
             catch (System.OperationCanceledException e)
             {

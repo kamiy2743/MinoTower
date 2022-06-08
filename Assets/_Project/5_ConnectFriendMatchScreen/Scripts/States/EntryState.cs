@@ -22,7 +22,7 @@ namespace MT.ConnectFriendMatchScreen
         public async void Enter()
         {
             await Fader.Instance.FadeOutAsync(0);
-            await InitializeAsync();
+            Initialize();
 
             if (_tryConnectRoomNameProvider.IsEmpty())
             {
@@ -34,10 +34,10 @@ namespace MT.ConnectFriendMatchScreen
             }
         }
 
-        private async UniTask InitializeAsync()
+        private void Initialize()
         {
-            await _roomSettingUI.HideAsync(0);
-            await _loadingUI.HideAsync(0);
+            _roomSettingUI.HideAsync(0).Forget();
+            _loadingUI.HideAsync(0).Forget();
         }
     }
 }

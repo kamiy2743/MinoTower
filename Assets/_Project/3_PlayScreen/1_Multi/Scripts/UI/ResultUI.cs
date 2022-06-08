@@ -24,6 +24,7 @@ namespace MT.PlayScreen.Multi
             HideImmediately();
         }
 
+        // TODO CommonUI
         public async void ShowAsync()
         {
             _canvasGroup.interactable = true;

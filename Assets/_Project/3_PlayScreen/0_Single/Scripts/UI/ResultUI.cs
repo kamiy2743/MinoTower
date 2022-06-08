@@ -19,7 +19,7 @@ namespace MT.PlayScreen.Single
 
         public void Initialize()
         {
-            HideImmediately();
+            HideAsync(0).Forget();
         }
 
         public async UniTask ShowAsync(float fadeDuration)
@@ -27,9 +27,9 @@ namespace MT.PlayScreen.Single
             await _commonUI.ShowAsync(fadeDuration);
         }
 
-        public async void HideImmediately()
+        public async UniTask HideAsync(float fadeDuration)
         {
-            await _commonUI.HideAsync(0);
+            await _commonUI.HideAsync(fadeDuration);
         }
 
         public void SetMaxHeightText(float maxHeightValue)

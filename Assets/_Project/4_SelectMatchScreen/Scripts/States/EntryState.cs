@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cysharp.Threading.Tasks;
 
 namespace MT.SelectMatchScreen
 {
@@ -20,14 +19,9 @@ namespace MT.SelectMatchScreen
         public async void Enter()
         {
             await Fader.Instance.FadeOutAsync(0);
-            Initialize();
 
             await Fader.Instance.FadeInAsync(_fadeInDuration);
             _nextState.Enter();
-        }
-
-        private void Initialize()
-        {
         }
     }
 }

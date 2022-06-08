@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Cysharp.Threading.Tasks;
 
 namespace MT.PlayScreen.Multi
 {
@@ -46,7 +47,7 @@ namespace MT.PlayScreen.Multi
             _continueButton.SetIsListened(true);
             _exitButton.SetIsListened(true);
 
-            ShowResultUIAsync();
+            ShowResultUIAsync().Forget();
         }
 
         private void ToNext(IState nextState)
@@ -57,7 +58,7 @@ namespace MT.PlayScreen.Multi
             nextState.Enter();
         }
 
-        private async void ShowResultUIAsync()
+        private async UniTask ShowResultUIAsync()
         {
             _resultUI.ShowAsync();
             _resultUI.SetWinOrLoseText(!_playerTurnProvider.IsMyTurn());
