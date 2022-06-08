@@ -79,6 +79,7 @@ Transform:
   - {fileID: 6718347000972784245}
   - {fileID: 3363436731089199712}
   - {fileID: 156878904115124169}
+  - {fileID: 7570759354233212357}
   m_Father: {fileID: 56290209468230603}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -91,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3363436731089199712}
-  - component: {fileID: 8711215571246192696}
+  - component: {fileID: 3740825353090433141}
   m_Layer: 0
   m_Name: ConnectMatchState
   m_TagString: Untagged
@@ -114,7 +115,7 @@ Transform:
   m_Father: {fileID: 7868614949247044560}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8711215571246192696
+--- !u!114 &3740825353090433141
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,9 +124,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 971148102737009265}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43a435151cf52324fa67fa0d91ff37f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a93e6ff637c13e4b8bca07fcc5b9db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _backButton: {fileID: 4541529799915582666}
+  _toSelectMatchScreenState: {fileID: 4947155403039815608}
+  _toMultiPlayScreenState: {fileID: 5714178578439208330}
 --- !u!1 &6184484186473130926
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,6 +278,79 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1001 &1083712784074633728
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7868614949247044560}
+    m_Modifications:
+    - target: {fileID: 7357371665192861637, guid: 8d510409c73b9aa4e92b255409ef98a0, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357371665192861637, guid: 8d510409c73b9aa4e92b255409ef98a0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357371665192861637, guid: 8d510409c73b9aa4e92b255409ef98a0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357371665192861637, guid: 8d510409c73b9aa4e92b255409ef98a0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357371665192861637, guid: 8d510409c73b9aa4e92b255409ef98a0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357371665192861637, guid: 8d510409c73b9aa4e92b255409ef98a0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357371665192861637, guid: 8d510409c73b9aa4e92b255409ef98a0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357371665192861637, guid: 8d510409c73b9aa4e92b255409ef98a0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357371665192861637, guid: 8d510409c73b9aa4e92b255409ef98a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357371665192861637, guid: 8d510409c73b9aa4e92b255409ef98a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357371665192861637, guid: 8d510409c73b9aa4e92b255409ef98a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522774117397936310, guid: 8d510409c73b9aa4e92b255409ef98a0, type: 3}
+      propertyPath: m_Name
+      value: ToMultiScreenState
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8d510409c73b9aa4e92b255409ef98a0, type: 3}
+--- !u!114 &5714178578439208330 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4631609363777359754, guid: 8d510409c73b9aa4e92b255409ef98a0, type: 3}
+  m_PrefabInstance: {fileID: 1083712784074633728}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c791693f55ac540964b194698e3623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &7570759354233212357 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7357371665192861637, guid: 8d510409c73b9aa4e92b255409ef98a0, type: 3}
+  m_PrefabInstance: {fileID: 1083712784074633728}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5027255087635273110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -336,6 +413,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5181740285395092063, guid: 9c04e131d24e5b043ad559aaa073103d, type: 3}
   m_PrefabInstance: {fileID: 5027255087635273110}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4947155403039815608 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 100124266381517358, guid: 9c04e131d24e5b043ad559aaa073103d, type: 3}
+  m_PrefabInstance: {fileID: 5027255087635273110}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c791693f55ac540964b194698e3623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6094204793560821751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -458,6 +546,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c0fe366000d5dc4880b0cb984c89f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4541529799915582666 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7751882099887266621, guid: 5666cd1b48262ea4e937a200975374a5, type: 3}
+  m_PrefabInstance: {fileID: 6094204793560821751}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc9157f3b84bc043ae3f858719f31f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &8562834823468201756 stripped
