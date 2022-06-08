@@ -36,6 +36,7 @@ namespace MT.ConnectRandomMatchScreen
 
             var success = await _connectRandomMatch.TryConnect();
 
+            //TODO 失敗した時の遷移
             if (success)
             {
                 Debug.Log("マッチ成功");
