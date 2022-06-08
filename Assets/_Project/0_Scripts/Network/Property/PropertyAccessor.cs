@@ -6,12 +6,12 @@ using Photon.Realtime;
 using UniRx;
 using Cysharp.Threading.Tasks;
 
-namespace MT
+namespace MT.Network
 {
-    public class PlayerPropertyAccessor : MonoBehaviourPunCallbacks, IStaticAwake
+    public class PropertyAccessor : MonoBehaviourPunCallbacks, IStaticAwake
     {
-        public static PlayerPropertyAccessor Instance => _instance;
-        private static PlayerPropertyAccessor _instance;
+        public static PropertyAccessor Instance => _instance;
+        private static PropertyAccessor _instance;
 
         private string _separator = ":separate:";
         private Dictionary<string, bool> _dic = new Dictionary<string, bool>();
@@ -21,30 +21,47 @@ namespace MT
             _instance = this;
         }
 
-        public async UniTask SetAsync<T>(string key, T value)
+        public async UniTask SetAsync<T>(PropertyType type, PropertyKey key, T value)
         {
             var time = System.DateTime.Now.Ticks;
-            var id = time + key + _separator + value;
+            var id = time + key.ToString() + _separator + value;
 
             var cp = PhotonNetwork.LocalPlayer.CustomProperties;
-            cp[key] = id;
-            PhotonNetwork.LocalPlayer.SetCustomProperties(cp);
+            cp[key.ToString()] = id;
+
+            if (type == PropertyType.Room)
+            {
+                PhotonNetwork.CurrentRoom.SetCustomProperties(cp);
+            }
+            else
+            {
+                PhotonNetwork.LocalPlayer.SetCustomProperties(cp);
+            }
 
             _dic[id] = false;
             await UniTask.WaitUntil(() => _dic[id]);
             _dic.Remove(id);
         }
 
-        public T Get<T>(string key)
+        public T Get<T>(PropertyType type, PropertyKey key)
         {
-            string value = PhotonNetwork.LocalPlayer.CustomProperties[key].ToString().Split(_separator)[1];
+            object id;
+            if (type == PropertyType.Room)
+            {
+                id = PhotonNetwork.CurrentRoom.CustomProperties[key.ToString()];
+            }
+            else
+            {
+                id = PhotonNetwork.LocalPlayer.CustomProperties[key.ToString()];
+            }
+
+            string value = id.ToString().Split(_separator)[1];
             return (T)System.Convert.ChangeType((object)value, typeof(T));
         }
 
         // TODO えぐい
         public override void OnPlayerPropertiesUpdate(Player target, ExitGames.Client.Photon.Hashtable propertiesThatChanged)
         {
-            Debug.Log("update");
             foreach (var value in propertiesThatChanged.Values)
             {
                 foreach (var key in _dic.Keys)

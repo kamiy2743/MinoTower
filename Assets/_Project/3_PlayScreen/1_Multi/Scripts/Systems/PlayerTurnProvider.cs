@@ -4,21 +4,20 @@ using UnityEngine;
 using Photon.Pun;
 using Pun2Task;
 using Cysharp.Threading.Tasks;
+using MT.Network;
 
 namespace MT.PlayScreen.Multi
 {
     public class PlayerTurnProvider : MonoBehaviour
     {
-        [SerializeField] private CustomPropertyConfig _config;
-
         private async UniTask SetIsMasterClientTurnAsync(bool value)
         {
-            await RoomPropertyAccessor.Instance.SetAsync<bool>(_config.IsMasterClientTurnKey, value);
+            await PropertyAccessor.Instance.SetAsync<bool>(PropertyType.Room, PropertyKey.IsMasterClientTurn, value);
         }
 
         private bool GetIsMasterClientTurn()
         {
-            return RoomPropertyAccessor.Instance.Get<bool>(_config.IsMasterClientTurnKey);
+            return PropertyAccessor.Instance.Get<bool>(PropertyType.Room, PropertyKey.IsMasterClientTurn);
         }
 
         public async UniTask InitializeAsync()
