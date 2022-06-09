@@ -20,31 +20,29 @@ namespace MT.ConnectRandomMatchScreen
         {
             _backButton.AddListener(() =>
             {
-                ToNext(_toSelectMatchScreenState);
+                ToSelectMatchScreen();
             });
         }
 
-        public async void Enter()
+        public void Enter()
         {
             _backButton.SetIsListened(true);
-
-            if (_matchMaker != null)
-            {
-                await _matchMaker.Disconnect();
-            }
-            _matchMaker = new RandomMatchMaker();
-
-            var success = await _matchMaker.TryConnectAsync();
-
-            //TODO 失敗した時の遷移
-            if (success)
-            {
-                Debug.Log("マッチ成功");
-                ToNext(_toMultiPlayScreenState);
-            }
+            ConnectMatchAsync().Forget();
         }
 
-        private async void ToNext(IState nextState)
+        private async UniTask ConnectMatchAsync()
+        {
+            _matchMaker = new RandomMatchMaker();
+            var success = await _matchMaker.TryConnectAsync();
+            Debug.Log("success: " + success);
+
+            if (!success) return;
+
+            Debug.Log("マッチ成功");
+            ToMultiPlayScreen();
+        }
+
+        private async void ToSelectMatchScreen()
         {
             _backButton.SetIsListened(false);
 
@@ -59,7 +57,15 @@ namespace MT.ConnectRandomMatchScreen
 
             await UniTask.WhenAll(tasks);
 
-            nextState.Enter();
+            _toSelectMatchScreenState.Enter();
+        }
+
+        private async void ToMultiPlayScreen()
+        {
+            _backButton.SetIsListened(false);
+
+            await Fader.Instance.FadeOutAsync(_fadeOutDuration);
+            _toMultiPlayScreenState.Enter();
         }
     }
 }

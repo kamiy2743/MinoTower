@@ -13,24 +13,21 @@ namespace MT.ConnectRandomMatchScreen
     {
         private CancellationTokenSource _cts;
 
-        public RandomMatchMaker()
-        {
-            _cts = new CancellationTokenSource();
-        }
-
         public async UniTask Disconnect()
         {
-            _cts.Cancel();
+            if (_cts != null)
+            {
+                _cts.Cancel();
+                _cts = null;
+            }
 
             if (PhotonNetwork.InRoom)
             {
+                PhotonNetwork.RemoveRPCs(PhotonNetwork.LocalPlayer);
                 await Pun2TaskNetwork.LeaveRoomAsync();
                 await Pun2TaskCallback.OnConnectedToMasterAsync();
-
+                Debug.Log("leave");
             }
-
-            PhotonNetwork.RemoveRPCs(PhotonNetwork.LocalPlayer);
-            Debug.Log("leave");
         }
 
         /// <returns>Success</returns>
@@ -38,6 +35,7 @@ namespace MT.ConnectRandomMatchScreen
         {
             try
             {
+                _cts = new CancellationTokenSource();
                 var token = _cts.Token;
 
                 if (!PhotonNetwork.IsConnected)
