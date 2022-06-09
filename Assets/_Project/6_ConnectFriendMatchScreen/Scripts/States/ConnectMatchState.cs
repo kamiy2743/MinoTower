@@ -46,7 +46,7 @@ namespace MT.ConnectFriendMatchScreen
             Debug.Log("RoomName: " + roomName);
 
             _matchMaker = new FriendMatchMaker();
-            var success = await _matchMaker.TryConnectAsync(roomName);
+            var success = await _matchMaker.TryJoinAsync(roomName);
             if (!success) return;
 
             Debug.Log("マッチ成功");
@@ -63,7 +63,7 @@ namespace MT.ConnectFriendMatchScreen
 
             if (_matchMaker != null)
             {
-                tasks.Add(_matchMaker.Disconnect());
+                tasks.Add(_matchMaker.CancelAsync());
             }
 
             await UniTask.WhenAll(tasks);

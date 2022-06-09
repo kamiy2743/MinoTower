@@ -13,7 +13,7 @@ namespace MT.ConnectRandomMatchScreen
     {
         private CancellationTokenSource _cts;
 
-        public async UniTask Disconnect()
+        public async UniTask CancelAsync()
         {
             if (_cts != null)
             {
@@ -31,7 +31,7 @@ namespace MT.ConnectRandomMatchScreen
         }
 
         /// <returns>Success</returns>
-        public async UniTask<bool> TryConnectAsync()
+        public async UniTask<bool> TryJoinAsync()
         {
             try
             {

@@ -13,7 +13,7 @@ namespace MT.ConnectFriendMatchScreen
     {
         private CancellationTokenSource _cts;
 
-        public async UniTask Disconnect()
+        public async UniTask CancelAsync()
         {
             if (_cts != null)
             {
@@ -31,7 +31,7 @@ namespace MT.ConnectFriendMatchScreen
         }
 
         /// <returns>success</returns>
-        public async UniTask<bool> TryConnectAsync(string roomName)
+        public async UniTask<bool> TryJoinAsync(string roomName)
         {
             try
             {

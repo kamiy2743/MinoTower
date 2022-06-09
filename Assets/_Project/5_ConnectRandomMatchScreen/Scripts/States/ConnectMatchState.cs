@@ -33,7 +33,7 @@ namespace MT.ConnectRandomMatchScreen
         private async UniTask ConnectMatchAsync()
         {
             _matchMaker = new RandomMatchMaker();
-            var success = await _matchMaker.TryConnectAsync();
+            var success = await _matchMaker.TryJoinAsync();
             if (!success) return;
 
             Debug.Log("マッチ成功");
@@ -50,7 +50,7 @@ namespace MT.ConnectRandomMatchScreen
 
             if (_matchMaker != null)
             {
-                tasks.Add(_matchMaker.Disconnect());
+                tasks.Add(_matchMaker.CancelAsync());
             }
 
             await UniTask.WhenAll(tasks);
