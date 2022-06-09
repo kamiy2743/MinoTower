@@ -54,7 +54,15 @@ namespace MT.ConnectRandomMatchScreen
                 if (PhotonNetwork.IsMasterClient)
                 {
                     Debug.Log("一人目");
-                    await Pun2TaskCallback.OnPlayerEnteredRoomAsync();
+                    try
+                    {
+                        await Pun2TaskCallback.OnPlayerEnteredRoomAsync().AttachExternalCancellation(token);
+                    }
+                    catch (System.OperationCanceledException ex)
+                    {
+                        Debug.Log("cancelled");
+                        return false;
+                    }
                 }
                 else
                 {
