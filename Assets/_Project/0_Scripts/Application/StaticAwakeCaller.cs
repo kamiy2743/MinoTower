@@ -10,25 +10,13 @@ namespace MT
     {
         public void Call()
         {
-            var scene = SceneManager.GetActiveScene();
-            foreach (var root in scene.GetRootGameObjects())
+            foreach (var go in GetAllGameObjects.InActiveScene())
             {
-                CallStaticAwake(root);
-
-                var children = root.transform.GetChildrenRecursive();
-                foreach (var child in children)
+                var staticAwakes = go.GetComponents<IStaticAwake>();
+                foreach (var item in staticAwakes)
                 {
-                    CallStaticAwake(child.gameObject);
+                    item.StaticAwake();
                 }
-            }
-        }
-
-        private void CallStaticAwake(GameObject target)
-        {
-            var staticAwakes = target.GetComponents<IStaticAwake>();
-            foreach (var item in staticAwakes)
-            {
-                item.StaticAwake();
             }
         }
     }

@@ -10,25 +10,13 @@ namespace MT
     {
         public void Call()
         {
-            var scene = SceneManager.GetActiveScene();
-            foreach (var root in scene.GetRootGameObjects())
+            foreach (var go in GetAllGameObjects.InActiveScene())
             {
-                CallStaticStart(root);
-
-                var children = root.transform.GetChildrenRecursive();
-                foreach (var child in children)
+                var staticStarts = go.GetComponents<IStaticStart>();
+                foreach (var item in staticStarts)
                 {
-                    CallStaticStart(child.gameObject);
+                    item.StaticStart();
                 }
-            }
-        }
-
-        private void CallStaticStart(GameObject target)
-        {
-            var staticStarts = target.GetComponents<IStaticStart>();
-            foreach (var item in staticStarts)
-            {
-                item.StaticStart();
             }
         }
     }
