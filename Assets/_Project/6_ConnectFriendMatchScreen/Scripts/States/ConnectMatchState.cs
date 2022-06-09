@@ -72,7 +72,7 @@ namespace MT.ConnectFriendMatchScreen
             }
 
             _matchMaker = new FriendMatchMaker();
-            var success = await _matchMaker.TryConnect();
+            var success = await _matchMaker.TryConnectAsync(roomName);
 
             return success;
         }
