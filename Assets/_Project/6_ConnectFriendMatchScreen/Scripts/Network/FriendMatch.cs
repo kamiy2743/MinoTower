@@ -68,6 +68,7 @@ namespace MT.ConnectFriendMatchScreen
 
                 var roomOptions = new RoomOptions();
                 roomOptions.MaxPlayers = 2;
+                roomOptions.IsVisible = false;
 
                 // ルームへの参加または新規作成
                 var isFirstUser = await Pun2TaskNetwork.JoinOrCreateRoomAsync(

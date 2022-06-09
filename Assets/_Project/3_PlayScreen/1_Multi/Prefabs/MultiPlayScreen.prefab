@@ -607,7 +607,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ec9020b6a5e218499e1003c57fdc3f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _config: {fileID: 11400000, guid: b8dd2393c205b634da02701edf823b25, type: 2}
 --- !u!1 &4404378165167468055
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,7 +1005,7 @@ MonoBehaviour:
   _playerTurnProvider: {fileID: 5049311327778402279}
   _blockSynchronizer: {fileID: 1398055474015924066}
   _rotateButton: {fileID: 5219997247795198278}
-  _fadeDuration: 0
+  _fadeDuration: 0.5
   _nextStateObject: {fileID: 6925004085774155568}
 --- !u!1 &6781927071778986531
 GameObject:
