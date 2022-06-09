@@ -26,6 +26,8 @@ namespace MT.ConnectRandomMatchScreen
             {
                 await Pun2TaskNetwork.LeaveRoomAsync();
                 await Pun2TaskCallback.OnConnectedToMasterAsync();
+
+                PhotonNetwork.RemoveRPCs(PhotonNetwork.LocalPlayer);
                 Debug.Log("leave");
             }
         }
