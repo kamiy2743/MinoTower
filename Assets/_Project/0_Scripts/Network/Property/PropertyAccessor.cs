@@ -23,20 +23,14 @@ namespace MT.Network
 
         public async UniTask SetAsync<T>(PropertyType type, PropertyKey key, T value)
         {
+            var keyStr = key.ToString();
+
             var time = System.DateTime.Now.Ticks;
-            var id = time + key.ToString() + _separator + value;
+            var id = time + keyStr + _separator + value;
 
-            var cp = PhotonNetwork.LocalPlayer.CustomProperties;
-            cp[key.ToString()] = id;
-
-            if (type == PropertyType.Room)
-            {
-                PhotonNetwork.CurrentRoom.SetCustomProperties(cp);
-            }
-            else
-            {
-                PhotonNetwork.LocalPlayer.SetCustomProperties(cp);
-            }
+            var cp = GetCustomProperties(type);
+            cp[keyStr] = id;
+            SetCustomProperties(type, cp);
 
             _dic[id] = false;
             await UniTask.WaitUntil(() => _dic[id]);
@@ -45,33 +39,58 @@ namespace MT.Network
 
         public T Get<T>(PropertyType type, PropertyKey key)
         {
-            object id;
-            if (type == PropertyType.Room)
-            {
-                id = PhotonNetwork.CurrentRoom.CustomProperties[key.ToString()];
-            }
-            else
-            {
-                id = PhotonNetwork.LocalPlayer.CustomProperties[key.ToString()];
-            }
+            var keyStr = key.ToString();
+
+            object id = GetCustomProperties(type)[keyStr];
 
             string value = id.ToString().Split(_separator)[1];
             return (T)System.Convert.ChangeType((object)value, typeof(T));
         }
 
+        public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
+        {
+            Check(propertiesThatChanged);
+        }
+
+        public override void OnPlayerPropertiesUpdate(Player _, ExitGames.Client.Photon.Hashtable propertiesThatChanged)
+        {
+            Check(propertiesThatChanged);
+        }
+
         // TODO えぐい
-        public override void OnPlayerPropertiesUpdate(Player target, ExitGames.Client.Photon.Hashtable propertiesThatChanged)
+        private void Check(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
         {
             foreach (var value in propertiesThatChanged.Values)
             {
-                foreach (var key in _dic.Keys)
+                var id = value.ToString();
+                if (_dic.ContainsKey(id))
                 {
-                    if (key == value.ToString())
-                    {
-                        _dic[key] = true;
-                        break;
-                    }
+                    _dic[id] = true;
                 }
+            }
+        }
+
+        private ExitGames.Client.Photon.Hashtable GetCustomProperties(PropertyType type)
+        {
+            if (type == PropertyType.Room)
+            {
+                return PhotonNetwork.CurrentRoom.CustomProperties;
+            }
+            else
+            {
+                return PhotonNetwork.LocalPlayer.CustomProperties;
+            }
+        }
+
+        private void SetCustomProperties(PropertyType type, ExitGames.Client.Photon.Hashtable cp)
+        {
+            if (type == PropertyType.Room)
+            {
+                PhotonNetwork.CurrentRoom.SetCustomProperties(cp);
+            }
+            else
+            {
+                PhotonNetwork.LocalPlayer.SetCustomProperties(cp);
             }
         }
     }
