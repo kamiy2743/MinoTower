@@ -21,13 +21,7 @@ namespace MT.ConnectRandomMatchScreen
                 _cts = null;
             }
 
-            if (PhotonNetwork.InRoom)
-            {
-                PhotonNetwork.RemoveRPCs(PhotonNetwork.LocalPlayer);
-                await Pun2TaskNetwork.LeaveRoomAsync();
-                await Pun2TaskCallback.OnConnectedToMasterAsync();
-                Debug.Log("leave");
-            }
+            await PhotonUtil.LeaveRoomAsync();
         }
 
         /// <returns>Success</returns>
