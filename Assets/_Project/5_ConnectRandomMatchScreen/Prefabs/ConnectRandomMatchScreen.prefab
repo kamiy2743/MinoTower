@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _backButton: {fileID: 4541529799915582666}
+  _fadeOutDuration: 0.5
   _toSelectMatchScreenState: {fileID: 4947155403039815608}
   _toMultiPlayScreenState: {fileID: 5714178578439208330}
 --- !u!1 &6184484186473130926
@@ -358,6 +359,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7868614949247044560}
     m_Modifications:
+    - target: {fileID: 100124266381517358, guid: 9c04e131d24e5b043ad559aaa073103d, type: 3}
+      propertyPath: _fadeOutDuration
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3798618345433005157, guid: 9c04e131d24e5b043ad559aaa073103d, type: 3}
       propertyPath: m_Name
       value: ToSelectMatchScreenState

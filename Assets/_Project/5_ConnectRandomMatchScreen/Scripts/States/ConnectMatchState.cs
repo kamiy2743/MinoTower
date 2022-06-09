@@ -8,6 +8,7 @@ namespace MT.ConnectRandomMatchScreen
     public class ConnectMatchState : MonoBehaviour, IState, IStaticStart
     {
         [SerializeField] private CustomButton _backButton;
+        [SerializeField] private float _fadeOutDuration;
         [SerializeField] private SwitchScreenState _toSelectMatchScreenState;
 
         [Space(20)]
@@ -17,9 +18,8 @@ namespace MT.ConnectRandomMatchScreen
 
         public void StaticStart()
         {
-            _backButton.AddListener(async () =>
+            _backButton.AddListener(() =>
             {
-                await _matchMaker.Disconnect();
                 ToNext(_toSelectMatchScreenState);
             });
         }
@@ -44,9 +44,20 @@ namespace MT.ConnectRandomMatchScreen
             }
         }
 
-        private void ToNext(IState nextState)
+        private async void ToNext(IState nextState)
         {
             _backButton.SetIsListened(false);
+
+            var tasks = new List<UniTask>(2);
+
+            tasks.Add(Fader.Instance.FadeOutAsync(_fadeOutDuration));
+
+            if (_matchMaker != null)
+            {
+                tasks.Add(_matchMaker.Disconnect());
+            }
+
+            await UniTask.WhenAll(tasks);
 
             nextState.Enter();
         }
