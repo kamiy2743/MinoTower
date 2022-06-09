@@ -24,37 +24,16 @@ namespace MT.ConnectFriendMatchScreen
 
             if (PhotonNetwork.InRoom)
             {
-                Debug.Log("leave");
-                PhotonNetwork.LeaveRoom();
-                await Pun2TaskCallback.OnLeftRoomAsync();
+                await Pun2TaskNetwork.LeaveRoomAsync();
+                await Pun2TaskCallback.OnConnectedToMasterAsync();
             }
+
+            PhotonNetwork.RemoveRPCs(PhotonNetwork.LocalPlayer);
+            Debug.Log("leave");
         }
 
         /// <returns>success</returns>
-        public async UniTask<bool> ConnectAsync(string roomName)
-        {
-            var (success, isFirstUser) = await JoinOrCreateRoomAsync(roomName);
-            Debug.Log(success ? "接続成功" : "接続失敗");
-
-            if (!success)
-            {
-                Debug.Log("failed");
-                return false;
-            }
-
-            if (!isFirstUser)
-            {
-                Debug.Log("二人目");
-                return true;
-            }
-
-            Debug.Log("一人目");
-            await Pun2TaskCallback.OnPlayerEnteredRoomAsync();
-            return true;
-        }
-
-        /// <returns>(success isFirtUser)</returns>
-        private async UniTask<(bool, bool)> JoinOrCreateRoomAsync(string roomName)
+        public async UniTask<bool> TryConnectAsync(string roomName)
         {
             try
             {
@@ -66,24 +45,56 @@ namespace MT.ConnectFriendMatchScreen
                     await Pun2TaskNetwork.ConnectUsingSettingsAsync(token);
                 }
 
-                var roomOptions = new RoomOptions();
-                roomOptions.MaxPlayers = 2;
-                roomOptions.IsVisible = false;
+                var success = await JoinOrCreateRoomAsync(roomName, token);
 
-                // ルームへの参加または新規作成
-                var isFirstUser = await Pun2TaskNetwork.JoinOrCreateRoomAsync(
-                    roomName: roomName,
-                    roomOptions: roomOptions,
-                    typedLobby: default,
-                    token: token);
+                if (!success)
+                {
+                    return false;
+                }
 
-                return (true, isFirstUser);
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    Debug.Log("一人目");
+                    await Pun2TaskCallback.OnPlayerEnteredRoomAsync();
+                }
+                else
+                {
+                    Debug.Log("二人目");
+                }
+
+                return true;
             }
             catch (Pun2TaskNetwork.ConnectionFailedException ex)
             {
                 // サーバに接続できなかった
                 Debug.Log("サーバに接続できなかった");
                 Debug.LogError(ex);
+            }
+            catch (System.OperationCanceledException ex)
+            {
+                Debug.Log("cancelled");
+            }
+
+            return false;
+        }
+
+        /// <returns>success</returns>
+        private async UniTask<bool> JoinOrCreateRoomAsync(string roomName, CancellationToken token)
+        {
+            try
+            {
+                var roomOptions = new RoomOptions();
+                roomOptions.MaxPlayers = 2;
+                roomOptions.IsVisible = false;
+
+                // ルームへの参加または新規作成
+                await Pun2TaskNetwork.JoinOrCreateRoomAsync(
+                    roomName: roomName,
+                    roomOptions: roomOptions,
+                    typedLobby: default,
+                    token: token);
+
+                return true;
             }
             catch (Pun2TaskNetwork.FailedToCreateRoomException ex)
             {
@@ -100,10 +111,9 @@ namespace MT.ConnectFriendMatchScreen
             catch (System.OperationCanceledException ex)
             {
                 Debug.Log("cancelled");
-                Debug.LogError(ex);
             }
 
-            return (false, false);
+            return false;
         }
     }
 }
