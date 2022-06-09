@@ -20,15 +20,15 @@ namespace MT.ConnectFriendMatchScreen
         [Space(20)]
         [SerializeField] private SwitchScreenState _toMultiPlayScreenState;
 
-        private FriendMatchMaker _friendMatch;
+        private FriendMatchMaker _matchMaker;
 
         public void StaticStart()
         {
             _backButton.AddListener(async () =>
             {
-                if (_friendMatch != null)
+                if (_matchMaker != null)
                 {
-                    await _friendMatch.Disconnect();
+                    await _matchMaker.Disconnect();
                 }
                 ToNext(_roomSettingState);
             });
@@ -66,13 +66,13 @@ namespace MT.ConnectFriendMatchScreen
             var roomName = _tryConnectRoomNameProvider.GetRoomName();
             Debug.Log("RoomName: " + roomName);
 
-            if (_friendMatch != null)
+            if (_matchMaker != null)
             {
-                await _friendMatch.Disconnect();
+                await _matchMaker.Disconnect();
             }
 
-            _friendMatch = new FriendMatchMaker();
-            var success = await _friendMatch.ConnectAsync(roomName);
+            _matchMaker = new FriendMatchMaker();
+            var success = await _matchMaker.TryConnect();
 
             return success;
         }

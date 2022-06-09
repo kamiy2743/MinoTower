@@ -13,7 +13,7 @@ namespace MT.ConnectRandomMatchScreen
         [Space(20)]
         [SerializeField] private SwitchScreenState _toMultiPlayScreenState;
 
-        private IMatchMaker _matchMaker;
+        private RandomMatchMaker _matchMaker;
 
         public void StaticStart()
         {
@@ -34,7 +34,7 @@ namespace MT.ConnectRandomMatchScreen
             }
             _matchMaker = new RandomMatchMaker();
 
-            var success = await _matchMaker.TryConnect();
+            var success = await _matchMaker.TryConnectAsync();
 
             //TODO 失敗した時の遷移
             if (success)

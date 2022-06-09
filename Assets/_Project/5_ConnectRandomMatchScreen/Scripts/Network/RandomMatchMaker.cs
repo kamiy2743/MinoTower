@@ -9,7 +9,7 @@ using System.Threading;
 
 namespace MT.ConnectRandomMatchScreen
 {
-    public class RandomMatchMaker : IMatchMaker
+    public class RandomMatchMaker
     {
         private CancellationTokenSource _cts;
 
@@ -34,7 +34,7 @@ namespace MT.ConnectRandomMatchScreen
         }
 
         /// <returns>Success</returns>
-        public async UniTask<bool> TryConnect()
+        public async UniTask<bool> TryConnectAsync()
         {
             try
             {
