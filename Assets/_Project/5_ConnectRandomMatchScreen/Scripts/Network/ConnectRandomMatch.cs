@@ -27,9 +27,10 @@ namespace MT.ConnectRandomMatchScreen
                 await Pun2TaskNetwork.LeaveRoomAsync();
                 await Pun2TaskCallback.OnConnectedToMasterAsync();
 
-                PhotonNetwork.RemoveRPCs(PhotonNetwork.LocalPlayer);
-                Debug.Log("leave");
             }
+
+            PhotonNetwork.RemoveRPCs(PhotonNetwork.LocalPlayer);
+            Debug.Log("leave");
         }
 
         /// <returns>Success</returns>
@@ -73,7 +74,6 @@ namespace MT.ConnectRandomMatchScreen
             catch (System.OperationCanceledException ex)
             {
                 Debug.Log("cancelled");
-                Debug.LogError(ex);
             }
 
             return false;
@@ -103,7 +103,6 @@ namespace MT.ConnectRandomMatchScreen
             catch (System.OperationCanceledException ex)
             {
                 Debug.Log("cancelled");
-                Debug.LogError(ex);
             }
 
             return false;
@@ -135,7 +134,6 @@ namespace MT.ConnectRandomMatchScreen
             catch (System.OperationCanceledException ex)
             {
                 Debug.Log("cancelled");
-                Debug.LogError(ex);
             }
 
             return false;
