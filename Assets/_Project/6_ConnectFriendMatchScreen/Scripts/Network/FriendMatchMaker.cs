@@ -31,7 +31,7 @@ namespace MT.ConnectFriendMatchScreen
         }
 
         /// <returns>success</returns>
-        public async UniTask<bool> TryJoinAsync(string roomName)
+        public async UniTask<bool> JoinRoomAsync(string roomName)
         {
             try
             {

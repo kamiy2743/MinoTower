@@ -31,7 +31,7 @@ namespace MT.ConnectRandomMatchScreen
         }
 
         /// <returns>Success</returns>
-        public async UniTask<bool> TryJoinAsync()
+        public async UniTask<bool> JoinRoomAsync()
         {
             try
             {

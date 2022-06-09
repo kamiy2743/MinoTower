@@ -46,7 +46,7 @@ namespace MT.ConnectFriendMatchScreen
             Debug.Log("RoomName: " + roomName);
 
             _matchMaker = new FriendMatchMaker();
-            var success = await _matchMaker.TryJoinAsync(roomName);
+            var success = await _matchMaker.JoinRoomAsync(roomName);
             if (!success) return;
 
             Debug.Log("マッチ成功");

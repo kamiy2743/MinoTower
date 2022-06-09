@@ -33,7 +33,7 @@ namespace MT.ConnectRandomMatchScreen
         private async UniTask ConnectMatchAsync()
         {
             _matchMaker = new RandomMatchMaker();
-            var success = await _matchMaker.TryJoinAsync();
+            var success = await _matchMaker.JoinRoomAsync();
             if (!success) return;
 
             Debug.Log("マッチ成功");
