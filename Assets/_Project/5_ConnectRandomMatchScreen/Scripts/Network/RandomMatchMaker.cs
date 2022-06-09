@@ -9,11 +9,11 @@ using System.Threading;
 
 namespace MT.ConnectRandomMatchScreen
 {
-    public class ConnectRandomMatch : IConnectMatch
+    public class RandomMatchMaker : IMatchMaker
     {
         private CancellationTokenSource _cts;
 
-        public ConnectRandomMatch()
+        public RandomMatchMaker()
         {
             _cts = new CancellationTokenSource();
         }

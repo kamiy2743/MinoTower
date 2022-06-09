@@ -13,13 +13,13 @@ namespace MT.ConnectRandomMatchScreen
         [Space(20)]
         [SerializeField] private SwitchScreenState _toMultiPlayScreenState;
 
-        private IConnectMatch _connectRandomMatch;
+        private IMatchMaker _matchMaker;
 
         public void StaticStart()
         {
             _backButton.AddListener(async () =>
             {
-                await _connectRandomMatch.Disconnect();
+                await _matchMaker.Disconnect();
                 ToNext(_toSelectMatchScreenState);
             });
         }
@@ -28,13 +28,13 @@ namespace MT.ConnectRandomMatchScreen
         {
             _backButton.SetIsListened(true);
 
-            if (_connectRandomMatch != null)
+            if (_matchMaker != null)
             {
-                await _connectRandomMatch.Disconnect();
+                await _matchMaker.Disconnect();
             }
-            _connectRandomMatch = new ConnectRandomMatch();
+            _matchMaker = new RandomMatchMaker();
 
-            var success = await _connectRandomMatch.TryConnect();
+            var success = await _matchMaker.TryConnect();
 
             //TODO 失敗した時の遷移
             if (success)

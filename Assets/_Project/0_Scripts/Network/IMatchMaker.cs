@@ -5,7 +5,7 @@ using Cysharp.Threading.Tasks;
 
 namespace MT
 {
-    public interface IConnectMatch
+    public interface IMatchMaker
     {
         /// <returns>Success</returns>
         UniTask<bool> TryConnect();

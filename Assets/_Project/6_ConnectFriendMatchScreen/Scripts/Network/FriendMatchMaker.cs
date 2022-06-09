@@ -9,11 +9,11 @@ using System.Threading;
 
 namespace MT.ConnectFriendMatchScreen
 {
-    public class FriendMatch
+    public class FriendMatchMaker
     {
         private CancellationTokenSource _cts;
 
-        public FriendMatch()
+        public FriendMatchMaker()
         {
             _cts = new CancellationTokenSource();
         }
