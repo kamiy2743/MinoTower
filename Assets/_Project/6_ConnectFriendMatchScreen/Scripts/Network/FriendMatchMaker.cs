@@ -13,23 +13,21 @@ namespace MT.ConnectFriendMatchScreen
     {
         private CancellationTokenSource _cts;
 
-        public FriendMatchMaker()
-        {
-            _cts = new CancellationTokenSource();
-        }
-
         public async UniTask Disconnect()
         {
-            _cts.Cancel();
+            if (_cts != null)
+            {
+                _cts.Cancel();
+                _cts = null;
+            }
 
             if (PhotonNetwork.InRoom)
             {
+                PhotonNetwork.RemoveRPCs(PhotonNetwork.LocalPlayer);
                 await Pun2TaskNetwork.LeaveRoomAsync();
                 await Pun2TaskCallback.OnConnectedToMasterAsync();
+                Debug.Log("leave");
             }
-
-            PhotonNetwork.RemoveRPCs(PhotonNetwork.LocalPlayer);
-            Debug.Log("leave");
         }
 
         /// <returns>success</returns>
@@ -37,6 +35,7 @@ namespace MT.ConnectFriendMatchScreen
         {
             try
             {
+                _cts = new CancellationTokenSource();
                 var token = _cts.Token;
 
                 if (!PhotonNetwork.IsConnected)
@@ -55,7 +54,15 @@ namespace MT.ConnectFriendMatchScreen
                 if (PhotonNetwork.IsMasterClient)
                 {
                     Debug.Log("一人目");
-                    await Pun2TaskCallback.OnPlayerEnteredRoomAsync();
+                    try
+                    {
+                        await Pun2TaskCallback.OnPlayerEnteredRoomAsync().AttachExternalCancellation(token);
+                    }
+                    catch (System.OperationCanceledException ex)
+                    {
+                        Debug.Log("cancelled");
+                        return false;
+                    }
                 }
                 else
                 {
