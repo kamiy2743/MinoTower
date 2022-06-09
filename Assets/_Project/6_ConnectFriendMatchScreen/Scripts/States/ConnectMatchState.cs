@@ -24,13 +24,9 @@ namespace MT.ConnectFriendMatchScreen
 
         public void StaticStart()
         {
-            _backButton.AddListener(async () =>
+            _backButton.AddListener(() =>
             {
-                if (_matchMaker != null)
-                {
-                    await _matchMaker.Disconnect();
-                }
-                ToNext(_roomSettingState);
+                ToRoomSettingState();
             });
         }
 
@@ -39,42 +35,48 @@ namespace MT.ConnectFriendMatchScreen
             await Fader.Instance.FadeOutAsync(0);
             await _loadingUI.ShowAsync(0);
             await Fader.Instance.FadeInAsync(_fadeDuration);
-
             _backButton.SetIsListened(true);
 
-            var success = await ConnectMatchAsync();
-
-            if (success)
-            {
-                Debug.Log("マッチ成功");
-                ToNext(_toMultiPlayScreenState);
-            }
+            ConnectMatchAsync().Forget();
         }
 
-        private async void ToNext(IState nextState)
-        {
-            _backButton.SetIsListened(false);
-
-            await _loadingUI.HideAsync(_fadeDuration);
-
-            nextState.Enter();
-        }
-
-        /// <returns>success</returns>
-        private async UniTask<bool> ConnectMatchAsync()
+        private async UniTask ConnectMatchAsync()
         {
             var roomName = _tryConnectRoomNameProvider.GetRoomName();
             Debug.Log("RoomName: " + roomName);
 
-            if (_matchMaker != null)
-            {
-                await _matchMaker.Disconnect();
-            }
-
             _matchMaker = new FriendMatchMaker();
             var success = await _matchMaker.TryConnectAsync(roomName);
+            if (!success) return;
 
-            return success;
+            Debug.Log("マッチ成功");
+            ToMultiPlayScreen();
+        }
+
+        private async void ToRoomSettingState()
+        {
+            _backButton.SetIsListened(false);
+
+            var tasks = new List<UniTask>(2);
+
+            tasks.Add(_loadingUI.HideAsync(_fadeDuration));
+
+            if (_matchMaker != null)
+            {
+                tasks.Add(_matchMaker.Disconnect());
+            }
+
+            await UniTask.WhenAll(tasks);
+
+            _roomSettingState.Enter();
+        }
+
+        private async void ToMultiPlayScreen()
+        {
+            _backButton.SetIsListened(false);
+
+            await _loadingUI.HideAsync(_fadeDuration);
+            _toMultiPlayScreenState.Enter();
         }
     }
 }

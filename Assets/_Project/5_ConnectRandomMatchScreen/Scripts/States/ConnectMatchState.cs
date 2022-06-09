@@ -34,8 +34,6 @@ namespace MT.ConnectRandomMatchScreen
         {
             _matchMaker = new RandomMatchMaker();
             var success = await _matchMaker.TryConnectAsync();
-            Debug.Log("success: " + success);
-
             if (!success) return;
 
             Debug.Log("マッチ成功");
