@@ -8,11 +8,11 @@ namespace MT.PlayScreen.Multi
     public class BlockFallState : MonoBehaviour, IState, IStaticAwake
     {
         [SerializeField] private ActiveBlockProvider _activeBlockProvider;
-        [SerializeField] private PlayerTurnProvider _playerTurnProvider;
 
         [Space(20)]
         [SerializeField] private GameObject _nextStateObject;
 
+        private PlayerTurnProvider _playerTurnProvider = new PlayerTurnProvider();
         private IState _nextState;
 
         public void StaticAwake()

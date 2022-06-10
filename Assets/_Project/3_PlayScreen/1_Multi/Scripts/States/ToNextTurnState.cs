@@ -7,11 +7,9 @@ namespace MT.PlayScreen.Multi
 {
     public class ToNextTurnState : MonoBehaviourPunCallbacks, IState, IStaticAwake
     {
-        [SerializeField] private PlayerTurnProvider _playerTurnProvider;
-
-        [Space(20)]
         [SerializeField] private GameObject _nextStateObject;
 
+        private PlayerTurnProvider _playerTurnProvider = new PlayerTurnProvider();
         private IState _nextState;
 
         public void StaticAwake()

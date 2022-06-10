@@ -12,12 +12,12 @@ namespace MT.PlayScreen.Multi
 
         [Header("初期化対象")]
         [SerializeField] private RandomProvider _randomProvider;
-        [SerializeField] private PlayerTurnProvider _playerTurnProvider;
         [SerializeField] private BlockStore _blockStore;
         [SerializeField] private RotateButton _rotateButton;
         [SerializeField] private ScreenScroller _screenScroller;
         [SerializeField] private ResultUI _resultUI;
 
+        private PlayerTurnProvider _playerTurnProvider = new PlayerTurnProvider();
         private IState _nextState;
 
         public void StaticAwake()

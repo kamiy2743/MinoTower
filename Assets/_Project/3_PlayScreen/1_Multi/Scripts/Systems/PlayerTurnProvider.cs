@@ -8,7 +8,7 @@ using MT.Network;
 
 namespace MT.PlayScreen.Multi
 {
-    public class PlayerTurnProvider : MonoBehaviour
+    public class PlayerTurnProvider
     {
         private async UniTask SetIsMasterClientTurnAsync(bool value)
         {

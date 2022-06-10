@@ -8,7 +8,6 @@ namespace MT.PlayScreen.Multi
 {
     public class ResultState : MonoBehaviour, IState, IStaticStart
     {
-        [SerializeField] private PlayerTurnProvider _playerTurnProvider;
         [SerializeField] private TryConnectRoomNameProvider _tryConnectRoomNameProvider;
         [SerializeField] private BlockSynchronizer _blockSynchronizer;
 
@@ -25,6 +24,8 @@ namespace MT.PlayScreen.Multi
         [Space(20)]
         [SerializeField] private CustomButton _exitButton;
         [SerializeField] private SwitchScreenHelper _toTopScreen;
+
+        private PlayerTurnProvider _playerTurnProvider = new PlayerTurnProvider();
 
         public void StaticStart()
         {

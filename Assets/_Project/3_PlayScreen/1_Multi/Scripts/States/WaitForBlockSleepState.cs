@@ -10,7 +10,6 @@ namespace MT.PlayScreen.Multi
     public class WaitForBlockSleepState : MonoBehaviourPunCallbacks, IState, IStaticAwake, IStaticStart
     {
         [SerializeField] private BlockSleepProvider _blockSleepProvider;
-        [SerializeField] private PlayerTurnProvider _playerTurnProvider;
         [SerializeField] private BlockSynchronizer _blockSynchronizer;
 
         [Space(20)]
@@ -22,6 +21,7 @@ namespace MT.PlayScreen.Multi
 
         private IState _defaultNextState;
         private CancellationTokenSource _cts;
+        private PlayerTurnProvider _playerTurnProvider = new PlayerTurnProvider();
 
         public void StaticAwake()
         {

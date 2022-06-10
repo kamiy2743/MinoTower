@@ -8,7 +8,6 @@ namespace MT.PlayScreen.Multi
     public class BlockControllState : MonoBehaviourPunCallbacks, IState, IStaticAwake, IStaticStart
     {
         [SerializeField] private PlayScreenConfig _config;
-        [SerializeField] private PlayerTurnProvider _playerTurnProvider;
 
         [Space(20)]
         [SerializeField] private ActiveBlockProvider _ativeBlockProvider;
@@ -25,6 +24,8 @@ namespace MT.PlayScreen.Multi
 
         private IState _nextState;
         private Block _activeBlock => _ativeBlockProvider.Get();
+
+        private PlayerTurnProvider _playerTurnProvider = new PlayerTurnProvider();
 
         public void StaticAwake()
         {

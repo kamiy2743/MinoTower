@@ -10,8 +10,8 @@ namespace MT
     public class BlockSynchronizer : MonoBehaviourPunCallbacks, IPunObservable, IStaticAwake
     {
         [SerializeField] private BlockStore _blockStore;
-        [SerializeField] private PlayerTurnProvider _playerTurnProvider;
 
+        private PlayerTurnProvider _playerTurnProvider = new PlayerTurnProvider();
         private bool _isSynchronize = false;
 
         public void StaticAwake()
