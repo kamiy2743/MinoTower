@@ -39,8 +39,7 @@ namespace MT.PlayScreen.Single
             PhotonNetwork.OfflineMode = true;
 
             var roomOptions = new RoomOptions();
-            roomOptions.MaxPlayers = 2;
-            roomOptions.IsVisible = false;
+            roomOptions.MaxPlayers = 1;
 
             // ルームへの参加または新規作成
             await Pun2TaskNetwork.JoinOrCreateRoomAsync(
