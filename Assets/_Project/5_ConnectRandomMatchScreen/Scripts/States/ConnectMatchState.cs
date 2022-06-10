@@ -7,12 +7,13 @@ namespace MT.ConnectRandomMatchScreen
 {
     public class ConnectMatchState : MonoBehaviour, IState, IStaticStart
     {
+        [Header("マッチ選択画面に遷移")]
         [SerializeField] private CustomButton _backButton;
-        [SerializeField] private float _fadeOutDuration;
-        [SerializeField] private SwitchScreenState _toSelectMatchScreenState;
+        [SerializeField] private float _closeDuration;
+        [SerializeField] private float _openDuration;
 
         [Space(20)]
-        [SerializeField] private SwitchScreenState _toMultiPlayScreenState;
+        [SerializeField] private SwitchScreenHelper _toMultiPlayScreen;
 
         private RandomMatchMaker _matchMaker;
 
@@ -30,6 +31,11 @@ namespace MT.ConnectRandomMatchScreen
             ConnectMatchAsync().Forget();
         }
 
+        private void OnExit()
+        {
+            _backButton.SetIsListened(false);
+        }
+
         private async UniTask ConnectMatchAsync()
         {
             _matchMaker = new RandomMatchMaker();
@@ -42,11 +48,11 @@ namespace MT.ConnectRandomMatchScreen
 
         private async void ToSelectMatchScreen()
         {
-            _backButton.SetIsListened(false);
+            OnExit();
 
-            var tasks = new List<UniTask>(2);
+            var tasks = new List<UniTask>();
 
-            tasks.Add(Fader.Instance.FadeOutAsync(_fadeOutDuration));
+            tasks.Add(Fader.Instance.FadeOutAsync(_closeDuration));
 
             if (_matchMaker != null)
             {
@@ -55,15 +61,13 @@ namespace MT.ConnectRandomMatchScreen
 
             await UniTask.WhenAll(tasks);
 
-            _toSelectMatchScreenState.Enter();
+            ScreenSwitcher.Instance.Switch(ScreenType.SelectMatch, 0, _openDuration);
         }
 
-        private async void ToMultiPlayScreen()
+        private void ToMultiPlayScreen()
         {
-            _backButton.SetIsListened(false);
-
-            await Fader.Instance.FadeOutAsync(_fadeOutDuration);
-            _toMultiPlayScreenState.Enter();
+            OnExit();
+            _toMultiPlayScreen.Switch();
         }
     }
 }

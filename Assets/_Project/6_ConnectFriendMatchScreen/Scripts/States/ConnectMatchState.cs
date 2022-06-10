@@ -5,10 +5,10 @@ using Cysharp.Threading.Tasks;
 
 namespace MT.ConnectFriendMatchScreen
 {
-    public class ConnectMatchState : MonoBehaviour, IState, IStaticStart
+    public class ConnectMatchState : MonoBehaviour, IStaticStart
     {
         [SerializeField] private LoadingUI _loadingUI;
-        [SerializeField] private float _fadeDuration;
+        [SerializeField] private float _fadeInDuration;
 
         [Space(20)]
         [SerializeField] private TryConnectRoomNameProvider _tryConnectRoomNameProvider;
@@ -16,9 +16,10 @@ namespace MT.ConnectFriendMatchScreen
         [Space(20)]
         [SerializeField] private CustomButton _backButton;
         [SerializeField] private RoomSettingState _roomSettingState;
+        [SerializeField] private float _fadeOutDuration;
 
         [Space(20)]
-        [SerializeField] private SwitchScreenState _toMultiPlayScreenState;
+        [SerializeField] private SwitchScreenHelper _toMultiPlayScreen;
 
         private FriendMatchMaker _matchMaker;
 
@@ -32,12 +33,15 @@ namespace MT.ConnectFriendMatchScreen
 
         public async void Enter()
         {
-            await Fader.Instance.FadeOutAsync(0);
-            await _loadingUI.ShowAsync(0);
-            await Fader.Instance.FadeInAsync(_fadeDuration);
+            await _loadingUI.ShowAsync(_fadeInDuration);
             _backButton.SetIsListened(true);
 
             ConnectMatchAsync().Forget();
+        }
+
+        private void OnExit()
+        {
+            _backButton.SetIsListened(false);
         }
 
         private async UniTask ConnectMatchAsync()
@@ -55,11 +59,11 @@ namespace MT.ConnectFriendMatchScreen
 
         private async void ToRoomSettingState()
         {
-            _backButton.SetIsListened(false);
+            OnExit();
 
-            var tasks = new List<UniTask>(2);
+            var tasks = new List<UniTask>();
 
-            tasks.Add(_loadingUI.HideAsync(_fadeDuration));
+            tasks.Add(_loadingUI.HideAsync(_fadeOutDuration));
 
             if (_matchMaker != null)
             {
@@ -72,12 +76,10 @@ namespace MT.ConnectFriendMatchScreen
             _roomSettingState.Enter();
         }
 
-        private async void ToMultiPlayScreen()
+        private void ToMultiPlayScreen()
         {
-            _backButton.SetIsListened(false);
-
-            await _loadingUI.HideAsync(_fadeDuration);
-            _toMultiPlayScreenState.Enter();
+            OnExit();
+            _toMultiPlayScreen.Switch();
         }
     }
 }

@@ -7,16 +7,29 @@ namespace MT.SelectMatchScreen
 {
     public class CommonScreen : MonoBehaviour, IScreen, IStaticAwake
     {
-        [SerializeField] private GameObject _entryStateObject;
+        [Header("フェードイン前の初期化処理があれば登録(Async版もここに登録)")]
+        [SerializeField] private GameObject _preInitializeStateObject;
+
+        [Space(20)]
         [SerializeField] private ScreenType _screenType;
+        [SerializeField] private GameObject _nextStateObject;
 
         public ScreenType Type => _screenType;
 
-        private IState _entryState;
+        private IPreInitializeState _preInitilizeState;
+        private IPreInitializeStateAsync _preInitializeStateAsync;
+
+        private IState _nextState;
 
         public void StaticAwake()
         {
-            _entryState = _entryStateObject.GetComponent<IState>();
+            if (_preInitializeStateObject != null)
+            {
+                _preInitilizeState = _preInitializeStateObject.GetComponent<IPreInitializeState>();
+                _preInitializeStateAsync = _preInitializeStateObject.GetComponent<IPreInitializeStateAsync>();
+            }
+
+            _nextState = _nextStateObject.GetComponent<IState>();
         }
 
         public async UniTask OpenAsync(float duration)
@@ -25,9 +38,10 @@ namespace MT.SelectMatchScreen
 
             gameObject.SetActive(true);
             await Fader.Instance.FadeOutAsync(0);
-            await Fader.Instance.FadeInAsync(duration);
+            await PreInitializeState();
 
-            _entryState.Enter();
+            await Fader.Instance.FadeInAsync(duration);
+            _nextState.Enter();
         }
 
         public async UniTask CloseAsync(float duration)
@@ -36,6 +50,18 @@ namespace MT.SelectMatchScreen
 
             await Fader.Instance.FadeOutAsync(duration);
             gameObject.SetActive(false);
+        }
+
+        private async UniTask PreInitializeState()
+        {
+            if (_preInitilizeState != null)
+            {
+                _preInitilizeState.Enter();
+            }
+            if (_preInitializeStateAsync != null)
+            {
+                await _preInitializeStateAsync.Enter();
+            }
         }
     }
 }

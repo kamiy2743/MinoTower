@@ -8,31 +8,31 @@ namespace MT.SelectMatchScreen
     {
         [Space(20)]
         [SerializeField] private CustomButton _randomMatchButton;
-        [SerializeField] private SwitchScreenState _toConnectRadnomMatchScreenState;
+        [SerializeField] private SwitchScreenHelper _toConnectRadnomMatchScreen;
 
         [Space(20)]
         [SerializeField] private CustomButton _friendMatchButton;
-        [SerializeField] private SwitchScreenState _toConnectFriendMatchScreenState;
+        [SerializeField] private SwitchScreenHelper _toConnectFriendMatchScreen;
 
         [Space(20)]
         [SerializeField] private CustomButton _toTopButton;
-        [SerializeField] private SwitchScreenState _toTopScreenState;
+        [SerializeField] private SwitchScreenHelper _toTopScreen;
 
         public void StaticStart()
         {
             _randomMatchButton.AddListener(() =>
             {
-                ToNext(_toConnectRadnomMatchScreenState);
+                SwitchScreen(_toConnectRadnomMatchScreen);
             });
 
             _friendMatchButton.AddListener(() =>
             {
-                ToNext(_toConnectFriendMatchScreenState);
+                SwitchScreen(_toConnectFriendMatchScreen);
             });
 
             _toTopButton.AddListener(() =>
             {
-                ToNext(_toTopScreenState);
+                SwitchScreen(_toTopScreen);
             });
         }
 
@@ -43,13 +43,13 @@ namespace MT.SelectMatchScreen
             _toTopButton.SetIsListened(true);
         }
 
-        private void ToNext(IState nextState)
+        private void SwitchScreen(SwitchScreenHelper switchScreenHelper)
         {
             _randomMatchButton.SetIsListened(false);
             _friendMatchButton.SetIsListened(false);
             _toTopButton.SetIsListened(false);
 
-            nextState.Enter();
+            switchScreenHelper.Switch();
         }
     }
 }

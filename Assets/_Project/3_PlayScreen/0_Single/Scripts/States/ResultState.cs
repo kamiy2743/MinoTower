@@ -24,18 +24,18 @@ namespace MT.PlayScreen.Single
 
         [Space(20)]
         [SerializeField] private CustomButton _exitButton;
-        [SerializeField] private SwitchScreenState _toTopScreenState;
+        [SerializeField] private SwitchScreenHelper _toTopScreen;
 
         public void StaticStart()
         {
             _continueButton.AddListener(() =>
             {
-                ToNext(_continueState);
+                ToContinueState();
             });
 
             _exitButton.AddListener(() =>
             {
-                ToNext(_toTopScreenState);
+                ToTopScreen();
             });
         }
 
@@ -48,12 +48,22 @@ namespace MT.PlayScreen.Single
             PlayResultEffect();
         }
 
-        private void ToNext(IState nextState)
+        private void OnExit()
         {
             _continueButton.SetIsListened(false);
             _exitButton.SetIsListened(false);
+        }
 
-            nextState.Enter();
+        private void ToContinueState()
+        {
+            OnExit();
+            _continueState.Enter();
+        }
+
+        private void ToTopScreen()
+        {
+            OnExit();
+            _toTopScreen.Switch();
         }
 
         private async void ShowResultUIAsync()

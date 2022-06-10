@@ -6,12 +6,12 @@ namespace MT.PlayScreen.Single
 {
     public class ContinueState : MonoBehaviour, IState
     {
-        [SerializeField] private float _fadeDuration;
+        [SerializeField] private float _fadeOutDuration;
         [SerializeField] private EntryState _entryState;
 
         public async void Enter()
         {
-            await Fader.Instance.FadeOutAsync(_fadeDuration);
+            await Fader.Instance.FadeOutAsync(_fadeOutDuration);
             _entryState.Enter();
         }
     }

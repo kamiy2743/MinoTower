@@ -28,10 +28,10 @@ namespace MT
 
         public void Initialize()
         {
-            SwitchAsync(_firstOpenScreen, 0, 0).Forget();
+            Switch(_firstOpenScreen, 0, 0);
         }
 
-        public async UniTask SwitchAsync(ScreenType type, float openDuration, float closeDuration)
+        public async void Switch(ScreenType type, float closeDuration, float openDuration)
         {
             var tasks = new List<UniTask>();
             foreach (var screen in _screenDic.Values)

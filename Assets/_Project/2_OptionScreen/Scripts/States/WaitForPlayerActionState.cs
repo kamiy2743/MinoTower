@@ -11,13 +11,13 @@ namespace MT.OptionScreen
         [SerializeField] private CustomButton _backButton;
 
         [Space(20)]
-        [SerializeField] private SwitchScreenState _toTopScreenState;
+        [SerializeField] private SwitchScreenHelper _toTopScreen;
 
         public void StaticStart()
         {
             _backButton.AddListener(() =>
             {
-                ToNext();
+                SwitchScreen();
             });
         }
 
@@ -28,12 +28,13 @@ namespace MT.OptionScreen
             _backButton.SetIsListened(true);
         }
 
-        private void ToNext()
+        private void SwitchScreen()
         {
             _BGMSlider.SetIsListened(false);
             _SESlider.SetIsListened(false);
             _backButton.SetIsListened(false);
-            _toTopScreenState.Enter();
+
+            _toTopScreen.Switch();
         }
     }
 }

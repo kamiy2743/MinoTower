@@ -7,31 +7,31 @@ namespace MT.TopScreen
     public class WaitForPlayerActionState : MonoBehaviour, IState, IStaticStart
     {
         [SerializeField] private CustomButton _singlePlayButton;
-        [SerializeField] private SwitchScreenState _toSinglePlayScreenState;
+        [SerializeField] private SwitchScreenHelper _toSinglePlayScreen;
 
         [Space(20)]
         [SerializeField] private CustomButton _multiPlayButton;
-        [SerializeField] private SwitchScreenState _toSelectMatchScreenState;
+        [SerializeField] private SwitchScreenHelper _toSelectMatchScreen;
 
         [Space(20)]
         [SerializeField] private CustomButton _optionButton;
-        [SerializeField] private SwitchScreenState _toOptionScreenState;
+        [SerializeField] private SwitchScreenHelper _toOptionScreen;
 
         public void StaticStart()
         {
             _singlePlayButton.AddListener(() =>
             {
-                ToNext(_toSinglePlayScreenState);
+                SwitchScreen(_toSinglePlayScreen);
             });
 
             _multiPlayButton.AddListener(() =>
             {
-                ToNext(_toSelectMatchScreenState);
+                SwitchScreen(_toSelectMatchScreen);
             });
 
             _optionButton.AddListener(() =>
             {
-                ToNext(_toOptionScreenState);
+                SwitchScreen(_toOptionScreen);
             });
         }
 
@@ -42,13 +42,13 @@ namespace MT.TopScreen
             _optionButton.SetIsListened(true);
         }
 
-        private void ToNext(IState nextState)
+        private void SwitchScreen(SwitchScreenHelper switchScreenHelper)
         {
             _singlePlayButton.SetIsListened(false);
             _multiPlayButton.SetIsListened(false);
             _optionButton.SetIsListened(false);
 
-            nextState.Enter();
+            switchScreenHelper.Switch();
         }
     }
 }

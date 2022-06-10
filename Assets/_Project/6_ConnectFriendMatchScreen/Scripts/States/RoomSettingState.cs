@@ -4,64 +4,73 @@ using UnityEngine;
 
 namespace MT.ConnectFriendMatchScreen
 {
-    public class RoomSettingState : MonoBehaviour, IState, IStaticStart
+    public class RoomSettingState : MonoBehaviour, IStaticStart
     {
         [SerializeField] private RoomSettingUI _roomSettingUI;
-        [SerializeField] private float _fadeDuration;
+        [SerializeField] private float _fadeInDuration;
 
         [Space(20)]
         [SerializeField] private CustomInput _roomNameInput;
         [SerializeField] private TryConnectRoomNameProvider _tryConnectRoomNameProvider;
         [SerializeField] private CustomButton _decideButton;
         [SerializeField] private ConnectMatchState _connectMatchState;
+        [SerializeField] private float _fadeOutDuration;
 
         [Space(20)]
         [SerializeField] private CustomButton _backButton;
-        [SerializeField] private SwitchScreenState _toSelectMatchScreenState;
+        [SerializeField] private SwitchScreenHelper _toSelectMatchScreen;
 
         public void StaticStart()
         {
             _decideButton.AddListener(() =>
             {
-                OnDecidedButton();
+                var success = SetRoomName();
+                if (success) ToConnectMatchState();
             });
 
             _backButton.AddListener(() =>
             {
-                ToNext(_toSelectMatchScreenState);
+                ToSelectMatchScreen();
             });
         }
 
         public async void Enter()
         {
-            await Fader.Instance.FadeOutAsync(0);
-            await _roomSettingUI.ShowAsync(0);
-            await Fader.Instance.FadeInAsync(_fadeDuration);
+            await _roomSettingUI.ShowAsync(_fadeInDuration);
 
             _decideButton.SetIsListened(true);
             _backButton.SetIsListened(true);
         }
 
-        private void ToNext(IState nextState)
+        private void OnExit()
         {
             _decideButton.SetIsListened(false);
             _backButton.SetIsListened(false);
-
-            nextState.Enter();
         }
 
-        private async void OnDecidedButton()
+        /// <returns>Success</returns>
+        private bool SetRoomName()
         {
             if (_roomNameInput.IsEmpty())
             {
-                return;
+                return false;
             }
 
             _tryConnectRoomNameProvider.SetRoomName(_roomNameInput.Text);
+            return true;
+        }
 
-            await _roomSettingUI.HideAsync(_fadeDuration);
+        private async void ToConnectMatchState()
+        {
+            OnExit();
+            await _roomSettingUI.HideAsync(_fadeOutDuration);
+            _connectMatchState.Enter();
+        }
 
-            ToNext(_connectMatchState);
+        private void ToSelectMatchScreen()
+        {
+            OnExit();
+            _toSelectMatchScreen.Switch();
         }
     }
 }
