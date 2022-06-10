@@ -889,6 +889,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6448018567778616048, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6834319516405777486, guid: c4421cc4708f41a499934963bbd83ff4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -1102,6 +1106,10 @@ PrefabInstance:
     - target: {fileID: 3940982562635026737, guid: d658167eed936f548bc4d576e1f4957d, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370840649961738959, guid: d658167eed936f548bc4d576e1f4957d, type: 3}
+      propertyPath: sceneViewId
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5585935084767954597, guid: d658167eed936f548bc4d576e1f4957d, type: 3}
       propertyPath: m_SizeDelta.x
