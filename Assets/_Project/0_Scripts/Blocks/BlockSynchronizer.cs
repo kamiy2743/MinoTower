@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using MSLIMA.Serializer;
-using MT.PlayScreen.Multi;
+using MT.PlayScreen;
 
 namespace MT
 {
