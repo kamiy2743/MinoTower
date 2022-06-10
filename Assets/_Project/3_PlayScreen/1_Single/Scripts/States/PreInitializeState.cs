@@ -22,7 +22,7 @@ namespace MT.PlayScreen.Single
 
         public void Enter()
         {
-            PhotonUtil.SetOfflineMode(true);
+            PhotonUtil.OfflineMode();
 
             _randomProvider.RandomForBlock = new CustomRandom();
             _sessionData.Initialize();

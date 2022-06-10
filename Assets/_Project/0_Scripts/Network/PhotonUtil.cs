@@ -10,30 +10,27 @@ namespace MT
 {
     public static class PhotonUtil
     {
-        public static void SetOfflineMode(bool value)
+        public static void OfflineMode()
         {
-            if (value)
+            if (PhotonNetwork.IsConnected)
             {
-                if (PhotonNetwork.IsConnected)
-                {
-                    PhotonNetwork.Disconnect();
-                }
-
-                PhotonNetwork.OfflineMode = true;
-
-                var roomOptions = new RoomOptions();
-                roomOptions.MaxPlayers = 1;
-
-                // ルームへの参加または新規作成
-                PhotonNetwork.JoinOrCreateRoom(
-                    roomName: "",
-                    roomOptions: roomOptions,
-                    typedLobby: default);
+                PhotonNetwork.Disconnect();
             }
-            else
-            {
-                PhotonNetwork.OfflineMode = false;
-            }
+
+            PhotonNetwork.OfflineMode = true;
+
+            var roomOptions = new RoomOptions();
+            roomOptions.MaxPlayers = 1;
+
+            PhotonNetwork.CreateRoom(
+                roomName: "",
+                roomOptions: roomOptions,
+                typedLobby: default);
+        }
+
+        public static void OnlineMode()
+        {
+            PhotonNetwork.OfflineMode = false;
         }
 
         public static async UniTask LeaveRoomAsync()

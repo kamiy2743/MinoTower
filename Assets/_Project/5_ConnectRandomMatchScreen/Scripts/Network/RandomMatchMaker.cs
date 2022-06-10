@@ -38,6 +38,8 @@ namespace MT.ConnectRandomMatchScreen
                     await Pun2TaskNetwork.ConnectUsingSettingsAsync(token);
                 }
 
+                PhotonUtil.OnlineMode();
+
                 var success = await JoinRandomOrCreateRoom(token);
 
                 if (!success)
