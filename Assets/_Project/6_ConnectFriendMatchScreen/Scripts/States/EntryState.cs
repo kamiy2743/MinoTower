@@ -18,9 +18,8 @@ namespace MT.ConnectFriendMatchScreen
         [SerializeField] private RoomSettingUI _roomSettingUI;
         [SerializeField] private LoadingUI _loadingUI;
 
-        public async void Enter()
+        public void Enter()
         {
-            await Fader.Instance.FadeOutAsync(0);
             Initialize();
 
             if (_tryConnectRoomNameProvider.IsEmpty())

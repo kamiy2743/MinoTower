@@ -1,9 +1,11 @@
+using Cysharp.Threading.Tasks;
+
 namespace MT
 {
     public interface IScreen
     {
         ScreenType Type { get; }
-        void Open();
-        void CloseAsync();
+        UniTask OpenAsync(float duration);
+        UniTask CloseAsync(float duration);
     }
 }

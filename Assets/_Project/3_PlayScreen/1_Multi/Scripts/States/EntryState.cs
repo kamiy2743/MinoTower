@@ -8,7 +8,6 @@ namespace MT.PlayScreen.Multi
 {
     public class EntryState : MonoBehaviourPunCallbacks, IState, IStaticAwake
     {
-        [SerializeField] private float _fadeInDuration;
         [SerializeField] private GameObject _nextStateObject;
 
         [Header("初期化対象")]
@@ -28,7 +27,6 @@ namespace MT.PlayScreen.Multi
 
         public async void Enter()
         {
-            await Fader.Instance.FadeOutAsync(0);
             await InitializeAsync();
 
             if (PhotonNetwork.IsMasterClient)
@@ -38,9 +36,8 @@ namespace MT.PlayScreen.Multi
         }
 
         [PunRPC]
-        private async void ToNext()
+        private void ToNext()
         {
-            await Fader.Instance.FadeInAsync(_fadeInDuration);
             _nextState.Enter();
         }
 

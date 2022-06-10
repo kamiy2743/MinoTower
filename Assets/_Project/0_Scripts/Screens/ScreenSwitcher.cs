@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cysharp.Threading.Tasks;
 
 namespace MT
 {
@@ -27,22 +28,19 @@ namespace MT
 
         public void Initialize()
         {
-            Switch(_firstOpenScreen);
+            SwitchAsync(_firstOpenScreen, 0, 0).Forget();
         }
 
-        public void Switch(ScreenType type)
+        public async UniTask SwitchAsync(ScreenType type, float openDuration, float closeDuration)
         {
+            var tasks = new List<UniTask>();
             foreach (var screen in _screenDic.Values)
             {
-                if (screen.Type == type)
-                {
-                    screen.Open();
-                }
-                else
-                {
-                    screen.CloseAsync();
-                }
+                tasks.Add(screen.CloseAsync(closeDuration));
             }
+            await UniTask.WhenAll(tasks);
+
+            await _screenDic[type].OpenAsync(openDuration);
         }
     }
 }

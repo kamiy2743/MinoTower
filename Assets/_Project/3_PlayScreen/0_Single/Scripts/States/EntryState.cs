@@ -7,7 +7,6 @@ namespace MT.PlayScreen.Single
 {
     public class EntryState : MonoBehaviour, IState, IStaticAwake
     {
-        [SerializeField] private float _fadeInDuration;
         [SerializeField] private GameObject _nextStateObject;
 
         [Header("初期化対象")]
@@ -26,12 +25,9 @@ namespace MT.PlayScreen.Single
             _nextState = _nextStateObject.GetComponent<IState>();
         }
 
-        public async void Enter()
+        public void Enter()
         {
-            await Fader.Instance.FadeOutAsync(0);
             Initialize();
-
-            await Fader.Instance.FadeInAsync(_fadeInDuration);
             _nextState.Enter();
         }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cysharp.Threading.Tasks;
 
 namespace MT.SelectMatchScreen
 {
@@ -18,18 +19,22 @@ namespace MT.SelectMatchScreen
             _entryState = _entryStateObject.GetComponent<IState>();
         }
 
-        public void Open()
+        public async UniTask OpenAsync(float duration)
         {
             if (gameObject.activeSelf) return;
 
             gameObject.SetActive(true);
+            await Fader.Instance.FadeOutAsync(0);
+            await Fader.Instance.FadeInAsync(duration);
+
             _entryState.Enter();
         }
 
-        public void CloseAsync()
+        public async UniTask CloseAsync(float duration)
         {
             if (!gameObject.activeSelf) return;
 
+            await Fader.Instance.FadeOutAsync(duration);
             gameObject.SetActive(false);
         }
     }

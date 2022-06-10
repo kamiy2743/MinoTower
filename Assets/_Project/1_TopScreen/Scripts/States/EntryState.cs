@@ -6,7 +6,6 @@ namespace MT.TopScreen
 {
     public class EntryState : MonoBehaviour, IState, IStaticAwake
     {
-        [SerializeField] private float _fadeInDuration;
         [SerializeField] private GameObject _nextStateObject;
 
         private IState _nextState;
@@ -16,10 +15,8 @@ namespace MT.TopScreen
             _nextState = _nextStateObject.GetComponent<IState>();
         }
 
-        public async void Enter()
+        public void Enter()
         {
-            await Fader.Instance.FadeOutAsync(0);
-            await Fader.Instance.FadeInAsync(_fadeInDuration);
             _nextState.Enter();
         }
     }
