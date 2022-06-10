@@ -34,18 +34,9 @@ namespace MT.PlayScreen.Single
             _nextState.Enter();
         }
 
-        private async void Initialize()
+        private void Initialize()
         {
-            PhotonNetwork.OfflineMode = true;
-
-            var roomOptions = new RoomOptions();
-            roomOptions.MaxPlayers = 1;
-
-            // ルームへの参加または新規作成
-            await Pun2TaskNetwork.JoinOrCreateRoomAsync(
-                roomName: "",
-                roomOptions: roomOptions,
-                typedLobby: default);
+            PhotonUtil.SetOfflineMode(true);
 
             _randomProvider.RandomForBlock = new CustomRandom();
             _sessionData.Initialize();

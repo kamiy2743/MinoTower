@@ -11,7 +11,7 @@ namespace MT.PlayScreen.Single
 
         public async void Enter()
         {
-            await Fader.Instance.FadeOutAsync(_fadeOutDuration);
+            // await Fader.Instance.FadeOutAsync(_fadeOutDuration);
             _entryState.Enter();
         }
     }
