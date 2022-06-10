@@ -6,12 +6,11 @@ using Photon.Pun;
 using Pun2Task;
 using Photon.Realtime;
 
+
 namespace MT.PlayScreen.Single
 {
-    public class EntryState : MonoBehaviour, IState, IStaticAwake
+    public class PreInitializeState : MonoBehaviour, IPreInitializeState
     {
-        [SerializeField] private GameObject _nextStateObject;
-
         [Header("初期化対象")]
         [SerializeField] private RandomProvider _randomProvider;
         [SerializeField] private SessionData _sessionData;
@@ -21,20 +20,7 @@ namespace MT.PlayScreen.Single
         [SerializeField] private ScreenScroller _screenScroller;
         [SerializeField] private ResultEffect _resultEffect;
 
-        private IState _nextState;
-
-        public void StaticAwake()
-        {
-            _nextState = _nextStateObject.GetComponent<IState>();
-        }
-
         public void Enter()
-        {
-            Initialize();
-            _nextState.Enter();
-        }
-
-        private void Initialize()
         {
             PhotonUtil.SetOfflineMode(true);
 
