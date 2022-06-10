@@ -68,6 +68,7 @@ namespace MT.ConnectFriendMatchScreen
 
             await UniTask.WhenAll(tasks);
 
+            _tryConnectRoomNameProvider.SetEmpty();
             _roomSettingState.Enter();
         }
 
