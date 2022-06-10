@@ -39,13 +39,13 @@ namespace MT.PlayScreen.Single
             });
         }
 
-        public void Enter()
+        public async void Enter()
         {
+            PlayResultEffect();
+            await ShowResultUIAsync();
+
             _continueButton.SetIsListened(true);
             _exitButton.SetIsListened(true);
-
-            ShowResultUIAsync();
-            PlayResultEffect();
         }
 
         private void OnExit()
@@ -66,7 +66,7 @@ namespace MT.PlayScreen.Single
             _toTopScreen.Switch();
         }
 
-        private async void ShowResultUIAsync()
+        private async UniTask ShowResultUIAsync()
         {
             _resultUI.SetMaxHeightText(_sessionData.MaxHeight.value);
 
