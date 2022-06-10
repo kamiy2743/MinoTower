@@ -5,7 +5,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using Photon.Pun;
 
-namespace MT.PlayScreen.Multi
+namespace MT.PlayScreen
 {
     public class WaitForBlockSleepState : MonoBehaviourPunCallbacks, IState, IStaticAwake, IStaticStart
     {
@@ -17,15 +17,17 @@ namespace MT.PlayScreen.Multi
 
         [Space(20)]
         [SerializeField] private GameOverArea _gameOverArea;
-        [SerializeField] private ResultState _resultState;
+        [SerializeField] private GameObject _resultStateObject;
 
         private IState _defaultNextState;
+        private IState _resultState;
         private CancellationTokenSource _cts;
         private PlayerTurnProvider _playerTurnProvider = new PlayerTurnProvider();
 
         public void StaticAwake()
         {
             _defaultNextState = _defaultNextStateObject.GetComponent<IState>();
+            _resultState = _resultStateObject.GetComponent<IState>();
         }
 
         public void StaticStart()
@@ -68,7 +70,8 @@ namespace MT.PlayScreen.Multi
 
         private void ToNext(IState nextState)
         {
-            _blockSynchronizer.SetIsSynchronize(false);
+            _blockSynchronizer?.SetIsSynchronize(false);
+
             _gameOverArea.SetIsListened(false);
             nextState.Enter();
         }
