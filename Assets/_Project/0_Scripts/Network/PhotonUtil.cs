@@ -4,11 +4,38 @@ using UnityEngine;
 using Cysharp.Threading.Tasks;
 using Pun2Task;
 using Photon.Pun;
+using Photon.Realtime;
 
 namespace MT
 {
     public static class PhotonUtil
     {
+        public static void SetOfflineMode(bool value)
+        {
+            if (value)
+            {
+                if (PhotonNetwork.IsConnected)
+                {
+                    PhotonNetwork.Disconnect();
+                }
+
+                PhotonNetwork.OfflineMode = true;
+
+                var roomOptions = new RoomOptions();
+                roomOptions.MaxPlayers = 1;
+
+                // ルームへの参加または新規作成
+                PhotonNetwork.JoinOrCreateRoom(
+                    roomName: "",
+                    roomOptions: roomOptions,
+                    typedLobby: default);
+            }
+            else
+            {
+                PhotonNetwork.OfflineMode = false;
+            }
+        }
+
         public static async UniTask LeaveRoomAsync()
         {
             if (!PhotonNetwork.InRoom)
@@ -17,9 +44,17 @@ namespace MT
                 return;
             }
 
-            PhotonNetwork.RemoveRPCs(PhotonNetwork.LocalPlayer);
-            await Pun2TaskNetwork.LeaveRoomAsync();
-            await Pun2TaskCallback.OnConnectedToMasterAsync();
+            if (!PhotonNetwork.OfflineMode)
+            {
+                PhotonNetwork.RemoveRPCs(PhotonNetwork.LocalPlayer);
+                await Pun2TaskNetwork.LeaveRoomAsync();
+                await Pun2TaskCallback.OnConnectedToMasterAsync();
+            }
+            else
+            {
+                PhotonNetwork.LeaveRoom();
+            }
+
             Debug.Log("leave");
         }
     }
