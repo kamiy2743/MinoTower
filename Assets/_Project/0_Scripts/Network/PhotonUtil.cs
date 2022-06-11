@@ -21,14 +21,7 @@ namespace MT
             }
 
             PhotonNetwork.OfflineMode = true;
-
-            var roomOptions = new RoomOptions();
-            roomOptions.MaxPlayers = 1;
-
-            PhotonNetwork.CreateRoom(
-                roomName: "",
-                roomOptions: roomOptions,
-                typedLobby: default);
+            PhotonNetwork.JoinRoom("");
         }
 
         /// <returns>Success</returns>
