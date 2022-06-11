@@ -7,14 +7,16 @@ namespace MT
 {
     public class CurrentMatchTypeAccessor
     {
-        public async UniTask SetAsync(MatchType type)
+        private static MatchType _type = MatchType.None;
+
+        public void Set(MatchType type)
         {
-            await PropertyAccessor.Instance.SetAsync<MatchType>(PropertyType.Player, PropertyKey.CurrentMatchType, type);
+            _type = type;
         }
 
         public MatchType Get()
         {
-            return PropertyAccessor.Instance.Get<MatchType>(PropertyType.Player, PropertyKey.CurrentMatchType);
+            return _type;
         }
     }
 }

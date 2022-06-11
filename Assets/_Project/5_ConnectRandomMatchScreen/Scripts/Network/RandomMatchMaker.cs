@@ -36,7 +36,7 @@ namespace MT.ConnectRandomMatchScreen
 
             if (!await PhotonUtil.WaitForOtherPlayerAsync(token)) return false;
 
-            await new CurrentMatchTypeAccessor().SetAsync(MatchType.Random);
+            new CurrentMatchTypeAccessor().Set(MatchType.Random);
 
             return true;
         }

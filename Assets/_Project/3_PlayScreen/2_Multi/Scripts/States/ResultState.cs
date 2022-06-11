@@ -41,14 +41,15 @@ namespace MT.PlayScreen.Multi
             });
         }
 
-        public void Enter()
+        public async void Enter()
         {
             _blockSynchronizer.SetIsSynchronize(false);
+            ShowResultUIAsync().Forget();
+
+            await PhotonUtil.DisconnectAsync();
 
             _continueButton.SetIsListened(true);
             _exitButton.SetIsListened(true);
-
-            ShowResultUIAsync().Forget();
         }
 
         private void OnExit()
@@ -57,20 +58,17 @@ namespace MT.PlayScreen.Multi
             _exitButton.SetIsListened(false);
         }
 
-        private async void ToContinueState()
+        private void ToContinueState()
         {
             OnExit();
-            await PhotonUtil.DisconnectAsync();
             _continueState.Enter();
         }
 
-        private async void ToTopScreen()
+        private void ToTopScreen()
         {
             OnExit();
-
-            await _currentMatchTypeAccessor.SetAsync(MatchType.None);
+            _currentMatchTypeAccessor.Set(MatchType.None);
             _friendMatchRoomNameAccessor.SetEmpty();
-            await PhotonUtil.DisconnectAsync();
 
             _toTopScreen.Switch();
         }
