@@ -306,9 +306,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7b1539237fd4c84f9343afb20a4f21a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _preInitializeStateObject: {fileID: 0}
+  _preInitializeStateObject: {fileID: 4127906349248151982}
   _screenType: 3
-  _nextStateObject: {fileID: 4127906349248151982}
+  _nextStateObject: {fileID: 2315437842352240899}
 --- !u!1 &4127906349248151982
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,10 +318,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5836118103102108661}
-  - component: {fileID: 3844510900952161756}
+  - component: {fileID: 1619526126764803108}
   - component: {fileID: 8065595451924579874}
   m_Layer: 0
-  m_Name: EntryState
+  m_Name: PreInitializeState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -342,7 +342,7 @@ Transform:
   m_Father: {fileID: 3073961761636262735}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3844510900952161756
+--- !u!114 &1619526126764803108
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -351,10 +351,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4127906349248151982}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 061829be99dccaf4c8f5438ca7f72244, type: 3}
+  m_Script: {fileID: 11500000, guid: 11c1b9020b819454c8e5667eb00728b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextStateObject: {fileID: 2315437842352240899}
   _randomProvider: {fileID: 1755794748361840688}
   _blockStore: {fileID: 326775941364172861}
   _rotateButton: {fileID: 5219997247795198278}
