@@ -31,14 +31,31 @@ namespace MT
                 typedLobby: default);
         }
 
-        public static async UniTask ConnectAsync(CancellationToken token)
+        /// <returns>Success</returns>
+        public static async UniTask<bool> ConnectAsync(CancellationToken token)
         {
             if (PhotonNetwork.OfflineMode)
             {
                 PhotonNetwork.OfflineMode = false;
             }
 
-            await Pun2TaskNetwork.ConnectUsingSettingsAsync(token);
+            try
+            {
+                await Pun2TaskNetwork.ConnectUsingSettingsAsync(token);
+                return true;
+            }
+            catch (Pun2TaskNetwork.ConnectionFailedException ex)
+            {
+                // サーバに接続できなかった
+                Debug.Log("サーバに接続できなかった");
+                Debug.LogError(ex);
+            }
+            catch (System.OperationCanceledException e)
+            {
+                Debug.Log("connect cancelled");
+            }
+
+            return false;
         }
 
         public static async UniTask LeaveRoomAsync()
@@ -61,6 +78,29 @@ namespace MT
             }
 
             Debug.Log("leave");
+        }
+
+        /// <returns>Success</returns>
+        public static async UniTask<bool> WaitForOtherPlayerAsync(CancellationToken token)
+        {
+            if (!PhotonNetwork.IsMasterClient)
+            {
+                Debug.Log("二人目");
+                return true;
+            }
+
+            Debug.Log("一人目");
+            try
+            {
+                await Pun2TaskCallback.OnPlayerEnteredRoomAsync().AttachExternalCancellation(token);
+                return true;
+            }
+            catch (System.OperationCanceledException ex)
+            {
+                Debug.Log("wait for other player cancelled");
+            }
+
+            return false;
         }
     }
 }

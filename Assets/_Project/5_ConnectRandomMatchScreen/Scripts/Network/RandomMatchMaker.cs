@@ -27,56 +27,20 @@ namespace MT.ConnectRandomMatchScreen
         /// <returns>Success</returns>
         public async UniTask<bool> JoinRoomAsync()
         {
-            try
-            {
-                _cts = new CancellationTokenSource();
-                var token = _cts.Token;
+            _cts = new CancellationTokenSource();
+            var token = _cts.Token;
 
-                await PhotonUtil.ConnectAsync(token);
+            if (!await PhotonUtil.ConnectAsync(token)) return false;
 
-                var success = await JoinRandomOrCreateRoom(token);
+            if (!await JoinRandomOrCreateRoomAsync(token)) return false;
 
-                if (!success)
-                {
-                    return false;
-                }
+            if (!await PhotonUtil.WaitForOtherPlayerAsync(token)) return false;
 
-                if (PhotonNetwork.IsMasterClient)
-                {
-                    Debug.Log("一人目");
-                    try
-                    {
-                        await Pun2TaskCallback.OnPlayerEnteredRoomAsync().AttachExternalCancellation(token);
-                    }
-                    catch (System.OperationCanceledException ex)
-                    {
-                        Debug.Log("cancelled");
-                        return false;
-                    }
-                }
-                else
-                {
-                    Debug.Log("二人目");
-                }
-
-                return true;
-            }
-            catch (Pun2TaskNetwork.ConnectionFailedException ex)
-            {
-                // サーバに接続できなかった
-                Debug.Log("サーバに接続できなかった");
-                Debug.LogError(ex);
-            }
-            catch (System.OperationCanceledException ex)
-            {
-                Debug.Log("cancelled");
-            }
-
-            return false;
+            return true;
         }
 
         /// <returns>Success</returns>
-        private async UniTask<bool> JoinRandomOrCreateRoom(CancellationToken token)
+        private async UniTask<bool> JoinRandomOrCreateRoomAsync(CancellationToken token)
         {
             try
             {
@@ -98,7 +62,7 @@ namespace MT.ConnectRandomMatchScreen
             }
             catch (System.OperationCanceledException ex)
             {
-                Debug.Log("cancelled");
+                Debug.Log("join random room cancelled");
             }
 
             return false;
@@ -129,7 +93,7 @@ namespace MT.ConnectRandomMatchScreen
             }
             catch (System.OperationCanceledException ex)
             {
-                Debug.Log("cancelled");
+                Debug.Log("create room cancelled");
             }
 
             return false;
