@@ -54,7 +54,15 @@ namespace MT
         public static async UniTask DisconnectAsync()
         {
             await LeaveRoomAsync();
-            await Pun2TaskNetwork.DisconnectAsync();
+
+            if (PhotonNetwork.OfflineMode)
+            {
+                PhotonNetwork.Disconnect();
+            }
+            else
+            {
+                await Pun2TaskNetwork.DisconnectAsync();
+            }
         }
 
         private static async UniTask LeaveRoomAsync()
