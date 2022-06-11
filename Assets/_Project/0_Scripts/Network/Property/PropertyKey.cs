@@ -1,4 +1,4 @@
-namespace MT.Network
+namespace MT
 {
     public enum PropertyKey
     {

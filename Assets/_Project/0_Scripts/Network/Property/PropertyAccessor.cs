@@ -6,7 +6,7 @@ using Photon.Realtime;
 using UniRx;
 using Cysharp.Threading.Tasks;
 
-namespace MT.Network
+namespace MT
 {
     public class PropertyAccessor : MonoBehaviourPunCallbacks, IStaticAwake
     {
