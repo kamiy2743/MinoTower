@@ -75,13 +75,31 @@ namespace MT.PlayScreen.Multi
 
         private async UniTask ShowResultUIAsync()
         {
-            _resultUI.SetWinOrLoseText(!_playerTurnAccessor.IsMyTurn());
-            _resultUI.SetTotalResultText(1, 5);
+            var roomName = _friendMatchRoomNameAccessor.Get();
+            var win = !_playerTurnAccessor.IsMyTurn();
+            var (winCount, loseCount) = AddResult(roomName, win);
+
+            _resultUI.SetWinOrLoseText(win);
+            _resultUI.SetTotalResultText(winCount, loseCount);
 
             await UniTask.WhenAll(
                 _resultUI.ShowAsync(_resultUIFadeInDuration),
                 _rotateButton.HideAsync(_rotateButtonFadeOutDuration)
             );
+        }
+
+        /// <returns>wincount, loseCount</returns>
+        private (int, int) AddResult(string roomName, bool win)
+        {
+            var winKey = roomName + ":win";
+            var winCount = SaveDataManager.Load(winKey, 0) + (win ? 1 : 0);
+            var loseKey = roomName + ":lose";
+            var loseCount = SaveDataManager.Load(loseKey, 0) + (!win ? 1 : 0);
+
+            SaveDataManager.Save<int>(winKey, winCount);
+            SaveDataManager.Save<int>(loseKey, loseCount);
+
+            return (winCount, loseCount);
         }
     }
 }
