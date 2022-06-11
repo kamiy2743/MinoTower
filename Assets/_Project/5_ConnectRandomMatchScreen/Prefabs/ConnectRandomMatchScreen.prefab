@@ -127,8 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _backButton: {fileID: 4541529799915582666}
-  _closeDuration: 0.5
-  _openDuration: 0.5
+  _closeDuration: 0.3
+  _openDuration: 0.3
   _toMultiPlayScreen:
     _toSwitchType: 3
     _closeDuration: 0.5

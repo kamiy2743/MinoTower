@@ -35,6 +35,7 @@ namespace MT
             try
             {
                 await Pun2TaskNetwork.ConnectUsingSettingsAsync(token);
+                NetworkErrorObserver.Instance.SetIsListened(true);
                 return true;
             }
             catch (Pun2TaskNetwork.ConnectionFailedException ex)
@@ -63,6 +64,8 @@ namespace MT
             {
                 await Pun2TaskNetwork.DisconnectAsync();
             }
+
+            NetworkErrorObserver.Instance.SetIsListened(true);
         }
 
         private static async UniTask LeaveRoomAsync()

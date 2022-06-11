@@ -11,8 +11,9 @@ namespace MT
             new StaticAwakeCaller().Call();
             new StaticStartCaller().Call();
 
-            ScreenSwitcher.Instance.Initialize();
             AudioPlayer.Instance.PlayBGM(BGMType.Main);
+            ScreenSwitcher.Instance.Initialize();
+            NetworkErrorObserver.Instance.Initialize();
         }
     }
 }
