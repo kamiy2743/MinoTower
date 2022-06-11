@@ -11,7 +11,7 @@ namespace MT
     {
         [SerializeField] private BlockStore _blockStore;
 
-        private PlayerTurnProvider _playerTurnProvider = new PlayerTurnProvider();
+        private PlayerTurnAccessor _playerTurnAccessor = new PlayerTurnAccessor();
         private bool _isSynchronize = false;
 
         public void StaticAwake()
@@ -36,7 +36,7 @@ namespace MT
 
             foreach (var block in _blockStore.Blocks())
             {
-                var isMyTurn = _playerTurnProvider.IsMyTurn();
+                var isMyTurn = _playerTurnAccessor.IsMyTurn();
                 block.SetColliderEnabled(isMyTurn);
                 block.SetRigidbodySimulated(isMyTurn);
             }

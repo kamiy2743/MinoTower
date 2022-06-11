@@ -22,7 +22,7 @@ namespace MT.PlayScreen
         private IState _defaultNextState;
         private IState _resultState;
         private CancellationTokenSource _cts;
-        private PlayerTurnProvider _playerTurnProvider = new PlayerTurnProvider();
+        private PlayerTurnAccessor _playerTurnAccessor = new PlayerTurnAccessor();
 
         public void StaticAwake()
         {
@@ -34,7 +34,7 @@ namespace MT.PlayScreen
         {
             _gameOverArea.AddListener(() =>
             {
-                if (!_playerTurnProvider.IsMyTurn()) return;
+                if (!_playerTurnAccessor.IsMyTurn()) return;
 
                 _cts.Cancel();
                 photonView.RPC(nameof(GameOver), RpcTarget.All);
@@ -43,7 +43,7 @@ namespace MT.PlayScreen
 
         public async void Enter()
         {
-            if (!_playerTurnProvider.IsMyTurn()) return;
+            if (!_playerTurnAccessor.IsMyTurn()) return;
 
             _gameOverArea.SetIsListened(true);
 

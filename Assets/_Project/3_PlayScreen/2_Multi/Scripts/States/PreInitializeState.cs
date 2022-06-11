@@ -15,7 +15,7 @@ namespace MT.PlayScreen.Multi
         [SerializeField] private ScreenScroller _screenScroller;
         [SerializeField] private ResultUI _resultUI;
 
-        private PlayerTurnProvider _playerTurnProvider = new PlayerTurnProvider();
+        private PlayerTurnAccessor _playerTurnAccessor = new PlayerTurnAccessor();
 
         public async UniTask Enter()
         {
@@ -32,7 +32,7 @@ namespace MT.PlayScreen.Multi
             _resultUI.HideAsync(0).Forget();
             _screenScroller.Initialize();
             _rotateButton.HideAsync(0).Forget();
-            await _playerTurnProvider.InitializeAsync();
+            await _playerTurnAccessor.InitializeAsync();
         }
 
         [PunRPC]

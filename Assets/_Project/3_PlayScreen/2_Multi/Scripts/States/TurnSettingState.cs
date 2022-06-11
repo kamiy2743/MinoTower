@@ -15,7 +15,7 @@ namespace MT.PlayScreen.Multi
         [Space(20)]
         [SerializeField] private GameObject _nextStateObject;
 
-        private PlayerTurnProvider _playerTurnProvider = new PlayerTurnProvider();
+        private PlayerTurnAccessor _playerTurnAccessor = new PlayerTurnAccessor();
         private IState _nextState;
 
         public void StaticAwake()
@@ -27,7 +27,7 @@ namespace MT.PlayScreen.Multi
         {
             _blockSynchronizer.SetIsSynchronize(true);
 
-            if (_playerTurnProvider.IsMyTurn())
+            if (_playerTurnAccessor.IsMyTurn())
             {
                 _blockSynchronizer.photonView.RequestOwnership();
                 await _rotateButton.ShowAsync(_fadeDuration);

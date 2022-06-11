@@ -8,7 +8,7 @@ using MT.Network;
 
 namespace MT.PlayScreen
 {
-    public class PlayerTurnProvider
+    public class PlayerTurnAccessor
     {
         private async UniTask SetIsMasterClientTurnAsync(bool value)
         {

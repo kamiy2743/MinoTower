@@ -25,7 +25,7 @@ namespace MT.PlayScreen.Multi
         [SerializeField] private CustomButton _exitButton;
         [SerializeField] private SwitchScreenHelper _toTopScreen;
 
-        private PlayerTurnProvider _playerTurnProvider = new PlayerTurnProvider();
+        private PlayerTurnAccessor _playerTurnAccessor = new PlayerTurnAccessor();
 
         public void StaticStart()
         {
@@ -73,7 +73,7 @@ namespace MT.PlayScreen.Multi
 
         private async UniTask ShowResultUIAsync()
         {
-            _resultUI.SetWinOrLoseText(!_playerTurnProvider.IsMyTurn());
+            _resultUI.SetWinOrLoseText(!_playerTurnAccessor.IsMyTurn());
             _resultUI.SetTotalResultText(1, 5);
 
             await UniTask.WhenAll(

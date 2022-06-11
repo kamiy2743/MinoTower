@@ -9,7 +9,7 @@ namespace MT.PlayScreen.Multi
     {
         [SerializeField] private GameObject _nextStateObject;
 
-        private PlayerTurnProvider _playerTurnProvider = new PlayerTurnProvider();
+        private PlayerTurnAccessor _playerTurnAccessor = new PlayerTurnAccessor();
         private IState _nextState;
 
         public void StaticAwake()
@@ -19,7 +19,7 @@ namespace MT.PlayScreen.Multi
 
         public async void Enter()
         {
-            await _playerTurnProvider.NextTurnAsync();
+            await _playerTurnAccessor.NextTurnAsync();
 
             if (PhotonNetwork.IsMasterClient)
             {

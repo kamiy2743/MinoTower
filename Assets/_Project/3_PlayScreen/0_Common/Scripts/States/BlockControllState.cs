@@ -24,7 +24,7 @@ namespace MT.PlayScreen
         private IState _nextState;
         private Block _activeBlock => _ativeBlockProvider.Get();
 
-        private PlayerTurnProvider _playerTurnProvider = new PlayerTurnProvider();
+        private PlayerTurnAccessor _playerTurnAccessor = new PlayerTurnAccessor();
 
         public void StaticAwake()
         {
@@ -35,7 +35,7 @@ namespace MT.PlayScreen
         {
             _rotateButton.AddListener(async () =>
             {
-                if (!_playerTurnProvider.IsMyTurn()) return;
+                if (!_playerTurnAccessor.IsMyTurn()) return;
 
                 _rotateButton.SetIsListened(false);
                 AudioPlayer.Instance.PlaySE(_config.OnRotateSE);
@@ -45,7 +45,7 @@ namespace MT.PlayScreen
 
             _moveBlockEvent.AddListener(() =>
             {
-                if (!_playerTurnProvider.IsMyTurn()) return;
+                if (!_playerTurnAccessor.IsMyTurn()) return;
 
                 var pos = _activeBlock.transform.position;
                 pos.x = _pointerPositionProvider.Get().x;
@@ -54,7 +54,7 @@ namespace MT.PlayScreen
 
             _dropBlockEvent.AddListener(() =>
             {
-                if (!_playerTurnProvider.IsMyTurn()) return;
+                if (!_playerTurnAccessor.IsMyTurn()) return;
 
                 photonView.RPC(nameof(ToNext), RpcTarget.All);
             });
@@ -62,7 +62,7 @@ namespace MT.PlayScreen
 
         public void Enter()
         {
-            if (_playerTurnProvider.IsMyTurn())
+            if (_playerTurnAccessor.IsMyTurn())
             {
                 _moveBlockEvent.SetIsListened(true);
                 _dropBlockEvent.SetIsListened(true);

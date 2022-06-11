@@ -12,7 +12,7 @@ namespace MT.PlayScreen
         [Space(20)]
         [SerializeField] private GameObject _nextStateObject;
 
-        private PlayerTurnProvider _playerTurnProvider = new PlayerTurnProvider();
+        private PlayerTurnAccessor _playerTurnAccessor = new PlayerTurnAccessor();
         private IState _nextState;
 
         public void StaticAwake()
@@ -22,7 +22,7 @@ namespace MT.PlayScreen
 
         public async void Enter()
         {
-            if (_playerTurnProvider.IsMyTurn())
+            if (_playerTurnAccessor.IsMyTurn())
             {
                 _activeBlockProvider.Get().StartFall();
             }
