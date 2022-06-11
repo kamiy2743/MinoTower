@@ -4,5 +4,6 @@ namespace MT
     {
         IsMasterClientTurn = 0,
         IsRandomMatch = 1,
+        CurrentMatchType = 2,
     }
 }

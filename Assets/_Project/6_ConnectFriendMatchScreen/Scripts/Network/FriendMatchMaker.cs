@@ -36,6 +36,8 @@ namespace MT.ConnectFriendMatchScreen
 
             if (!await PhotonUtil.WaitForOtherPlayerAsync(token)) return false;
 
+            await new CurrentMatchTypeAccessor().SetAsync(MatchType.Friend);
+
             return true;
         }
 
