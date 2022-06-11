@@ -48,23 +48,22 @@ namespace MT.PlayScreen.Single
             _exitButton.SetIsListened(true);
         }
 
-        private async UniTask OnExitAsync()
+        private void OnExit()
         {
             _continueButton.SetIsListened(false);
             _exitButton.SetIsListened(false);
-
-            await PhotonUtil.LeaveRoomAsync();
         }
 
-        private async void ToContinueState()
+        private void ToContinueState()
         {
-            await OnExitAsync();
+            OnExit();
             _continueState.Enter();
         }
 
         private async void ToTopScreen()
         {
-            await OnExitAsync();
+            OnExit();
+            await PhotonUtil.LeaveRoomAsync();
             _toTopScreen.Switch();
         }
 

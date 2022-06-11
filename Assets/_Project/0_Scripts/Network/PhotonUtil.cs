@@ -12,6 +12,8 @@ namespace MT
     {
         public static async UniTask SetOfflineModeAsync()
         {
+            if (PhotonNetwork.OfflineMode) return;
+
             if (PhotonNetwork.IsConnected)
             {
                 await Pun2TaskNetwork.DisconnectAsync();
