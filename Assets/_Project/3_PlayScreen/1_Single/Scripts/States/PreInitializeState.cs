@@ -20,9 +20,9 @@ namespace MT.PlayScreen.Single
         [SerializeField] private ScreenScroller _screenScroller;
         [SerializeField] private ResultEffect _resultEffect;
 
-        public void Enter()
+        public async void Enter()
         {
-            PhotonUtil.OfflineMode();
+            await PhotonUtil.SetOfflineModeAsync();
 
             _randomProvider.RandomForBlock = new CustomRandom();
             _sessionData.Initialize();

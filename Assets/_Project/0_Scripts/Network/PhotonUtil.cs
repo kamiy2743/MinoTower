@@ -10,11 +10,11 @@ namespace MT
 {
     public static class PhotonUtil
     {
-        public static void OfflineMode()
+        public static async UniTask SetOfflineModeAsync()
         {
             if (PhotonNetwork.IsConnected)
             {
-                PhotonNetwork.Disconnect();
+                await Pun2TaskNetwork.DisconnectAsync();
             }
 
             PhotonNetwork.OfflineMode = true;
