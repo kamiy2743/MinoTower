@@ -44,6 +44,12 @@ namespace MT
             object id = GetCustomProperties(type)[keyStr];
 
             string value = id.ToString().Split(_separator)[1];
+
+            if (typeof(T).IsEnum)
+            {
+                return (T)Enum.Parse(typeof(T), value);
+            }
+
             return (T)System.Convert.ChangeType((object)value, typeof(T));
         }
 
