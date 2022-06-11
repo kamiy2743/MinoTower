@@ -21,6 +21,8 @@ namespace MT.PlayScreen.Multi
         {
             if (PhotonNetwork.IsMasterClient)
             {
+                PhotonNetwork.CurrentRoom.IsOpen = false;
+
                 var seed = (int)System.DateTime.Now.Ticks;
                 photonView.RPC(nameof(RandomInitialize), RpcTarget.All, seed);
             }
