@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MT
 {
-    public class FriendMatchRoomNameAccessor : MonoBehaviour
+    public class FriendMatchRoomNameAccessor
     {
         private static string _roomName = "";
 

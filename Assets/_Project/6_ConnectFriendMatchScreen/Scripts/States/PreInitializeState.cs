@@ -8,11 +8,11 @@ namespace MT.ConnectFriendMatchScreen
 {
     public class PreInitializeState : MonoBehaviour, IPreInitializeState
     {
-        [SerializeField] private FriendMatchRoomNameAccessor _friendMatchRoomNameAccessor;
-
         [Header("初期化対象")]
         [SerializeField] private RoomSettingUI _roomSettingUI;
         [SerializeField] private LoadingUI _loadingUI;
+
+        private FriendMatchRoomNameAccessor _friendMatchRoomNameAccessor = new FriendMatchRoomNameAccessor();
 
         public void Enter()
         {

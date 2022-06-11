@@ -8,7 +8,6 @@ namespace MT.PlayScreen.Multi
 {
     public class ResultState : MonoBehaviour, IState, IStaticStart
     {
-        [SerializeField] private FriendMatchRoomNameAccessor _friendMatchRoomNameAccessor;
         [SerializeField] private BlockSynchronizer _blockSynchronizer;
 
         [Space(20)]
@@ -27,6 +26,7 @@ namespace MT.PlayScreen.Multi
 
         private PlayerTurnAccessor _playerTurnAccessor = new PlayerTurnAccessor();
         private CurrentMatchTypeAccessor _currentMatchTypeAccessor = new CurrentMatchTypeAccessor();
+        private FriendMatchRoomNameAccessor _friendMatchRoomNameAccessor = new FriendMatchRoomNameAccessor();
 
         public void StaticStart()
         {

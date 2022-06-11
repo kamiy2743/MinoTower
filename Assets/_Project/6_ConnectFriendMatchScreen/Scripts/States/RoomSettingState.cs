@@ -11,7 +11,6 @@ namespace MT.ConnectFriendMatchScreen
 
         [Space(20)]
         [SerializeField] private CustomInput _roomNameInput;
-        [SerializeField] private FriendMatchRoomNameAccessor _friendMatchRoomNameAccessor;
         [SerializeField] private CustomButton _decideButton;
         [SerializeField] private ConnectMatchState _connectMatchState;
         [SerializeField] private float _fadeOutDuration;
@@ -19,6 +18,8 @@ namespace MT.ConnectFriendMatchScreen
         [Space(20)]
         [SerializeField] private CustomButton _backButton;
         [SerializeField] private SwitchScreenHelper _toSelectMatchScreen;
+
+        private FriendMatchRoomNameAccessor _friendMatchRoomNameAccessor = new FriendMatchRoomNameAccessor();
 
         public void StaticStart()
         {
