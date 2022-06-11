@@ -63,7 +63,7 @@ namespace MT.PlayScreen.Single
         private async void ToTopScreen()
         {
             OnExit();
-            await PhotonUtil.LeaveRoomAsync();
+            await PhotonUtil.DisconnectAsync();
             _toTopScreen.Switch();
         }
 

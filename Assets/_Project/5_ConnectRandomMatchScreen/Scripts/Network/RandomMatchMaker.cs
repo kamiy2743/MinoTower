@@ -21,7 +21,7 @@ namespace MT.ConnectRandomMatchScreen
                 _cts = null;
             }
 
-            await PhotonUtil.LeaveRoomAsync();
+            await PhotonUtil.DisconnectAsync();
         }
 
         /// <returns>Success</returns>

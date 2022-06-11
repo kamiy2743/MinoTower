@@ -21,7 +21,7 @@ namespace MT.ConnectFriendMatchScreen
                 _cts = null;
             }
 
-            await PhotonUtil.LeaveRoomAsync();
+            await PhotonUtil.DisconnectAsync();
         }
 
         /// <returns>success</returns>

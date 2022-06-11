@@ -55,7 +55,7 @@ namespace MT.PlayScreen.Multi
             _continueButton.SetIsListened(false);
             _exitButton.SetIsListened(false);
 
-            await PhotonUtil.LeaveRoomAsync();
+            await PhotonUtil.DisconnectAsync();
         }
 
         private async void ToContinueState()
