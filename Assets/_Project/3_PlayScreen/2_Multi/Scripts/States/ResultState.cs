@@ -51,25 +51,27 @@ namespace MT.PlayScreen.Multi
             ShowResultUIAsync().Forget();
         }
 
-        private async UniTask OnExitAsync()
+        private void OnExit()
         {
             _continueButton.SetIsListened(false);
             _exitButton.SetIsListened(false);
-
-            await PhotonUtil.DisconnectAsync();
         }
 
         private async void ToContinueState()
         {
-            await OnExitAsync();
+            OnExit();
+            await PhotonUtil.DisconnectAsync();
             _continueState.Enter();
         }
 
         private async void ToTopScreen()
         {
+            OnExit();
+
             await _currentMatchTypeAccessor.SetAsync(MatchType.None);
             _tryConnectRoomNameProvider.SetEmpty();
-            await OnExitAsync();
+            await PhotonUtil.DisconnectAsync();
+
             _toTopScreen.Switch();
         }
 
