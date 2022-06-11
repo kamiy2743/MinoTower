@@ -8,7 +8,7 @@ namespace MT.PlayScreen.Multi
 {
     public class ResultState : MonoBehaviour, IState, IStaticStart
     {
-        [SerializeField] private TryConnectRoomNameProvider _tryConnectRoomNameProvider;
+        [SerializeField] private FriendMatchRoomNameAccessor _friendMatchRoomNameAccessor;
         [SerializeField] private BlockSynchronizer _blockSynchronizer;
 
         [Space(20)]
@@ -69,7 +69,7 @@ namespace MT.PlayScreen.Multi
             OnExit();
 
             await _currentMatchTypeAccessor.SetAsync(MatchType.None);
-            _tryConnectRoomNameProvider.SetEmpty();
+            _friendMatchRoomNameAccessor.SetEmpty();
             await PhotonUtil.DisconnectAsync();
 
             _toTopScreen.Switch();

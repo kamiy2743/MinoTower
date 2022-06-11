@@ -6,13 +6,13 @@ namespace MT.ConnectFriendMatchScreen
 {
     public class EntryState : MonoBehaviour, IState
     {
-        [SerializeField] private TryConnectRoomNameProvider _tryConnectRoomNameProvider;
+        [SerializeField] private FriendMatchRoomNameAccessor _friendMatchRoomNameAccessor;
         [SerializeField] private RoomSettingState _roomSettingState;
         [SerializeField] private ConnectMatchState _connectMatchState;
 
         public void Enter()
         {
-            if (_tryConnectRoomNameProvider.IsEmpty())
+            if (_friendMatchRoomNameAccessor.IsEmpty())
             {
                 _roomSettingState.Enter();
             }

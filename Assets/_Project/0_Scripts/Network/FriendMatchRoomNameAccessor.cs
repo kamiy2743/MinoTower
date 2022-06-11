@@ -4,28 +4,28 @@ using UnityEngine;
 
 namespace MT
 {
-    public class TryConnectRoomNameProvider : MonoBehaviour
+    public class FriendMatchRoomNameAccessor : MonoBehaviour
     {
         private static string _roomName = "";
 
-        public void SetRoomName(string value)
+        public void Set(string roomName)
         {
-            _roomName = value;
+            _roomName = roomName;
         }
 
-        public string GetRoomName()
+        public string Get()
         {
             return _roomName;
         }
 
         public void SetEmpty()
         {
-            SetRoomName("");
+            Set("");
         }
 
         public bool IsEmpty()
         {
-            return GetRoomName() == "";
+            return Get() == "";
         }
     }
 }

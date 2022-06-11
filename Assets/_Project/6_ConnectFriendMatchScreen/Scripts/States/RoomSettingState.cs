@@ -11,7 +11,7 @@ namespace MT.ConnectFriendMatchScreen
 
         [Space(20)]
         [SerializeField] private CustomInput _roomNameInput;
-        [SerializeField] private TryConnectRoomNameProvider _tryConnectRoomNameProvider;
+        [SerializeField] private FriendMatchRoomNameAccessor _friendMatchRoomNameAccessor;
         [SerializeField] private CustomButton _decideButton;
         [SerializeField] private ConnectMatchState _connectMatchState;
         [SerializeField] private float _fadeOutDuration;
@@ -56,7 +56,7 @@ namespace MT.ConnectFriendMatchScreen
                 return false;
             }
 
-            _tryConnectRoomNameProvider.SetRoomName(_roomNameInput.Text);
+            _friendMatchRoomNameAccessor.Set(_roomNameInput.Text);
             return true;
         }
 

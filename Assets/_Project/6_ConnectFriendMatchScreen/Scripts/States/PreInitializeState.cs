@@ -8,7 +8,7 @@ namespace MT.ConnectFriendMatchScreen
 {
     public class PreInitializeState : MonoBehaviour, IPreInitializeState
     {
-        [SerializeField] private TryConnectRoomNameProvider _tryConnectRoomNameProvider;
+        [SerializeField] private FriendMatchRoomNameAccessor _friendMatchRoomNameAccessor;
 
         [Header("初期化対象")]
         [SerializeField] private RoomSettingUI _roomSettingUI;
@@ -16,7 +16,7 @@ namespace MT.ConnectFriendMatchScreen
 
         public void Enter()
         {
-            if (_tryConnectRoomNameProvider.IsEmpty())
+            if (_friendMatchRoomNameAccessor.IsEmpty())
             {
                 _roomSettingUI.ShowAsync(0).Forget();
                 _loadingUI.HideAsync(0).Forget();

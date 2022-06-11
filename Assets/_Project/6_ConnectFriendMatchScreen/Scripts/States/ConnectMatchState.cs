@@ -11,7 +11,7 @@ namespace MT.ConnectFriendMatchScreen
         [SerializeField] private float _fadeInDuration;
 
         [Space(20)]
-        [SerializeField] private TryConnectRoomNameProvider _tryConnectRoomNameProvider;
+        [SerializeField] private FriendMatchRoomNameAccessor _friendMatchRoomNameAccessor;
 
         [Space(20)]
         [SerializeField] private CustomButton _backButton;
@@ -46,7 +46,7 @@ namespace MT.ConnectFriendMatchScreen
 
         private async UniTask ConnectMatchAsync()
         {
-            var roomName = _tryConnectRoomNameProvider.GetRoomName();
+            var roomName = _friendMatchRoomNameAccessor.Get();
             Debug.Log("RoomName: " + roomName);
 
             _matchMaker = new FriendMatchMaker();
@@ -72,7 +72,7 @@ namespace MT.ConnectFriendMatchScreen
 
             await UniTask.WhenAll(tasks);
 
-            _tryConnectRoomNameProvider.SetEmpty();
+            _friendMatchRoomNameAccessor.SetEmpty();
             _roomSettingState.Enter();
         }
 
