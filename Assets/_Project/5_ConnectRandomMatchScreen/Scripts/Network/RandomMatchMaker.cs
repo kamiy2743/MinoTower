@@ -32,13 +32,7 @@ namespace MT.ConnectRandomMatchScreen
                 _cts = new CancellationTokenSource();
                 var token = _cts.Token;
 
-                if (!PhotonNetwork.IsConnected)
-                {
-                    // サーバに接続する
-                    await Pun2TaskNetwork.ConnectUsingSettingsAsync(token);
-                }
-
-                PhotonUtil.OnlineMode();
+                await PhotonUtil.ConnectAsync(token);
 
                 var success = await JoinRandomOrCreateRoom(token);
 

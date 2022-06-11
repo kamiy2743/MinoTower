@@ -5,6 +5,7 @@ using Cysharp.Threading.Tasks;
 using Pun2Task;
 using Photon.Pun;
 using Photon.Realtime;
+using System.Threading;
 
 namespace MT
 {
@@ -30,9 +31,14 @@ namespace MT
                 typedLobby: default);
         }
 
-        public static void OnlineMode()
+        public static async UniTask ConnectAsync(CancellationToken token)
         {
-            PhotonNetwork.OfflineMode = false;
+            if (PhotonNetwork.OfflineMode)
+            {
+                PhotonNetwork.OfflineMode = false;
+            }
+
+            await Pun2TaskNetwork.ConnectUsingSettingsAsync(token);
         }
 
         public static async UniTask LeaveRoomAsync()
