@@ -14,9 +14,7 @@ namespace MT
 
         private CustomEvent _customEvent = new CustomEvent();
 
-        // TODO 状態変数
         private bool _isAdded = false;
-
         private bool _isPointerDowned = false;
 
         public void StaticAwake()
