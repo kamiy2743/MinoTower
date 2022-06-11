@@ -66,15 +66,15 @@ namespace MT
                 return;
             }
 
-            if (!PhotonNetwork.OfflineMode)
+            if (PhotonNetwork.OfflineMode)
+            {
+                PhotonNetwork.LeaveRoom();
+            }
+            else
             {
                 PhotonNetwork.RemoveRPCs(PhotonNetwork.LocalPlayer);
                 await Pun2TaskNetwork.LeaveRoomAsync();
                 await Pun2TaskCallback.OnConnectedToMasterAsync();
-            }
-            else
-            {
-                PhotonNetwork.LeaveRoom();
             }
 
             Debug.Log("leave");
