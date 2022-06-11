@@ -26,6 +26,7 @@ namespace MT.PlayScreen.Multi
         [SerializeField] private SwitchScreenHelper _toTopScreen;
 
         private PlayerTurnAccessor _playerTurnAccessor = new PlayerTurnAccessor();
+        private CurrentMatchTypeAccessor _currentMatchTypeAccessor = new CurrentMatchTypeAccessor();
 
         public void StaticStart()
         {
@@ -66,8 +67,9 @@ namespace MT.PlayScreen.Multi
 
         private async void ToTopScreen()
         {
-            await OnExitAsync();
+            await _currentMatchTypeAccessor.SetAsync(MatchType.None);
             _tryConnectRoomNameProvider.SetEmpty();
+            await OnExitAsync();
             _toTopScreen.Switch();
         }
 

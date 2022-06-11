@@ -44,6 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b27b37c0355ac6847a610aba0f64ab91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _toConnectRandomMatchScreen:
+    _toSwitchType: 6
+    _closeDuration: 0.5
+    _openDuration: 0.5
   _toConnectFriendMatchScreen:
     _toSwitchType: 5
     _closeDuration: 0.5
