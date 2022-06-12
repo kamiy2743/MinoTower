@@ -54,6 +54,8 @@ namespace MT
 
         public static async UniTask DisconnectAsync()
         {
+            NetworkErrorObserver.Instance.SetIsListened(false);
+
             await LeaveRoomAsync();
 
             if (PhotonNetwork.OfflineMode)
@@ -64,8 +66,6 @@ namespace MT
             {
                 await Pun2TaskNetwork.DisconnectAsync();
             }
-
-            NetworkErrorObserver.Instance.SetIsListened(true);
         }
 
         private static async UniTask LeaveRoomAsync()

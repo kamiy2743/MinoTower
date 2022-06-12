@@ -75,10 +75,7 @@ namespace MT.PlayScreen.Multi
 
         private async UniTask ShowResultUIAsync()
         {
-            var roomName = _friendMatchRoomNameAccessor.Get();
-            var win = !_playerTurnAccessor.IsMyTurn();
-            var (winCount, loseCount) = AddResult(roomName, win);
-
+            var (win, winCount, loseCount) = SaveResult();
             _resultUI.SetWinOrLoseText(win);
             _resultUI.SetTotalResultText(winCount, loseCount);
 
@@ -88,18 +85,21 @@ namespace MT.PlayScreen.Multi
             );
         }
 
-        /// <returns>wincount, loseCount</returns>
-        private (int, int) AddResult(string roomName, bool win)
+        private (bool, int, int) SaveResult()
         {
-            var winKey = roomName + ":win";
+            var isFriendMatch = _currentMatchTypeAccessor.Get() == MatchType.Friend;
+            var setRoomName = (isFriendMatch ? _friendMatchRoomNameAccessor.Get() : "");
+            var win = !_playerTurnAccessor.IsMyTurn();
+
+            var winKey = setRoomName + ":win";
             var winCount = SaveDataManager.Load(winKey, 0) + (win ? 1 : 0);
-            var loseKey = roomName + ":lose";
+            var loseKey = setRoomName + ":lose";
             var loseCount = SaveDataManager.Load(loseKey, 0) + (!win ? 1 : 0);
 
             SaveDataManager.Save<int>(winKey, winCount);
             SaveDataManager.Save<int>(loseKey, loseCount);
 
-            return (winCount, loseCount);
+            return (win, winCount, loseCount);
         }
     }
 }
